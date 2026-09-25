@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compendium - Daggerheart</title>
+<style>
+  /* =========================================================
+     POLICES (identiques au reste de l'outil, chargées depuis assets/Font)
+     ========================================================= */
+  @font-face{ font-family:"Montserrat"; src:url("assets/Font/Montserrat-Thin.ttf"); font-weight:100; }
+  @font-face{ font-family:"Montserrat"; src:url("assets/Font/Montserrat-Light.ttf"); font-weight:300; }
+  @font-face{ font-family:"Montserrat"; src:url("assets/Font/Montserrat-Regular.ttf"); font-weight:400; }
+  @font-face{ font-family:"Montserrat"; src:url("assets/Font/Montserrat-SemiBold.ttf"); font-weight:600; }
+  @font-face{ font-family:"League Spartan"; src:url("assets/Font/LeagueSpartan-ExtraBold.ttf"); font-weight:800; }
+  @font-face{ font-family:"Merriweather"; src:url("assets/Font/Merriweather-Italic.ttf"); font-weight:400; font-style:italic; }
+  @font-face{ font-family:"Merriweather"; src:url("assets/Font/Merriweather-BoldItalic.ttf"); font-weight:700; font-style:italic; }
+
+  :root{
+    --ink:#eeeef7;
+    --muted:#a9a6c8;
+    --paper:rgba(40,44,74,.55);
+    --paper-2:rgba(58,65,105,.45);
+    --charcoal:#14162b;
+    --rule:rgba(190,194,230,.25);
+    --accent:#a691d2;
+    --accent-2:#7bd3a0;
+    --danger:#ff8080;
+    --danger-bg:rgba(255,128,128,.14);
+    --phy:#e08a5a;
+    --mag:#7fa8e0;
+    font-family:"Montserrat", sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html, body{ height:100%; }
+  body{
+    margin:0; color:var(--ink);
+    position:relative;
+    overflow-x:hidden;
+    background:
+      radial-gradient(ellipse at 15% 15%, rgba(104,139,190,.28), transparent 42%),
+      radial-gradient(ellipse at 85% 20%, rgba(166,135,202,.27), transparent 42%),
+      radial-gradient(ellipse at 70% 85%, rgba(109,91,164,.24), transparent 45%),
+      radial-gradient(ellipse at 25% 80%, rgba(81,133,177,.18), transparent 40%),
+      linear-gradient(135deg, #12152b 0%, #191b35 45%, #211b3a 100%);
+    background-attachment:fixed;
+  }
+  body::before{
+    content:""; position:fixed; inset:-15%; pointer-events:none; z-index:0;
+    background:
+      radial-gradient(ellipse at 35% 45%, rgba(143,179,211,.09), transparent 35%),
+      radial-gradient(ellipse at 70% 55%, rgba(181,151,215,.09), transparent 38%);
+    filter:blur(55px); transform:rotate(-8deg);
+  }
+  body::after{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.55;
+    background-image:
+      radial-gradient(circle at 8% 13%, rgba(235,235,255,.7) 0 1px, transparent 2px),
+      radial-gradient(circle at 18% 72%, rgba(210,225,255,.45) 0 1px, transparent 2px),
+      radial-gradient(circle at 32% 28%, rgba(230,220,255,.55) 0 1px, transparent 2px),
+      radial-gradient(circle at 47% 83%, rgba(225,235,255,.45) 0 1px, transparent 2px),
+      radial-gradient(circle at 61% 18%, rgba(230,225,255,.55) 0 1px, transparent 2px),
+      radial-gradient(circle at 76% 63%, rgba(220,230,255,.45) 0 1px, transparent 2px),
+      radial-gradient(circle at 89% 32%, rgba(235,225,255,.5) 0 1px, transparent 2px);
+  }
+
+  /* --- Bandeau de navigation (identique à la fiche / au catalogue) : nav | titre | outils --- */
+  .bandeau-outils{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:14px; background:var(--charcoal); margin:0 0 20px 0; padding:12px 24px; position:relative; z-index:2;}
+  .bandeau-nav{display:flex; gap:8px; flex-wrap:wrap;}
+  .bandeau-nav-link{cursor:pointer; text-decoration:none; font-family:inherit; border:1px solid rgba(244,239,228,.3); border-radius:999px; padding:7px 18px; font-size:.72rem; font-weight:bold; text-transform:lowercase; letter-spacing:.03em; color:var(--ink); background:transparent; white-space:nowrap; display:inline-block;}
+  .bandeau-nav-link:hover{background:rgba(244,239,228,.15);}
+  .bandeau-nav-link.actif{background:var(--ink); color:var(--charcoal); border-color:var(--ink); cursor:default;}
+  .bandeau-titre{grid-column:2; justify-self:center; margin:0; font-family:"League Spartan", sans-serif; font-size:1.05rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); white-space:nowrap; text-shadow:0 0 20px rgba(174,157,220,.30);}
+  .bandeau-groupe{display:flex; gap:8px; align-items:center; flex-wrap:wrap; justify-self:end;}
+  .bandeau-separateur{width:1px; align-self:stretch; background:rgba(244,239,228,.25);}
+  .bandeau-btn{cursor:pointer; font-family:inherit; border:1px solid rgba(244,239,228,.3); border-radius:999px; padding:7px 18px; font-size:.72rem; font-weight:bold; text-transform:lowercase; letter-spacing:.03em; color:var(--ink); background:transparent; white-space:nowrap;}
+  .bandeau-btn:hover{background:var(--ink); color:var(--charcoal); border-color:var(--ink);}
+  @media (max-width:900px){ .bandeau-outils{grid-template-columns:1fr; justify-items:center; text-align:center;} .bandeau-titre{grid-column:1;} .bandeau-groupe{justify-self:center;} .bandeau-separateur{display:none;} }
+
+  .app{ position:relative; z-index:1; max-width:1400px; margin:0 auto; padding:0 20px 40px; display:grid; grid-template-columns:280px 1fr 300px; gap:16px; align-items:start; }
+  @media (max-width:1100px){ .app{ grid-template-columns:260px 1fr; } .colonne-droite{ grid-column:1 / -1; position:static; max-height:none; } }
+  @media (max-width:720px){ .app{ grid-template-columns:1fr; } }
+
+  /* --- Glass panel générique --- */
+  .glass{
+    background:var(--paper); border:1px solid var(--rule); border-radius:14px;
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    box-shadow:0 10px 26px rgba(0,0,0,.20);
+  }
+
+  /* --- Sidebar --- */
+  .sidebar{ padding:14px; position:sticky; top:16px; max-height:calc(100vh - 32px); display:flex; flex-direction:column; gap:10px; }
+  .sidebar h2{ font-family:"League Spartan", sans-serif; font-size:.85rem; letter-spacing:.08em; margin:0; color:var(--muted); text-transform:uppercase; }
+  .sidebar input[type="text"], .sidebar select{
+    width:100%; font:inherit; font-size:.85rem; padding:6px 8px; border:1px solid var(--rule);
+    border-radius:8px; background:var(--charcoal); color:var(--ink);
+  }
+  .sidebar input[type="text"]:focus, .sidebar select:focus{ outline:none; border-color:var(--accent); }
+  .sidebar select option, .sidebar select optgroup{ background:var(--charcoal); color:var(--ink); }
+  .filtres-row{ display:flex; gap:6px; }
+  .filtres-row select{ flex:1; min-width:0; }
+  .liste-adversaires{ flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:6px; padding-right:2px; }
+  .adv-item{
+    text-align:left; cursor:pointer; border:1px solid var(--rule); background:var(--paper-2);
+    border-radius:10px; padding:8px 10px; color:var(--ink); font:inherit; font-size:.82rem;
+  }
+  .adv-item:hover{ border-color:var(--accent); }
+  .adv-item.active{ background:var(--charcoal); border-color:var(--accent); }
+  .adv-item .adv-item-nom{ font-weight:bold; display:block; }
+  .adv-item .adv-item-meta{ font-size:.7rem; color:var(--muted); }
+  .adv-vide{ padding:16px; text-align:center; color:var(--muted); font-style:italic; font-family:"Merriweather",serif; font-size:.85rem; }
+  .adv-groupe-header{ font-family:"League Spartan", sans-serif; font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); padding:10px 4px 4px; border-bottom:1px solid var(--rule); }
+  .adv-groupe-header:first-child{ margin-top:0; padding-top:2px; }
+
+  /* --- Stat block principal --- */
+  .stat-block{ padding:22px 26px; min-height:300px; }
+  .empty-state{ padding:60px 20px; text-align:center; color:var(--muted); font-style:italic; font-family:"Merriweather",serif; }
+  .sb-header{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:6px; }
+  .sb-nom{ font-family:"League Spartan", sans-serif; font-size:1.5rem; letter-spacing:.02em; margin:0; color:var(--ink); }
+  .sb-actions{ display:flex; gap:6px; flex:0 0 auto; }
+  .sb-btn{
+    cursor:pointer; font-family:inherit; font-size:.7rem; text-transform:lowercase; letter-spacing:.02em;
+    background:var(--paper-2); border:1px solid var(--rule); border-radius:999px; padding:5px 14px; color:var(--ink);
+  }
+  .sb-btn:hover{ border-color:var(--accent); color:var(--accent); }
+  .sb-btn.danger:hover{ border-color:var(--danger); color:var(--danger); }
+  .sb-badges{ display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px; }
+  .badge{ display:inline-block; padding:2px 10px; border-radius:999px; font-size:.72rem; font-weight:bold; color:var(--ink); background:var(--paper-2); border:1px solid var(--rule); white-space:nowrap; }
+  .badge-palier{ background:var(--charcoal); }
+  .badge-categorie{ background:var(--accent); color:var(--charcoal); }
+  .sb-desc{ font-family:"Merriweather",serif; font-style:italic; color:var(--muted); line-height:1.5; margin-bottom:6px; }
+  .sb-motivation{ font-size:.82rem; color:var(--muted); margin-bottom:16px; }
+  .sb-motivation b{ color:var(--ink); }
+
+  .sb-stats-row{ display:grid; grid-template-columns:repeat(auto-fit, minmax(110px,1fr)); gap:10px; margin-bottom:16px; }
+  .sb-stat{ background:var(--paper-2); border:1px solid var(--rule); border-radius:10px; padding:8px 10px; text-align:center; }
+  .sb-stat-label{ font-size:.65rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); display:block; margin-bottom:4px; }
+  .sb-stat-value{ font-family:"League Spartan", sans-serif; font-size:1.3rem; color:var(--ink); }
+
+  .sb-tracks{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:16px; }
+  .sb-track-label{ font-size:.7rem; text-transform:lowercase; letter-spacing:.03em; color:var(--muted); margin-bottom:6px; }
+  .sb-track-boxes{ display:flex; flex-wrap:wrap; gap:4px; }
+  .track-box{ width:17px; height:17px; border:2px solid var(--ink); cursor:pointer; background:var(--paper); }
+  .track-box.filled{ background:var(--danger); border-color:var(--danger); }
+
+  .sb-instances{ display:flex; flex-direction:column; gap:10px; margin-bottom:12px; }
+  .sb-instance{ background:var(--paper-2); border:1px solid var(--rule); border-radius:10px; padding:10px 12px; }
+  .sb-instance-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
+  .sb-instance-label{ font-family:"League Spartan", sans-serif; font-size:.85rem; color:var(--ink); }
+  .sb-instance-remove{ width:22px; height:22px; border:2px solid var(--ink); border-radius:4px; background:var(--paper); color:var(--ink); font-weight:bold; line-height:1; padding:0; cursor:pointer; }
+  .sb-instance-remove:hover{ background:var(--danger); border-color:var(--danger); color:#fff; }
+  .sb-add-instance-btn{ display:block; width:100%; margin-bottom:16px; padding:8px 10px; border:2px dashed var(--ink); border-radius:10px; background:transparent; color:var(--ink); cursor:pointer; font-size:.8rem; }
+  .sb-add-instance-btn:hover{ background:var(--paper-2); }
+
+  .sb-attaque{ background:var(--paper-2); border:1px solid var(--rule); border-radius:10px; padding:10px 12px; margin-bottom:16px; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+  .sb-attaque-texte{ font-size:.88rem; }
+  .sb-attaque-texte b{ color:var(--ink); }
+
+  .sb-experience{ margin-bottom:16px; font-size:.82rem; }
+  .sb-experience b{ color:var(--ink); }
+
+  .sb-aptitudes h3{ font-family:"League Spartan", sans-serif; font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--rule); padding-bottom:6px; margin:0 0 10px; }
+  .sb-source{ margin-top:18px; font-size:.75rem; font-style:italic; color:var(--muted); text-align:right; }
+  .aptitude{ margin-bottom:12px; }
+  .aptitude-nom{ font-weight:bold; }
+  .aptitude-tag{ font-size:.68rem; font-style:italic; color:var(--muted); }
+  .aptitude-texte{ font-size:.85rem; line-height:1.5; color:var(--muted); }
+
+  .des-inline{
+    cursor:pointer; font:inherit; font-weight:bold; border:none; border-radius:5px; padding:0 5px;
+    background:var(--paper-2); color:var(--ink); border:1px solid var(--rule);
+  }
+  .des-inline:hover{ border-color:var(--accent); color:var(--accent); }
+  .des-inline.phy{ color:var(--phy); border-color:var(--phy); }
+  .des-inline.mag{ color:var(--mag); border-color:var(--mag); }
+
+  /* --- Panneau de dés --- */
+  .colonne-droite{ display:flex; flex-direction:column; gap:16px; position:sticky; top:16px; max-height:calc(100vh - 32px); overflow-y:auto; padding-right:2px; }
+  .dice-panel{ padding:14px; display:flex; flex-direction:column; gap:10px; }
+  .dice-panel h2, .peur-panel h2, .cdr-panel h2{ font-family:"League Spartan", sans-serif; font-size:.85rem; letter-spacing:.08em; margin:0; color:var(--muted); text-transform:uppercase; }
+  .dice-attaque-row{ display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+  .dice-attaque-row input[type="number"]{
+    width:56px; font:inherit; font-size:.85rem; padding:5px; border:1px solid var(--rule);
+    border-radius:8px; background:var(--charcoal); color:var(--ink); text-align:center;
+  }
+  .dice-attaque-row label{ font-size:.72rem; color:var(--muted); }
+  .dice-custom-row{ display:flex; gap:6px; }
+  .dice-custom-row input[type="text"]{
+    flex:1; min-width:0; font:inherit; font-size:.8rem; padding:6px 8px; border:1px solid var(--rule);
+    border-radius:8px; background:var(--charcoal); color:var(--ink);
+  }
+  .dice-custom-row input[type="text"]:focus{ outline:none; border-color:var(--accent); }
+  .dice-roll-btn{
+    cursor:pointer; font-family:"League Spartan", sans-serif; font-size:.75rem; letter-spacing:.03em;
+    background:var(--accent); color:var(--charcoal); border:none; border-radius:999px; padding:8px 16px; font-weight:bold;
+    white-space:nowrap;
+  }
+  .dice-roll-btn:hover{ filter:brightness(1.1); }
+  .dice-history{ max-height:260px; overflow-y:auto; display:flex; flex-direction:column-reverse; gap:8px; padding-right:2px; }
+  .dice-entry{ background:var(--paper-2); border:1px solid var(--rule); border-radius:10px; padding:8px 10px; font-size:.78rem; }
+  .dice-entry-titre{ font-weight:bold; display:flex; justify-content:space-between; }
+  .dice-entry-detail{ color:var(--muted); font-size:.72rem; margin-top:2px; }
+  .dice-entry-total{ font-family:"League Spartan", sans-serif; font-size:1.1rem; }
+  .dice-entry.attaque .dice-entry-total{ color:var(--accent); }
+  .dice-entry.degats .dice-entry-total.phy{ color:var(--phy); }
+  .dice-entry.degats .dice-entry-total.mag{ color:var(--mag); }
+  .dice-vide{ text-align:center; color:var(--muted); font-style:italic; font-family:"Merriweather",serif; font-size:.8rem; padding:20px 0; }
+
+  /* --- Compteur de Peur --- */
+  .peur-panel{ padding:14px; display:flex; flex-direction:column; gap:10px; }
+  .peur-header{ display:flex; align-items:center; justify-content:space-between; }
+  .peur-controles{ display:flex; align-items:center; gap:8px; }
+  .peur-valeur{ font-family:"League Spartan", sans-serif; font-weight:800; font-size:1rem; min-width:52px; text-align:center; }
+  .peur-track{ display:flex; flex-wrap:wrap; gap:5px; }
+  .peur-box{ width:19px; height:19px; border-radius:4px; border:2px solid var(--accent); background:var(--paper); cursor:pointer; }
+  .peur-box.filled{ background:var(--accent); box-shadow:0 0 8px rgba(166,145,210,.7); }
+  .ronde-btn{
+    width:24px; height:24px; border-radius:50%; border:1px solid var(--rule); background:var(--charcoal);
+    color:var(--ink); cursor:pointer; font-size:.9rem; line-height:1; display:inline-flex; align-items:center; justify-content:center; padding:0;
+  }
+  .ronde-btn:hover{ border-color:var(--accent); color:var(--accent); }
+
+  /* --- Comptes à rebours --- */
+  .cdr-panel{ padding:14px; display:flex; flex-direction:column; gap:10px; }
+  .cdr-form{ display:flex; gap:6px; }
+  .cdr-form input[type="text"]{ flex:2; min-width:0; font:inherit; font-size:.78rem; padding:6px 7px; border:1px solid var(--rule); border-radius:8px; background:var(--charcoal); color:var(--ink); }
+  .cdr-form input[type="number"]{ flex:1; width:56px; font:inherit; font-size:.78rem; padding:6px 4px; border:1px solid var(--rule); border-radius:8px; background:var(--charcoal); color:var(--ink); text-align:center; }
+  .cdr-form input:focus{ outline:none; border-color:var(--accent); }
+  .cdr-liste{ display:flex; flex-direction:column; gap:8px; max-height:240px; overflow-y:auto; padding-right:2px; }
+  .cdr-item{ display:flex; align-items:center; justify-content:space-between; gap:8px; background:var(--paper-2); border:1px solid var(--rule); border-radius:10px; padding:7px 9px; }
+  .cdr-item.cdr-item-zero{ border-color:var(--danger); background:var(--danger-bg); }
+  .cdr-item-label{ font-size:.78rem; flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .cdr-item-controls{ display:flex; align-items:center; gap:6px; }
+  .cdr-item-valeur{ font-family:"League Spartan", sans-serif; font-weight:800; min-width:18px; text-align:center; }
+  .cdr-item-remove{ background:none; border:none; color:var(--muted); cursor:pointer; font-size:1rem; padding:0 2px; }
+  .cdr-item-remove:hover{ color:var(--danger); }
+  .cdr-vide{ text-align:center; color:var(--muted); font-style:italic; font-family:"Merriweather",serif; font-size:.78rem; padding:8px 0; }
+
+  /* --- Modales (éditeur / import Excel) --- */
+  .modal-overlay{ display:none; position:fixed; inset:0; background:rgba(8,8,20,.65); z-index:2000; align-items:center; justify-content:center; padding:20px; }
+  .modal-overlay.active{ display:flex; }
+  .modal-box{
+    background:linear-gradient(150deg, rgba(58,65,105,.85), rgba(28,28,55,.92));
+    border:1px solid var(--rule); max-width:720px; width:100%; max-height:88vh; overflow-y:auto;
+    padding:24px 28px; border-radius:16px; position:relative;
+    backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+    box-shadow:0 20px 50px rgba(0,0,0,.45);
+  }
+  .modal-title{ font-family:"League Spartan", sans-serif; font-size:1.1rem; margin:0 0 16px; border-bottom:2px solid var(--rule); padding-bottom:8px; }
+  .modal-close-btn{ position:absolute; top:10px; right:14px; background:none; border:none; font-size:1.4rem; color:var(--muted); cursor:pointer; }
+  .modal-close-btn:hover{ color:var(--accent); }
+  .champ{ margin-bottom:12px; }
+  .champ label{ display:block; font-size:.7rem; text-transform:lowercase; color:var(--muted); margin-bottom:3px; }
+  .champ input[type="text"], .champ input[type="number"], .champ textarea, .champ select{
+    width:100%; font:inherit; font-size:.88rem; padding:6px 8px; border:1px solid var(--rule);
+    border-radius:8px; background:var(--charcoal); color:var(--ink);
+  }
+  .champ select option{ background:var(--charcoal); color:var(--ink); }
+  .champ textarea{ resize:vertical; min-height:50px; }
+  .champ input:focus, .champ textarea:focus, .champ select:focus{ outline:none; border-color:var(--accent); }
+  .ligne-2{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .ligne-3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
+  .ligne-4{ display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:10px; }
+  .aptitude-edit-row{ border:1px dashed var(--rule); border-radius:10px; padding:10px; margin-bottom:10px; position:relative; }
+  .aptitude-edit-row .retirer-apt{ position:absolute; top:6px; right:8px; background:none; border:none; color:var(--danger); cursor:pointer; font-size:.9rem; }
+  .modal-actions{ display:flex; gap:8px; flex-wrap:wrap; margin-top:16px; border-top:1px dashed var(--rule); padding-top:14px; }
+  .btn{ font-family:inherit; font-size:.8rem; background:var(--paper-2); border:1px solid var(--rule); border-radius:999px; padding:7px 16px; cursor:pointer; color:var(--ink); }
+  .btn:hover{ border-color:var(--accent); color:var(--accent); }
+  .btn-primaire{ background:var(--accent); color:var(--charcoal); border-color:var(--accent); font-weight:bold; }
+  .btn-primaire:hover{ filter:brightness(1.1); color:var(--charcoal); }
+  .dice-roll-btn.phy{ border:1px solid var(--phy); color:var(--phy); }
+  .dice-roll-btn.mag{ border:1px solid var(--mag); color:var(--mag); }
+
+  footer {
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="bandeau-outils">
+  <nav class="bandeau-nav">
+    <a href="Index.html" class="bandeau-nav-link">Fiche</a>
+    <a href="catalogue.html" class="bandeau-nav-link">Catalogue</a>
+    <span class="bandeau-nav-link actif">Compendium</span>
+  </nav>
+  <h1 class="bandeau-titre">Compendium</h1>
+  <div class="bandeau-groupe">
+    <button type="button" class="bandeau-btn" onclick="ouvrirEditeur(null)">Nouvel adversaire…</button>
+    <div class="bandeau-separateur"></div>
+    <button type="button" class="bandeau-btn" onclick="sauvegarderBestiaire()">Sauvegarder un lot…</button>
+    <button type="button" class="bandeau-btn" onclick="document.getElementById('bestiaire-load-input').click()">Charger un fichier</button>
+    <input type="file" id="bestiaire-load-input" accept="application/json,.json" style="display:none;" onchange="chargerBestiaireFichier(this)">
+  </div>
+</div>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar glass">
+    <h2>Recherche</h2>
+    <input type="text" id="recherche-input" placeholder="nom…" oninput="onRechercheChange(this.value)">
+    <div class="filtres-row">
+      <select id="filtre-palier" onchange="onFiltreChange()">
+        <option value="">Tous paliers</option>
+      </select>
+      <select id="filtre-type" onchange="onFiltreChange()">
+        <option value="">Tous types</option>
+      </select>
+    </div>
+    <select id="filtre-categorie" onchange="onFiltreChange()">
+      <option value="">Toutes catégories</option>
+    </select>
+    <div class="liste-adversaires" id="liste-adversaires"></div>
+  </div>
+
+  <!-- FICHE PRINCIPALE -->
+  <div id="stat-block-container">
+    <div class="glass empty-state">Sélectionne un adversaire dans la liste, ou crée-en un nouveau depuis le bandeau du haut.</div>
+  </div>
+
+  <!-- COLONNE DROITE : peur / comptes à rebours / jets du MJ -->
+  <div class="colonne-droite">
+
+    <!-- COMPTEUR DE PEUR -->
+    <div class="peur-panel glass">
+      <div class="peur-header">
+        <h2>Peur</h2>
+        <div class="peur-controles">
+          <button type="button" class="ronde-btn" onclick="ajusterPeur(-1)" title="-1">&minus;</button>
+          <span class="peur-valeur" id="peur-valeur-texte">0 / 12</span>
+          <button type="button" class="ronde-btn" onclick="ajusterPeur(1)" title="+1">+</button>
+        </div>
+      </div>
+      <div class="peur-track" id="peur-track"></div>
+    </div>
+
+    <!-- COMPTES À REBOURS -->
+    <div class="cdr-panel glass">
+      <h2>Comptes &agrave; rebours</h2>
+      <div class="cdr-form">
+        <input type="text" id="cdr-label-input" placeholder="nom (ex : effondrement)" onkeydown="if(event.key==='Enter'){ document.getElementById('cdr-valeur-input').focus(); }">
+        <input type="number" id="cdr-valeur-input" placeholder="valeur" min="0" onkeydown="if(event.key==='Enter'){ ajouterCompteARebours(); }">
+        <button type="button" class="btn" onclick="ajouterCompteARebours()">+ ajouter</button>
+      </div>
+      <div class="cdr-liste" id="cdr-liste">
+        <div class="cdr-vide">Aucun compte à rebours actif.</div>
+      </div>
+    </div>
+
+    <!-- PANNEAU DE DÉS -->
+    <div class="dice-panel glass">
+      <h2>Jets du MJ</h2>
+      <div class="dice-attaque-row">
+        <label>modificateur</label>
+        <input type="number" id="dice-mod-base" value="0" readonly>
+        <label>+ bonus</label>
+        <input type="number" id="dice-mod-bonus" value="0">
+        <button type="button" class="dice-roll-btn" onclick="lancerAttaqueCourante()">d20 attaque</button>
+      </div>
+      <div class="dice-custom-row">
+        <input type="text" id="dice-custom-input" placeholder="jet perso : 1d8, d6+1, d8;2d6+1" onkeydown="if(event.key==='Enter'){ lancerDesPersonnalises(); }">
+        <button type="button" class="dice-roll-btn" onclick="lancerDesPersonnalises()">lancer</button>
+      </div>
+      <div class="dice-history" id="dice-history">
+        <div class="dice-vide">Aucun jet pour l'instant.</div>
+      </div>
+      <button type="button" class="btn" onclick="viderHistoriqueDes()" style="align-self:flex-start;">vider l'historique</button>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- MODALE ÉDITEUR D'ADVERSAIRE -->
+<div class="modal-overlay" id="modal-editeur">
+  <div class="modal-box">
+    <button type="button" class="modal-close-btn" onclick="fermerModales()">×</button>
+    <h2 class="modal-title" id="editeur-titre">Nouvel adversaire</h2>
+    <input type="hidden" id="edit-id">
+    <div class="ligne-4">
+      <div class="champ"><label>palier</label><input type="number" id="edit-palier" min="1" max="4" value="1"></div>
+      <div class="champ"><label>type</label><input type="text" id="edit-type" list="liste-types"><datalist id="liste-types"></datalist></div>
+      <div class="champ" style="grid-column:span 2;"><label>catégorie</label><input type="text" id="edit-categorie" list="liste-categories"><datalist id="liste-categories"></datalist></div>
+    </div>
+    <div class="champ"><label>nom</label><input type="text" id="edit-nom"></div>
+    <div class="champ"><label>description</label><textarea id="edit-description"></textarea></div>
+    <div class="champ"><label>motivation &amp; tactique</label><textarea id="edit-motivation"></textarea></div>
+    <div class="ligne-4">
+      <div class="champ"><label>difficulté</label><input type="number" id="edit-difficulte"></div>
+      <div class="champ"><label>seuil mineur</label><input type="number" id="edit-seuil-mineur"></div>
+      <div class="champ"><label>seuil majeur</label><input type="number" id="edit-seuil-majeur"></div>
+      <div class="champ"><label>modificateur attaque</label><input type="number" id="edit-mod-attaque"></div>
+    </div>
+    <div class="ligne-2">
+      <div class="champ"><label>blessure (cases)</label><input type="number" id="edit-blessure"></div>
+      <div class="champ"><label>stress (cases)</label><input type="number" id="edit-stress"></div>
+    </div>
+    <div class="champ"><label>attaque standard (ex : Dagues : mêlée ; 1d8+1 phy)</label><input type="text" id="edit-attaque-standard"></div>
+    <div class="champ"><label>expérience (ex : Voleur +2)</label><input type="text" id="edit-experience"></div>
+    <div class="champ">
+      <label>aptitudes</label>
+      <div id="edit-aptitudes-liste"></div>
+      <button type="button" class="btn" onclick="ajouterLigneAptitude()">+ ajouter une aptitude</button>
+    </div>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-primaire" onclick="validerEditeur()">Enregistrer</button>
+      <button type="button" class="btn" onclick="fermerModales()">Annuler</button>
+      <button type="button" class="btn danger" id="btn-supprimer-adv" style="display:none;" onclick="supprimerDepuisEditeur()">Supprimer cet adversaire</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODALE EXPORT (choix des créatures à sauvegarder dans un lot) -->
+<div class="modal-overlay" id="modal-export">
+  <div class="modal-box">
+    <button type="button" class="modal-close-btn" onclick="fermerModales()">×</button>
+    <h2 class="modal-title">Sauvegarder un lot de créatures</h2>
+    <div class="champ"><label>nom du fichier</label><input type="text" id="export-filename"></div>
+    <div class="modal-actions" style="margin-top:0; border-top:none; padding-top:0;">
+      <button type="button" class="btn" onclick="toutCocherExport(true)">tout cocher</button>
+      <button type="button" class="btn" onclick="toutCocherExport(false)">tout décocher</button>
+    </div>
+    <div id="export-liste" style="margin-top:10px; display:flex; flex-direction:column; gap:6px; max-height:40vh; overflow-y:auto;"></div>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-primaire" onclick="lancerExportSelection()">Exporter la sélection</button>
+      <button type="button" class="btn" onclick="fermerModales()">Annuler</button>
+    </div>
+  </div>
+  
+</div>
+      <footer>
+        <p><strong>Daggerheart™</strong> est une marque de Darrington Press.</p>
+        <p>
+          Ce projet est un outil de fan
+          <strong>non officiel et sans affiliation avec Darrington Press</strong
+          >.
+        </p>
+        <p>
+          © 2026 Devine - Projet communautaire francophone pour Daggerheart™ ·
+        </p>
+      </footer>
+<script src="assets/JS/bestiaire.js"></script>
+<script>
+// ============================================================
+// ÉTAT
+// ============================================================
+let bestiaireCustom = [];
+let etat = { recherche:'', palier:'', type:'', categorie:'' };
+let adversaireCourantId = null;
+let historiqueDes = [];
+let peurNiveau = 0;
+const PEUR_MAX = 12;
+let comptesARebours = [];
+
+function tousLesAdversaires(){
+  const base = (typeof BESTIAIRE_DATA !== 'undefined' && BESTIAIRE_DATA.adversaires) ? BESTIAIRE_DATA.adversaires : [];
+  return base.concat(bestiaireCustom);
+}
+
+function genererId(nom){
+  const slug = String(nom||'adversaire').toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+  let id = slug || 'adversaire';
+  let n = 2;
+  const existants = tousLesAdversaires().map(a=>a.id);
+  while(existants.includes(id)){ id = slug + '-' + n; n++; }
+  return id;
+}
+
+function escapeHtml(t){
+  if(t===undefined || t===null) return '';
+  const d = document.createElement('div');
+  d.textContent = String(t);
+  return d.innerHTML;
+}
+
+function attrSafe(t){
+  return String(t||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/"/g,'&quot;');
+}
+
+// ============================================================
+// FILTRES / SIDEBAR
+// ============================================================
+function peuplerFiltres(){
+  const items = tousLesAdversaires();
+  const paliers = Array.from(new Set(items.map(a=>a.palier))).sort((a,b)=>a-b);
+  const types = Array.from(new Set(items.map(a=>a.type).filter(Boolean))).sort();
+  const categories = Array.from(new Set(items.map(a=>a.categorie).filter(Boolean))).sort();
+
+  const selPalier = document.getElementById('filtre-palier');
+  const valPalier = selPalier.value;
+  selPalier.innerHTML = '<option value="">Tous paliers</option>' + paliers.map(p=>'<option value="'+p+'">Palier '+p+'</option>').join('');
+  selPalier.value = valPalier;
+
+  const selType = document.getElementById('filtre-type');
+  const valType = selType.value;
+  selType.innerHTML = '<option value="">Tous types</option>' + types.map(t=>'<option value="'+escapeHtml(t)+'">'+escapeHtml(t)+'</option>').join('');
+  selType.value = valType;
+
+  const selCat = document.getElementById('filtre-categorie');
+  const valCat = selCat.value;
+  selCat.innerHTML = '<option value="">Toutes catégories</option>' + categories.map(c=>'<option value="'+escapeHtml(c)+'">'+escapeHtml(c)+'</option>').join('');
+  selCat.value = valCat;
+
+  document.getElementById('liste-types').innerHTML = types.map(t=>'<option value="'+escapeHtml(t)+'">').join('');
+  document.getElementById('liste-categories').innerHTML = categories.map(c=>'<option value="'+escapeHtml(c)+'">').join('');
+}
+
+function onRechercheChange(v){ etat.recherche = v.trim().toLowerCase(); renderListe(); planifierSauvegardeAutoCompendium(); }
+function onFiltreChange(){
+  etat.palier = document.getElementById('filtre-palier').value;
+  etat.type = document.getElementById('filtre-type').value;
+  etat.categorie = document.getElementById('filtre-categorie').value;
+  renderListe();
+  planifierSauvegardeAutoCompendium();
+}
+
+function adversairesFiltres(){
+  let items = tousLesAdversaires();
+  if(etat.palier !== '') items = items.filter(a => String(a.palier) === String(etat.palier));
+  if(etat.type) items = items.filter(a => a.type === etat.type);
+  if(etat.categorie) items = items.filter(a => a.categorie === etat.categorie);
+  if(etat.recherche) items = items.filter(a => (a.nom||'').toLowerCase().includes(etat.recherche));
+  return items.sort((a,b) => ((a.palier||0) - (b.palier||0)) || (a.nom||'').localeCompare(b.nom||''));
+}
+
+function renderListe(){
+  const conteneur = document.getElementById('liste-adversaires');
+  const items = adversairesFiltres();
+  if(items.length === 0){
+    conteneur.innerHTML = '<div class="adv-vide">Aucun adversaire ne correspond.</div>';
+    return;
+  }
+  let html = '';
+  let dernierPalier = null;
+  items.forEach(function(a){
+    if(a.palier !== dernierPalier){
+      html += '<div class="adv-groupe-header">Palier ' + a.palier + '</div>';
+      dernierPalier = a.palier;
+    }
+    const actif = a.id === adversaireCourantId ? ' active' : '';
+    html += '<button type="button" class="adv-item' + actif + '" onclick="selectionnerAdversaire(\'' + a.id + '\')">' +
+      '<span class="adv-item-nom">' + escapeHtml(a.nom) + '</span>' +
+      '<span class="adv-item-meta">Palier ' + a.palier + ' &middot; ' + escapeHtml(a.type||'') + '</span>' +
+      '</button>';
+  });
+  conteneur.innerHTML = html;
+}
+
+function selectionnerAdversaire(id){
+  adversaireCourantId = id;
+  renderListe();
+  renderStatBlock();
+  planifierSauvegardeAutoCompendium();
+}
+
+// ============================================================
+// DÉS
+// ============================================================
+function lancerDe(faces){ return 1 + Math.floor(Math.random()*faces); }
+
+function parserExpressionDes(expr){
+  const m = String(expr).trim().match(/(\d*)d(\d+)\s*([+-]\s*\d+)?/i);
+  if(!m) return null;
+  const nombre = parseInt(m[1]||'1', 10) || 1;
+  const faces = parseInt(m[2], 10);
+  const mod = m[3] ? parseInt(m[3].replace(/\s+/g,''), 10) : 0;
+  return { nombre, faces, mod };
+}
+
+function extraireAttaqueStandard(texte){
+  if(!texte) return null;
+  const m = String(texte).match(/(\d*d\d+(?:\s*[+-]\s*\d+)?)\s*(phy|mag|physique|magique)?/i);
+  if(!m) return null;
+  let type = (m[2]||'').toLowerCase();
+  type = type.startsWith('mag') ? 'mag' : (type.startsWith('phy') ? 'phy' : '');
+  return { expr: m[1].replace(/\s+/g,''), type };
+}
+
+function enrichirTexteAvecDes(texte, contexteNom){
+  if(!texte) return '';
+  const echappe = escapeHtml(texte);
+  const label = attrSafe(contexteNom);
+  return echappe.replace(/(\d*d\d+(?:\s*[+-]\s*\d+)?)(\s*(?:d[ée]g[âa]ts?\s*)?(physiques?|magiques?)?)?/gi, function(match, expr, suite, motType){
+    let type = '';
+    if(motType){ type = motType.toLowerCase().startsWith('mag') ? 'mag' : 'phy'; }
+    const exprPropre = expr.replace(/\s+/g,'');
+    const cls = type ? (' ' + type) : '';
+    return '<button type="button" class="des-inline' + cls + '" onclick="lancerDegatsExpression(\'' + exprPropre + '\', \'' + type + '\', \'' + label + '\')">' + expr + '</button>' + (suite||'');
+  });
+}
+
+function ajouterEntreeHistorique(entree){
+  historiqueDes.push(entree);
+  renderHistorique();
+}
+
+function renderHistorique(){
+  const conteneur = document.getElementById('dice-history');
+  if(historiqueDes.length === 0){
+    conteneur.innerHTML = '<div class="dice-vide">Aucun jet pour l\'instant.</div>';
+    return;
+  }
+  conteneur.innerHTML = historiqueDes.map(function(e){
+    if(e.type === 'attaque'){
+      return '<div class="dice-entry attaque"><div class="dice-entry-titre"><span>' + escapeHtml(e.label) + '</span><span class="dice-entry-total">' + e.total + '</span></div>' +
+        '<div class="dice-entry-detail">d20 (' + e.d20 + ') + ' + e.mod + '</div></div>';
+    }
+    const classeType = e.dmgType ? (' ' + e.dmgType) : '';
+    return '<div class="dice-entry degats"><div class="dice-entry-titre"><span>' + escapeHtml(e.label) + '</span><span class="dice-entry-total' + classeType + '">' + e.total + '</span></div>' +
+      '<div class="dice-entry-detail">' + e.expr + ' &rarr; [' + e.rolls.join(', ') + ']' + (e.mod ? (e.mod > 0 ? ' +' + e.mod : ' ' + e.mod) : '') + '</div></div>';
+  }).join('');
+}
+
+function viderHistoriqueDes(){ historiqueDes = []; renderHistorique(); }
+
+function lancerAttaqueCourante(){
+  const base = parseInt(document.getElementById('dice-mod-base').value, 10) || 0;
+  const bonus = parseInt(document.getElementById('dice-mod-bonus').value, 10) || 0;
+  const mod = base + bonus;
+  const d20 = lancerDe(20);
+  const total = d20 + mod;
+  const adv = adversaireCourantId ? tousLesAdversaires().find(a=>a.id===adversaireCourantId) : null;
+  ajouterEntreeHistorique({ type:'attaque', label:(adv ? adv.nom : 'Attaque'), d20:d20, mod:mod, total:total });
+}
+
+function lancerDegatsExpression(expr, type, label){
+  const p = parserExpressionDes(expr);
+  if(!p) return;
+  const rolls = [];
+  for(let i=0;i<p.nombre;i++) rolls.push(lancerDe(p.faces));
+  const total = rolls.reduce((a,b)=>a+b,0) + p.mod;
+  ajouterEntreeHistorique({ type:'degats', label: label || expr, expr: expr, rolls: rolls, mod: p.mod, dmgType: type, total: total });
+}
+
+// Jet(s) personnalisé(s) depuis le champ libre du panneau de dés.
+// Accepte une expression seule ("1d8", "d6+1") ou plusieurs séparées
+// par ; ou , ("d8;2d6+1") : chacune est lancée et ajoutée à l'historique.
+function lancerDesPersonnalises(){
+  const input = document.getElementById('dice-custom-input');
+  const brut = (input.value || '').trim();
+  if(!brut) return;
+  const expressions = brut.split(/[;,]/).map(e => e.trim()).filter(Boolean);
+  let auMoinsUn = false;
+  expressions.forEach(function(expr){
+    const propre = expr.replace(/\s+/g, '');
+    if(!parserExpressionDes(propre)) return;
+    auMoinsUn = true;
+    lancerDegatsExpression(propre, '', propre);
+  });
+  if(auMoinsUn) input.value = '';
+}
+
+// ============================================================
+// COMPTEUR DE PEUR (MJ)
+// ============================================================
+function definirPeur(niveau){
+  peurNiveau = Math.max(0, Math.min(PEUR_MAX, niveau));
+  renderPeur();
+  planifierSauvegardeAutoCompendium();
+}
+function ajusterPeur(delta){ definirPeur(peurNiveau + delta); }
+function clicCasePeur(index){
+  // Clique sur une case déjà remplie qui est le sommet de la jauge : la retire.
+  // Sinon, remplit la jauge jusqu'à cette case.
+  definirPeur(index + 1 === peurNiveau ? index : index + 1);
+}
+function renderPeur(){
+  const track = document.getElementById('peur-track');
+  if(!track) return;
+  let html = '';
+  for(let i=0;i<PEUR_MAX;i++){
+    html += '<div class="peur-box' + (i < peurNiveau ? ' filled' : '') + '" onclick="clicCasePeur(' + i + ')"></div>';
+  }
+  track.innerHTML = html;
+  const texte = document.getElementById('peur-valeur-texte');
+  if(texte) texte.textContent = peurNiveau + ' / ' + PEUR_MAX;
+}
+
+// ============================================================
+// COMPTES À REBOURS (MJ)
+// ============================================================
+function ajouterCompteARebours(){
+  const labelInput = document.getElementById('cdr-label-input');
+  const valeurInput = document.getElementById('cdr-valeur-input');
+  const label = (labelInput.value || '').trim() || 'Compte à rebours';
+  const valeur = parseInt(valeurInput.value, 10);
+  if(isNaN(valeur) || valeur < 0) { valeurInput.focus(); return; }
+  comptesARebours.push({ id: 'cdr-' + Date.now() + '-' + Math.floor(Math.random()*1000), label: label, valeur: valeur });
+  labelInput.value = '';
+  valeurInput.value = '';
+  labelInput.focus();
+  renderComptesARebours();
+  planifierSauvegardeAutoCompendium();
+}
+function ajusterCompteARebours(id, delta){
+  const c = comptesARebours.find(c => c.id === id);
+  if(!c) return;
+  c.valeur = Math.max(0, c.valeur + delta);
+  renderComptesARebours();
+  planifierSauvegardeAutoCompendium();
+}
+function retirerCompteARebours(id){
+  comptesARebours = comptesARebours.filter(c => c.id !== id);
+  renderComptesARebours();
+  planifierSauvegardeAutoCompendium();
+}
+function renderComptesARebours(){
+  const cont = document.getElementById('cdr-liste');
+  if(!cont) return;
+  if(comptesARebours.length === 0){
+    cont.innerHTML = '<div class="cdr-vide">Aucun compte à rebours actif.</div>';
+    return;
+  }
+  cont.innerHTML = comptesARebours.map(function(c){
+    return '<div class="cdr-item' + (c.valeur === 0 ? ' cdr-item-zero' : '') + '">' +
+      '<span class="cdr-item-label" title="' + attrSafe(c.label) + '">' + escapeHtml(c.label) + '</span>' +
+      '<div class="cdr-item-controls">' +
+        '<button type="button" class="ronde-btn" onclick="ajusterCompteARebours(\'' + c.id + '\', -1)" title="-1">&minus;</button>' +
+        '<span class="cdr-item-valeur">' + c.valeur + '</span>' +
+        '<button type="button" class="ronde-btn" onclick="ajusterCompteARebours(\'' + c.id + '\', 1)" title="+1">+</button>' +
+        '<button type="button" class="cdr-item-remove" onclick="retirerCompteARebours(\'' + c.id + '\')" title="Retirer">&times;</button>' +
+      '</div></div>';
+  }).join('');
+}
+
+// ============================================================
+// FICHE (STAT BLOCK)
+// ============================================================
+function renderStatBlock(){
+  const conteneur = document.getElementById('stat-block-container');
+  const adv = adversaireCourantId ? tousLesAdversaires().find(a=>a.id===adversaireCourantId) : null;
+  if(!adv){
+    conteneur.innerHTML = '<div class="glass empty-state">Sélectionne un adversaire dans la liste, ou crée-en un nouveau depuis le bandeau du haut.</div>';
+    document.getElementById('dice-mod-base').value = 0;
+    return;
+  }
+  document.getElementById('dice-mod-base').value = adv.modAttaque || 0;
+
+  const estCustom = bestiaireCustom.some(c => c.id === adv.id);
+  const attStd = extraireAttaqueStandard(adv.attaqueStandard);
+
+  let html = '<div class="glass stat-block">';
+  html += '<div class="sb-header"><h2 class="sb-nom">' + escapeHtml(adv.nom) + (estCustom ? ' <span style="font-size:.6em; color:var(--muted);">[perso]</span>' : '') + '</h2>';
+  const boutonsAction = estCustom
+    ? ('<button type="button" class="sb-btn" onclick="ouvrirEditeur(\'' + adv.id + '\')">modifier</button>' +
+       '<button type="button" class="sb-btn" onclick="ouvrirEditeur(\'' + adv.id + '\', true)">dupliquer</button>')
+    : ('<button type="button" class="sb-btn" onclick="ouvrirEditeur(\'' + adv.id + '\', true)">dupliquer pour personnaliser</button>');
+  html += '<div class="sb-actions">' + boutonsAction + '</div></div>';
+  html += '<div class="sb-badges"><span class="badge badge-palier">Palier ' + adv.palier + '</span><span class="badge">' + escapeHtml(adv.type||'') + '</span>' + (adv.categorie ? '<span class="badge badge-categorie">' + escapeHtml(adv.categorie) + '</span>' : '') + '</div>';
+  if(adv.description) html += '<div class="sb-desc">' + escapeHtml(adv.description) + '</div>';
+  if(adv.motivation) html += '<div class="sb-motivation"><b>Motivation &amp; tactique :</b> ' + escapeHtml(adv.motivation) + '</div>';
+
+  html += '<div class="sb-stats-row">';
+  html += '<div class="sb-stat"><span class="sb-stat-label">Difficulté</span><span class="sb-stat-value">' + (adv.difficulte ?? '&mdash;') + '</span></div>';
+  html += '<div class="sb-stat"><span class="sb-stat-label">Seuil mineur</span><span class="sb-stat-value">' + (adv.seuilMineur ?? '&mdash;') + '</span></div>';
+  html += '<div class="sb-stat"><span class="sb-stat-label">Seuil majeur</span><span class="sb-stat-value">' + (adv.seuilMajeur ?? '&mdash;') + '</span></div>';
+  html += '<div class="sb-stat"><span class="sb-stat-label">Mod. attaque</span><span class="sb-stat-value">' + (adv.modAttaque >= 0 ? '+' : '') + (adv.modAttaque ?? 0) + '</span></div>';
+  html += '</div>';
+
+  html += '<div class="sb-tracks">';
+  html += '<div><div class="sb-track-label">blessure</div><div class="sb-track-boxes">' + genererCasesTrack(adv.id, 'blessure', adv.blessure||0) + '</div></div>';
+  html += '<div><div class="sb-track-label">stress</div><div class="sb-track-boxes">' + genererCasesTrack(adv.id, 'stress', adv.stress||0) + '</div></div>';
+  html += '</div>';
+  html += '<div class="sb-instances" id="sb-instances"></div>';
+  html += '<button type="button" class="sb-add-instance-btn" onclick="ajouterInstanceCreature()">+ ajouter une cr&eacute;ature identique</button>';
+
+  if(adv.attaqueStandard){
+    html += '<div class="sb-attaque"><div class="sb-attaque-texte"><b>Attaque standard :</b> ' + escapeHtml(adv.attaqueStandard) + '</div>';
+    if(attStd){
+      const cls = attStd.type ? (' ' + attStd.type) : '';
+      const labelAtt = attrSafe(adv.nom) + ' \u2014 attaque standard';
+      html += '<button type="button" class="dice-roll-btn' + cls + '" style="background:var(--paper-2); color:var(--ink);" onclick="lancerDegatsExpression(\'' + attStd.expr + '\', \'' + attStd.type + '\', \'' + labelAtt + '\')">lancer ' + attStd.expr + '</button>';
+    }
+    html += '</div>';
+  }
+
+  if(adv.experience) html += '<div class="sb-experience"><b>Expérience :</b> ' + escapeHtml(adv.experience) + '</div>';
+
+  if(adv.aptitudes && adv.aptitudes.length){
+    html += '<div class="sb-aptitudes"><h3>Aptitudes</h3>';
+    adv.aptitudes.forEach(function(apt){
+      if(!apt || !apt.nom) return;
+      html += '<div class="aptitude"><span class="aptitude-nom">' + escapeHtml(apt.nom) + '</span> ' +
+        (apt.tag ? '<span class="aptitude-tag">(' + escapeHtml(apt.tag) + ')</span>' : '') +
+        '<div class="aptitude-texte">' + enrichirTexteAvecDes(apt.texte, adv.nom + ' \u2014 ' + apt.nom) + '</div></div>';
+    });
+    html += '</div>';
+  }
+
+  if(adv.source) html += '<div class="sb-source">' + escapeHtml(adv.source) + '</div>';
+
+  html += '</div>';
+  conteneur.innerHTML = html;
+}
+
+function genererCasesTrack(advId, champ, max){
+  let html = '';
+  for(let i=0;i<max;i++){
+    html += '<div class="track-box" onclick="toggleCase(this)"></div>';
+  }
+  return html;
+}
+function toggleCase(el){ el.classList.toggle('filled'); }
+
+// Créatures identiques supplémentaires : ajoute une ligne complète blessure/stress
+// (même nombre de cases que la fiche de base) pour gérer un groupe de monstres
+// identiques sur une seule fiche pendant le combat. Purement visuel : ces lignes
+// ne sont pas sauvegardées et disparaissent si on change de fiche.
+function ajouterInstanceCreature(){
+  const adv = adversaireCourantId ? tousLesAdversaires().find(a=>a.id===adversaireCourantId) : null;
+  if(!adv) return;
+  const cont = document.getElementById('sb-instances');
+  if(!cont) return;
+  const numero = cont.children.length + 2;
+  const div = document.createElement('div');
+  div.className = 'sb-instance';
+  div.innerHTML =
+    '<div class="sb-instance-header"><span class="sb-instance-label">Cr&eacute;ature ' + numero + '</span>' +
+    '<button type="button" class="sb-instance-remove" onclick="this.closest(\'.sb-instance\').remove()" title="Retirer cette cr&eacute;ature">&times;</button></div>' +
+    '<div class="sb-tracks">' +
+      '<div><div class="sb-track-label">blessure</div><div class="sb-track-boxes">' + genererCasesTrack(adv.id, 'blessure', adv.blessure||0) + '</div></div>' +
+      '<div><div class="sb-track-label">stress</div><div class="sb-track-boxes">' + genererCasesTrack(adv.id, 'stress', adv.stress||0) + '</div></div>' +
+    '</div>';
+  cont.appendChild(div);
+}
+
+// ============================================================
+// ÉDITEUR D'ADVERSAIRE
+// ============================================================
+function ajouterLigneAptitude(nom, tag, texte){
+  const conteneur = document.getElementById('edit-aptitudes-liste');
+  const div = document.createElement('div');
+  div.className = 'aptitude-edit-row';
+  div.innerHTML =
+    '<button type="button" class="retirer-apt" onclick="this.parentElement.remove()">&times;</button>' +
+    '<div class="ligne-2">' +
+      '<div class="champ"><label>nom</label><input type="text" class="apt-nom" value="' + escapeHtml(nom||'') + '"></div>' +
+      '<div class="champ"><label>type (action / passive / r&eacute;action&hellip;)</label><input type="text" class="apt-tag" value="' + escapeHtml(tag||'') + '"></div>' +
+    '</div>' +
+    '<div class="champ"><label>texte</label><textarea class="apt-texte">' + escapeHtml(texte||'') + '</textarea></div>';
+  conteneur.appendChild(div);
+}
+
+function ouvrirEditeur(id, dupliquer){
+  fermerModales();
+  document.getElementById('modal-editeur').classList.add('active');
+  document.getElementById('edit-aptitudes-liste').innerHTML = '';
+  const btnSupprimer = document.getElementById('btn-supprimer-adv');
+
+  if(id){
+    const adv = tousLesAdversaires().find(a => a.id === id);
+    document.getElementById('editeur-titre').textContent = (dupliquer ? 'Dupliquer pour personnaliser : ' : 'Modifier : ') + adv.nom;
+    document.getElementById('edit-id').value = dupliquer ? '' : adv.id;
+    document.getElementById('edit-palier').value = adv.palier || 1;
+    document.getElementById('edit-type').value = adv.type || '';
+    document.getElementById('edit-categorie').value = adv.categorie || '';
+    document.getElementById('edit-nom').value = (adv.nom || '') + (dupliquer ? ' (copie)' : '');
+    document.getElementById('edit-description').value = adv.description || '';
+    document.getElementById('edit-motivation').value = adv.motivation || '';
+    document.getElementById('edit-difficulte').value = adv.difficulte ?? '';
+    document.getElementById('edit-seuil-mineur').value = adv.seuilMineur ?? '';
+    document.getElementById('edit-seuil-majeur').value = adv.seuilMajeur ?? '';
+    document.getElementById('edit-mod-attaque').value = adv.modAttaque ?? '';
+    document.getElementById('edit-blessure').value = adv.blessure ?? '';
+    document.getElementById('edit-stress').value = adv.stress ?? '';
+    document.getElementById('edit-attaque-standard').value = adv.attaqueStandard || '';
+    document.getElementById('edit-experience').value = adv.experience || '';
+    (adv.aptitudes||[]).forEach(function(a){ ajouterLigneAptitude(a.nom, a.tag, a.texte); });
+    btnSupprimer.style.display = (!dupliquer && bestiaireCustom.some(c=>c.id===adv.id)) ? 'inline-block' : 'none';
+  } else {
+    document.getElementById('editeur-titre').textContent = 'Nouvel adversaire';
+    ['edit-id','edit-type','edit-categorie','edit-nom','edit-description','edit-motivation','edit-attaque-standard','edit-experience'].forEach(function(i){ document.getElementById(i).value=''; });
+    document.getElementById('edit-palier').value = 1;
+    ['edit-difficulte','edit-seuil-mineur','edit-seuil-majeur','edit-mod-attaque','edit-blessure','edit-stress'].forEach(function(i){ document.getElementById(i).value=''; });
+    ajouterLigneAptitude();
+    btnSupprimer.style.display = 'none';
+  }
+}
+
+function lireAptitudesDepuisEditeur(){
+  return Array.from(document.querySelectorAll('#edit-aptitudes-liste .aptitude-edit-row')).map(function(row){
+    return {
+      nom: row.querySelector('.apt-nom').value.trim(),
+      tag: row.querySelector('.apt-tag').value.trim(),
+      texte: row.querySelector('.apt-texte').value.trim()
+    };
+  }).filter(function(a){ return a.nom; });
+}
+
+function validerEditeur(){
+  const nom = document.getElementById('edit-nom').value.trim();
+  if(!nom){ alert('Le nom est obligatoire.'); return; }
+  const idExistant = document.getElementById('edit-id').value;
+  const obj = {
+    id: idExistant || genererId(nom),
+    palier: parseInt(document.getElementById('edit-palier').value,10) || 1,
+    type: document.getElementById('edit-type').value.trim(),
+    categorie: document.getElementById('edit-categorie').value.trim(),
+    nom: nom,
+    description: document.getElementById('edit-description').value.trim(),
+    motivation: document.getElementById('edit-motivation').value.trim(),
+    difficulte: parseInt(document.getElementById('edit-difficulte').value,10) || 0,
+    seuilMineur: parseInt(document.getElementById('edit-seuil-mineur').value,10) || 0,
+    seuilMajeur: parseInt(document.getElementById('edit-seuil-majeur').value,10) || 0,
+    blessure: parseInt(document.getElementById('edit-blessure').value,10) || 0,
+    stress: parseInt(document.getElementById('edit-stress').value,10) || 0,
+    modAttaque: parseInt(document.getElementById('edit-mod-attaque').value,10) || 0,
+    attaqueStandard: document.getElementById('edit-attaque-standard').value.trim(),
+    experience: document.getElementById('edit-experience').value.trim(),
+    aptitudes: lireAptitudesDepuisEditeur()
+  };
+  const indexExistant = bestiaireCustom.findIndex(c => c.id === obj.id);
+  if(indexExistant >= 0){ bestiaireCustom[indexExistant] = obj; }
+  else { bestiaireCustom.push(obj); }
+
+  fermerModales();
+  peuplerFiltres();
+  adversaireCourantId = obj.id;
+  renderListe();
+  renderStatBlock();
+  planifierSauvegardeAutoCompendium();
+}
+
+function supprimerDepuisEditeur(){
+  const id = document.getElementById('edit-id').value;
+  if(!id) return;
+  if(!confirm('Supprimer d\u00e9finitivement cet adversaire personnalis\u00e9 ?')) return;
+  bestiaireCustom = bestiaireCustom.filter(c => c.id !== id);
+  if(adversaireCourantId === id) adversaireCourantId = null;
+  fermerModales();
+  peuplerFiltres();
+  renderListe();
+  renderStatBlock();
+  planifierSauvegardeAutoCompendium();
+}
+
+function fermerModales(){
+  document.getElementById('modal-editeur').classList.remove('active');
+  document.getElementById('modal-export').classList.remove('active');
+}
+
+// ============================================================
+// SAUVEGARDE PAR LOT (choisir quelles créatures custom exporter)
+// ============================================================
+function sauvegarderBestiaire(){
+  const modal = document.getElementById('modal-export');
+  const liste = document.getElementById('export-liste');
+  const champNom = document.getElementById('export-filename');
+  champNom.value = 'lot-de-creatures_' + new Date().toISOString().slice(0,10);
+
+  if(bestiaireCustom.length === 0){
+    liste.innerHTML = '<div class="adv-vide">Aucune créature personnalisée pour l\'instant.</div>';
+  } else {
+    liste.innerHTML = bestiaireCustom.map(function(c, idx){
+      return '<label class="adv-item" style="display:flex; align-items:center; gap:8px; cursor:pointer;">' +
+        '<input type="checkbox" class="export-chk" data-idx="' + idx + '" checked>' +
+        '<span class="adv-item-nom" style="flex:1;">' + escapeHtml(c.nom) + '</span>' +
+        '<span class="adv-item-meta">' + escapeHtml(c.categorie||'') + '</span>' +
+        '</label>';
+    }).join('');
+  }
+  fermerModales();
+  modal.classList.add('active');
+}
+
+function toutCocherExport(etatCoche){
+  document.querySelectorAll('#export-liste .export-chk').forEach(function(chk){ chk.checked = etatCoche; });
+}
+
+function lancerExportSelection(){
+  const selection = [];
+  document.querySelectorAll('#export-liste .export-chk').forEach(function(chk){
+    if(chk.checked){
+      const idx = parseInt(chk.getAttribute('data-idx'), 10);
+      if(bestiaireCustom[idx]) selection.push(bestiaireCustom[idx]);
+    }
+  });
+  if(selection.length === 0){ alert('Aucune créature sélectionnée.'); return; }
+
+  let filename = document.getElementById('export-filename').value.trim();
+  if(!filename) filename = 'lot-de-creatures_' + new Date().toISOString().slice(0,10);
+  if(filename.indexOf('.') === -1) filename += '.json';
+
+  const data = { version:'1.0', source:'bestiaire-daggerheart', creatures: selection };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  fermerModales();
+}
+
+function chargerBestiaireFichier(input){
+  const fichier = input.files[0];
+  if(!fichier) return;
+  const reader = new FileReader();
+  reader.onload = function(e){
+    try{
+      const data = JSON.parse(e.target.result);
+      const liste = Array.isArray(data) ? data : (data.creatures || data.adversaires || []);
+      liste.forEach(function(adv){
+        const index = bestiaireCustom.findIndex(c => c.id === adv.id);
+        if(index >= 0) bestiaireCustom[index] = adv;
+        else bestiaireCustom.push(adv);
+      });
+      peuplerFiltres();
+      renderListe();
+      planifierSauvegardeAutoCompendium();
+      alert(liste.length + ' créature(s) chargée(s).');
+    } catch(err){
+      alert("Ce fichier n'est pas un lot de créatures JSON valide.");
+    }
+    input.value = '';
+  };
+  reader.readAsText(fichier);
+}
+
+// ============================================================
+// SAUVEGARDE AUTOMATIQUE LOCALE (persistance entre pages/onglets)
+// ============================================================
+const LS_CLE_COMPENDIUM = 'daggerheart-compendium-autosave-v1';
+let autoSaveCompendiumTimer = null;
+function planifierSauvegardeAutoCompendium(){
+  clearTimeout(autoSaveCompendiumTimer);
+  autoSaveCompendiumTimer = setTimeout(function(){
+    try{
+      localStorage.setItem(LS_CLE_COMPENDIUM, JSON.stringify({
+        bestiaireCustom: bestiaireCustom,
+        etat: etat,
+        adversaireCourantId: adversaireCourantId,
+        peurNiveau: peurNiveau,
+        comptesARebours: comptesARebours
+      }));
+    }catch(e){ /* stockage indisponible : on ignore silencieusement */ }
+  }, 400);
+}
+function restaurerCompendiumAuto(){
+  let brut;
+  try{ brut = localStorage.getItem(LS_CLE_COMPENDIUM); }
+  catch(e){ return; }
+  if(!brut) return;
+  try{
+    const data = JSON.parse(brut);
+    if(!data) return;
+    bestiaireCustom = Array.isArray(data.bestiaireCustom) ? data.bestiaireCustom : [];
+    if(data.etat) Object.assign(etat, data.etat);
+    adversaireCourantId = data.adversaireCourantId || null;
+    peurNiveau = Math.max(0, Math.min(PEUR_MAX, parseInt(data.peurNiveau, 10) || 0));
+    comptesARebours = Array.isArray(data.comptesARebours) ? data.comptesARebours : [];
+  }catch(e){ /* sauvegarde corrompue : on ignore */ }
+}
+function viderCompendiumAuto(){
+  if(!confirm('Effacer les créatures personnalisées sauvegardées et repartir d\'un compendium vierge ?')) return;
+  try{ localStorage.removeItem(LS_CLE_COMPENDIUM); }catch(e){}
+  location.reload();
+}
+
+// ============================================================
+// INITIALISATION
+// ============================================================
+function initialiser(){
+  restaurerCompendiumAuto();
+  peuplerFiltres();
+  renderListe();
+  renderStatBlock();
+  renderHistorique();
+  renderPeur();
+  renderComptesARebours();
+  document.getElementById('recherche-input').value = etat.recherche || '';
+  if(etat.palier) document.getElementById('filtre-palier').value = etat.palier;
+  if(etat.type) document.getElementById('filtre-type').value = etat.type;
+  if(etat.categorie) document.getElementById('filtre-categorie').value = etat.categorie;
+}
+initialiser();
+
+</script>
+</body>
+</html>
