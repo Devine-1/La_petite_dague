@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Fiche de Personnage - La petite dague</title>
+    <link rel="icon" type="image/svg+xml" href="assets/Image/onglet.svg">
     <style>
       /* =========================================================
      POLICES (chargées localement depuis assets/Font)
@@ -1256,6 +1257,327 @@
         margin-bottom: 8px;
       }
 
+      /* --- Lancer de dés (Dualité Espoir/Peur) --- */
+      .dice-modal-box {
+        max-width: 720px;
+      }
+      .dice-section-title {
+        font-family: "League Spartan", sans-serif;
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 18px 0 8px;
+      }
+      .dice-section-title:first-of-type {
+        margin-top: 0;
+      }
+      .dualite-row {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        margin-bottom: 10px;
+      }
+      .dualite-field {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .dualite-field label {
+        font-size: 0.72rem;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+      .dualite-field input[type="number"] {
+        width: 90px;
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        border-radius: 8px;
+        color: var(--ink);
+        padding: 6px 8px;
+        font-size: 0.9rem;
+      }
+      .dualite-type-row {
+        display: flex;
+        gap: 6px;
+      }
+      .dualite-type-btn {
+        cursor: pointer;
+        padding: 6px 14px;
+        border: 1px solid var(--rule);
+        border-radius: 999px;
+        font-size: 0.8rem;
+        background: var(--paper);
+        color: var(--ink);
+        user-select: none;
+      }
+      .dualite-type-btn.selected {
+        background: var(--accent);
+        color: var(--charcoal);
+        border-color: var(--accent);
+        font-weight: bold;
+      }
+      .avdis-stepper {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .avdis-btn {
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        border: 1px solid var(--rule);
+        background: var(--paper);
+        color: var(--ink);
+        cursor: pointer;
+        font-size: 1rem;
+        line-height: 1;
+      }
+      .avdis-btn:hover {
+        border-color: var(--accent);
+      }
+      .avdis-valeur {
+        min-width: 34px;
+        text-align: center;
+        font-family: "League Spartan", sans-serif;
+        font-weight: bold;
+      }
+      .dice-roll-btn {
+        cursor: pointer;
+        padding: 8px 16px;
+        border-radius: 999px;
+        border: 1px solid var(--accent);
+        background: var(--accent);
+        color: var(--charcoal);
+        font-weight: bold;
+        font-size: 0.85rem;
+      }
+      .dice-roll-btn:hover {
+        filter: brightness(1.1);
+      }
+      .dice-roll-btn.secondaire {
+        background: var(--paper-2);
+        color: var(--ink);
+        border-color: var(--rule);
+        font-weight: normal;
+      }
+      .degats-roll-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+      .dice-resultat {
+        background: var(--paper-2);
+        border: 1px solid var(--rule);
+        border-radius: 12px;
+        padding: 12px 14px;
+        margin: 10px 0;
+      }
+      .dice-resultat-titre {
+        font-family: "League Spartan", sans-serif;
+        font-size: 1.05rem;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+      .dice-resultat-titre.succes {
+        color: #8fd19e;
+      }
+      .dice-resultat-titre.echec {
+        color: #e08a8a;
+      }
+      .dice-resultat-detail {
+        font-size: 0.78rem;
+        color: var(--muted);
+        margin-top: 4px;
+        line-height: 1.5;
+      }
+      .dice-resultat-gain {
+        font-size: 0.8rem;
+        margin-top: 6px;
+        font-style: italic;
+      }
+      .dice-history {
+        max-height: 220px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 8px;
+        padding-right: 2px;
+        margin-top: 10px;
+      }
+      .dice-entry {
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        border-radius: 10px;
+        padding: 8px 10px;
+        font-size: 0.78rem;
+      }
+      .dice-entry-titre {
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+      }
+      .dice-entry-detail {
+        color: var(--muted);
+        font-size: 0.72rem;
+        margin-top: 2px;
+      }
+      .dice-entry-total.phy {
+        color: var(--phy, #e08a5a);
+      }
+      .dice-entry-total.mag {
+        color: var(--mag, #7fa8e0);
+      }
+      .dice-vide {
+        text-align: center;
+        color: var(--muted);
+        font-style: italic;
+        font-family: "Merriweather", serif;
+        font-size: 0.8rem;
+        padding: 16px 0;
+      }
+      .dice-custom-row {
+        display: flex;
+        gap: 6px;
+        margin-top: 4px;
+      }
+      .dice-custom-row input[type="text"] {
+        flex: 1;
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        border-radius: 8px;
+        color: var(--ink);
+        padding: 6px 10px;
+        font-size: 0.85rem;
+      }
+      .attr-shortcut-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .attr-shortcut-btn {
+        cursor: pointer;
+        padding: 6px 10px;
+        border: 1px solid var(--rule);
+        border-radius: 8px;
+        font-size: 0.78rem;
+        background: var(--paper);
+        color: var(--ink);
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        text-transform: lowercase;
+      }
+      .attr-shortcut-btn:hover {
+        border-color: var(--accent);
+      }
+      .attr-shortcut-btn.perso {
+        color: var(--muted);
+        font-style: italic;
+      }
+      .attr-shortcut-val {
+        font-family: "League Spartan", sans-serif;
+        font-weight: bold;
+        color: var(--accent);
+      }
+      .attr-shortcut-row input[type="number"] {
+        width: 64px;
+        background: var(--paper-2);
+        border: 1px solid var(--rule);
+        border-radius: 8px;
+        color: var(--ink);
+        padding: 6px 8px;
+        font-size: 0.9rem;
+        margin-left: auto;
+      }
+      .dice-compact-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .die-compact-badge {
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        border-radius: 999px;
+        padding: 5px 12px;
+        font-size: 0.78rem;
+        color: var(--ink);
+      }
+      .dice-change-link {
+        background: none;
+        border: none;
+        color: var(--accent);
+        font-size: 0.75rem;
+        cursor: pointer;
+        text-decoration: underline;
+        padding: 0;
+      }
+      .die-select-options-wrap {
+        margin-top: 8px;
+        padding: 8px 10px;
+        border: 1px dashed var(--rule);
+        border-radius: 10px;
+      }
+      .dice-history-titre {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .dice-clear-btn {
+        background: none;
+        border: none;
+        color: var(--muted);
+        font-size: 0.72rem;
+        cursor: pointer;
+        text-decoration: underline;
+        text-transform: none;
+        letter-spacing: normal;
+        padding: 0;
+      }
+      .dice-clear-btn:hover {
+        color: var(--accent);
+      }
+      .dice-total-grand {
+        font-family: "League Spartan", sans-serif;
+        font-size: 2.1rem;
+        font-weight: bold;
+        line-height: 1;
+      }
+      .dice-resultat-actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      .dice-resultat-actions button {
+        cursor: pointer;
+        padding: 6px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--rule);
+        background: var(--paper);
+        color: var(--ink);
+        font-size: 0.8rem;
+      }
+      .dice-resultat-actions button:hover {
+        border-color: var(--accent);
+      }
+      .dice-resultat-actions button.reussite:hover {
+        border-color: #8fd19e;
+        color: #8fd19e;
+      }
+      .dice-resultat-actions button.echec:hover {
+        border-color: #e08a8a;
+        color: #e08a8a;
+      }
+
       /* --- Forme sauvage (Druide) --- */
       .forme-active-box {
         margin-top: 12px;
@@ -1514,6 +1836,8 @@
         width: 56px;
         font-size: 0.75rem;
         font-weight: bold;
+        margin-right: 8px;
+        white-space: nowrap;
       }
       .boxes {
         display: flex;
@@ -1545,7 +1869,41 @@
 
       .espoir-panel {
         text-align: center;
+        position: relative;
+        overflow: visible;
+        z-index: 100;
       }
+
+      /* L'info-bulle de la section Espoir doit rester au-dessus du panneau
+         et s'ouvrir vers la gauche pour ne pas être coupée par le bord droit. */
+      .espoir-panel .select-with-info {
+        z-index: 1001;
+      }
+
+      .espoir-panel .tooltip-box {
+        left: auto;
+        right: 0;
+        z-index: 9999;
+      }
+
+      /* L'info-bulle du matériel de départ doit pouvoir dépasser le panneau. */
+      .inv-list {
+        position: relative;
+        overflow: visible;
+        z-index: 100;
+      }
+
+      .inv-list .select-with-info {
+        z-index: 1001;
+      }
+
+      .inv-list .tooltip-box {
+        left: auto;
+        right: 0;
+        z-index: 9999;
+        width: 300px;
+      }
+
       .hope-ability-name {
         font-weight: bold;
       }
@@ -2181,17 +2539,22 @@
     <script src="assets/JS/arme_secondaire.js"></script>
     <script src="assets/JS/carte.js"></script>
     <script src="assets/JS/forme_bestiale.js"></script>
-  </head>
+  <script src="assets/JS/acces.js"></script>
+</head>
   <body>
     <div class="effet-ouverture" id="effet-ouverture" aria-hidden="true"></div>
     <div class="bandeau-outils">
       <nav class="bandeau-nav">
-        <span class="bandeau-nav-link actif">Fiche</span>
-        <a href="catalogue.html" class="bandeau-nav-link">Catalogue</a>
-        <a href="Compendium.html" class="bandeau-nav-link">Compendium</a>
-      </nav>
+    <span class="bandeau-nav-link actif" aria-current="page">Fiche</span>
+    <a href="catalogue.html" class="bandeau-nav-link">Marché noir</a>
+    <a href="carte_interactive.html" class="bandeau-nav-link">Carte</a>
+  </nav>
       <h1 class="bandeau-titre">Fiche de personnage</h1>
       <div class="bandeau-groupe">
+        <button type="button" class="bandeau-btn" onclick="ouvrirLancerDes()">
+          Lancer les dés
+        </button>
+        <div class="bandeau-separateur"></div>
         <button
           type="button"
           class="bandeau-btn"
@@ -2535,7 +2898,7 @@
             title="marqué lors d'une montée de palier"
           />
           <span class="trait-name">agilité</span>
-          <input class="mod" type="number" />
+          <input class="mod" type="number" id="attr-mod-agilite" oninput="refreshAttrShortcuts()" />
           <ul>
             <li>Sauter</li>
             <li>Courir</li>
@@ -2549,7 +2912,7 @@
             title="marqué lors d'une montée de palier"
           />
           <span class="trait-name">force</span>
-          <input class="mod" type="number" />
+          <input class="mod" type="number" id="attr-mod-force" oninput="refreshAttrShortcuts()" />
           <ul>
             <li>Porter</li>
             <li>Écraser</li>
@@ -2563,7 +2926,7 @@
             title="marqué lors d'une montée de palier"
           />
           <span class="trait-name">finesse</span>
-          <input class="mod" type="number" />
+          <input class="mod" type="number" id="attr-mod-finesse" oninput="refreshAttrShortcuts()" />
           <ul>
             <li>Contrôler</li>
             <li>Se cacher</li>
@@ -2577,7 +2940,7 @@
             title="marqué lors d'une montée de palier"
           />
           <span class="trait-name">instinct</span>
-          <input class="mod" type="number" />
+          <input class="mod" type="number" id="attr-mod-instinct" oninput="refreshAttrShortcuts()" />
           <ul>
             <li>Perception</li>
             <li>Sentir</li>
@@ -2591,7 +2954,7 @@
             title="marqué lors d'une montée de palier"
           />
           <span class="trait-name">présence</span>
-          <input class="mod" type="number" />
+          <input class="mod" type="number" id="attr-mod-presence" oninput="refreshAttrShortcuts()" />
           <ul>
             <li>Charmer</li>
             <li>Comédie</li>
@@ -2605,7 +2968,7 @@
             title="marqué lors d'une montée de palier"
           />
           <span class="trait-name">savoir</span>
-          <input class="mod" type="number" />
+          <input class="mod" type="number" id="attr-mod-savoir" oninput="refreshAttrShortcuts()" />
           <ul>
             <li>Mémoire</li>
             <li>Analyse</li>
@@ -3204,7 +3567,48 @@
             </div>
 
             <div class="panel inv-list">
-              <h2>Inventaire</h2>
+              <h2 style="position: relative">
+                Inventaire
+                <span
+                  class="select-with-info"
+                  style="
+                    position: absolute;
+                    right: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    display: inline-flex;
+                  "
+                >
+                  <span
+                    class="info-icon"
+                    tabindex="0"
+                    onclick="toggleTooltip('materiel-depart-tooltip')"
+                    onkeypress="
+                      if (event.key === 'Enter')
+                        toggleTooltip('materiel-depart-tooltip');
+                    "
+                    title="Matériel de départ"
+                  >
+                    i
+                  </span>
+                  <div
+                    class="tooltip-box"
+                    id="materiel-depart-tooltip"
+                    style="text-align: left; text-transform: none; letter-spacing: normal;"
+                  >
+                    <div class="tt-tier">Matériel de départ</div>
+                    <div class="tt-desc">
+                      Une torche, 15 m de corde, le fourbi du voyageur (tente, lit, boîte à amadou, rations…), une poignée d'or.
+                    </div>
+                    <div class="tt-apt">
+                      <b>Choisissez une potion :</b> une potion de soin mineur (efface 1d4 points de blessure) ou une potion de résilience mineure (efface 1d4 de stress).
+                    </div>
+                    <div class="tt-apt">
+                      <b>Une option au choix</b>, liée à votre histoire ou à votre classe, comme un focalisateur arcanique pour les classes avec incantation.
+                    </div>
+                  </div>
+                </span>
+              </h2>
               <div class="field"><input type="text" /></div>
               <div class="field"><input type="text" /></div>
               <div class="field"><input type="text" /></div>
@@ -3690,7 +4094,7 @@
               </div>
               <div>
                 <label class="field-label">dé de dégâts</label>
-                <div class="die-select-row">
+                <div class="die-select-row" id="compagnon-die-select-row">
                   <span
                     class="die-select-option selected"
                     data-faces="6"
@@ -4617,6 +5021,323 @@
       </div>
     </div>
 
+    <div
+      class="modal-overlay"
+      id="modal-des-overlay"
+      onclick="if (event.target === this) fermerLancerDes();"
+    >
+      <div class="modal-box dice-modal-box">
+        <button
+          type="button"
+          class="modal-close-btn"
+          onclick="fermerLancerDes()"
+        >
+          ×
+        </button>
+        <div class="modal-title">Lancer les dés</div>
+
+        <div class="dice-section-title">
+          Modificateur (raccourci attributs)
+        </div>
+        <div class="attr-shortcut-row" id="attr-shortcut-row">
+          <button
+            type="button"
+            class="attr-shortcut-btn"
+            onclick="appliquerModificateurAttribut('attr-mod-agilite')"
+          >
+            agilité
+            <span class="attr-shortcut-val" data-source="attr-mod-agilite"
+              >+0</span
+            >
+          </button>
+          <button
+            type="button"
+            class="attr-shortcut-btn"
+            onclick="appliquerModificateurAttribut('attr-mod-force')"
+          >
+            force
+            <span class="attr-shortcut-val" data-source="attr-mod-force"
+              >+0</span
+            >
+          </button>
+          <button
+            type="button"
+            class="attr-shortcut-btn"
+            onclick="appliquerModificateurAttribut('attr-mod-finesse')"
+          >
+            finesse
+            <span class="attr-shortcut-val" data-source="attr-mod-finesse"
+              >+0</span
+            >
+          </button>
+          <button
+            type="button"
+            class="attr-shortcut-btn"
+            onclick="appliquerModificateurAttribut('attr-mod-instinct')"
+          >
+            instinct
+            <span class="attr-shortcut-val" data-source="attr-mod-instinct"
+              >+0</span
+            >
+          </button>
+          <button
+            type="button"
+            class="attr-shortcut-btn"
+            onclick="appliquerModificateurAttribut('attr-mod-presence')"
+          >
+            présence
+            <span class="attr-shortcut-val" data-source="attr-mod-presence"
+              >+0</span
+            >
+          </button>
+          <button
+            type="button"
+            class="attr-shortcut-btn"
+            onclick="appliquerModificateurAttribut('attr-mod-savoir')"
+          >
+            savoir
+            <span class="attr-shortcut-val" data-source="attr-mod-savoir"
+              >+0</span
+            >
+          </button>
+          <button
+            type="button"
+            class="attr-shortcut-btn perso"
+            onclick="appliquerModificateurAttribut(null)"
+          >
+            perso.
+          </button>
+          <input type="number" id="dualite-mod" value="0" />
+        </div>
+
+        <div class="dice-section-title">Jet de Dualité (Espoir / Peur)</div>
+        <div class="dualite-row">
+          <div class="dualite-field">
+            <label>type de jet</label>
+            <div class="dualite-type-row" id="dualite-type-row">
+              <span
+                class="dualite-type-btn selected"
+                data-valeur="action"
+                onclick="selectTypeJet('action')"
+                >jet d'action</span
+              >
+              <span
+                class="dualite-type-btn"
+                data-valeur="reaction"
+                onclick="selectTypeJet('reaction')"
+                >jet de réaction</span
+              >
+            </div>
+          </div>
+          <div class="dualite-field">
+            <label>avantage / désavantage</label>
+            <div class="avdis-stepper">
+              <button
+                type="button"
+                class="avdis-btn"
+                onclick="ajusterAvDis(-1)"
+              >
+                −
+              </button>
+              <span class="avdis-valeur" id="avdis-valeur">0</span>
+              <button
+                type="button"
+                class="avdis-btn"
+                onclick="ajusterAvDis(1)"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="dualite-row" style="align-items: center">
+          <div class="dualite-field">
+            <label>dés</label>
+            <div class="dice-compact-row">
+              <span class="die-compact-badge" id="espoir-die-compact"
+                >espoir D12</span
+              >
+              <span class="die-compact-badge" id="peur-die-compact"
+                >peur D12</span
+              >
+              <button
+                type="button"
+                class="dice-change-link"
+                onclick="toggleDiceOptions()"
+                title="Un sort, un bonus ou un déboff de boss peut occasionnellement remplacer un dé (ex : D12 → D20). Par défaut 2D12."
+              >
+                changer...
+              </button>
+            </div>
+            <div
+              class="die-select-options-wrap"
+              id="dice-options-wrap"
+              style="display: none"
+            >
+              <label style="font-size: 0.7rem; color: var(--muted)"
+                >dé d'espoir</label
+              >
+              <div class="die-select-row" id="espoir-die-row">
+                <span
+                  class="die-select-option"
+                  data-faces="6"
+                  onclick="selectDeDualite('espoir', 6, this)"
+                  >D6</span
+                >
+                <span
+                  class="die-select-option"
+                  data-faces="8"
+                  onclick="selectDeDualite('espoir', 8, this)"
+                  >D8</span
+                >
+                <span
+                  class="die-select-option"
+                  data-faces="10"
+                  onclick="selectDeDualite('espoir', 10, this)"
+                  >D10</span
+                >
+                <span
+                  class="die-select-option selected"
+                  data-faces="12"
+                  onclick="selectDeDualite('espoir', 12, this)"
+                  >D12</span
+                >
+                <span
+                  class="die-select-option"
+                  data-faces="20"
+                  onclick="selectDeDualite('espoir', 20, this)"
+                  >D20</span
+                >
+                <span
+                  class="die-select-option"
+                  data-faces="100"
+                  onclick="selectDeDualite('espoir', 100, this)"
+                  >D100</span
+                >
+              </div>
+              <label
+                style="
+                  font-size: 0.7rem;
+                  color: var(--muted);
+                  margin-top: 6px;
+                  display: block;
+                "
+                >dé de peur</label
+              >
+              <div class="die-select-row" id="peur-die-row">
+                <span
+                  class="die-select-option"
+                  data-faces="6"
+                  onclick="selectDeDualite('peur', 6, this)"
+                  >D6</span
+                >
+                <span
+                  class="die-select-option"
+                  data-faces="8"
+                  onclick="selectDeDualite('peur', 8, this)"
+                  >D8</span
+                >
+                <span
+                  class="die-select-option"
+                  data-faces="10"
+                  onclick="selectDeDualite('peur', 10, this)"
+                  >D10</span
+                >
+                <span
+                  class="die-select-option selected"
+                  data-faces="12"
+                  onclick="selectDeDualite('peur', 12, this)"
+                  >D12</span
+                >
+                <span
+                  class="die-select-option"
+                  data-faces="20"
+                  onclick="selectDeDualite('peur', 20, this)"
+                  >D20</span
+                >
+                <span
+                  class="die-select-option"
+                  data-faces="100"
+                  onclick="selectDeDualite('peur', 100, this)"
+                  >D100</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="dualite-field">
+            <label>&nbsp;</label>
+            <button
+              type="button"
+              class="dice-roll-btn"
+              onclick="lancerDualite()"
+            >
+              lancer la Dualité
+            </button>
+          </div>
+        </div>
+
+        <div class="dice-section-title">Jets de dégâts (armes actives)</div>
+        <div class="degats-roll-row">
+          <button
+            type="button"
+            class="dice-roll-btn secondaire"
+            onclick="lancerDegatsArme('principale')"
+          >
+            dégâts - principale
+          </button>
+          <button
+            type="button"
+            class="dice-roll-btn secondaire"
+            onclick="lancerDegatsArme('secondaire')"
+          >
+            dégâts - secondaire
+          </button>
+          <button
+            type="button"
+            class="dice-roll-btn secondaire"
+            id="dice-btn-degats-compagnon"
+            style="display: none"
+            onclick="lancerDegatsCompagnon()"
+          >
+            dégâts - compagnon
+          </button>
+        </div>
+
+        <div class="dice-section-title">Jet libre</div>
+        <div class="dice-custom-row">
+          <input
+            type="text"
+            id="dice-custom-input"
+            placeholder="jet perso : 1d8, d6+1, d8;2d6+1"
+            onkeydown="if(event.key==='Enter'){ lancerDesPersonnalises(); }"
+          />
+          <button
+            type="button"
+            class="dice-roll-btn secondaire"
+            onclick="lancerDesPersonnalises()"
+          >
+            lancer
+          </button>
+        </div>
+
+        <div id="dice-resultat-zone"></div>
+
+        <div class="dice-section-title dice-history-titre">
+          <span>Historique</span>
+          <button
+            type="button"
+            class="dice-clear-btn"
+            onclick="viderHistoriqueDes()"
+          >
+            vider l'historique
+          </button>
+        </div>
+        <div class="dice-history" id="dice-history">
+          <div class="dice-vide">Aucun jet pour l'instant.</div>
+        </div>
+      </div>
+    </div>
+
     <div class="icon-sources">
       <div data-domain="Arcane">
         <svg
@@ -4886,6 +5607,410 @@
         renderEspoir(el);
       }
 
+      // Fait gagner n points d'Espoir : remplit les cases vides (ni pleines, ni
+      // perdues définitivement), dans la limite du nombre de cases existantes.
+      function gagnerEspoir(n) {
+        const cibles = Array.from(
+          document.querySelectorAll(".espoir-toggle"),
+        ).filter(
+          (el) => el.dataset.filled !== "true" && el.dataset.burned !== "true",
+        );
+        cibles.slice(0, n).forEach((el) => {
+          el.dataset.filled = "true";
+          renderEspoir(el);
+        });
+      }
+
+      // ============================================================
+      // LANCER LES DÉS (jet de Dualité Espoir/Peur, dégâts, jets libres)
+      // ============================================================
+      let desEspoirFaces = 12;
+      let desPeurFaces = 12;
+      let desTypeJet = "action";
+      let desAvDisNet = 0;
+      let desHistorique = [];
+
+      function ouvrirLancerDes() {
+        document.getElementById("modal-des-overlay").classList.add("active");
+        refreshAttrShortcuts();
+      }
+      function fermerLancerDes() {
+        document
+          .getElementById("modal-des-overlay")
+          .classList.remove("active");
+      }
+
+      // Recopie dans la modale de dés la valeur actuelle des modificateurs
+      // d'attributs de la fiche, pour ne pas avoir à sortir de la modale.
+      function refreshAttrShortcuts() {
+        document.querySelectorAll(".attr-shortcut-val").forEach((span) => {
+          const src = document.getElementById(span.dataset.source);
+          const v = src ? parseInt(src.value, 10) || 0 : 0;
+          span.textContent = (v > 0 ? "+" : "") + v;
+        });
+      }
+
+      // Copie le modificateur d'un attribut (ou laisse la main libre pour
+      // "perso.") dans le champ modificateur du jet de Dualité.
+      function appliquerModificateurAttribut(sourceId) {
+        const champ = document.getElementById("dualite-mod");
+        if (sourceId) {
+          const src = document.getElementById(sourceId);
+          champ.value = src ? parseInt(src.value, 10) || 0 : 0;
+        }
+        champ.focus();
+      }
+
+      function toggleDiceOptions() {
+        const wrap = document.getElementById("dice-options-wrap");
+        wrap.style.display = wrap.style.display === "none" ? "" : "none";
+      }
+
+      function selectTypeJet(valeur) {
+        desTypeJet = valeur;
+        document
+          .querySelectorAll("#dualite-type-row .dualite-type-btn")
+          .forEach((el) => {
+            el.classList.toggle("selected", el.dataset.valeur === valeur);
+          });
+      }
+
+      function selectDeDualite(quel, faces, el) {
+        if (quel === "espoir") desEspoirFaces = faces;
+        else desPeurFaces = faces;
+        const conteneur = el.closest(".die-select-row");
+        conteneur.querySelectorAll(".die-select-option").forEach((opt) => {
+          opt.classList.toggle("selected", opt === el);
+        });
+        const badge = document.getElementById(quel + "-die-compact");
+        if (badge) badge.textContent = quel + " D" + faces;
+      }
+
+      function ajusterAvDis(delta) {
+        desAvDisNet = Math.max(-5, Math.min(5, desAvDisNet + delta));
+        document.getElementById("avdis-valeur").textContent =
+          (desAvDisNet > 0 ? "+" : "") + desAvDisNet;
+      }
+
+      function lancerDe(faces) {
+        return 1 + Math.floor(Math.random() * faces);
+      }
+
+      function escapeHtmlDes(s) {
+        return String(s == null ? "" : s).replace(
+          /[&<>"']/g,
+          (c) =>
+            ({
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            })[c],
+        );
+      }
+
+      function afficherResultatDes(html) {
+        document.getElementById("dice-resultat-zone").innerHTML = html;
+      }
+
+      function ajouterHistoriqueDes(entree) {
+        desHistorique.push(entree);
+        renderHistoriqueDes();
+        return entree;
+      }
+
+      function viderHistoriqueDes() {
+        desHistorique = [];
+        renderHistoriqueDes();
+      }
+
+      function renderHistoriqueDes() {
+        const conteneur = document.getElementById("dice-history");
+        if (desHistorique.length === 0) {
+          conteneur.innerHTML =
+            '<div class="dice-vide">Aucun jet pour l\'instant.</div>';
+          return;
+        }
+        conteneur.innerHTML = desHistorique
+          .map(function (e) {
+            if (e.type === "dualite") {
+              return (
+                '<div class="dice-entry"><div class="dice-entry-titre"><span>' +
+                escapeHtmlDes(e.label) +
+                "</span><span>" +
+                e.total +
+                "</span></div>" +
+                '<div class="dice-entry-detail">' +
+                escapeHtmlDes(e.detail) +
+                " &rarr; " +
+                escapeHtmlDes(e.resultat) +
+                (e.detailGain ? " - " + escapeHtmlDes(e.detailGain) : "") +
+                "</div></div>"
+              );
+            }
+            const classeType = e.dmgType ? " " + e.dmgType : "";
+            return (
+              '<div class="dice-entry"><div class="dice-entry-titre"><span>' +
+              escapeHtmlDes(e.label) +
+              '</span><span class="dice-entry-total' +
+              classeType +
+              '">' +
+              e.total +
+              "</span></div>" +
+              '<div class="dice-entry-detail">' +
+              escapeHtmlDes(e.expr) +
+              " &rarr; [" +
+              e.rolls.join(", ") +
+              "]" +
+              (e.mod ? (e.mod > 0 ? " +" + e.mod : " " + e.mod) : "") +
+              "</div></div>"
+            );
+          })
+          .join("");
+      }
+
+      // Jet de Dualité en attente de résolution (cas "Avec Espoir" : le
+      // gain d'Espoir dépend de la réussite, connue seulement une fois que
+      // le MJ annonce sa Difficulté ; voir resoudreDualite()).
+      let desResultatEnAttente = null;
+
+      // Jet de Dualité : 2 dés (Espoir/Peur, faces choisies), modificateur,
+      // avantage/désavantage (d6 en plus, on garde toujours le d6 le plus
+      // haut : ajouté pour un avantage, soustrait pour un désavantage).
+      // Comme le joueur connaît rarement la Difficulté à l'avance, le total
+      // est simplement affiché en grand pour être comparé à l'annonce du MJ.
+      function lancerDualite() {
+        const mod =
+          parseInt(document.getElementById("dualite-mod").value, 10) || 0;
+
+        const rE = lancerDe(desEspoirFaces);
+        const rP = lancerDe(desPeurFaces);
+
+        let extra = 0;
+        let extraTexte = "";
+        if (desAvDisNet !== 0) {
+          const n = Math.abs(desAvDisNet);
+          const rolls = [];
+          for (let i = 0; i < n; i++) rolls.push(lancerDe(6));
+          const meilleur = Math.max(...rolls);
+          if (desAvDisNet > 0) {
+            extra = meilleur;
+            extraTexte =
+              " + avantage d6 [" + rolls.join(",") + "] (+" + extra + ")";
+          } else {
+            extra = -meilleur;
+            extraTexte =
+              " + désavantage d6 [" + rolls.join(",") + "] (" + extra + ")";
+          }
+        }
+
+        const total = rE + rP + mod + extra;
+        const critique = rE === rP;
+        const avecEspoir = rE > rP;
+
+        let resultat = "";
+        let detailGain = "";
+        let enAttente = false;
+        if (critique) {
+          resultat = "Critique !";
+          if (desTypeJet === "action") {
+            gagnerEspoir(1);
+            detailGain = "Vous gagnez 1 Espoir.";
+          }
+        } else if (avecEspoir) {
+          resultat = "Avec Espoir";
+          enAttente = desTypeJet === "action";
+        } else {
+          resultat = "Avec Peur";
+          if (desTypeJet === "action") {
+            detailGain = "Le MJ gagne 1 Peur.";
+          }
+        }
+
+        const detail =
+          "Espoir d" +
+          desEspoirFaces +
+          " (" +
+          rE +
+          ") + Peur d" +
+          desPeurFaces +
+          " (" +
+          rP +
+          ")" +
+          (mod ? (mod > 0 ? " +" + mod : " " + mod) : "") +
+          extraTexte;
+
+        const entree = ajouterHistoriqueDes({
+          type: "dualite",
+          label: desTypeJet === "action" ? "Jet d'action" : "Jet de réaction",
+          detail: detail,
+          resultat: resultat,
+          detailGain: detailGain,
+          total: total,
+        });
+
+        desResultatEnAttente = enAttente ? entree : null;
+
+        afficherResultatDes(
+          '<div class="dice-resultat">' +
+            '<div class="dice-resultat-titre"><span>' +
+            escapeHtmlDes(resultat) +
+            "</span><span class=\"dice-total-grand\">" +
+            total +
+            "</span></div>" +
+            '<div class="dice-resultat-detail">' +
+            escapeHtmlDes(detail) +
+            "</div>" +
+            (detailGain
+              ? '<div class="dice-resultat-gain">' +
+                escapeHtmlDes(detailGain) +
+                "</div>"
+              : "") +
+            (enAttente
+              ? '<div class="dice-resultat-detail">Une fois la Difficulté annoncée par le MJ :</div>' +
+                '<div class="dice-resultat-actions">' +
+                '<button type="button" class="reussite" onclick="resoudreDualite(true)">réussite (+1 Espoir)</button>' +
+                '<button type="button" class="echec" onclick="resoudreDualite(false)">échec</button>' +
+                "</div>"
+              : "") +
+            "</div>",
+        );
+      }
+
+      // Complète un jet "Avec Espoir" une fois que le joueur sait, grâce à la
+      // Difficulté annoncée par le MJ, s'il s'agit d'une réussite ou d'un échec.
+      function resoudreDualite(succes) {
+        if (!desResultatEnAttente) return;
+        const entree = desResultatEnAttente;
+        let detailGain = "";
+        if (succes) {
+          gagnerEspoir(1);
+          entree.resultat = "Succès avec Espoir";
+          detailGain = "Vous gagnez 1 Espoir.";
+        } else {
+          entree.resultat = "Échec avec Espoir";
+          detailGain = "Aucun gain.";
+        }
+        entree.detailGain = detailGain;
+        renderHistoriqueDes();
+        afficherResultatDes(
+          '<div class="dice-resultat">' +
+            '<div class="dice-resultat-titre ' +
+            (succes ? "succes" : "echec") +
+            '"><span>' +
+            escapeHtmlDes(entree.resultat) +
+            "</span><span class=\"dice-total-grand\">" +
+            entree.total +
+            "</span></div>" +
+            '<div class="dice-resultat-detail">' +
+            escapeHtmlDes(entree.detail) +
+            "</div>" +
+            '<div class="dice-resultat-gain">' +
+            escapeHtmlDes(detailGain) +
+            "</div>" +
+            "</div>",
+        );
+        desResultatEnAttente = null;
+      }
+
+      // Analyse une expression de dégâts telle que stockée dans les champs
+      // d'armes de la fiche (ex : "2d8+1 phy", "1d6 mag", "1d10").
+      function parserExpressionDegatsDes(texte) {
+        if (!texte) return null;
+        const m = String(texte).match(
+          /(\d*)d(\d+)\s*([+-]\s*\d+)?\s*(phy|mag|physique|magique)?/i,
+        );
+        if (!m) return null;
+        const nombre = parseInt(m[1] || "1", 10) || 1;
+        const faces = parseInt(m[2], 10);
+        const mod = m[3] ? parseInt(m[3].replace(/\s+/g, ""), 10) : 0;
+        let type = (m[4] || "").toLowerCase();
+        type = type.startsWith("mag") ? "mag" : type.startsWith("phy") ? "phy" : "";
+        return { nombre, faces, mod, type, expr: m[0].trim() };
+      }
+
+      function lancerExpressionDegatsDes(expr, type, label) {
+        const p = parserExpressionDegatsDes(expr);
+        if (!p) {
+          afficherResultatDes(
+            '<div class="dice-resultat"><div class="dice-resultat-detail">Aucun dé de dégâts valide trouvé (' +
+              escapeHtmlDes(label) +
+              ").</div></div>",
+          );
+          return;
+        }
+        const rolls = [];
+        for (let i = 0; i < p.nombre; i++) rolls.push(lancerDe(p.faces));
+        const total = rolls.reduce((a, b) => a + b, 0) + p.mod;
+        afficherResultatDes(
+          '<div class="dice-resultat"><div class="dice-resultat-titre"><span>' +
+            escapeHtmlDes(label) +
+            '</span><span class="dice-entry-total ' +
+            (type || p.type) +
+            '">' +
+            total +
+            "</span></div>" +
+            '<div class="dice-resultat-detail">' +
+            escapeHtmlDes(p.expr) +
+            " &rarr; [" +
+            rolls.join(", ") +
+            "]" +
+            (p.mod ? (p.mod > 0 ? " +" + p.mod : " " + p.mod) : "") +
+            "</div></div>",
+        );
+        ajouterHistoriqueDes({
+          type: "degats",
+          label: label,
+          expr: p.expr,
+          rolls: rolls,
+          mod: p.mod,
+          dmgType: type || p.type,
+          total: total,
+        });
+      }
+
+      function lancerDegatsArme(slot) {
+        const champ = document.getElementById("arme-" + slot + "-degats");
+        const nomArme =
+          (document.getElementById("arme-" + slot + "-select") || {}).value ||
+          slot;
+        lancerExpressionDegatsDes(
+          champ ? champ.value : "",
+          "",
+          "Dégâts - " + nomArme,
+        );
+      }
+
+      function lancerDegatsCompagnon() {
+        const champ = document.getElementById("compagnon-degats-total");
+        lancerExpressionDegatsDes(
+          champ ? champ.textContent : "",
+          "",
+          "Dégâts - compagnon",
+        );
+      }
+
+      // Jet(s) personnalisé(s) depuis le champ libre (ex : "1d8", "d6+1",
+      // ou plusieurs séparés par ; ou ,).
+      function lancerDesPersonnalises() {
+        const input = document.getElementById("dice-custom-input");
+        const brut = (input.value || "").trim();
+        if (!brut) return;
+        const expressions = brut
+          .split(/[;,]/)
+          .map((e) => e.trim())
+          .filter(Boolean);
+        let auMoinsUn = false;
+        expressions.forEach(function (expr) {
+          const propre = expr.replace(/\s+/g, "");
+          if (!parserExpressionDegatsDes(propre)) return;
+          auMoinsUn = true;
+          lancerExpressionDegatsDes(propre, "", propre);
+        });
+        if (auMoinsUn) input.value = "";
+      }
+
       // --- Ascendances / Communautés / Classes : listes déroulantes + info-bulles ---
       // Les données sont chargées via <script src="assets/JS/....js"> (voir <head>),
       // qui définissent les variables globales ASCENDANCES_DATA, COMMUNAUTES_DATA, CLASSES_DATA, DOMAINES_DATA.
@@ -5001,7 +6126,7 @@
         sel.innerHTML = "";
         const optVide = document.createElement("option");
         optVide.value = "";
-        optVide.textContent = "— choisir —";
+        optVide.textContent = "- choisir -";
         sel.appendChild(optVide);
         items.forEach((item, i) => {
           const opt = document.createElement("option");
@@ -5041,7 +6166,7 @@
           '<div class="tt-meta">Domaines : ' +
           classeObj.domaines.join(", ") +
           " · Trait d'incantation : " +
-          (classeObj.trait_incantation || "—") +
+          (classeObj.trait_incantation || "-") +
           "</div>";
         if (inclureEspoir) {
           html += '<div class="tt-tier">Aptitude d\'espoir</div>';
@@ -5286,6 +6411,11 @@
         if (!estRodeur && panel && panel.classList.contains("active")) {
           switchCompagnonTab("animaux");
         }
+        const btnDegatsCompagnon = document.getElementById(
+          "dice-btn-degats-compagnon",
+        );
+        if (btnDegatsCompagnon)
+          btnDegatsCompagnon.style.display = estRodeur ? "" : "none";
       }
 
       function onClasseChange() {
@@ -5294,7 +6424,7 @@
         sousSel.innerHTML = "";
         const optVide = document.createElement("option");
         optVide.value = "";
-        optVide.textContent = "— choisir —";
+        optVide.textContent = "- choisir -";
         sousSel.appendChild(optVide);
 
         const hopeInput = document.getElementById("hope-ability-input");
@@ -5376,9 +6506,9 @@
         sel.innerHTML = "";
         const optVide = document.createElement("option");
         optVide.value = "";
-        optVide.textContent = "— choisir —";
-        optVide.dataset.name = "— choisir —";
-        optVide.dataset.full = "— choisir —";
+        optVide.textContent = "- choisir -";
+        optVide.dataset.name = "- choisir -";
+        optVide.dataset.full = "- choisir -";
         sel.appendChild(optVide);
         ARMURES.forEach((a, i) => {
           const opt = document.createElement("option");
@@ -5498,9 +6628,9 @@
         sel.innerHTML = "";
         const optVide = document.createElement("option");
         optVide.value = "";
-        optVide.textContent = "— choisir —";
-        optVide.dataset.name = "— choisir —";
-        optVide.dataset.full = "— choisir —";
+        optVide.textContent = "- choisir -";
+        optVide.dataset.name = "- choisir -";
+        optVide.dataset.full = "- choisir -";
         sel.appendChild(optVide);
 
         function creerOption(a, i) {
@@ -6024,12 +7154,14 @@
       }
 
       function selectDeCompagnon(faces) {
-        document.querySelectorAll(".die-select-option").forEach((el) => {
-          el.classList.toggle(
-            "selected",
-            parseInt(el.dataset.faces, 10) === faces,
-          );
-        });
+        document
+          .querySelectorAll("#compagnon-die-select-row .die-select-option")
+          .forEach((el) => {
+            el.classList.toggle(
+              "selected",
+              parseInt(el.dataset.faces, 10) === faces,
+            );
+          });
         compagnonDeFaces = faces;
         updateDegatsCompagnon();
       }
@@ -6072,7 +7204,7 @@
       function remplirFormeSauvageSelect() {
         const sel = document.getElementById("forme-sauvage-select");
         if (!sel) return;
-        sel.innerHTML = '<option value="">— choisir une forme —</option>';
+        sel.innerHTML = '<option value="">- choisir une forme -</option>';
         const paliers = [1, 2, 3, 4];
         const labels = {
           1: "Palier 1 (niveau 1)",
@@ -6193,7 +7325,7 @@
 
       // Ordre d'affichage fidèle au document d'origine : les formes normales du
       // palier, puis la forme "Bête Légendaire/Mythique" (option améliorée),
-      // puis en dernier la forme "Hybride" — trois entrées indépendantes, sans
+      // puis en dernier la forme "Hybride" - trois entrées indépendantes, sans
       // hiérarchie entre elles.
       function rendreReferenceFormesBestiales() {
         [1, 2, 3, 4].forEach((palier) => {
@@ -6230,6 +7362,9 @@
       }
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") fermerModalRepos();
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") fermerLancerDes();
       });
 
       // --- Monter de niveau : verrous croisés Multiclasse / Sous-classe améliorée ---
@@ -6393,7 +7528,7 @@
         sousSel.innerHTML = "";
         const optVideSous = document.createElement("option");
         optVideSous.value = "";
-        optVideSous.textContent = "— choisir —";
+        optVideSous.textContent = "- choisir -";
         sousSel.appendChild(optVideSous);
 
         secondeClasseIdx = idx;
@@ -6443,7 +7578,7 @@
         let html = '<div class="tt-desc">Domaine multiclassé</div>';
         html +=
           '<select class="hf-select multiclasse-border" style="width:100%;margin:4px 0;" onclick="event.stopPropagation();" onchange="onDomaineMulticlasseChange(this.value)">';
-        html += '<option value="">— choisir —</option>' + optionsHTML;
+        html += '<option value="">- choisir -</option>' + optionsHTML;
         html += "</select>";
         html +=
           '<div class="tt-meta">Cartes disponibles jusqu\'au niveau égal à la moitié de votre niveau, arrondi au supérieur. Une première carte de ce domaine pourra être choisie à la prochaine montée de niveau.</div>';
@@ -6760,7 +7895,7 @@
         mixteImporteCourant = null;
         ["mixte-asc1", "mixte-asc2"].forEach(function (id) {
           const sel = document.getElementById(id);
-          sel.innerHTML = '<option value="">— choisir —</option>';
+          sel.innerHTML = '<option value="">- choisir -</option>';
           ASCENDANCES.forEach(function (a, i) {
             if (a.aptitudes.length !== 2) return;
             const opt = document.createElement("option");
@@ -6869,7 +8004,7 @@
           let html =
             '<div class="mixte-ligne-titre">Choix n° ' +
             (i + 1) +
-            " — " +
+            " - " +
             esc(A.aptitudes[i].nom) +
             " (" +
             esc(A.nom) +
@@ -7003,7 +8138,7 @@
               return (
                 '<div class="mixte-ligne-titre" style="margin-top:6px;">Aptitude ' +
                 (i + 1) +
-                " — " +
+                " - " +
                 esc(apt.nom) +
                 ' <span class="mixte-apt-src">(' +
                 esc(apt.source) +
@@ -7078,6 +8213,7 @@
           return false;
         if (el.closest("#modal-mixte-overlay")) return false;
         if (el.closest("#domain-tooltip-3")) return false;
+        if (el.closest("#modal-des-overlay")) return false;
         return true;
       }
       function listerChamps() {
@@ -7207,7 +8343,7 @@
           sousSel.innerHTML = "";
           const optVide = document.createElement("option");
           optVide.value = "";
-          optVide.textContent = "— choisir —";
+          optVide.textContent = "- choisir -";
           sousSel.appendChild(optVide);
           CLASSES[data.champs[idxClasse]].sous_classes.forEach(
             function (sc, i) {
@@ -7306,12 +8442,14 @@
         reposToggle.checked = !!et.modeRepos;
         toggleModeRepos();
         renderMaitriseCompagnon();
-        document.querySelectorAll(".die-select-option").forEach(function (el) {
-          el.classList.toggle(
-            "selected",
-            parseInt(el.dataset.faces, 10) === compagnonDeFaces,
-          );
-        });
+        document
+          .querySelectorAll("#compagnon-die-select-row .die-select-option")
+          .forEach(function (el) {
+            el.classList.toggle(
+              "selected",
+              parseInt(el.dataset.faces, 10) === compagnonDeFaces,
+            );
+          });
         updateDegatsCompagnon();
         recalculerVerrousMulticlasse();
         rendreCartes();

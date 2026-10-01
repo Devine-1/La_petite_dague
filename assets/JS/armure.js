@@ -46,6 +46,51 @@ const ARMURE_DATA = {
       }
     },
     {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "nom": "Habit matelassés",
+      "seuil_dommages_mineurs": 5,
+      "seuil_dommages_majeurs": 11,
+      "valeur_base": 3,
+      "aptitude": {
+        "nom": "Flexible",
+        "description": "+1 à l'Esquive"
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "nom": "Tablier en cuir",
+      "seuil_dommages_mineurs": 6,
+      "seuil_dommages_majeurs": 13,
+      "valeur_base": 3,
+      "aptitude": null
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "nom": "Armure en écorce",
+      "seuil_dommages_mineurs": 7,
+      "seuil_dommages_majeurs": 15,
+      "valeur_base": 4,
+      "aptitude": {
+        "nom": "Lourd",
+        "description": "-1 à Esquive"
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "nom": "Cuirasse en plateau de pâtisseries",
+      "seuil_dommages_mineurs": 8,
+      "seuil_dommages_majeurs": 17,
+      "valeur_base": 4,
+      "aptitude": {
+        "nom": "Très lourd",
+        "description": "-2 à l'Esquive; -1 à l'Agilité"
+      }
+    },
+    {
       "source": "Livre de règle (2026)",
       "palier": 2,
       "nom": "Gambison amélioré",

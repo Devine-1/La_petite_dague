@@ -154,7 +154,7 @@ const ARME_PRINCIPALE_DATA = {
       "nom": "Arc court",
       "trait": "Agilité",
       "portee": "Longue",
-      "degats": "d6+3 physique",
+      "degats": "d6+3 phy",
       "encombrement": "Deux mains",
       "aptitude": null
     },
@@ -165,7 +165,7 @@ const ARME_PRINCIPALE_DATA = {
       "nom": "Arbalète",
       "trait": "Finesse",
       "portee": "Longue",
-      "degats": "d6+1 physique",
+      "degats": "d6+1 phy",
       "encombrement": "Une main",
       "aptitude": null
     },
@@ -300,6 +300,341 @@ const ARME_PRINCIPALE_DATA = {
       "aptitude": {
         "nom": "Puissant",
         "description": "Sur une attaque réussie, lancez un dé de dégâts supplémentaire et ignorez le résultat le plus bas"
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Hachoir",
+      "trait": "Agilité",
+      "portee": "Mêlée",
+      "degats": "d8 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Fiable",
+        "description": "+1 sur les jets d'attaque"
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Râteau acére",
+      "trait": "Agilité",
+      "portee": "Mêlée",
+      "degats": "d8+3 phy",
+      "encombrement": "Deux mains",
+      "aptitude": null
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Couperet",
+      "trait": "Force",
+      "portee": "Mêlée",
+      "degats": "d12+3 phy",
+      "encombrement": "Deux mains",
+      "aptitude": {
+        "nom": "Lourd.-1 à l'Esquive",
+        "description": ""
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Passoir en fer",
+      "trait": "Force",
+      "portee": "Mêlée",
+      "degats": "d8+1 phy",
+      "encombrement": "Une main",
+      "aptitude": null
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Fourche",
+      "trait": "Force",
+      "portee": "Mêlée",
+      "degats": "d10+3 Phy",
+      "encombrement": "Deux mains",
+      "aptitude": null
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Masse de chantier",
+      "trait": "Force",
+      "portee": "Mêlée",
+      "degats": "d10+3 Phy",
+      "encombrement": "Deux mains",
+      "aptitude": {
+        "nom": "Massif",
+        "description": "-1 à l'Esquive. Sur une attaque réussie, lancez un dé de dégâts supplémentaire et ignorez le résultat le plus bas."
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Couteau de cuisine",
+      "trait": "Finesse",
+      "portee": "Mêlée",
+      "degats": "d8+1 phy",
+      "encombrement": "Une main",
+      "aptitude": null
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Bâton de marche",
+      "trait": "Instinct",
+      "portee": "Mêlée",
+      "degats": "d10+3 Phy",
+      "encombrement": "Deux mains",
+      "aptitude": null
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Rouleau à pâtisserie",
+      "trait": "Présence",
+      "portee": "Mêlée",
+      "degats": "d8+1 phy",
+      "encombrement": "Une main",
+      "aptitude": null
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Faucille",
+      "trait": "Présence",
+      "portee": "Mêlée",
+      "degats": "d8 phy",
+      "encombrement": "Une main",
+      "aptitude": null
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Tisonnier",
+      "trait": "Force",
+      "portee": "Très courte",
+      "degats": "d8+2 phy",
+      "encombrement": "Deux mains",
+      "aptitude": null
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Faux de moissonneur",
+      "trait": "Finesse",
+      "portee": "Très courte",
+      "degats": "d8+2 phy",
+      "encombrement": "Deux mains",
+      "aptitude": null
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Canne pêche",
+      "trait": "Agilité",
+      "portee": "Longue",
+      "degats": "d6+3 phy",
+      "encombrement": "Deux mains",
+      "aptitude": null
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Lance pierre",
+      "trait": "Finesse",
+      "portee": "Longue",
+      "degats": "d6+3 phy",
+      "encombrement": "Deux mains",
+      "aptitude": null
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Lance feux artifice",
+      "trait": "Agilité",
+      "portee": "Très longue",
+      "degats": "d6+3 phy",
+      "encombrement": "Deux mains",
+      "aptitude": {
+        "nom": "Encombrant",
+        "description": "-1 en Finesse"
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Magique",
+      "nom": "Marteau enchanté",
+      "trait": "Force",
+      "portee": "Mêlée",
+      "degats": "d10+1 mag",
+      "encombrement": "Une main",
+      "aptitude": null
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Magique",
+      "nom": "Serpillière enchantée",
+      "trait": "Force",
+      "portee": "Mêlée",
+      "degats": "d10+3 mag",
+      "encombrement": "Deux mains",
+      "aptitude": null
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Magique",
+      "nom": "Ciseaux enchanté",
+      "trait": "Finesse",
+      "portee": "Très courte",
+      "degats": "d10 mag",
+      "encombrement": "Une main",
+      "aptitude": null
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Magique",
+      "nom": "Balais enchanté",
+      "trait": "Instinct",
+      "portee": "Très courte",
+      "degats": "d10+2 mag",
+      "encombrement": "Deux mains",
+      "aptitude": null
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Magique",
+      "nom": "Potion explosives",
+      "trait": "Finesse",
+      "portee": "Courte",
+      "degats": "d8 mag",
+      "encombrement": "Une main",
+      "aptitude": null
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Magique",
+      "nom": "Allume forge enchanté",
+      "trait": "Instinct",
+      "portee": "Courte",
+      "degats": "d8 mag",
+      "encombrement": "Une main",
+      "aptitude": null
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Magique",
+      "nom": "Boomerang enchanté",
+      "trait": "Instinct",
+      "portee": "Longue",
+      "degats": "d6+3 phys",
+      "encombrement": "Deux mains",
+      "aptitude": null
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Magique",
+      "nom": "Cerf-volant enchanté",
+      "trait": "Présence",
+      "portee": "Longue",
+      "degats": "d6 mag",
+      "encombrement": "Deux mains",
+      "aptitude": {
+        "nom": "Polyvalent",
+        "description": "Cette arme peut aussi s'utiliser avec les statistiques suivantes: Présence, Mêlée, d10."
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Magique",
+      "nom": "Fouet de cuisine",
+      "trait": "Savoir",
+      "portee": "Longue",
+      "degats": "d6+1 mag",
+      "encombrement": "Une main",
+      "aptitude": null
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Magique",
+      "nom": "Bâton à paillettes",
+      "trait": "Savoir",
+      "portee": "Très longue",
+      "degats": "d6 mag",
+      "encombrement": "Deux mains",
+      "aptitude": {
+        "nom": "Puissant",
+        "description": "Sur une attaque réussie, lancez un dé de dégâts supplémentaire et ignorez le résultat le plus bas."
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Les colosses des Terrarides)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Récolver",
+      "trait": "Finesse",
+      "portee": "Longue",
+      "degats": "d8+1 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Six coup",
+        "description": "poser 6 jetons de munitions sur votre feuille de personnage. dépensez 1 jeton de munition pour faire une attaque. vous pouvez dépenser un stress pour récupérer vos jetons de munition dépensés"
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Les colosses des Terrarides)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Fusil",
+      "trait": "Agilité",
+      "portee": "Très longue",
+      "degats": "d8+2 phy",
+      "encombrement": "Deux mains",
+      "aptitude": {
+        "nom": "Ligne de mire",
+        "description": "dépensez 2 espoir pour gagner un avantage sur le jet d'attaque."
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Les colosses des Terrarides)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Fusil de chasse",
+      "trait": "Force",
+      "portee": "Très longue",
+      "degats": "d6+2 phy",
+      "encombrement": "Deux mains",
+      "aptitude": {
+        "nom": "Dispersion",
+        "description": "Losrque vous effectuez une attaque, visez toutes les créatures situées à portée devant vous."
       }
     },
     {
@@ -456,7 +791,7 @@ const ARME_PRINCIPALE_DATA = {
       "nom": "Arc court amélioré",
       "trait": "Agilité",
       "portee": "Longue",
-      "degats": "d6+6 physique",
+      "degats": "d6+6 phy",
       "encombrement": "Deux mains",
       "aptitude": null
     },
@@ -467,7 +802,7 @@ const ARME_PRINCIPALE_DATA = {
       "nom": "Arbalète amélioré",
       "trait": "Finesse",
       "portee": "Longue",
-      "degats": "d6+4 physique",
+      "degats": "d6+4 phy",
       "encombrement": "Une main",
       "aptitude": null
     },
@@ -857,6 +1192,48 @@ const ARME_PRINCIPALE_DATA = {
       }
     },
     {
+      "source": "Livre de règle (2026, Les colosses des Terrarides)",
+      "palier": 2,
+      "type": "Physique",
+      "nom": "Récolver",
+      "trait": "Finesse",
+      "portee": "Longue",
+      "degats": "d8+4 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Six coup",
+        "description": "poser 6 jetons de munitions sur votre feuille de personnage. dépensez 1 jeton de munition pour faire une attaque. vous pouvez dépenser un stress pour récupérer vos jetons de munition dépensés"
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Les colosses des Terrarides)",
+      "palier": 2,
+      "type": "Physique",
+      "nom": "Fusil",
+      "trait": "Agilité",
+      "portee": "Très longue",
+      "degats": "d8+5 phy",
+      "encombrement": "Deux mains",
+      "aptitude": {
+        "nom": "Ligne de mire",
+        "description": "dépensez 2 espoir pour gagner un avantage sur le jet d'attaque."
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Les colosses des Terrarides)",
+      "palier": 2,
+      "type": "Physique",
+      "nom": "Fusil de chasse",
+      "trait": "Force",
+      "portee": "Très longue",
+      "degats": "d6+5 phy",
+      "encombrement": "Deux mains",
+      "aptitude": {
+        "nom": "Dispersion",
+        "description": "Losrque vous effectuez une attaque, visez toutes les créatures situées à portée devant vous."
+      }
+    },
+    {
       "source": "Livre de règle (2026)",
       "palier": 3,
       "type": "Physique",
@@ -1010,7 +1387,7 @@ const ARME_PRINCIPALE_DATA = {
       "nom": "Arc court Perfectionné",
       "trait": "Agilité",
       "portee": "Longue",
-      "degats": "d6+9 physique",
+      "degats": "d6+9 phy",
       "encombrement": "Deux mains",
       "aptitude": null
     },
@@ -1021,7 +1398,7 @@ const ARME_PRINCIPALE_DATA = {
       "nom": "Arbalète Perfectionné",
       "trait": "Finesse",
       "portee": "Longue",
-      "degats": "d6+7 physique",
+      "degats": "d6+7 phy",
       "encombrement": "Une main",
       "aptitude": null
     },
@@ -1128,7 +1505,7 @@ const ARME_PRINCIPALE_DATA = {
       "palier": 3,
       "type": "Physique",
       "nom": "Fléau double",
-      "trait": "Aglité",
+      "trait": "Agilité",
       "portee": "Très courte",
       "degats": "d10+8 phy",
       "encombrement": "Deux mains",
@@ -1158,7 +1535,7 @@ const ARME_PRINCIPALE_DATA = {
       "nom": "Revolver à poudre noire",
       "trait": "Finesse",
       "portee": "Longue",
-      "degats": "d6+8 physique",
+      "degats": "d6+8 phy",
       "encombrement": "Une main",
       "aptitude": {
         "nom": "Rechargement",
@@ -1425,6 +1802,48 @@ const ARME_PRINCIPALE_DATA = {
       }
     },
     {
+      "source": "Livre de règle (2026, Les colosses des Terrarides)",
+      "palier": 3,
+      "type": "Physique",
+      "nom": "Récolver",
+      "trait": "Finesse",
+      "portee": "Longue",
+      "degats": "d8+7 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Six coup",
+        "description": "poser 6 jetons de munitions sur votre feuille de personnage. dépensez 1 jeton de munition pour faire une attaque. vous pouvez dépenser un stress pour récupérer vos jetons de munition dépensés"
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Les colosses des Terrarides)",
+      "palier": 3,
+      "type": "Physique",
+      "nom": "Fusil",
+      "trait": "Agilité",
+      "portee": "Très longue",
+      "degats": "d8+8 phy",
+      "encombrement": "Deux mains",
+      "aptitude": {
+        "nom": "Ligne de mire",
+        "description": "dépensez 2 espoir pour gagner un avantage sur le jet d'attaque."
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Les colosses des Terrarides)",
+      "palier": 3,
+      "type": "Physique",
+      "nom": "Fusil de chasse",
+      "trait": "Force",
+      "portee": "Très longue",
+      "degats": "d6+8 phy",
+      "encombrement": "Deux mains",
+      "aptitude": {
+        "nom": "Dispersion",
+        "description": "Losrque vous effectuez une attaque, visez toutes les créatures situées à portée devant vous."
+      }
+    },
+    {
       "source": "Livre de règle (2026)",
       "palier": 4,
       "type": "Physique",
@@ -1578,7 +1997,7 @@ const ARME_PRINCIPALE_DATA = {
       "nom": "Arc court légendaire",
       "trait": "Agilité",
       "portee": "Longue",
-      "degats": "d6+12 physique",
+      "degats": "d6+12 phy",
       "encombrement": "Deux mains",
       "aptitude": null
     },
@@ -1589,7 +2008,7 @@ const ARME_PRINCIPALE_DATA = {
       "nom": "Arbalète légendaire",
       "trait": "Finesse",
       "portee": "Longue",
-      "degats": "d6+10 physique",
+      "degats": "d6+10 phy",
       "encombrement": "Une main",
       "aptitude": null
     },
@@ -1976,6 +2395,48 @@ const ARME_PRINCIPALE_DATA = {
       "aptitude": {
         "nom": "Lié",
         "description": "Vous gagnez un bonus à votre jet de dégâts égal à votre niveau"
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Les colosses des Terrarides)",
+      "palier": 4,
+      "type": "Physique",
+      "nom": "Récolver",
+      "trait": "Finesse",
+      "portee": "Longue",
+      "degats": "d8+10 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Six coup",
+        "description": "poser 6 jetons de munitions sur votre feuille de personnage. dépensez 1 jeton de munition pour faire une attaque. vous pouvez dépenser un stress pour récupérer vos jetons de munition dépensés"
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Les colosses des Terrarides)",
+      "palier": 4,
+      "type": "Physique",
+      "nom": "Fusil",
+      "trait": "Agilité",
+      "portee": "Très longue",
+      "degats": "d8+11 phy",
+      "encombrement": "Deux mains",
+      "aptitude": {
+        "nom": "Ligne de mire",
+        "description": "dépensez 2 espoir pour gagner un avantage sur le jet d'attaque."
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Les colosses des Terrarides)",
+      "palier": 4,
+      "type": "Physique",
+      "nom": "Fusil de chasse",
+      "trait": "Force",
+      "portee": "Très longue",
+      "degats": "d6+11 phy",
+      "encombrement": "Deux mains",
+      "aptitude": {
+        "nom": "Dispersion",
+        "description": "Losrque vous effectuez une attaque, visez toutes les créatures situées à portée devant vous."
       }
     }
   ]

@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le Kohd, langue de la Carte Mère</title>
+<link rel="icon" type="image/svg+xml" href="assets/Image/onglet.svg">
+<style>
+/* =========================================================
+   THÈME : identique à index.html (fiche de personnage)
+   Polices chargées localement depuis assets/Font, avec repli système
+   ========================================================= */
+@font-face{font-family:"Montserrat";src:url("assets/Font/Montserrat-Thin.ttf");font-weight:100}
+@font-face{font-family:"Montserrat";src:url("assets/Font/Montserrat-Light.ttf");font-weight:300}
+@font-face{font-family:"Montserrat";src:url("assets/Font/Montserrat-Regular.ttf");font-weight:400}
+@font-face{font-family:"Montserrat";src:url("assets/Font/Montserrat-SemiBold.ttf");font-weight:600}
+@font-face{font-family:"League Spartan";src:url("assets/Font/LeagueSpartan-ExtraBold.ttf");font-weight:800}
+@font-face{font-family:"Merriweather";src:url("assets/Font/Merriweather-Italic.ttf");font-weight:400;font-style:italic}
+@font-face{font-family:"Merriweather";src:url("assets/Font/Merriweather-BoldItalic.ttf");font-weight:700;font-style:italic}
+
+:root{
+  --ink:#eeeef7; --muted:#a9a6c8;
+  --paper:rgba(40,44,74,.55); --paper-2:rgba(58,65,105,.45);
+  --charcoal:#14162b; --rule:rgba(190,194,230,.25);
+  --accent:#a691d2; --accent-2:#7bd3a0;
+  /* anciens noms, conservés pour le reste de la page */
+  --texte:var(--ink); --discret:var(--muted); --filet:var(--rule); --panneau:var(--paper-2);
+  --cuivre:var(--accent); --signal:var(--accent-2);
+  --police:"Montserrat","Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --titre:"League Spartan","Bahnschrift","Segoe UI Semibold","Helvetica Neue",Arial,sans-serif;
+  --serif:"Merriweather",Georgia,serif;
+  font-family:var(--police);
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:20px}
+body{margin:0;padding:24px;color:var(--ink);position:relative;overflow-x:hidden;font:16px/1.6 var(--police);
+  background:
+    radial-gradient(ellipse at 15% 15%,rgba(104,139,190,.28),transparent 42%),
+    radial-gradient(ellipse at 85% 20%,rgba(166,135,202,.27),transparent 42%),
+    radial-gradient(ellipse at 70% 85%,rgba(109,91,164,.24),transparent 45%),
+    radial-gradient(ellipse at 25% 80%,rgba(81,133,177,.18),transparent 40%),
+    linear-gradient(135deg,#12152b 0%,#191b35 45%,#211b3a 100%);
+  background-attachment:fixed}
+body::before{content:"";position:fixed;inset:-15%;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse at 35% 45%,rgba(143,179,211,.09),transparent 35%),
+             radial-gradient(ellipse at 70% 55%,rgba(181,151,215,.09),transparent 38%);
+  filter:blur(55px);transform:rotate(-8deg)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.55;
+  background-image:
+    radial-gradient(circle at 8% 13%,rgba(235,235,255,.7) 0 1px,transparent 2px),
+    radial-gradient(circle at 18% 72%,rgba(210,225,255,.45) 0 1px,transparent 2px),
+    radial-gradient(circle at 32% 28%,rgba(230,220,255,.55) 0 1px,transparent 2px),
+    radial-gradient(circle at 47% 83%,rgba(225,235,255,.45) 0 1px,transparent 2px),
+    radial-gradient(circle at 61% 18%,rgba(230,225,255,.55) 0 1px,transparent 2px),
+    radial-gradient(circle at 76% 63%,rgba(220,230,255,.45) 0 1px,transparent 2px),
+    radial-gradient(circle at 89% 32%,rgba(235,225,255,.5) 0 1px,transparent 2px)}
+a{color:var(--accent-2)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* --- Bandeau de navigation : nav | titre --- */
+.bandeau-outils{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;
+  background:var(--charcoal);margin:-24px -24px 20px -24px;padding:12px 24px}
+.bandeau-nav{display:flex;gap:8px;flex-wrap:wrap}
+.bandeau-nav-link{cursor:pointer;text-decoration:none;font-family:inherit;border:1px solid rgba(244,239,228,.3);
+  border-radius:999px;padding:7px 18px;font-size:.72rem;font-weight:bold;text-transform:lowercase;letter-spacing:.03em;
+  color:var(--ink);background:transparent;white-space:nowrap;display:inline-block}
+.bandeau-nav-link:hover{background:rgba(244,239,228,.15)}
+.bandeau-nav-link.actif{background:var(--ink);color:var(--charcoal);border-color:var(--ink);cursor:default}
+.bandeau-titre{grid-column:2;justify-self:center;margin:0;font-family:var(--titre);font-weight:800;font-size:1.05rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink);white-space:nowrap;text-shadow:0 0 20px rgba(174,157,220,.3)}
+@media (max-width:900px){
+  .bandeau-outils{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .bandeau-titre{grid-column:1}
+}
+
+/* --- Effet d'ouverture : scintillement d'étoiles (une fois au chargement) --- */
+.effet-ouverture{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden}
+.particule-etoile{position:absolute;border-radius:50%;background:#eeeef7;opacity:0;box-shadow:0 0 6px 1px rgba(230,225,255,.85);
+  animation:scintille-ouverture 1.7s ease-out forwards}
+@keyframes scintille-ouverture{
+  0%{opacity:0;transform:translateY(8px) scale(.4)}
+  35%{opacity:1;transform:translateY(-3px) scale(1)}
+  100%{opacity:0;transform:translateY(-10px) scale(.8)}
+}
+@media (prefers-reduced-motion:reduce){.effet-ouverture{display:none}}
+
+main{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:10px 0 40px}
+h1{font:800 clamp(1.6rem,4.5vw,2.4rem)/1.1 var(--titre);margin:8px 0 12px;letter-spacing:.14em;text-align:center;
+  text-shadow:0 0 25px rgba(174,157,220,.3)}
+h3{font:800 .95rem/1.3 var(--titre);letter-spacing:.06em;margin:0 0 6px;color:var(--accent)}
+p{max-width:68ch;margin:0 0 14px}
+.chapo{font-size:1.05rem;color:var(--muted);max-width:60ch;margin:0 auto 10px;text-align:center}
+
+/* --- Panneaux (comme .panel de la fiche) --- */
+section{margin-top:16px;background:var(--paper-2);border:1px solid var(--rule);border-radius:14px;padding:14px 18px 6px;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 10px 26px rgba(0,0,0,.2);overflow:hidden}
+h2{font:800 .85rem/1.2 var(--titre);letter-spacing:.08em;margin:-14px -18px 14px;text-align:center;
+  background:var(--charcoal);color:var(--ink);padding:8px 6px}
+
+.saisie{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:18px 0}
+input[type=text]{flex:1 1 320px;font:inherit;font-size:1rem;color:var(--ink);background:var(--paper);
+  border:1px solid var(--rule);border-radius:10px;padding:10px 14px}
+input[type=text]:focus{outline:none;border-color:var(--accent)}
+label.case{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:.85rem}
+input[type=checkbox]{accent-color:var(--accent)}
+
+button,.pilule{font:inherit;font-size:.72rem;font-weight:bold;text-transform:lowercase;letter-spacing:.03em;color:var(--ink);
+  background:transparent;border:1px solid rgba(244,239,228,.3);border-radius:999px;padding:7px 18px;cursor:pointer;text-decoration:none;white-space:nowrap}
+button:hover,.pilule:hover{background:var(--ink);color:var(--charcoal);border-color:var(--ink)}
+
+.options{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;margin:4px 0 16px}
+.groupe{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.titre-groupe{font:800 .8rem var(--titre);letter-spacing:.06em;color:var(--accent);text-transform:lowercase}
+input[type=color]{width:34px;height:26px;padding:0;border:1px solid var(--rule);border-radius:6px;background:none;cursor:pointer}
+input[type=file]{font-size:.75rem;color:var(--muted);max-width:240px}
+input[type=file]::file-selector-button{font:inherit;font-size:.72rem;font-weight:bold;text-transform:lowercase;letter-spacing:.03em;color:var(--ink);
+  background:transparent;border:1px solid rgba(244,239,228,.3);border-radius:999px;padding:6px 16px;margin-right:10px;cursor:pointer}
+input[type=file]::file-selector-button:hover{background:var(--ink);color:var(--charcoal);border-color:var(--ink)}
+input[type=range]{accent-color:var(--accent);vertical-align:middle}
+.glyphes{margin-top:8px;margin-bottom:10px}
+.carte{overflow-x:auto}
+.carte{background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:14px;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.carte svg{width:100%;height:auto;display:block}
+.carte .mot{font:800 1rem var(--titre);letter-spacing:.14em;margin:6px 0 8px}
+.decoupe{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.decoupe span{font-size:.75rem;color:var(--muted);border:1px solid var(--rule);border-radius:999px;padding:1px 10px}
+.decoupe b{color:var(--ink);letter-spacing:1px}
+.vide{color:var(--muted);border:1px dashed var(--rule);border-radius:12px;padding:24px}
+
+.grille9{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:420px;margin:18px 0}
+.grille9 div{background:var(--paper);border:1px solid var(--rule);border-radius:50%/50%;aspect-ratio:1;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:1.1rem}
+.grille9 small{font-size:.7rem;color:var(--accent);letter-spacing:2px}
+.grille9 i{font-style:normal;letter-spacing:2px}
+
+ol.etapes{padding:0;margin:0 0 14px;list-style:none;counter-reset:e;max-width:70ch}
+ol.etapes li{counter-increment:e;position:relative;padding:0 0 18px 48px}
+ol.etapes li::before{content:counter(e);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;
+  border:1px solid var(--accent);color:var(--accent);display:flex;align-items:center;justify-content:center;font:800 .9rem var(--titre)}
+ol.etapes strong{color:var(--ink)}
+
+.exemples{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin:20px 0}
+.note{border-left:3px solid var(--accent);padding:4px 0 4px 16px;color:var(--muted);max-width:68ch}
+.exemples figure p,figcaption+div+p{font-family:var(--serif);font-style:italic}
+.lexique{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px;margin:16px 0 14px}
+.lexique .carte{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.lexique .libelle{font-size:.78rem;color:var(--muted);font-family:var(--serif);font-style:italic}
+footer{position:relative;z-index:1;margin-top:40px;padding-top:20px;border-top:1px solid var(--rule);color:var(--muted);font-size:.8rem}
+</style>
+<script src="assets/JS/acces.js"></script>
+</head>
+<body>
+<div class="effet-ouverture" id="effet-ouverture" aria-hidden="true"></div>
+
+<div class="bandeau-outils">
+  <nav class="bandeau-nav" aria-label="Navigation">
+    <a href="index.html" class="bandeau-nav-link">Fiche</a>
+    <a href="catalogue.html" class="bandeau-nav-link">Marché noir</a>
+    <a href="carte_interactive.html" class="bandeau-nav-link">Carte</a>
+    <a href="Compendium.html" class="bandeau-nav-link">Compendium</a>
+    <a href="ecran-mj.html" class="bandeau-nav-link">Écran MJ</a>
+    <span class="bandeau-nav-link actif" aria-current="page">Kohd</span>
+  </nav>
+  <div class="bandeau-titre">Le Kohd</div>
+</div>
+
+<main>
+  <header>
+    <h1>Le Kohd</h1>
+    <p class="chapo">Langue de la Carte Mère et écriture technologique du monde déchu. Un mot n'a pas de lettres : c'est un circuit qui va d'une charge à une masse.</p>
+  </header>
+
+  <section id="generateur" aria-labelledby="t-gen">
+    <h2 id="t-gen">Écrire en Kohd</h2>
+    <p>Écris une phrase en français : elle devient un seul circuit, mots reliés entre eux, que tu peux enregistrer en SVG.</p>
+    <div class="saisie">
+      <input type="text" id="texte" value="La Carte Mère parle, le réseau écoute." maxlength="120" aria-label="Phrase à traduire en Kohd" autocomplete="off">
+      <label class="case"><input type="checkbox" id="reperes" checked> Afficher les repères de la grille</label>
+    </div>
+    <div class="options">
+      <div class="groupe">
+        <span class="titre-groupe">Fond</span>
+        <label class="case"><input type="color" id="cFond" value="#ffffff"> Couleur</label>
+        <label class="case">Image <input type="file" id="fImg" accept="image/*"></label>
+        <button type="button" id="bImg">Retirer l'image</button>
+      </div>
+      <div class="groupe">
+        <span class="titre-groupe">Traduction</span>
+        <label class="case"><input type="color" id="cTrait" value="#000000"> Couleur</label>
+        <label class="case">Transparence <input type="range" id="rTrans" min="0" max="95" value="0"> <span id="vTrans">0 %</span></label>
+      </div>
+      <button type="button" id="bRaz">Réinitialiser</button>
+    </div>
+    <div class="glyphes" id="sortie" aria-live="polite"></div>
+  </section>
+
+  <section id="noeuds" aria-labelledby="t-noeuds">
+    <h2 id="t-noeuds">Les neuf nœuds</h2>
+    <p>Le Kohd repose sur neuf nœuds disposés en grille. Chacun porte trois lettres, sauf le dernier qui n'en porte que deux. Sous chaque lettre, les points indiquent sa position dans le nœud : c'est le nombre de sous-nœuds à tracer.</p>
+    <div class="grille9" role="img" aria-label="Grille des neuf nœuds : ABC DEF GHI, JKL MNO PQR, STU VWX YZ">
+      <div><small>ABC</small><i>A B C</i></div><div><small>DEF</small><i>D E F</i></div><div><small>GHI</small><i>G H I</i></div>
+      <div><small>JKL</small><i>J K L</i></div><div><small>MNO</small><i>M N O</i></div><div><small>PQR</small><i>P Q R</i></div>
+      <div><small>STU</small><i>S T U</i></div><div><small>VWX</small><i>V W X</i></div><div><small>YZ</small><i>Y Z</i></div>
+    </div>
+  </section>
+
+  <section id="mot" aria-labelledby="t-mot">
+    <h2 id="t-mot">Construire un mot</h2>
+    <ol class="etapes">
+      <li><h3>Poser le nœud de charge</h3>Dessine le nœud de la première lettre et accroche-lui l'indicateur de charge : un trait terminé par une résistance en zigzag. Sa place sur la grille fixe l'orientation de tout le mot.</li>
+      <li><h3>Relier les nœuds</h3>Pour chaque lettre suivante, repère son nœud et relie le nœud courant au nouveau par un trait. Deux lettres consécutives du même nœud restent sur ce nœud.</li>
+      <li><h3>Ajouter les sous-nœuds</h3>Sur le trait qui quitte un nœud, place les points de ses lettres, dans l'ordre. Dans MOTHERBOARD, le nœud du centre porte M (un point) puis O (trois points), séparés par un espace.</li>
+      <li><h3>Marquer les nœuds déjà visités</h3>Quand le mot revient sur un nœud, dessine un anneau autour de lui et raccorde le trait à l'anneau. Sans cela, l'ordre des lettres devient ambigu.</li>
+      <li><h3>Terminer par la masse</h3>L'indicateur de terre (une tige et trois barres décroissantes) ferme le circuit et reçoit les points de la dernière lettre.</li>
+      <li><h3>Lever l'ambiguïté d'orientation</h3>Un mot qui n'occupe que deux nœuds en diagonale (felled, mount, homing) reste flou sur la grille. Ajoute alors le repère d'orientation dans un coin éloigné : un cercle à croix latine (+, le nœud MNO) avec un petit cercle en orbite, relié par une droite, qui pointe vers le nœud de la première lettre. Si la première lettre est dans MNO, le petit cercle se pose au centre de la croix.</li>
+    </ol>
+    <div class="exemples">
+      <figure style="margin:0" class="carte"><div id="ex1"></div><figcaption class="mot">MOTHERBOARD</figcaption><div class="decoupe" id="ex1d"></div></figure>
+      <figure style="margin:0" class="carte"><div id="ex2"></div><figcaption class="mot">MOUNT</figcaption><div class="decoupe" id="ex2d"></div><p style="font-size:14px;color:var(--muted);margin:0">Deux nœuds en diagonale : le cercle à croix latine dans le coin est le nœud MNO. La première lettre (M) est dans MNO, donc le petit cercle est au centre de la croix.</p></figure>
+    </div>
+  </section>
+
+  <section id="phrase" aria-labelledby="t-phrase">
+    <h2 id="t-phrase">Construire une phrase</h2>
+    <p>Exemple du livre : « Le réseau porte la communication de ville en ville. »</p>
+    <ol class="etapes">
+      <li><h3>Ouvrir avec le coupleur</h3>Une série de points de soudure marque le début de la phrase. La longueur des barres n'a aucune signification.</li>
+      <li><h3>Aligner les mots construits</h3>Pose dans l'ordre tous les mots bâtis sur les nœuds. Laisse de côté ceux qui ont une forme simplifiée dans le lexique.</li>
+      <li><h3>Appliquer les articles</h3>Un article se glisse dans le nœud de charge du mot qu'il accompagne.</li>
+      <li><h3>Ajouter les mots du lexique</h3>Les petits mots simplifiés (le, de-à, si-alors) se placent où ils tiennent. « De-à » remplace deux mots et va entre deux glyphes : « de ville à ville » devient « ville de-à ville ».</li>
+      <li><h3>Ponctuer</h3>Le point, le point d'exclamation et le point d'interrogation s'accrochent à la masse du dernier mot. Une virgule coupe le trait de liaison par un petit espace.</li>
+      <li><h3>Raccorder le circuit</h3>Relie la masse de chaque mot à la charge du suivant, lexique compris. Ces liaisons sont des traits droits, en diagonale ou brisés, sans barre. Un trait part aussi du coupleur vers la première charge.</li>
+    </ol>
+  </section>
+
+  <section id="lexique" aria-labelledby="t-lex">
+    <h2 id="t-lex">Lexique</h2>
+    <p>Ces mots ont une forme simplifiée. Ils s'insèrent dans le circuit de la phrase, entre deux mots construits. Les articles se glissent dans le nœud de charge du mot qui suit.</p>
+    <div class="lexique" id="lex"></div>
+  </section>
+
+  <footer>
+    Contenu non officiel, adapté du cadre de campagne Motherboard de Daggerheart. Langue conçue par Chris Willett. Références : kohd.dev (éditeur de circuits) et KohdToSVG (outil en ligne de commande, licence CC BY-SA 4.0).
+  </footer>
+</main>
+
+<script>
+const NODES=["ABC","DEF","GHI","JKL","MNO","PQR","STU","VWX","YZ"];
+const LOC={};
+NODES.forEach((g,i)=>[...g].forEach((c,j)=>LOC[c]={n:i,p:j+1}));
+
+const PAL_ECRAN={node:"var(--texte)",trace:"var(--signal)",sub:"var(--cuivre)",cap:"var(--cuivre)",guide:"var(--filet)",label:"var(--discret)"};
+const PAL_EXPORT={node:"#1a1a1a",trace:"#1a1a1a",sub:"#1a1a1a",cap:"#1a1a1a",guide:"#bbbbbb",label:"#777777"};
+
+function palTraduction(c){return {node:c,trace:c,sub:c,cap:c,guide:"#9aa0a6",label:"#8a9098"};}
+
+function nettoyer(m){
+  return m.toLowerCase().replace(/œ/g,"oe").replace(/æ/g,"ae").normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"").toUpperCase().replace(/[^A-Z]/g,"");
+}
+function decouper(mot){
+  const runs=[];
+  for(const c of mot){
+    const l=LOC[c], der=runs[runs.length-1];
+    if(der&&der.n===l.n) der.l.push({c,p:l.p});
+    else runs.push({n:l.n,l:[{c,p:l.p}]});
+  }
+  const vus={};
+  runs.forEach(r=>{vus[r.n]=(vus[r.n]===undefined)?0:vus[r.n]+1; r.v=vus[r.n];});
+  return runs;
+}
+
+const S=100, MARGE=130, T=3*S+2*MARGE, MR=70;
+const pos=n=>({x:MARGE+S/2+(n%3)*S,y:MARGE+S/2+Math.floor(n/3)*S});
+const rayon=v=>20+6*v;
+const f=x=>x.toFixed(1);
+
+/* ---------- Routage : segments droits ou brisés, jamais sécants ---------- */
+const G=10, N=T/G+1;
+const DIRS=[[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1],[0,-1],[1,-1]];
+const TURN=[0,0.35,0.9,2.5,Infinity];
+const idx=(x,y)=>y*N+x;
+const cleArete=(a,b)=>a<b?a*4096+b:b*4096+a;
+
+class Tas{
+  constructor(){this.a=[];}
+  push(k,s){const a=this.a;a.push([k,s]);let i=a.length-1;
+    while(i>0){const p=(i-1)>>1;if(a[p][0]<=a[i][0])break;[a[p],a[i]]=[a[i],a[p]];i=p;}}
+  pop(){const a=this.a,top=a[0],last=a.pop();
+    if(a.length){a[0]=last;let i=0;
+      for(;;){const l=2*i+1,r=l+1;let m=i;
+        if(l<a.length&&a[l][0]<a[m][0])m=l;
+        if(r<a.length&&a[r][0]<a[m][0])m=r;
+        if(m===i)break;[a[m],a[i]]=[a[i],a[m]];i=m;}}
+    return top;}
+  get taille(){return this.a.length;}
+}
+
+function anneau(n,v){
+  const c=pos(n), r=rayon(v), out=[];
+  for(let y=0;y<N;y++)for(let x=0;x<N;x++){
+    const d=Math.hypot(x*G-c.x,y*G-c.y);
+    if(d>=r+3&&d<=r+22) out.push([x,y,d-r]);
+  }
+  return out;
+}
+const cacheAnneau={};
+const anneauC=(n,v)=>cacheAnneau[n+"-"+v]||(cacheAnneau[n+"-"+v]=anneau(n,v));
+
+function compresser(pts){
+  const o=[pts[0]];
+  for(let i=1;i<pts.length-1;i++){
+    const a=o[o.length-1],b=pts[i],c=pts[i+1];
+    if((b[0]-a[0])*(c[1]-b[1])-(b[1]-a[1])*(c[0]-b[0])!==0) o.push(b);
+  }
+  o.push(pts[pts.length-1]);
+  return o;
+}
+
+/* La charge et la masse sortent près de la même hauteur (milieu du module) :
+   les mots s'enchaînent alors presque en ligne droite. Repli : n'importe quelle hauteur. */
+function chemin(job,disc,occ,diag,mode,bn){
+  if(job.type==="trace") return cheminW(job,disc,occ,diag,mode,bn,999);
+  return cheminW(job,disc,occ,diag,mode,bn,5)||cheminW(job,disc,occ,diag,mode,bn,999);
+}
+function cheminW(job,disc,occ,diag,mode,bn,W){
+  const rail=Math.round((bn.y0+bn.y1)/2);
+  const ends=new Set([job.a.n]); if(job.b) ends.add(job.b.n);
+  const g=new Float32Array(N*N*9).fill(Infinity), par=new Int32Array(N*N*9).fill(-1), ferme=new Uint8Array(N*N*9);
+  const bloque=(x,y)=>{
+    if(x<bn.x0||x>bn.x1||y<bn.y0||y>bn.y1) return true;
+    const i=idx(x,y), d=disc[i]; if(d>=0&&!ends.has(d)) return true;
+    return !mode.cross&&!mode.neg&&occ[i]>=1;
+  };
+  let but,h;
+  if(job.type==="charge"){ but=(x,y)=>x===bn.x0&&Math.abs(y-rail)<=W; h=(x,y)=>Math.max(x-bn.x0,Math.abs(y-rail)-W); }
+  else if(job.type==="masse"){
+    but=(x,y)=>{
+      if(Math.abs(y-rail)>W) return false;
+      for(let k=1;x+k<=bn.x1;k++){
+        const xx=x+k,i=idx(xx,y);
+        if(disc[i]>=0) return false;
+        if(!mode.cross&&!mode.neg){
+          if(occ[i]>=1) return false;
+          if(k<=7) for(const dy of [-1,1]){
+            const yy=y+dy; if(yy<bn.y0||yy>bn.y1) return false;
+            const j=idx(xx,yy); if(disc[j]>=0||occ[j]===1) return false;
+          }
+        }
+      }
+      return true;
+    };
+    h=(x,y)=>Math.max(0,Math.abs(y-rail)-W);
+  }
+  else{
+    const set=new Uint8Array(N*N); anneauC(job.b.n,job.b.v).forEach(([x,y])=>{set[idx(x,y)]=1;});
+    const cb=pos(job.b.n), rb=rayon(job.b.v)+22;
+    but=(x,y)=>set[idx(x,y)]===1;
+    h=(x,y)=>Math.max(0,(Math.hypot(x*G-cb.x,y*G-cb.y)-rb)/G);
+  }
+  const tas=new Tas();
+  anneauC(job.a.n,job.a.v).forEach(([x,y,d])=>{
+    if(bloque(x,y)) return;
+    const s=idx(x,y)*9+8, c=0.05*d+(mode.neg?mode.pres*occ[idx(x,y)]+mode.hist[idx(x,y)]:0); if(c<g[s]){g[s]=c;tas.push(c+h(x,y),s);}
+  });
+  let fin=-1, bestTot=Infinity;
+  while(tas.taille){
+    const [,s]=tas.pop(); if(ferme[s]) continue; ferme[s]=1;
+    const dir=s%9, i=(s-dir)/9, x=i%N, y=(i-x)/N;
+    if(job.type==="masse"&&mode.neg){
+      if(g[s]>=(job.minL||0)&&Math.abs(y-rail)<=W){
+        let cc=0;
+        for(let xx=x+1;xx<=bn.x1&&cc<1e8;xx++){const i2=idx(xx,y); if(disc[i2]>=0){cc=1e9;break;} cc+=mode.pres*occ[i2]+mode.hist[i2];}
+        if(g[s]+cc<bestTot){bestTot=g[s]+cc;fin=s;}
+      }
+      if(g[s]>=bestTot) break;
+    }
+    else if(but(x,y)&&(job.type!=="masse"||g[s]>=(job.minL||0))){fin=s;break;}
+    for(let k=0;k<8;k++){
+      const nx=x+DIRS[k][0], ny=y+DIRS[k][1];
+      if(nx<0||ny<0||nx>=N||ny>=N) continue;
+      if(bloque(nx,ny)) continue;
+      const ni=idx(nx,ny), diagonal=k%2===1; let pen=0;
+      if(diagonal){
+        const partenaire=cleArete(idx(x+DIRS[k][0],y),idx(x,y+DIRS[k][1]));
+        if(diag.has(partenaire)){ if(!mode.cross&&!mode.neg) continue; pen+=mode.neg?mode.pres*3:40; }
+      }
+      if(mode.neg) pen+=mode.pres*occ[ni]+mode.hist[ni];
+      else if(mode.cross&&occ[ni]===1) pen+=40;
+      let tc=0;
+      if(dir!==8){const dd=Math.abs(k-dir),t=Math.min(dd,8-dd); tc=TURN[t]; if(tc===Infinity) continue;}
+      if(disc[ni]>=0) pen+=1.5;
+      const ng=g[s]+(diagonal?1.414:1)+tc+pen+(mode.jit?mode.jit[ni]:0), ns=ni*9+k;
+      if(ng<g[ns]){g[ns]=ng;par[ns]=s;tas.push(ng+h(nx,ny),ns);}
+    }
+  }
+  if(fin<0) return null;
+  const grille=[];
+  for(let s=fin;s>=0;s=par[s]){const i=(s-s%9)/9; grille.push([i%N,(i-i%N)/N]);}
+  grille.reverse();
+  const grilleBut=grille.slice();
+  if(job.type==="masse"){
+    const [lx,ly]=grille[grille.length-1];
+    for(let xx=lx+1;xx<=bn.x1;xx++) grille.push([xx,ly]);
+  }
+  let pts=compresser(grille.map(p=>[p[0]*G,p[1]*G]));
+  let ptsBut=job.type==="masse"?compresser(grilleBut.map(p=>[p[0]*G,p[1]*G])):null;
+  const proj=(node,p)=>{
+    const c=pos(node.n), r=rayon(node.v), d=Math.hypot(p[0]-c.x,p[1]-c.y)||1;
+    return [c.x+(p[0]-c.x)/d*r, c.y+(p[1]-c.y)/d*r];
+  };
+  pts=[proj(job.a,pts[0]),...pts];
+  if(ptsBut) ptsBut=[proj(job.a,ptsBut[0]),...ptsBut];
+  if(job.b) pts=[...pts,proj(job.b,pts[pts.length-1])];
+  return {pts,grille,ptsBut};
+}
+
+function poser(res,occ,diag,mode){
+  const pts=res.pts;
+  for(let i=0;i<pts.length-1;i++){
+    const [x0,y0]=pts[i],[x1,y1]=pts[i+1], L=Math.hypot(x1-x0,y1-y0), n=Math.max(1,Math.ceil(L/3));
+    for(let k=0;k<=n;k++){
+      const px=x0+(x1-x0)*k/n, py=y0+(y1-y0)*k/n, gx=Math.round(px/G), gy=Math.round(py/G);
+      if(!mode.rad){ if(gx>=0&&gy>=0&&gx<N&&gy<N) occ[idx(gx,gy)]=1; continue; }
+      for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++){
+        const ax=gx+dx, ay=gy+dy; if(ax<0||ay<0||ax>=N||ay>=N) continue;
+        if(Math.hypot(ax*G-px,ay*G-py)<mode.rad) occ[idx(ax,ay)]=1;
+      }
+    }
+  }
+  const gr=res.grille;
+  for(let i=0;i<gr.length-1;i++){
+    const [x0,y0]=gr[i],[x1,y1]=gr[i+1];
+    if(x0!==x1&&y0!==y1) diag.add(cleArete(idx(x0,y0),idx(x1,y1)));
+  }
+}
+
+function longueur(pts){let L=0;for(let i=0;i<pts.length-1;i++)L+=Math.hypot(pts[i+1][0]-pts[i][0],pts[i+1][1]-pts[i][1]);return L;}
+function suivre(pts,d){
+  let reste=d;
+  for(let i=0;i<pts.length-1;i++){
+    const [x0,y0]=pts[i],[x1,y1]=pts[i+1],L=Math.hypot(x1-x0,y1-y0);
+    if(reste<=L||i===pts.length-2){const t=L?reste/L:0;return [x0+(x1-x0)*t,y0+(y1-y0)*t];}
+    reste-=L;
+  }
+}
+function pointsDe(pts,lettres){
+  const offs=[]; let u=0;
+  lettres.forEach(x=>{for(let j=0;j<x.p;j++){offs.push(u);u++;} u+=0.7;});
+  const total=Math.max(offs[offs.length-1],1), L=longueur(pts);
+  const pas=Math.max(4,Math.min(9,(0.7*L-12)/total));
+  return offs.map(k=>suivre(pts,12+k*pas));
+}
+
+const cacheMots={};
+function router(mot){
+  if(cacheMots[mot]) return cacheMots[mot];
+  let R=null;
+  for(const [extra,lim] of [[0,1100],[30,600],[60,600]]){
+    const e=routerEssai(mot,extra,lim);
+    if(!R) R=e;
+    if(!e.croise){R=e;break;}
+  }
+  return cacheMots[mot]=R;
+}
+function routerEssai(mot,extra,lim){
+  const MRx=MR+extra;
+  const runs=decouper(mot), used={};
+  runs.forEach(r=>{used[r.n]=Math.max(used[r.n]||0,r.v);});
+  let nul=null;
+  const cols=runs.map(r=>r.n%3), lignes=runs.map(r=>Math.floor(r.n/3));
+  if(Math.max(...cols)-Math.min(...cols)<2||Math.max(...lignes)-Math.min(...lignes)<2){
+    let score=-1;
+    [0,2,6,8].forEach(c=>{
+      const s=Math.min(...runs.map(r=>Math.abs(r.n%3-c%3)+Math.abs(Math.floor(r.n/3)-Math.floor(c/3))));
+      if(s>score){score=s;nul=c;}
+    });
+  }
+  // cadre du module : seulement la zone occupée (nœuds utilisés et modificateur nul)
+  const tous=Object.keys(used).map(Number); if(nul!==null) tous.push(nul);
+  const cs=tous.map(n=>n%3), rs=tous.map(n=>Math.floor(n/3));
+  const b={xL:pos(Math.min(...cs)).x-MRx, xR:pos(Math.max(...cs)).x+MRx,
+           yT:pos(3*Math.min(...rs)).y-MRx, yB:pos(3*Math.max(...rs)).y+MRx};
+  const bn={x0:b.xL/G,x1:b.xR/G,y0:b.yT/G,y1:b.yB/G};
+  const disc=new Int8Array(N*N).fill(-1), zones=[];
+  for(const n in used) zones.push({id:+n,c:pos(+n),R:rayon(used[n])+9});
+  if(nul!==null) zones.push({id:9,c:pos(nul),R:27});
+  zones.forEach(z=>{for(let y=0;y<N;y++)for(let x=0;x<N;x++){
+    if(Math.hypot(x*G-z.c.x,y*G-z.c.y)<=z.R&&disc[idx(x,y)]<0) disc[idx(x,y)]=z.id;}});
+  const jobs=[{type:"charge",a:runs[0],l:[]}];
+  for(let i=0;i<runs.length-1;i++) jobs.push({type:"trace",a:runs[i],b:runs[i+1],l:runs[i].l});
+  {const dl=runs[runs.length-1].l, tot=dl.reduce((a,x)=>a+x.p,0)+0.7*(dl.length-1);
+   jobs.push({type:"masse",a:runs[runs.length-1],l:dl,minL:(12+4*tot)/10+0.5});}
+  const est=j=>{const A=pos(j.a.n);return j.b?Math.hypot(A.x-pos(j.b.n).x,A.y-pos(j.b.n).y):T/2;};
+  const ordres=[jobs.map((_,i)=>i), jobs.map((_,i)=>i).sort((a,b)=>est(jobs[a])-est(jobs[b])), jobs.map((_,i)=>i).reverse()];
+  let graine=7; const hasard=()=>{graine=(graine*16807)%2147483647;return graine/2147483647;};
+  for(let k=0;k<40;k++){ const o=jobs.map((_,i)=>i); for(let i=o.length-1;i>0;i--){const j=Math.floor(hasard()*(i+1));[o[i],o[j]]=[o[j],o[i]];} ordres.push(o); }
+  // deux traces distinctes ne doivent ni se croiser ni se frôler (départs de rond compris)
+  const dSeg=(a,b,c,d)=>{
+    const o=(p,q,r)=>(q[0]-p[0])*(r[1]-p[1])-(q[1]-p[1])*(r[0]-p[0]);
+    if(o(c,d,a)*o(c,d,b)<0&&o(a,b,c)*o(a,b,d)<0) return 0;
+    const pt=(p,u,v)=>{const dx=v[0]-u[0],dy=v[1]-u[1],l=dx*dx+dy*dy;let t=l?((p[0]-u[0])*dx+(p[1]-u[1])*dy)/l:0;t=Math.max(0,Math.min(1,t));return Math.hypot(p[0]-u[0]-t*dx,p[1]-u[1]-t*dy);};
+    return Math.min(pt(a,c,d),pt(b,c,d),pt(c,a,b),pt(d,a,b));
+  };
+  const propre=(res,seuil)=>{
+    for(let i=0;i<res.length;i++)for(let j=i+1;j<res.length;j++){
+      const A=res[i].pts,B=res[j].pts;
+      for(let a=0;a<A.length-1;a++)for(let c=0;c<B.length-1;c++)
+        if(dSeg(A[a],A[a+1],B[c],B[c+1])<seuil) return false;
+    }
+    return true;
+  };
+  // plans : rayon d'occupation autour des traces, écart minimal exigé, nombre d'essais
+  const plans=[[{rad:11,cross:false},8,40],[{rad:8.5,cross:false},7.5,80],[{rad:8.5,cross:false},6.5,80],[{rad:0,cross:false},6,80],[{rad:0,cross:false},5,60],[{rad:0,cross:true},0,43]];
+  const t0=performance.now();
+  let choisi=null, croise=false;
+  const negocier=(rad,seuil,dur)=>{
+    const nj=jobs.length, use=new Uint8Array(N*N), hist=new Float32Array(N*N), diag=new Set();
+    const res=new Array(nj), cells=new Array(nj), edges=new Array(nj), path=new Array(nj);
+    const stamp=(pts,aB)=>{
+      const set=new Set();
+      for(let i=0;i<pts.length-1;i++){
+        const rr=(i===0||(aB&&i===pts.length-2))?Math.max(rad,12.5):rad;
+        const [x0,y0]=pts[i],[x1,y1]=pts[i+1], n=Math.max(1,Math.ceil(Math.hypot(x1-x0,y1-y0)/3));
+        for(let k=0;k<=n;k++){
+          const px=x0+(x1-x0)*k/n, py=y0+(y1-y0)*k/n, gx=Math.round(px/G), gy=Math.round(py/G);
+          for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++){
+            const ax=gx+dx, ay=gy+dy; if(ax<0||ay<0||ax>=N||ay>=N) continue;
+            if(Math.hypot(ax*G-px,ay*G-py)<rr) set.add(idx(ax,ay));
+          }
+        }
+      }
+      return [...set];
+    };
+    const arêtes=gr=>{const o=[];for(let i=0;i<gr.length-1;i++){const [x0,y0]=gr[i],[x1,y1]=gr[i+1];if(x0!==x1&&y0!==y1)o.push(cleArete(idx(x0,y0),idx(x1,y1)));}return o;};
+    const tN=performance.now();
+    for(let it=0;it<300;it++){
+      const pres=Math.min(80,1.5*Math.pow(1.25,it));
+      const ordre=jobs.map((_,i)=>i);
+      if(it>0) for(let i=ordre.length-1;i>0;i--){const j=Math.floor(hasard()*(i+1));[ordre[i],ordre[j]]=[ordre[j],ordre[i]];}
+      for(const i of ordre){
+        if(res[i]){cells[i].forEach(c=>use[c]--); edges[i].forEach(e=>diag.delete(e));}
+        const r=chemin(jobs[i],disc,use,diag,{rad,neg:true,pres,hist},bn);
+        if(!r) return null;
+        res[i]=r; cells[i]=stamp(r.pts,!!jobs[i].b); edges[i]=arêtes(r.grille);
+        path[i]=r.grille.map(q=>idx(q[0],q[1]));
+        cells[i].forEach(c=>use[c]++); edges[i].forEach(e=>diag.add(e));
+      }
+      if(propre(res,seuil)) return res;
+      for(let i=0;i<nj;i++) path[i].forEach(c=>{ if(use[c]>1) hist[c]+=0.8; });
+      if(performance.now()-tN>dur) return null;
+    }
+    return null;
+  };
+  for(const [rad,seuil,frac] of [[9.5,7.5,0.5],[8.5,6.5,0.3]]){
+    if(choisi) break;
+    const r=negocier(rad,seuil,lim*frac);
+    if(r){choisi=r;croise=false;}
+  }
+  for(const [mode0,seuil,essais] of plans){
+    if(choisi) break;
+    if(mode0.cross===false&&performance.now()-t0>lim*1.6) continue;
+    for(let e=0;e<essais&&!choisi;e++){
+      if(mode0.cross===false&&e%8===7&&performance.now()-t0>lim*1.6) break;
+      const ordre=e<ordres.length?ordres[e]:ordres[3+((e*7)%40)];
+      const mode=Object.assign({},mode0);
+      if(e>=3){const amp=0.25+0.5*hasard(); mode.jit=new Float32Array(N*N); for(let i=0;i<mode.jit.length;i++) mode.jit[i]=hasard()*amp;}
+      const occ=new Uint8Array(N*N), diag=new Set(), res=new Array(jobs.length);
+      let ok=true;
+      for(const i of ordre){
+        const r=chemin(jobs[i],disc,occ,diag,mode,bn);
+        if(!r){ok=false;break;}
+        res[i]=r; poser(r,occ,diag,mode);
+      }
+      if(ok&&(seuil===0||propre(res,seuil))){choisi=res;croise=mode.cross;}
+    }
+    if(choisi) break;
+  }
+  if(!choisi){
+    choisi=jobs.map(j=>{
+      const A=pos(j.a.n), B=j.b?pos(j.b.n):(j.type==="charge"?{x:b.xL,y:A.y}:{x:b.xR,y:A.y});
+      return {pts:[[A.x,A.y],[B.x,B.y]]};
+    });
+    croise=true;
+  }
+  const traces=jobs.map((j,i)=>{const pp=choisi[i].ptsBut||choisi[i].pts;return {job:j,pts:pp,dots:j.l.length?pointsDe(pp,j.l):[]};});
+  const ch=traces[0], ma=traces[traces.length-1];
+  return {runs,used,nul,traces,croise,b,mr:MRx,xm:ma.pts[ma.pts.length-1][0],
+    yc:ch.pts[ch.pts.length-1][1], yg:ma.pts[ma.pts.length-1][1]};
+}
+
+/* ---------- Dessin ---------- */
+const poly=(pts,col,w)=>`<polyline points="${pts.map(p=>f(p[0])+","+f(p[1])).join(" ")}" fill="none" stroke="${col}" stroke-width="${w||2.2}" stroke-linecap="round" stroke-linejoin="round"/>`;
+const barre=(x,y,h,col)=>`<line x1="${f(x)}" y1="${f(y-h)}" x2="${f(x)}" y2="${f(y+h)}" stroke="${col}" stroke-width="3" stroke-linecap="round"/>`;
+const point=(x,y,col)=>`<circle cx="${f(x)}" cy="${f(y)}" r="3.2" fill="${col}"/>`;
+
+/* Charge : trait puis résistance en zigzag, vers la gauche */
+function symboleCharge(xe,y,col){
+  const zz=[0,-5,5,-5,5,-5,5,0], pts=[[xe,y],[xe-6,y]];
+  zz.forEach((dy,k)=>pts.push([xe-6-k*20/7,y+dy]));
+  pts.push([xe-26,y],[xe-34,y]);
+  return poly(pts,col);
+}
+/* Terre : tige puis trois barres décroissantes, vers la droite */
+function symboleTerre(xe,y,tige,col){
+  const s=xe+tige;
+  return poly([[xe,y],[s,y]],col)
+    +poly([[s-4,y-9],[s,y-9],[s,y+9],[s-4,y+9]],col)
+    +poly([[s+6-3,y-5.5],[s+6,y-5.5],[s+6,y+5.5],[s+6-3,y+5.5]],col)
+    +poly([[s+12,y-2.5],[s+12,y+2.5]],col);
+}
+function marqueFin(m,x,y,col){
+  if(m===".") return `<circle cx="${f(x+6)}" cy="${f(y)}" r="4.6" fill="${col}"/>`;
+  if(m==="!") return poly([[x,y-8],[x,y+8]],col)+`<polygon points="${f(x)},${f(y)} ${f(x+12)},${f(y-6.5)} ${f(x+12)},${f(y+6.5)}" fill="none" stroke="${col}" stroke-width="2.2" stroke-linejoin="round"/>`;
+  return poly([[x,y-8],[x,y+8]],col)+`<path d="M${f(x)} ${f(y)} L${f(x+5)} ${f(y)} Q${f(x+14)} ${f(y)} ${f(x+14)} ${f(y-6)} Q${f(x+14)} ${f(y-12)} ${f(x+8)} ${f(y-12)}" fill="none" stroke="${col}" stroke-width="2.2" stroke-linecap="round"/>`;
+}
+
+/* Repère d'orientation : le petit cercle se place, autour du cercle à croix latine (nœud MNO),
+   dans la direction du nœud de la première lettre. */
+function repereOrient(p,premier){
+  const dx=premier%3-1, dy=Math.floor(premier/3)-1, r=3.6;
+  if(!dx&&!dy) return {sx:p.x,sy:p.y,r:2,ligne:null};
+  const l=Math.hypot(dx,dy), ux=dx/l, uy=dy/l, D=19;
+  return {sx:p.x+ux*D, sy:p.y+uy*D, r, ligne:[[p.x+ux*9,p.y+uy*9],[p.x+ux*(D-r),p.y+uy*(D-r)]]};
+}
+
+/* Un mot construit sur les nœuds = un module (origine en haut à gauche).
+   Le module est rogné à ce qui est réellement dessiné : plus de grandes marges vides. */
+function moduleMot(it,rep,P){
+  const R=router(it.mot), mark=(it.pon.match(/[.!?]/)||[])[0];
+  const stubG=34, tige=12+(mark?24:0);
+  // --- étendue réelle du dessin (hors charge)
+  const xs=[], ys=[];
+  for(const n in R.used){const p=pos(+n), r=rayon(R.used[n])+1.5; xs.push(p.x-r,p.x+r); ys.push(p.y-r,p.y+r);}
+  if(R.nul!==null){
+    const p=pos(R.nul), o=repereOrient(p,R.runs[0].n);
+    xs.push(p.x-10,p.x+10,o.sx-5,o.sx+5); ys.push(p.y-10,p.y+10,o.sy-5,o.sy+5);
+  }
+  R.traces.forEach((t,k)=>{ if(k===0) return; t.pts.forEach(q=>{xs.push(q[0]);ys.push(q[1]);}); });
+  const ma=R.traces[R.traces.length-1].pts, xm=ma[ma.length-1][0], yg=R.yg;
+  // --- charge : on coupe le fil dès qu'il a dépassé tout le reste
+  const xEnd=Math.max(R.b.xL, Math.min(...xs)-12);
+  let cp=R.traces[0].pts, cut=null;
+  for(let i=0;i<cp.length-1;i++){
+    if(cp[i+1][0]<=xEnd){
+      const dx=cp[i+1][0]-cp[i][0], t=dx?(xEnd-cp[i][0])/dx:0;
+      cut=cp.slice(0,i+1).concat([[xEnd,cp[i][1]+(cp[i+1][1]-cp[i][1])*Math.max(0,Math.min(1,t))]]); break;
+    }
+  }
+  if(!cut) cut=cp.slice();
+  const yc=cut[cut.length-1][1], xL=cut[cut.length-1][0];
+  cut.forEach(q=>{ys.push(q[1]);});
+  const xR=Math.max(Math.max(...xs), xm+tige+14);
+  const yT=Math.min(Math.min(...ys), yc-9, yg-10)-6, yB=Math.max(Math.max(...ys), yc+9, yg+10)+6;
+  const ox=xL-stubG, oy=yT;
+  let o="";
+  if(rep){
+    for(let n=0;n<9;n++){
+      const p=pos(n);
+      o+=`<circle cx="${p.x}" cy="${p.y}" r="20" fill="none" stroke="${P.guide}" stroke-dasharray="2 4"/>`;
+      o+=`<text x="${p.x}" y="${p.y}" fill="${P.label}" font-size="9" letter-spacing="1" text-anchor="middle" dominant-baseline="central" font-family="sans-serif">${NODES[n]}</text>`;
+    }
+  }
+  for(const n in R.used){
+    const p=pos(+n);
+    for(let k=0;k<=R.used[n];k++)
+      o+=`<circle cx="${p.x}" cy="${p.y}" r="${rayon(k)}" fill="none" stroke="${P.node}" stroke-width="2.2"/>`;
+  }
+  R.traces.forEach((t,k)=>{
+    const col=t.job.type==="trace"?P.trace:P.cap;
+    o+=poly(k===0?cut:t.pts,col)+t.dots.map(d=>point(d[0],d[1],P.sub)).join("");
+  });
+  if(R.nul!==null){
+    const p=pos(R.nul), q=repereOrient(p,R.runs[0].n), tr=P.trace;
+    // nœud MNO : cercle à croix latine
+    o+=`<circle cx="${p.x}" cy="${p.y}" r="9" fill="none" stroke="${tr}" stroke-width="2.2"/>`;
+    // croix perpendiculaire (+), bras égaux ; si le petit cercle est au centre, les bras s'arrêtent avant lui
+    const c0=q.ligne?0:3.6, B=5.5;
+    o+=poly([[p.x,p.y-B],[p.x,p.y-c0]],tr,2)+poly([[p.x,p.y+c0],[p.x,p.y+B]],tr,2)
+      +poly([[p.x-B,p.y],[p.x-c0,p.y]],tr,2)+poly([[p.x+c0,p.y],[p.x+B,p.y]],tr,2);
+    // petit cercle en orbite, relié par une droite : il pointe vers le nœud de la première lettre
+    if(q.ligne) o+=poly(q.ligne,tr,2.2);
+    o+=`<circle cx="${q.sx}" cy="${q.sy}" r="${q.r}" fill="none" stroke="${tr}" stroke-width="2.2"/>`;
+  }
+  if(it.article){
+    const p=pos(R.runs[0].n);
+    o+=`<circle cx="${p.x}" cy="${p.y}" r="9" fill="none" stroke="${P.trace}" stroke-width="2"/>`;
+    o+= it.article==="def"
+      ? poly([[p.x,p.y-5],[p.x,p.y+5]],P.trace,2)
+      : poly([[p.x,p.y-5],[p.x,p.y+5]],P.trace,2)+poly([[p.x-5,p.y],[p.x+5,p.y]],P.trace,2);
+  }
+  o+=symboleCharge(xL,yc,P.cap);
+  o+=symboleTerre(xm,yg,tige,P.cap);
+  if(xR>xm+tige+12.5) o+=poly([[xm+tige+12,yg],[xR+2,yg]],P.cap);
+  if(mark) o+=marqueFin(mark,xm+8,yg,P.cap);
+  const rowsN=Object.keys(R.used).map(n=>Math.floor(n/3)); if(R.nul!==null) rowsN.push(Math.floor(R.nul/3));
+  const hm=yB-yT;
+  return {svg:`<g transform="translate(${-ox} ${-oy})">${o}</g>`,
+    w:xR+2-ox, h:hm, yl:yc-oy, yr:yg-oy,
+    nt:pos(3*Math.min(...rowsN)).y-24-oy, nb:pos(3*Math.max(...rowsN)).y+24-oy};
+}
+
+function glyphe(mot,rep,P){
+  const m=moduleMot({mot,pon:"",article:null},rep,P);
+  return `<svg viewBox="0 0 ${m.w} ${m.h}" role="img" aria-label="Glyphe Kohd du mot ${mot}">${m.svg}</svg>`;
+}
+
+/* ---------- Lexique (mots simplifiés, non construits sur les nœuds) ---------- */
+function lexique(id,P){
+  const C=(x,y,r,fill)=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${fill?P.node:"none"}" stroke="${P.node}" stroke-width="2.2"/>`;
+  const L=pts=>poly(pts,P.trace,2.2);
+  const A=(x0,y0,x1,y1)=>{
+    const dx=x1-x0,dy=y1-y0,l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l,bx=x1-ux*6,by=y1-uy*6;
+    return L([[x0,y0],[x1,y1]])+`<polygon points="${f(x1)},${f(y1)} ${f(bx-uy*3.2)},${f(by+ux*3.2)} ${f(bx+uy*3.2)},${f(by-ux*3.2)}" fill="${P.trace}"/>`;
+  };
+  const D=(x,y,s)=>L([[x,y],[x+7,y-7*(s||1)]]);
+  const r=(svg,w,h,yl,yr)=>({svg,w,h,yl,yr:yr===undefined?yl:yr});
+  switch(id){
+    case "ET": return r(C(66,40,11)+C(12,10,4.5)+C(12,70,4.5)+L([[0,10],[30,10],[56,35]])+L([[0,70],[30,70],[56,45]])+L([[0,40],[55,40]])+L([[77,40],[96,40]]),96,80,40);
+    case "OU": return r(C(66,40,11)+C(12,10,4.5)+C(12,70,4.5)+L([[0,10],[30,10],[56,35]])+L([[16.5,70],[30,70],[56,45]])+L([[0,40],[55,40]])+L([[77,40],[96,40]]),96,80,40);
+    case "VRAI": return r(C(15,15,11)+C(77,15,11)+L([[15,4],[77,4]])+L([[15,26],[77,26]])+L([[0,15],[4,15]])+L([[88,15],[92,15]]),92,30,15);
+    case "FAUX": return r(C(15,15,11)+C(77,15,11)+L([[15,4],[62,4]])+L([[30,26],[77,26]])+L([[0,15],[4,15]])+L([[88,15],[92,15]]),92,30,15);
+    case "PARCE": return r(C(10,15,4.5,1)+L([[0,15],[5.5,15]])+L([[14.5,15],[63,15]])+D(34,15)+C(74,15,11)+L([[85,15],[92,15]]),92,30,15);
+    case "DONC": return r(C(18,15,11)+L([[0,15],[7,15]])+L([[29,15],[71.5,15]])+D(48,15)+C(76,15,4.5,1)+L([[80.5,15],[92,15]]),92,30,15);
+    case "SI": return r(C(15,15,11)+L([[0,15],[4,15]])+L([[26,15],[58,15]])+D(38,15),58,30,15);
+    case "SIALORS": return r(L([[0,15],[21,15]])+D(8,15)+C(32,15,11)+L([[43,15],[84,15]])+D(58,15),84,30,15);
+    case "ILYA": return r(C(35,32,10)+L([[0,12],[19,12],[28,25]])+L([[0,52],[19,52],[28,39]])+L([[0,12],[0,52]])+L([[70,12],[51,12],[42,25]])+L([[70,52],[51,52],[42,39]])+L([[70,12],[70,52]]),70,64,32);
+    case "UNIQUE": return r(C(35,16,10)+L([[0,42],[24,42],[29,24]])+L([[70,42],[46,42],[41,24]])+L([[24,42],[46,42]]),70,54,42);
+    case "DEPUIS": return r(C(16,22,11)+C(80,22,11)+L([[27,22],[41,22],[46,6],[50,38],[55,22],[69,22]])+L([[0,22],[5,22]])+L([[91,22],[96,22]]),96,44,22);
+    case "TU": return r(C(18,40,10)+A(18,29,18,6)+L([[0,40],[8,40]])+L([[28,40],[36,40]]),36,56,40);
+    case "JE": return r(C(18,16,10)+A(18,27,18,50)+L([[0,16],[8,16]])+L([[28,16],[36,16]]),36,56,16);
+    case "VOUSTOUS": return r(C(18,44,10)+A(13,33,13,8)+A(23,33,23,8)+L([[0,44],[8,44]])+L([[28,44],[36,44]]),36,56,44);
+    case "NOUS": return r(C(18,12,10)+A(13,23,13,48)+A(23,23,23,48)+L([[0,12],[8,12]])+L([[28,12],[36,12]]),36,56,12);
+    case "IL": return r(C(15,15,10)+L([[0,15],[5,15]])+L([[25,15],[56,15]])+D(38,15),56,30,15);
+    case "ILS": return r(C(15,17,10)+L([[0,17],[5,17]])+L([[25,17],[56,17]])+D(32,17)+D(42,17,-1),56,34,17);
+    case "SON": return r(C(15,15,10)+C(15,15,3,1)+L([[0,15],[5,15]])+L([[25,15],[56,15]])+D(38,15),56,30,15);
+    case "SES": return r(C(15,17,10)+C(15,17,3,1)+L([[0,17],[5,17]])+L([[25,17],[56,17]])+D(32,17)+D(42,17,-1),56,34,17);
+    case "ART_DEF": return r(C(20,15,9)+L([[20,8],[20,22]])+L([[0,15],[11,15]])+L([[29,15],[40,15]]),40,30,15);
+    case "ART_IND": return r(C(20,15,9)+L([[20,8],[20,22]])+L([[14,15],[26,15]])+L([[0,15],[11,15]])+L([[29,15],[40,15]]),40,30,15);
+  }
+}
+const LEXIQUE_LIBELLES=[
+  ["ET","et"],["OU","ou"],["VRAI","vrai, oui"],["FAUX","faux, non"],["PARCE","parce que, puisque"],["DONC","donc, cela implique"],
+  ["SI","si"],["SIALORS","si ... alors"],["ILYA","il y a, il existe"],["UNIQUE","unique"],["DEPUIS","depuis ... vers"],
+  ["TU","tu, toi"],["JE","je, moi"],["VOUSTOUS","vous tous"],["NOUS","nous"],["IL","il, elle, iel"],["ILS","ils, elles, iels"],
+  ["SON","son, sa, sien, sienne, leur"],["SES","ses, siens, siennes, leurs"],["ART_DEF","le, la, les"],["ART_IND","un, une, des"]
+];
+
+/* ---------- Lecture de la phrase ---------- */
+const MOTS1={et:"ET",ou:"OU",vrai:"VRAI",oui:"VRAI",faux:"FAUX",non:"FAUX",puisque:"PARCE",donc:"DONC",si:"SI",unique:"UNIQUE",
+  tu:"TU",toi:"TU",je:"JE",moi:"JE",nous:"NOUS",il:"IL",elle:"IL",iel:"IL",ils:"ILS",elles:"ILS",iels:"ILS",
+  son:"SON",sa:"SON",sien:"SON",sienne:"SON",leur:"SON",ses:"SES",siens:"SES",siennes:"SES",leurs:"SES"};
+const MOTS2={"parce que":"PARCE","cela implique":"DONC","vous tous":"VOUSTOUS","il existe":"ILYA"};
+const MOTS3={"il y a":"ILYA"};
+const ARTICLES={le:"def",la:"def",les:"def",l:"def",un:"indef",une:"indef",des:"indef"};
+
+function lireTexte(txt){
+  const T=[];
+  txt.replace(/[’']/g," ").split(/\s+/).filter(Boolean).forEach(t=>{
+    const pon=(t.match(/[,.!?]/g)||[]).join("");
+    const bas=t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[,.!?]/g,"");
+    if(bas==="depuis-vers"||bas==="si-alors"){T.push({n:bas,pon,lex:bas==="si-alors"?"SIALORS":"DEPUIS"});return;}
+    const morceaux=t.split("-").filter(Boolean);
+    morceaux.forEach((m,i)=>{
+      const n=m.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/œ/g,"oe").replace(/[^a-z]/g,"");
+      const p=(i===morceaux.length-1)?pon:"";
+      if(!n){ if(T.length) T[T.length-1].pon+=p; return; }
+      T.push({n,pon:p});
+    });
+  });
+  // « depuis ... vers » et « si ... alors » : le premier mot disparaît, le second devient le symbole
+  const paire=(a,b,id)=>{
+    for(let i=0;i<T.length;i++){
+      if(T[i].n!==a||T[i].skip||T[i].lex) continue;
+      for(let j=i+1;j<T.length;j++){
+        if(T[j].n===b&&!T[j].skip&&!T[j].lex){T[i].skip=true;T[j].lex=id;break;}
+      }
+    }
+  };
+  paire("depuis","vers","DEPUIS"); paire("si","alors","SIALORS");
+  const items=[]; let pendant=null;
+  const pousser=it=>{
+    if(it.kind==="mot"&&pendant){it.article=pendant;pendant=null;}
+    else if(it.kind==="lex"&&pendant){items.push({kind:"lex",id:pendant==="def"?"ART_DEF":"ART_IND",pon:""});pendant=null;}
+    items.push(it);
+  };
+  for(let i=0;i<T.length;i++){
+    const t=T[i];
+    if(t.skip) continue;
+    if(t.lex){pousser({kind:"lex",id:t.lex,pon:t.pon});continue;}
+    let fait=false;
+    for(const [len,table] of [[3,MOTS3],[2,MOTS2]]){
+      if(fait||i+len>T.length) continue;
+      const suite=T.slice(i,i+len);
+      if(suite.some(x=>x.skip||x.lex)) continue;
+      const id=table[suite.map(x=>x.n).join(" ")];
+      if(id){pousser({kind:"lex",id,pon:suite[len-1].pon});i+=len-1;fait=true;}
+    }
+    if(fait) continue;
+    if(MOTS1[t.n]){pousser({kind:"lex",id:MOTS1[t.n],pon:t.pon});continue;}
+    if(ARTICLES[t.n]){ if(pendant) items.push({kind:"lex",id:pendant==="def"?"ART_DEF":"ART_IND",pon:""}); pendant=ARTICLES[t.n]; continue;}
+    const mot=nettoyer(t.n);
+    if(mot) pousser({kind:"mot",mot,pon:t.pon,article:null});
+  }
+  if(pendant) items.push({kind:"lex",id:pendant==="def"?"ART_DEF":"ART_IND",pon:""});
+  return items.slice(0,40);
+}
+
+/* ---------- Phrase : coupleur, modules côte à côte, liaisons ---------- */
+const ECHELLE=0.7;
+function graineDe(s){let a=1779033703;for(let i=0;i<s.length;i++){a=Math.imul(a^s.charCodeAt(i),2654435761);a^=a>>>15;}return a>>>0;}
+function alea(seed){let a=seed;return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+
+/* Liaison entre deux modules : droite, diagonale ou brisée. Forme et position varient
+   (graine propre à chaque liaison) au lieu d'être toujours centrées. */
+function formeLien(xa,ya,xb,yb,seed){
+  const dy=yb-ya, ady=Math.abs(dy), dx=xb-xa, m=5;
+  if(ady<0.5||dx<=2*m) return [[xa,ya],[xb,yb]];
+  const rnd=alea(graineDe(seed)), sg=dy>0?1:-1, avail=dx-2*m;
+  const style=rnd();
+  const t=0.05+0.9*rnd();
+  if(ady>14&&style<0.35){                      // brisée : deux diagonales séparées par un palier
+    const h=Math.min(ady/2,avail*0.3), libre=avail-2*h, ym=ya+dy/2;
+    const x1=xa+m+libre*0.5*t, x2=x1+h+libre*0.25;
+    return [[xa,ya],[x1,ya],[x1+h,ym],[x2,ym],[x2+h,yb],[xb,yb]];
+  }
+  const hx=Math.min(ady,avail);                // diagonale à 45° si la place le permet
+  const libre=avail-hx, x1=xa+m+libre*t;
+  return [[xa,ya],[x1,ya],[x1+hx,yb],[xb,yb]];
+}
+function lien(xa,ya,xb,yb,col,coupe,seed){
+  const pts=formeLien(xa,ya,xb,yb,seed||"x");
+  if(!coupe) return poly(pts,col);
+  const L=longueur(pts), a=Math.max(0,L*0.4-3), b=Math.min(L,L*0.4+3);
+  const part=(d0,d1)=>{
+    const o=[suivre(pts,d0)]; let u=0;
+    for(let i=0;i<pts.length-1;i++){
+      const l=Math.hypot(pts[i+1][0]-pts[i][0],pts[i+1][1]-pts[i][1]); u+=l;
+      if(u>d0+0.01&&u<d1-0.01) o.push(pts[i+1]);
+    }
+    o.push(suivre(pts,d1)); return o;
+  };
+  return poly(part(0,a),col)+poly(part(b,L),col);
+}
+function phrase(items,rep,P,exporter,fond){
+  fond=fond||{bg:"#ffffff",img:null,opacite:1};
+  const mods=items.map(it=>it.kind==="lex"?lexique(it.id,P):moduleMot(it,rep,P));
+  const VP=14, PAD=12, COUPW=34;
+  const graine0=items.map(i=>i.mot||i.id).join("|");
+  // hauteurs : moitié centré, moitié posé près de la sortie du précédent (petit décalage variable)
+  const Hc=Math.max(...mods.map(m=>m.h));
+  mods[0].oy=(Hc-mods[0].h)/2;
+  for(let i=1;i<mods.length;i++){
+    const a=mods[i-1], b=mods[i], r=alea(graineDe(graine0+"@"+i));
+    const dec=r()<0.4?0:(r()*2-1)*10;
+    b.oy=0.75*(a.oy+a.yr-b.yl+dec)+0.25*(Hc-b.h)/2;
+  }
+  const oyMin=Math.min(...mods.map(m=>m.oy));
+  mods.forEach(m=>{m.oy+=VP-oyMin;});
+  const H0=Math.max(...mods.map(m=>m.oy+m.h))-VP;
+  // coupleur : pile de barres de longueurs inégales, sur toute la hauteur des nœuds
+  const top=Math.min(...mods.map(m=>m.oy+(m.nt===undefined?0:m.nt)));
+  const bot=Math.max(...mods.map(m=>m.oy+(m.nb===undefined?m.h:m.nb)));
+  const cy=(top+bot)/2, cx=PAD, rnd=alea(graineDe(items.map(i=>i.mot||i.id).join("|")));
+  const ecart=(dy,virg)=>Math.max(18,Math.min(12+Math.abs(dy)*0.35,44))+(virg?14:0);
+  let x=PAD+COUPW+ecart(cy-(mods[0].oy+mods[0].yl));
+  mods.forEach((m,i)=>{
+    m.x=x;
+    if(i<mods.length-1){const n=mods[i+1]; x+=m.w+ecart((n.oy+n.yl)-(m.oy+m.yr),items[i].pon.includes(","));}
+    else x+=m.w;
+  });
+  const W=x+PAD, H=H0+2*VP;
+  let o="";
+  mods.forEach(m=>{o+=`<g transform="translate(${f(m.x)} ${f(m.oy)})">${m.svg}</g>`;});
+  const nb=Math.max(6,Math.round((bot-top)/6.2)), pas=(bot-top)/(nb-1);
+  let prev=0;
+  for(let k=0;k<nb;k++){
+    let l=6+rnd()*(COUPW-8); if(Math.abs(l-prev)<5) l=6+((l-6+11)%(COUPW-8)); prev=l;
+    const y=top+k*pas; o+=`<line x1="${cx}" y1="${f(y)}" x2="${f(cx+l)}" y2="${f(y)}" stroke="${P.cap}" stroke-width="3"/>`;
+  }
+  const m0=mods[0], yc0=m0.oy+m0.yl, xa=PAD+COUPW, xb=m0.x;
+  o+=lien(xa,cy,xb,yc0,P.cap,false,graine0+"#c");
+  // liaisons : droites, diagonales ou brisées, sans barres ; la virgule coupe la ligne
+  for(let i=0;i<mods.length-1;i++){
+    const a=mods[i], b=mods[i+1], xR=a.x+a.w, ya=a.oy+a.yr, xL=b.x, yb=b.oy+b.yl;
+    o+=lien(xR,ya,xL,yb,P.trace,items[i].pon.includes(","),graine0+"#"+i);
+  }
+  let bg=`<rect width="${f(W)}" height="${f(H)}" fill="${fond.bg}"/>`;
+  if(fond.img) bg+=`<image href="${fond.img}" xlink:href="${fond.img}" x="0" y="0" width="${f(W)}" height="${f(H)}" preserveAspectRatio="xMidYMid slice"/>`;
+  const attrs=exporter?`xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${f(W)}" height="${f(H)}"`
+    :`xmlns:xlink="http://www.w3.org/1999/xlink" style="width:${Math.round(W*ECHELLE)}px;max-width:none;height:auto;display:block"`;
+  return `<svg ${attrs} viewBox="0 0 ${f(W)} ${f(H)}" role="img" aria-label="Phrase en Kohd">${bg}<g opacity="${fond.opacite}">${o}</g></svg>`;
+}
+
+function puces(mot){
+  return decouper(mot).map(r=>`<span><b>${r.l.map(x=>x.c).join("")}</b> ${NODES[r.n]}${r.v?" (anneau)":""}</span>`).join("");
+}
+
+let imgFond=null;
+const el=id=>document.getElementById(id);
+function options(){
+  return {P:palTraduction(el("cTrait").value),
+    fond:{bg:el("cFond").value,img:imgFond,opacite:Math.max(0.03,1-el("rTrans").value/100)}};
+}
+function telecharger(items){
+  const {P,fond}=options();
+  const svg=phrase(items,false,P,true,fond);
+  const url=URL.createObjectURL(new Blob([svg],{type:"image/svg+xml"}));
+  const a=document.createElement("a");
+  a.href=url; a.download="kohd-phrase.svg"; a.click();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+
+function afficher(){
+  const items=lireTexte(el("texte").value);
+  const zone=el("sortie"), rep=el("reperes").checked, {P,fond}=options();
+  el("vTrans").textContent=el("rTrans").value+" %";
+  zone.innerHTML="";
+  if(!items.length){
+    zone.innerHTML='<div class="vide">Écris au moins une lettre de A à Z pour voir apparaître le circuit.</div>';
+    return;
+  }
+  const c=document.createElement("div"); c.className="carte";
+  c.innerHTML=phrase(items,rep,P,false,fond);
+  const b=document.createElement("button"); b.textContent="Télécharger en SVG"; b.style.marginTop="12px";
+  b.addEventListener("click",()=>telecharger(items));
+  c.appendChild(b); zone.appendChild(c);
+}
+["texte","cFond","cTrait","rTrans"].forEach(id=>el(id).addEventListener("input",afficher));
+el("reperes").addEventListener("change",afficher);
+el("fImg").addEventListener("change",e=>{
+  const fi=e.target.files[0]; if(!fi) return;
+  const r=new FileReader();
+  r.onload=()=>{imgFond=r.result;afficher();};
+  r.readAsDataURL(fi);
+});
+el("bImg").addEventListener("click",()=>{imgFond=null;el("fImg").value="";afficher();});
+el("bRaz").addEventListener("click",()=>{
+  el("cFond").value="#ffffff";el("cTrait").value="#000000";el("rTrans").value=0;imgFond=null;el("fImg").value="";afficher();
+});
+afficher();
+
+[["ex1","ex1d","MOTHERBOARD"],["ex2","ex2d","MOUNT"]].forEach(([g,d,m])=>{
+  document.getElementById(g).innerHTML=glyphe(m,true,PAL_ECRAN);
+  document.getElementById(d).innerHTML=puces(m);
+});
+document.getElementById("lex").innerHTML=LEXIQUE_LIBELLES.map(([id,lib])=>{
+  const m=lexique(id,PAL_ECRAN);
+  return `<div class="carte"><svg viewBox="-4 -4 ${m.w+8} ${m.h+8}" style="height:54px;width:auto;max-width:100%" role="img" aria-label="${lib}">${m.svg}</svg><div class="libelle">${lib}</div></div>`;
+}).join("");
+
+// effet d'ouverture : scintillement d'étoiles (une fois au chargement)
+(function(){
+  const c=document.getElementById("effet-ouverture");
+  if(!c||(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)) return;
+  for(let i=0;i<30;i++){
+    const e=document.createElement("span"); e.className="particule-etoile";
+    const t=2+Math.random()*3;
+    e.style.width=t+"px"; e.style.height=t+"px";
+    e.style.top=Math.random()*100+"%"; e.style.left=Math.random()*100+"%";
+    e.style.animationDelay=Math.random()*0.7+"s";
+    c.appendChild(e);
+  }
+  setTimeout(function(){c.innerHTML="";},2600);
+})();
+</script>
+</body>
+</html>

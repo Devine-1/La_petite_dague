@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Écran MJ - La petite dague</title>
+<link rel="icon" type="image/svg+xml" href="assets/Image/onglet.svg">
+<style>
+  /* =========================================================
+     POLICES (identiques au reste de l'outil, chargées depuis assets/Font)
+     ========================================================= */
+  @font-face{ font-family:"Montserrat"; src:url("assets/Font/Montserrat-Thin.ttf"); font-weight:100; }
+  @font-face{ font-family:"Montserrat"; src:url("assets/Font/Montserrat-Light.ttf"); font-weight:300; }
+  @font-face{ font-family:"Montserrat"; src:url("assets/Font/Montserrat-Regular.ttf"); font-weight:400; }
+  @font-face{ font-family:"Montserrat"; src:url("assets/Font/Montserrat-SemiBold.ttf"); font-weight:600; }
+  @font-face{ font-family:"League Spartan"; src:url("assets/Font/LeagueSpartan-ExtraBold.ttf"); font-weight:800; }
+  @font-face{ font-family:"Merriweather"; src:url("assets/Font/Merriweather-Italic.ttf"); font-weight:400; font-style:italic; }
+  @font-face{ font-family:"Merriweather"; src:url("assets/Font/Merriweather-BoldItalic.ttf"); font-weight:700; font-style:italic; }
+
+  :root{
+    --ink:#eeeef7;
+    --muted:#a9a6c8;
+    --paper:rgba(40,44,74,.55);
+    --paper-2:rgba(58,65,105,.45);
+    --charcoal:#14162b;
+    --rule:rgba(190,194,230,.25);
+    --accent:#a691d2;
+    --accent-2:#7bd3a0;
+    --danger:#ff8080;
+    --danger-bg:rgba(255,128,128,.14);
+    --phy:#e08a5a;
+    --mag:#7fa8e0;
+    font-family:"Montserrat", sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html, body{ height:100%; }
+  body{
+    margin:0; color:var(--ink);
+    position:relative;
+    overflow-x:hidden;
+    background:
+      radial-gradient(ellipse at 15% 15%, rgba(104,139,190,.28), transparent 42%),
+      radial-gradient(ellipse at 85% 20%, rgba(166,135,202,.27), transparent 42%),
+      radial-gradient(ellipse at 70% 85%, rgba(109,91,164,.24), transparent 45%),
+      radial-gradient(ellipse at 25% 80%, rgba(81,133,177,.18), transparent 40%),
+      linear-gradient(135deg, #12152b 0%, #191b35 45%, #211b3a 100%);
+    background-attachment:fixed;
+  }
+  body::before{
+    content:""; position:fixed; inset:-15%; pointer-events:none; z-index:0;
+    background:
+      radial-gradient(ellipse at 35% 45%, rgba(143,179,211,.09), transparent 35%),
+      radial-gradient(ellipse at 70% 55%, rgba(181,151,215,.09), transparent 38%);
+    filter:blur(55px); transform:rotate(-8deg);
+  }
+  body::after{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.55;
+    background-image:
+      radial-gradient(circle at 8% 13%, rgba(235,235,255,.7) 0 1px, transparent 2px),
+      radial-gradient(circle at 18% 72%, rgba(210,225,255,.45) 0 1px, transparent 2px),
+      radial-gradient(circle at 32% 28%, rgba(230,220,255,.55) 0 1px, transparent 2px),
+      radial-gradient(circle at 47% 83%, rgba(225,235,255,.45) 0 1px, transparent 2px),
+      radial-gradient(circle at 61% 18%, rgba(230,225,255,.55) 0 1px, transparent 2px),
+      radial-gradient(circle at 76% 63%, rgba(220,230,255,.45) 0 1px, transparent 2px),
+      radial-gradient(circle at 89% 32%, rgba(235,225,255,.5) 0 1px, transparent 2px);
+  }
+
+  /* --- Bandeau de navigation (identique au reste du site) --- */
+  .bandeau-outils{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:14px; background:var(--charcoal); margin:0 0 20px 0; padding:12px 24px; position:relative; z-index:2;}
+  .bandeau-nav{display:flex; gap:8px; flex-wrap:wrap;}
+  .bandeau-nav-link{cursor:pointer; text-decoration:none; font-family:inherit; border:1px solid rgba(244,239,228,.3); border-radius:999px; padding:7px 18px; font-size:.72rem; font-weight:bold; text-transform:lowercase; letter-spacing:.03em; color:var(--ink); background:transparent; white-space:nowrap; display:inline-block;}
+  .bandeau-nav-link:hover{background:rgba(244,239,228,.15);}
+  .bandeau-nav-link.actif{background:var(--ink); color:var(--charcoal); border-color:var(--ink); cursor:default;}
+  .bandeau-titre{grid-column:2; justify-self:center; margin:0; font-family:"League Spartan", sans-serif; font-size:1.05rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); white-space:nowrap; text-shadow:0 0 20px rgba(174,157,220,.30);}
+  .bandeau-groupe{display:flex; gap:8px; align-items:center; flex-wrap:wrap; justify-self:end;}
+  .bandeau-separateur{width:1px; align-self:stretch; background:rgba(244,239,228,.25);}
+  .bandeau-btn{cursor:pointer; font-family:inherit; border:1px solid rgba(244,239,228,.3); border-radius:999px; padding:7px 18px; font-size:.72rem; font-weight:bold; text-transform:lowercase; letter-spacing:.03em; color:var(--ink); background:transparent; white-space:nowrap;}
+  .bandeau-btn:hover{background:var(--ink); color:var(--charcoal); border-color:var(--ink);}
+  @media (max-width:900px){ .bandeau-outils{grid-template-columns:1fr; justify-items:center; text-align:center;} .bandeau-titre{grid-column:1;} .bandeau-groupe{justify-self:center;} .bandeau-separateur{display:none;} }
+
+  .glass{
+    background:var(--paper); border:1px solid var(--rule); border-radius:14px;
+    backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    box-shadow:0 10px 26px rgba(0,0,0,.20);
+  }
+  .btn{ font-family:inherit; font-size:.8rem; background:var(--paper-2); border:1px solid var(--rule); border-radius:999px; padding:7px 16px; cursor:pointer; color:var(--ink); }
+  .btn:hover{ border-color:var(--accent); color:var(--accent); }
+  .btn-primaire{ background:var(--accent); color:var(--charcoal); border-color:var(--accent); font-weight:bold; }
+  .btn-primaire:hover{ filter:brightness(1.1); color:var(--charcoal); }
+  .ronde-btn{
+    width:24px; height:24px; border-radius:50%; border:1px solid var(--rule); background:var(--charcoal);
+    color:var(--ink); cursor:pointer; font-size:.9rem; line-height:1; display:inline-flex; align-items:center; justify-content:center; padding:0;
+  }
+  .ronde-btn:hover{ border-color:var(--accent); color:var(--accent); }
+
+  /* =========================================================
+     GRILLE GÉNÉRALE : mémos (gauche) / centre / adversaires (droite)
+     ========================================================= */
+  .app{ position:relative; z-index:1; max-width:1720px; margin:0 auto; padding:0 20px 40px; display:grid; grid-template-columns:280px minmax(0,1fr) 460px; grid-template-rows:auto auto; gap:16px; align-items:start; }
+  .colonne-memos{ grid-column:1; grid-row:1 / 3; }
+  .colonne-centre{ grid-column:2; grid-row:1; }
+  .colonne-adversaires{ grid-column:2; grid-row:2; }
+  .colonne-environnements{ grid-column:3; grid-row:1 / 3; }
+  @media (max-width:1300px){
+    .app{ grid-template-columns:1fr; grid-template-rows:none; }
+    .colonne-memos, .colonne-adversaires, .colonne-centre, .colonne-environnements{ grid-column:1; grid-row:auto; position:static; max-height:none; }
+  }
+
+  /* --- Colonne gauche : mémos --- */
+  .colonne-memos{ position:sticky; top:16px; max-height:calc(100vh - 32px); display:flex; flex-direction:column; gap:10px; padding:14px; overflow-y:auto; }
+  .colonne-memos h2{ font-family:"League Spartan", sans-serif; font-size:.85rem; letter-spacing:.08em; margin:0; color:var(--muted); text-transform:uppercase; }
+  .memo-tabs{ display:flex; flex-wrap:wrap; gap:6px; }
+  .memo-tab{ cursor:pointer; font:inherit; font-size:.72rem; font-weight:bold; text-transform:lowercase; letter-spacing:.02em; border:1px solid var(--rule); background:transparent; color:var(--ink); border-radius:999px; padding:6px 14px; }
+  .memo-tab:hover{ border-color:var(--accent); }
+  .memo-tab.actif{ background:var(--ink); color:var(--charcoal); border-color:var(--ink); }
+  .memo-panel{ display:none; flex-direction:column; gap:12px; }
+  .memo-panel.actif{ display:flex; }
+
+  .memo-carte{ background:var(--paper-2); border:1px solid var(--rule); border-radius:10px; padding:10px 12px; }
+  .memo-carte h3{ margin:0 0 4px; font-family:"League Spartan", sans-serif; font-size:.88rem; letter-spacing:.02em; color:var(--ink); }
+  .memo-carte p{ margin:0; font-size:.8rem; line-height:1.5; color:var(--muted); }
+  .memo-carte p + p{ margin-top:6px; }
+  .memo-carte .memo-note{ font-style:italic; font-family:"Merriweather", serif; font-size:.75rem; margin-top:8px; }
+  .memo-liste{ margin:6px 0 0; padding-left:18px; font-size:.8rem; line-height:1.5; color:var(--muted); }
+  .memo-liste li{ margin-bottom:4px; }
+  .memo-liste b{ color:var(--ink); }
+  .memo-intro{ font-size:.8rem; line-height:1.5; color:var(--muted); margin:0 0 4px; }
+  .memo-bataille-formule{
+    font-family:"League Spartan",sans-serif; font-size:1rem; text-align:center;
+    color:var(--ink); background:var(--charcoal); border:1px solid var(--rule);
+    border-radius:10px; padding:9px; margin-bottom:10px;
+  }
+  .bataille-compteurs{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px; }
+  .bataille-compteur{
+    background:var(--charcoal); border:1px solid var(--rule); border-radius:10px;
+    padding:8px; text-align:center;
+  }
+  .bataille-compteur-label{
+    display:block; font-size:.62rem; text-transform:uppercase; letter-spacing:.04em;
+    color:var(--muted); margin-bottom:5px;
+  }
+  .bataille-compteur-controles{ display:flex; align-items:center; justify-content:center; gap:6px; }
+  .bataille-compteur-valeur{
+    font-family:"League Spartan",sans-serif; font-size:1.15rem; min-width:30px;
+  }
+  .bataille-compteur .ronde-btn{ width:22px; height:22px; font-size:.8rem; }
+  .memo-bataille-note{
+    font-size:.7rem; line-height:1.4; color:var(--muted); font-style:italic;
+    margin-top:8px;
+  }
+
+  /* --- Colonne centrale --- */
+  .colonne-centre{ display:flex; flex-direction:column; gap:16px; min-width:0; }
+  .rangee-outils-mj{ display:flex; flex-wrap:wrap; gap:16px; align-items:flex-start; }
+  .rangee-outils-mj > .glass{ flex:1 1 260px; min-width:240px; padding:14px; display:flex; flex-direction:column; gap:10px; }
+  .rangee-outils-mj h2{ font-family:"League Spartan", sans-serif; font-size:.85rem; letter-spacing:.08em; margin:0; color:var(--muted); text-transform:uppercase; }
+
+  /* peur */
+  .peur-header{ display:flex; align-items:center; justify-content:space-between; }
+  .peur-controles{ display:flex; align-items:center; gap:8px; }
+  .peur-valeur{ font-family:"League Spartan", sans-serif; font-weight:800; font-size:1rem; min-width:52px; text-align:center; }
+  .peur-track{ display:flex; flex-wrap:wrap; gap:5px; }
+  .peur-box{ width:17px; height:17px; border-radius:4px; border:2px solid var(--accent); background:var(--paper); cursor:pointer; }
+  .peur-box.filled{ background:var(--accent); box-shadow:0 0 8px rgba(166,145,210,.7); }
+
+  /* compteurs divers */
+  .cpt-form{ display:flex; gap:6px; }
+  .cpt-form input[type="text"]{ flex:2; min-width:0; font:inherit; font-size:.78rem; padding:6px 7px; border:1px solid var(--rule); border-radius:8px; background:var(--charcoal); color:var(--ink); }
+  .cpt-form input[type="number"]{ flex:1; width:56px; font:inherit; font-size:.78rem; padding:6px 4px; border:1px solid var(--rule); border-radius:8px; background:var(--charcoal); color:var(--ink); text-align:center; }
+  .cpt-form input:focus{ outline:none; border-color:var(--accent); }
+  .cpt-liste{ display:flex; flex-direction:column; gap:8px; max-height:180px; overflow-y:auto; padding-right:2px; }
+  .cpt-item{ display:flex; align-items:center; justify-content:space-between; gap:8px; background:var(--paper-2); border:1px solid var(--rule); border-radius:10px; padding:7px 9px; }
+  .cpt-item-label{ font-size:.78rem; flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .cpt-item-controls{ display:flex; align-items:center; gap:6px; }
+  .cpt-item-valeur{ font-family:"League Spartan", sans-serif; font-weight:800; min-width:22px; text-align:center; }
+  .cpt-item-remove{ background:none; border:none; color:var(--muted); cursor:pointer; font-size:1rem; padding:0 2px; }
+  .cpt-item-remove:hover{ color:var(--danger); }
+  .cpt-vide{ text-align:center; color:var(--muted); font-style:italic; font-family:"Merriweather",serif; font-size:.78rem; padding:8px 0; }
+
+  /* dés */
+  .dice-attaque-row{ display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+  .dice-attaque-row input[type="number"]{
+    width:56px; font:inherit; font-size:.85rem; padding:5px; border:1px solid var(--rule);
+    border-radius:8px; background:var(--charcoal); color:var(--ink); text-align:center;
+  }
+  .dice-attaque-row label{ font-size:.72rem; color:var(--muted); }
+  .dice-custom-row{ display:flex; gap:6px; }
+  .dice-custom-row input[type="text"]{
+    flex:1; min-width:0; font:inherit; font-size:.8rem; padding:6px 8px; border:1px solid var(--rule);
+    border-radius:8px; background:var(--charcoal); color:var(--ink);
+  }
+  .dice-custom-row input[type="text"]:focus{ outline:none; border-color:var(--accent); }
+  .dice-roll-btn{
+    cursor:pointer; font-family:"League Spartan", sans-serif; font-size:.75rem; letter-spacing:.03em;
+    background:var(--accent); color:var(--charcoal); border:none; border-radius:999px; padding:8px 16px; font-weight:bold;
+    white-space:nowrap;
+  }
+  .dice-roll-btn:hover{ filter:brightness(1.1); }
+  .dice-roll-btn.phy{ border:1px solid var(--phy); color:var(--phy); background:var(--paper-2); }
+  .dice-roll-btn.mag{ border:1px solid var(--mag); color:var(--mag); background:var(--paper-2); }
+  .dice-history{ max-height:180px; overflow-y:auto; display:flex; flex-direction:column-reverse; gap:8px; padding-right:2px; }
+  .dice-entry{ background:var(--paper-2); border:1px solid var(--rule); border-radius:10px; padding:8px 10px; font-size:.78rem; }
+  .dice-entry-titre{ font-weight:bold; display:flex; justify-content:space-between; }
+  .dice-entry-detail{ color:var(--muted); font-size:.72rem; margin-top:2px; }
+  .dice-entry-total{ font-family:"League Spartan", sans-serif; font-size:1.1rem; }
+  .dice-entry.attaque .dice-entry-total{ color:var(--accent); }
+  .dice-entry.degats .dice-entry-total.phy{ color:var(--phy); }
+  .dice-entry.degats .dice-entry-total.mag{ color:var(--mag); }
+  .dice-clear-row{ display:flex; justify-content:flex-end; }
+  .dice-clear-row .sb-mini-btn[disabled]{ opacity:.4; cursor:default; pointer-events:none; }
+  .dice-vide{ text-align:center; color:var(--muted); font-style:italic; font-family:"Merriweather",serif; font-size:.8rem; padding:14px 0; }
+  .des-inline{
+    cursor:pointer; font:inherit; font-weight:bold; border:none; border-radius:5px; padding:0 5px;
+    background:var(--paper-2); color:var(--ink); border:1px solid var(--rule);
+  }
+  .des-inline:hover{ border-color:var(--accent); color:var(--accent); }
+  .des-inline.phy{ color:var(--phy); border-color:var(--phy); }
+  .des-inline.mag{ color:var(--mag); border-color:var(--mag); }
+
+  /* --- Bloc de notes du MJ --- */
+  .notes-panel{ padding:14px; display:flex; flex-direction:column; gap:10px; flex:1 1 auto; min-height:320px; }
+  .notes-panel h2{ font-family:"League Spartan", sans-serif; font-size:.85rem; letter-spacing:.08em; margin:0; color:var(--muted); text-transform:uppercase; }
+  .notes-toolbar{ display:flex; gap:6px; }
+  .notes-toolbar button{
+    cursor:pointer; font:inherit; font-size:.78rem; border:1px solid var(--rule); background:var(--paper-2);
+    color:var(--ink); border-radius:8px; padding:6px 12px; min-width:34px;
+  }
+  .notes-toolbar button:hover{ border-color:var(--accent); color:var(--accent); }
+  .notes-toolbar button b, .notes-toolbar button i{ font-family:inherit; }
+  .notes-zone{
+    flex:1; min-height:260px; overflow-y:auto; background:var(--charcoal); border:1px solid var(--rule);
+    border-radius:10px; padding:14px 16px; font-size:.9rem; line-height:1.6; color:var(--ink);
+  }
+  .notes-zone:focus{ outline:none; border-color:var(--accent); }
+  .notes-zone h2{ font-family:"League Spartan", sans-serif; font-size:1.1rem; letter-spacing:.02em; color:var(--ink); text-transform:none; margin:14px 0 6px; }
+  .notes-zone:empty:before{ content:"Notes de la table, PNJ, secrets, rappels…"; color:var(--muted); font-style:italic; }
+
+  /* --- Colonne centrale-basse : adversaires --- */
+  .colonne-adversaires{ display:flex; flex-direction:column; gap:10px; padding:14px; }
+  .colonne-adversaires h2{ font-family:"League Spartan", sans-serif; font-size:.85rem; letter-spacing:.08em; margin:0; color:var(--muted); text-transform:uppercase; }
+  .adv-panel-header{ display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap; }
+  .adv-panel-actions{ display:flex; gap:6px; flex-wrap:wrap; }
+  .adv-filtres-row{ display:flex; gap:6px; flex-wrap:wrap; }
+  .adv-filtres-row select{ flex:1; min-width:140px; }
+
+  /* --- Colonne droite : environnements --- */
+  .colonne-environnements{ position:sticky; top:16px; max-height:calc(100vh - 32px); display:flex; flex-direction:column; gap:10px; padding:14px; overflow-y:auto; }
+  .colonne-environnements h2{ font-family:"League Spartan", sans-serif; font-size:.85rem; letter-spacing:.08em; margin:0; color:var(--muted); text-transform:uppercase; }
+
+  .fiches-panel{ display:flex; flex-direction:column; gap:8px; }
+  .fiches-panel input[type="text"], .fiches-panel select{
+    width:100%; font:inherit; font-size:.85rem; padding:6px 8px; border:1px solid var(--rule);
+    border-radius:8px; background:var(--charcoal); color:var(--ink);
+  }
+  .fiches-panel input:focus, .fiches-panel select:focus{ outline:none; border-color:var(--accent); }
+  .fiches-panel select option{ background:var(--charcoal); color:var(--ink); }
+  .fiches-liste{ max-height:220px; overflow-y:auto; display:flex; flex-direction:column; gap:6px; padding-right:2px; }
+  .fiche-item{
+    text-align:left; cursor:pointer; border:1px solid var(--rule); background:var(--paper-2);
+    border-radius:10px; padding:7px 9px; color:var(--ink); font:inherit; font-size:.8rem;
+    display:flex; align-items:center; gap:8px;
+  }
+  .fiche-item:hover{ border-color:var(--accent); }
+  .fiche-item.active{ background:var(--charcoal); border-color:var(--accent); }
+  .fiche-item-check{ width:15px; height:15px; flex:none; border:2px solid var(--muted); border-radius:4px; }
+  .fiche-item.active .fiche-item-check{ background:var(--accent); border-color:var(--accent); }
+  .fiche-item-texte{ min-width:0; flex:1; }
+  .fiche-item .fiche-item-nom{ font-weight:bold; display:block; }
+  .fiche-item .fiche-item-meta{ font-size:.68rem; color:var(--muted); }
+  .fiches-vide{ padding:12px; text-align:center; color:var(--muted); font-style:italic; font-family:"Merriweather",serif; font-size:.78rem; }
+
+  /* --- Grille des fiches adversaires sélectionnées (2 colonnes) --- */
+  .adv-blocs-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:start; }
+  @media (max-width:760px){ .adv-blocs-grid{ grid-template-columns:1fr; } }
+  .adv-bloc-vide{ grid-column:1 / -1; }
+
+  .stat-block{ padding:16px; position:relative; }
+  .sb-header{ display:flex; justify-content:space-between; align-items:flex-start; gap:8px; margin-bottom:6px; }
+  .sb-nom{ font-family:"League Spartan", sans-serif; font-size:1.15rem; letter-spacing:.02em; margin:0; color:var(--ink); }
+  .sb-header-actions{ display:flex; gap:6px; flex:none; }
+  .sb-mini-btn{
+    cursor:pointer; font:inherit; font-size:.66rem; font-weight:bold; text-transform:lowercase; letter-spacing:.02em;
+    border:1px solid var(--rule); background:var(--paper-2); color:var(--ink); border-radius:999px; padding:4px 10px; white-space:nowrap;
+  }
+  .sb-mini-btn:hover{ border-color:var(--accent); color:var(--accent); }
+  .sb-mini-btn.retirer:hover{ border-color:var(--danger); color:var(--danger); }
+  .sb-badges{ display:flex; gap:6px; flex-wrap:wrap; margin-bottom:8px; }
+  .badge{ display:inline-block; padding:2px 10px; border-radius:999px; font-size:.68rem; font-weight:bold; color:var(--ink); background:var(--paper-2); border:1px solid var(--rule); white-space:nowrap; }
+  .badge-palier{ background:var(--charcoal); }
+  .badge-categorie{ background:var(--accent); color:var(--charcoal); }
+  .sb-desc{ font-family:"Merriweather",serif; font-style:italic; color:var(--muted); line-height:1.5; margin-bottom:6px; font-size:.82rem; }
+  .sb-motivation{ font-size:.78rem; color:var(--muted); margin-bottom:10px; }
+  .sb-motivation b{ color:var(--ink); }
+  .sb-stats-row{ display:grid; grid-template-columns:repeat(auto-fit, minmax(70px,1fr)); gap:8px; margin-bottom:10px; }
+  .sb-stat{ background:var(--paper-2); border:1px solid var(--rule); border-radius:10px; padding:6px 4px; text-align:center; }
+  .sb-stat-label{ font-size:.6rem; text-transform:uppercase; letter-spacing:.03em; color:var(--muted); display:block; margin-bottom:2px; }
+  .sb-stat-value{ font-family:"League Spartan", sans-serif; font-size:1.05rem; color:var(--ink); }
+  .sb-tracks{ display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px; }
+  .sb-track-label{ font-size:.68rem; text-transform:lowercase; letter-spacing:.02em; color:var(--muted); margin-bottom:4px; }
+  .sb-track-boxes{ display:flex; flex-wrap:wrap; gap:3px; }
+  .track-box{ width:14px; height:14px; border:2px solid var(--ink); cursor:pointer; background:var(--paper); }
+  .track-box.filled{ background:var(--danger); border-color:var(--danger); }
+  .sb-instances{ display:flex; flex-direction:column; gap:8px; margin-bottom:8px; }
+  .sb-instance{ background:var(--paper-2); border:1px solid var(--rule); border-radius:10px; padding:8px 10px; }
+  .sb-instance-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; }
+  .sb-instance-label{ font-family:"League Spartan", sans-serif; font-size:.78rem; color:var(--ink); }
+  .sb-instance-remove{ width:20px; height:20px; border:2px solid var(--ink); border-radius:4px; background:var(--paper); color:var(--ink); font-weight:bold; line-height:1; padding:0; cursor:pointer; }
+  .sb-instance-remove:hover{ background:var(--danger); border-color:var(--danger); color:#fff; }
+  .sb-add-instance-btn{ display:block; width:100%; margin-bottom:10px; padding:6px 8px; border:2px dashed var(--ink); border-radius:10px; background:transparent; color:var(--ink); cursor:pointer; font-size:.74rem; }
+  .sb-add-instance-btn:hover{ background:var(--paper-2); }
+  .sb-attaque{ background:var(--paper-2); border:1px solid var(--rule); border-radius:10px; padding:8px 10px; margin-bottom:10px; display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap; }
+  .sb-attaque-texte{ font-size:.78rem; }
+  .sb-attaque-texte b{ color:var(--ink); }
+  .sb-aptitudes h3{ font-family:"League Spartan", sans-serif; font-size:.72rem; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--rule); padding-bottom:5px; margin:0 0 8px; }
+  .sb-source{ margin-top:12px; font-size:.7rem; font-style:italic; color:var(--muted); text-align:right; }
+  .aptitude{ margin-bottom:9px; }
+  .aptitude-nom{ font-weight:bold; font-size:.85rem; }
+  .aptitude-tag{ font-size:.65rem; font-style:italic; color:var(--muted); }
+  .aptitude-texte{ font-size:.78rem; line-height:1.45; color:var(--muted); }
+  .empty-state{ padding:34px 16px; text-align:center; color:var(--muted); font-style:italic; font-family:"Merriweather",serif; font-size:.82rem; }
+
+  /* --- Fiche environnement --- */
+  .env-champ{ font-size:.78rem; color:var(--muted); line-height:1.45; margin-bottom:8px; }
+  .env-champ b{ color:var(--ink); }
+  .env-diff-row{ display:flex; margin-bottom:10px; }
+  .env-diff-row .sb-stat{ min-width:84px; padding:6px 12px; }
+  .apt-env{ border-left:3px solid var(--rule); padding-left:10px; margin-bottom:14px; }
+  .apt-env.passive{ border-left-color:var(--muted); }
+  .apt-env.action{ border-left-color:var(--accent); }
+  .apt-env.reaction{ border-left-color:var(--danger); }
+  .apt-env-entete{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:4px; }
+  .apt-env-nom{ font-weight:bold; font-size:.86rem; }
+  .apt-env-tag{ font-size:.6rem; font-weight:bold; text-transform:uppercase; letter-spacing:.05em; padding:1px 8px; border-radius:999px; border:1px solid var(--rule); color:var(--muted); white-space:nowrap; }
+  .apt-env.action .apt-env-tag{ border-color:var(--accent); color:var(--accent); }
+  .apt-env.reaction .apt-env-tag{ border-color:var(--danger); color:var(--danger); }
+  .apt-env-texte p{ margin:0 0 6px; font-size:.78rem; line-height:1.5; color:rgba(238,238,247,.9); }
+  .apt-env-texte ul{ margin:0 0 6px; padding-left:18px; }
+  .apt-env-texte li{ font-size:.78rem; line-height:1.5; color:rgba(238,238,247,.9); margin-bottom:3px; }
+  .apt-env-questions{ margin-top:6px; padding:6px 10px; border-left:2px solid var(--accent); background:var(--paper-2); border-radius:0 8px 8px 0; font-family:"Merriweather",serif; font-style:italic; font-size:.74rem; line-height:1.5; color:var(--muted); }
+
+  /* --- Modale sauvegarde --- */
+  .modal-overlay{ display:none; position:fixed; inset:0; background:rgba(8,8,20,.65); z-index:2000; align-items:center; justify-content:center; padding:20px; }
+  .modal-overlay.active{ display:flex; }
+  .modal-box{
+    background:linear-gradient(150deg, rgba(58,65,105,.85), rgba(28,28,55,.92));
+    border:1px solid var(--rule); max-width:440px; width:100%; padding:24px 28px; border-radius:16px; position:relative;
+    backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+    box-shadow:0 20px 50px rgba(0,0,0,.45);
+  }
+  .modal-title{ font-family:"League Spartan", sans-serif; font-size:1.1rem; margin:0 0 16px; border-bottom:2px solid var(--rule); padding-bottom:8px; }
+  .modal-close-btn{ position:absolute; top:10px; right:14px; background:none; border:none; font-size:1.4rem; color:var(--muted); cursor:pointer; }
+  .modal-close-btn:hover{ color:var(--accent); }
+  .champ{ margin-bottom:14px; }
+  .champ label{ display:block; font-size:.7rem; text-transform:lowercase; color:var(--muted); margin-bottom:3px; }
+  .champ input[type="text"]{
+    width:100%; font:inherit; font-size:.88rem; padding:7px 9px; border:1px solid var(--rule);
+    border-radius:8px; background:var(--charcoal); color:var(--ink);
+  }
+  .champ input:focus{ outline:none; border-color:var(--accent); }
+  .modal-actions{ display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+
+  footer {
+    text-align: center;
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-top: 20px;
+  }
+</style>
+<script src="assets/JS/acces.js"></script>
+</head>
+<body>
+
+<div class="bandeau-outils">
+  <nav class="bandeau-nav">
+    <a href="index.html" class="bandeau-nav-link">Fiche</a>
+    <a href="catalogue.html" class="bandeau-nav-link">Marché noir</a>
+    <a href="carte_interactive.html" class="bandeau-nav-link">Carte</a>
+    <a href="Compendium.html" class="bandeau-nav-link">Compendium</a>
+    <span class="bandeau-nav-link actif" aria-current="page">Écran MJ</span>
+    <a href="kohd.html" class="bandeau-nav-link">Kohd</a>
+  </nav>
+  <h1 class="bandeau-titre">Écran MJ</h1>
+  <div class="bandeau-groupe">
+    <button type="button" class="bandeau-btn" onclick="ouvrirModaleSauvegarde()">Sauvegarder…</button>
+    <button type="button" class="bandeau-btn" onclick="document.getElementById('ecranmj-load-input').click()">Charger un fichier</button>
+    <input type="file" id="ecranmj-load-input" accept="application/json,.json" style="display:none;" onchange="chargerEcranMJFichier(this)">
+  </div>
+</div>
+
+<div class="app">
+
+  <!-- COLONNE GAUCHE : MÉMOS -->
+  <div class="colonne-memos glass">
+    <h2>Mémos de table</h2>
+    <div class="memo-tabs">
+      <button type="button" class="memo-tab actif" data-memo="etat" onclick="afficherMemo('etat')">État</button>
+      <button type="button" class="memo-tab" data-memo="portee" onclick="afficherMemo('portee')">Portée</button>
+      <button type="button" class="memo-tab" data-memo="repos" onclick="afficherMemo('repos')">Repos</button>
+      <button type="button" class="memo-tab" data-memo="peur" onclick="afficherMemo('peur')">Peur</button>
+      <button type="button" class="memo-tab" data-memo="mort" onclick="afficherMemo('mort')">Actes de mort</button>
+      <button type="button" class="memo-tab" data-memo="bataille" onclick="afficherMemo('bataille')">Guide bataille</button>
+    </div>
+
+    <!-- ÉTAT -->
+    <div class="memo-panel actif" id="memo-etat">
+      <div class="memo-carte">
+        <h3>Caché</h3>
+        <p>Lorsque vous êtes caché, tout jet contre vous a un désavantage.</p>
+        <p>Vous n'êtes plus caché si quelqu'un vous surprend, si vous attaquez ou si vous le décidez.</p>
+      </div>
+      <div class="memo-carte">
+        <h3>Bloquée</h3>
+        <p>Lorsque vous êtes bloquée, vous ne pouvez plus bouger, mais vous pouvez tout de même effectuer des actions.</p>
+      </div>
+      <div class="memo-carte">
+        <h3>Vulnérable</h3>
+        <p>Lorsque vous êtes vulnérable, tous les jets contre vous ont un avantage.</p>
+        <p>Votre personnage est dans une position difficile : il peut être étourdi, apeuré ou bien à terre. L'effet peut être plus ou moins temporaire selon la situation.</p>
+      </div>
+    </div>
+
+    <!-- PORTÉE -->
+    <div class="memo-panel" id="memo-portee">
+      <div class="memo-carte">
+        <ul class="memo-liste">
+          <li><b>Mêlée</b> : contact direct, au bout du bras.</li>
+          <li><b>Très proche</b> : quelques mètres, à portée d'une enjambée rapide.</li>
+          <li><b>Proche</b> : environ dix mètres, à portée d'un jet court.</li>
+          <li><b>Loin</b> : un tir tendu, au-delà d'une pièce ou d'une clairière.</li>
+          <li><b>Très loin</b> : au bout du champ de vision, portée maximale.</li>
+        </ul>
+        <p class="memo-note">Au-delà de la portée indiquée, l'arme subit un malus ou devient inutilisable. Le MJ tranche selon la fiction.</p>
+      </div>
+    </div>
+
+    <!-- REPOS -->
+    <div class="memo-panel" id="memo-repos">
+      <div class="memo-carte">
+        <h3>Repos court</h3>
+        <p>Prendre le temps de souffler après de gros efforts est fortement recommandé.</p>
+        <p>Les repos courts durent en moyenne une petite heure durant la journée, durant laquelle vous pouvez changer vos cartes de domaine ainsi qu'effectuer 2 actions de repos parmi les suivantes :</p>
+        <ul class="memo-liste">
+          <li><b>Panser ses plaies</b> : votre personnage se soigne, gagnez 1d4 + votre tier en points de vie.</li>
+          <li><b>Se relaxer</b> : votre personnage s'occupe et pense à autre chose, retirez 1d4 + votre tier de stress.</li>
+          <li><b>Réparer son armure</b> : votre personnage répare son armure, gagnez 1d4 + votre tier en armor score.</li>
+          <li><b>Se préparer</b> : votre personnage se prépare mentalement, gagnez 2 points d'espoir.</li>
+        </ul>
+      </div>
+      <div class="memo-carte">
+        <h3>Repos long</h3>
+        <p>Une bonne nuit de repos bien mérité n'est jamais de trop.</p>
+        <p>Les repos longs nécessitent de dormir ou de se reposer longtemps. Vous pouvez changer vos cartes de domaine ainsi qu'effectuer 2 actions de repos parmi les suivantes :</p>
+        <ul class="memo-liste">
+          <li><b>Panser toutes ses plaies</b> : votre personnage se soigne, récupérez tous vos points de vie.</li>
+          <li><b>Se relaxer</b> : votre personnage s'occupe et pense à autre chose, retirez tout votre stress.</li>
+          <li><b>Réparer son armure</b> : votre personnage répare son armure, regagnez toute votre armor score.</li>
+          <li><b>Se préparer</b> : votre personnage se prépare mentalement, gagnez 2 points d'espoir.</li>
+          <li><b>Travailler sur un projet</b> : votre personnage travaille sur un projet.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PEUR -->
+    <div class="memo-panel" id="memo-peur">
+      <div class="memo-carte">
+        <h3>Comment gagner de la peur</h3>
+        <ul class="memo-liste">
+          <li>Quand un PJ fait un jet <b>avec Peur</b>.</li>
+          <li>Quand les PJ font un repos : <b>court repos</b> = 1d4 de peur ; <b>long repos</b> = 1d4 + nombre de PJ de peur.</li>
+          <li>Quand une capacité ou une aptitude de certaines créatures en donne.</li>
+        </ul>
+      </div>
+      <div class="memo-carte">
+        <h3>Dépenser de la peur</h3>
+        <ul class="memo-liste">
+          <li>Agir en premier.</li>
+          <li>Interrompre les joueurs pour faire un acte.</li>
+          <li>Faire un acte de MJ supplémentaire.</li>
+          <li>Utiliser l'aptitude de peur d'un adversaire.</li>
+          <li>Utiliser l'aptitude de peur d'un environnement.</li>
+          <li>Ajouter l'expérience d'un adversaire à un jet.</li>
+          <li>Improviser un acte de peur.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ACTES DE MORT -->
+    <div class="memo-panel" id="memo-mort">
+      <div class="memo-carte">
+        <p class="memo-intro">Vous êtes maître de choisir la mort que vous voulez. Lorsque vous devez mourir, choisissez une de ces actions mortem :</p>
+        <ul class="memo-liste">
+          <li><b>Éviter la mort</b> : vous choisissez d'éviter la mort. Votre personnage tombe inconscient. Il ne peut être la cible d'attaque et reprend conscience lorsqu'il gagne un point de vie. Lorsque vous vous relevez, lancez votre dé d'espoir : s'il est égal ou inférieur à votre niveau, vous gagnez une cicatrice.</li>
+          <li><b>Ultime gloire</b> : vous choisissez d'embrasser la mort en effectuant une dernière action avant de mourir, qui est automatiquement une réussite critique.</li>
+          <li><b>Tout risquer</b> : lancez vos dés de dualité. Si l'espoir est plus haut que la peur, vous restez sur vos pieds et gagnez un nombre de points de vie égal à la valeur d'espoir de votre dé. Si la peur est plus haute, vous mourez. Si vous faites une réussite critique, vous restez debout et gagnez tous vos points de vie en retirant tout votre stress.</li>
+        </ul>
+      </div>
+      <div class="memo-carte">
+        <h3>Cicatrices</h3>
+        <p>Vous vous êtes relevé, mais à quel prix ?</p>
+        <p>Si vous obtenez une cicatrice, vous cochez un slot d'espoir que vous ne pourrez plus utiliser. Il est possible de retrouver ces slots d'espoir perdus, cela dépendra de l'évolution de votre personnage et s'il réussit à guérir de ses cicatrices.</p>
+        <p>Si tous vos slots d'espoir sont cochés, il est l'heure pour vous d'arrêter la vie d'aventurier.</p>
+      </div>
+      <div class="memo-carte">
+        <h3>Résurrection</h3>
+        <p>Il est possible de ressusciter un camarade mort, mais cela est rare : votre chemin sera long et périlleux pour parvenir à cette fin.</p>
+        <p>Le sort de résurrection est disponible au niveau 10 du domaine de la splendeur.</p>
+      </div>
+    </div>
+
+    <!-- GUIDE DE BATAILLE -->
+    <div class="memo-panel" id="memo-bataille">
+      <div class="memo-carte">
+        <h3>Calcul de difficulté des combats</h3>
+        <p class="memo-bataille-formule">(3 × nombre de PJ du combat) + 2</p>
+
+        <h3>Ajuster les points de bataille</h3>
+        <ul class="memo-liste">
+          <li><b>-1 point</b> si le combat doit être facile.</li>
+          <li><b>-2 points</b> si vous utilisez 2 adversaires solo ou plus.</li>
+          <li><b>-2 points</b> si vous ajoutez +1d4 (ou +2 fixe) aux jets de dégât de tous les adversaires, pour rendre le combat plus difficile sans le rallonger.</li>
+          <li><b>+1 point</b> si vous choisissez un adversaire dans un palier inférieur.</li>
+          <li><b>+1 point</b> si vous ne choisissez pas de cogneur, de hordes, de meneur ni de solo.</li>
+          <li><b>+2 points</b> si vous voulez un combat plus dangereux ou plus long.</li>
+        </ul>
+      </div>
+
+      <div class="memo-carte">
+        <h3>Dépenser les points de bataille</h3>
+        <ul class="memo-liste">
+          <li><b>1 point</b> pour chaque groupe de sbires d'une bataille égale à celle du groupe.</li>
+          <li><b>1 point</b> pour chaque adversaire social ou soutien.</li>
+          <li><b>2 points</b> pour chaque adversaire de type horde, distant, traqueur ou standard.</li>
+          <li><b>3 points</b> pour chaque meneur.</li>
+          <li><b>4 points</b> pour chaque cogneur.</li>
+          <li><b>5 points</b> pour chaque solo.</li>
+        </ul>
+      </div>
+
+      <div class="memo-carte">
+        <h3>Suivi du combat</h3>
+        <div class="bataille-compteurs">
+          <div class="bataille-compteur">
+            <span class="bataille-compteur-label">Points max</span>
+            <div class="bataille-compteur-controles">
+              <button type="button" class="ronde-btn" onclick="ajusterPointsBataille('max',-1)" title="-1">&minus;</button>
+              <span class="bataille-compteur-valeur" id="bataille-points-max">0</span>
+              <button type="button" class="ronde-btn" onclick="ajusterPointsBataille('max',1)" title="+1">+</button>
+            </div>
+          </div>
+          <div class="bataille-compteur">
+            <span class="bataille-compteur-label">Points dépensés</span>
+            <div class="bataille-compteur-controles">
+              <button type="button" class="ronde-btn" onclick="ajusterPointsBataille('depenses',-1)" title="-1">&minus;</button>
+              <span class="bataille-compteur-valeur" id="bataille-points-depenses">0</span>
+              <button type="button" class="ronde-btn" onclick="ajusterPointsBataille('depenses',1)" title="+1">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLONNE CENTRALE HAUTE : PEUR / COMPTEURS / DÉS + NOTES -->
+  <div class="colonne-centre">
+
+    <div class="rangee-outils-mj">
+
+      <!-- PEUR -->
+      <div class="glass">
+        <div class="peur-header">
+          <h2>Peur</h2>
+          <div class="peur-controles">
+            <button type="button" class="ronde-btn" onclick="ajusterPeur(-1)" title="-1">&minus;</button>
+            <span class="peur-valeur" id="peur-valeur-texte">0 / 12</span>
+            <button type="button" class="ronde-btn" onclick="ajusterPeur(1)" title="+1">+</button>
+          </div>
+        </div>
+        <div class="peur-track" id="peur-track"></div>
+      </div>
+
+      <!-- COMPTEURS DIVERS -->
+      <div class="glass">
+        <h2>Compteurs</h2>
+        <div class="cpt-form">
+          <input type="text" id="cpt-label-input" placeholder="nom (ex : moral, tension…)" onkeydown="if(event.key==='Enter'){ document.getElementById('cpt-valeur-input').focus(); }">
+          <input type="number" id="cpt-valeur-input" placeholder="valeur" value="0" onkeydown="if(event.key==='Enter'){ ajouterCompteur(); }">
+          <button type="button" class="btn" onclick="ajouterCompteur()">+</button>
+        </div>
+        <div class="cpt-liste" id="cpt-liste">
+          <div class="cpt-vide">Aucun compteur actif.</div>
+        </div>
+      </div>
+
+      <!-- DÉS -->
+      <div class="glass">
+        <h2>Jets du MJ</h2>
+        <div class="dice-attaque-row">
+          <label>mod.</label>
+          <input type="number" id="dice-mod-base" value="0">
+          <label>+ bonus</label>
+          <input type="number" id="dice-mod-bonus" value="0">
+          <button type="button" class="dice-roll-btn" onclick="lancerAttaqueCourante()">d20</button>
+        </div>
+        <div class="dice-cible" id="dice-cible-label" style="font-size:.7rem; color:var(--muted);">Cible : aucune (clique "cibler" sur une fiche adversaire)</div>
+        <div class="dice-custom-row">
+          <input type="text" id="dice-custom-input" placeholder="jet perso : 1d8, d6+1…" onkeydown="if(event.key==='Enter'){ lancerDesPersonnalises(); }">
+          <button type="button" class="dice-roll-btn" onclick="lancerDesPersonnalises()">lancer</button>
+        </div>
+        <div class="dice-history" id="dice-history">
+          <div class="dice-vide">Aucun jet pour l'instant.</div>
+        </div>
+        <div class="dice-clear-row">
+          <button type="button" class="sb-mini-btn retirer" id="dice-clear-btn" onclick="viderHistorique()" title="Effacer tous les jets de l'historique">vider l'historique</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- NOTES DU MJ -->
+    <div class="notes-panel glass">
+      <h2>Notes de la table</h2>
+      <div class="notes-toolbar">
+        <button type="button" onmousedown="event.preventDefault()" onclick="formaterNotes('bold')" title="Gras"><b>G</b></button>
+        <button type="button" onmousedown="event.preventDefault()" onclick="formaterNotes('italic')" title="Italique"><i>I</i></button>
+        <button type="button" onmousedown="event.preventDefault()" onclick="formaterNotes('titre')" title="Titre">Titre</button>
+      </div>
+      <div class="notes-zone" id="notes-zone" contenteditable="true" oninput="planifierSauvegardeAutoEcranMJ()"></div>
+    </div>
+
+  </div>
+
+  <!-- COLONNE CENTRALE BASSE : ADVERSAIRES -->
+  <div class="colonne-adversaires glass">
+    <div class="adv-panel-header">
+      <h2>Adversaires à l'écran</h2>
+      <div class="adv-panel-actions">
+        <button type="button" class="btn" onclick="document.getElementById('adv-import-input').click()">Importer une liste…</button>
+        <input type="file" id="adv-import-input" accept="application/json,.json" style="display:none;" onchange="importerAdversairesFichier(this)">
+        <button type="button" class="btn" onclick="viderBlocsAdversaires()">Vider les fiches</button>
+      </div>
+    </div>
+
+    <div class="fiches-panel" id="fiches-adversaires">
+      <input type="text" id="adv-recherche" placeholder="rechercher un nom…" oninput="onRechercheAdvChange(this.value)">
+      <div class="adv-filtres-row">
+        <select id="adv-filtre-palier" onchange="onFiltreAdvChange()">
+          <option value="">Tous paliers</option>
+        </select>
+        <select id="adv-filtre-categorie" onchange="onFiltreAdvChange()">
+          <option value="">Toutes catégories</option>
+        </select>
+      </div>
+      <div class="fiches-liste" id="adv-liste"></div>
+    </div>
+
+    <div class="adv-blocs-grid" id="adv-blocs-grid"></div>
+  </div>
+
+  <!-- COLONNE DROITE : ENVIRONNEMENTS -->
+  <div class="colonne-environnements glass">
+    <h2>Environnements</h2>
+    <div class="fiches-panel" id="fiches-environnements">
+      <input type="text" id="env-recherche" placeholder="rechercher un nom…" oninput="onRechercheEnvChange(this.value)">
+      <div class="adv-filtres-row">
+        <select id="env-filtre-palier" onchange="onFiltreEnvChange()">
+          <option value="">Tous paliers</option>
+        </select>
+      </div>
+      <div class="fiches-liste" id="env-liste"></div>
+    </div>
+
+    <div id="fiche-env-container"></div>
+  </div>
+
+</div>
+
+<!-- MODALE SAUVEGARDE -->
+<div class="modal-overlay" id="modal-sauvegarde">
+  <div class="modal-box">
+    <button type="button" class="modal-close-btn" onclick="fermerModaleSauvegarde()">×</button>
+    <h2 class="modal-title">Sauvegarder l'écran MJ</h2>
+    <div class="champ">
+      <label>nom du fichier</label>
+      <input type="text" id="sauvegarde-filename">
+    </div>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-primaire" onclick="lancerSauvegardeEcranMJ()">Télécharger</button>
+      <button type="button" class="btn" onclick="fermerModaleSauvegarde()">Annuler</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p><strong>Daggerheart™</strong> est une marque de Darrington Press.</p>
+  <p>Ce projet est un outil de fan <strong>non officiel et sans affiliation avec Darrington Press</strong>.</p>
+  <p>© 2026 Devine - Projet communautaire francophone pour Daggerheart™ ·</p>
+</footer>
+
+<script src="assets/JS/bestiaire.js"></script>
+<script src="assets/JS/environnements.js"></script>
+<script>
+// ============================================================
+// UTILITAIRES
+// ============================================================
+function escapeHtml(t){
+  if(t===undefined || t===null) return '';
+  const d = document.createElement('div');
+  d.textContent = String(t);
+  return d.innerHTML;
+}
+function attrSafe(t){
+  return String(t||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/"/g,'&quot;');
+}
+function telechargerJSON(obj, nomFichier){
+  const blob = new Blob([JSON.stringify(obj, null, 2)], { type:"application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = nomFichier;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 2000);
+}
+function normTxt(t){
+  return String(t||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+}
+function slugFichier(nom){
+  return normTxt(nom).replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'') || 'ecran-mj';
+}
+function dateDuJour(){
+  return new Date().toISOString().slice(0,10);
+}
+
+// ============================================================
+// ÉTAT GÉNÉRAL
+// ============================================================
+let peurNiveau = 0;
+const PEUR_MAX = 12;
+let compteursDivers = [];
+let pointsBatailleMax = 0;
+let pointsBatailleDepenses = 0;
+let historiqueDes = [];
+let blocsAdversaires = [];
+let cibleD20Nom = null;
+let environnementCourantId = null;
+let advEtat = { recherche:'', palier:'', categorie:'' };
+let envEtat = { recherche:'', palier:'' };
+function idSafe(id){ return String(id).replace(/[^a-zA-Z0-9_-]/g,'_'); }
+const LS_CLE_ECRANMJ = 'lapetitedague_ecranmj_auto';
+let sauvegardeAutoTimer = null;
+
+// ============================================================
+// MÉMOS (colonne gauche)
+// ============================================================
+function afficherMemo(nom){
+  document.querySelectorAll('.memo-tab').forEach(function(b){ b.classList.toggle('actif', b.dataset.memo === nom); });
+  document.querySelectorAll('.memo-panel').forEach(function(p){ p.classList.toggle('actif', p.id === 'memo-' + nom); });
+}
+
+// ============================================================
+// GUIDE DE BATAILLE
+// ============================================================
+function ajusterPointsBataille(type, delta){
+  if(type === 'max'){
+    pointsBatailleMax = Math.max(0, pointsBatailleMax + delta);
+    if(pointsBatailleDepenses > pointsBatailleMax){
+      pointsBatailleDepenses = pointsBatailleMax;
+    }
+  } else {
+    pointsBatailleDepenses = Math.max(0, Math.min(pointsBatailleMax, pointsBatailleDepenses + delta));
+  }
+  renderPointsBataille();
+  planifierSauvegardeAutoEcranMJ();
+}
+function renderPointsBataille(){
+  const max = document.getElementById('bataille-points-max');
+  const dep = document.getElementById('bataille-points-depenses');
+  if(max) max.textContent = pointsBatailleMax;
+  if(dep) dep.textContent = pointsBatailleDepenses;
+}
+
+// ============================================================
+// PEUR
+// ============================================================
+function definirPeur(niveau){
+  peurNiveau = Math.max(0, Math.min(PEUR_MAX, niveau));
+  renderPeur();
+  planifierSauvegardeAutoEcranMJ();
+}
+function ajusterPeur(delta){ definirPeur(peurNiveau + delta); }
+function clicCasePeur(index){
+  definirPeur(index + 1 === peurNiveau ? index : index + 1);
+}
+function renderPeur(){
+  const track = document.getElementById('peur-track');
+  let html = '';
+  for(let i=0;i<PEUR_MAX;i++){
+    html += '<div class="peur-box' + (i < peurNiveau ? ' filled' : '') + '" onclick="clicCasePeur(' + i + ')"></div>';
+  }
+  track.innerHTML = html;
+  document.getElementById('peur-valeur-texte').textContent = peurNiveau + ' / ' + PEUR_MAX;
+}
+
+// ============================================================
+// COMPTEURS DIVERS
+// ============================================================
+function ajouterCompteur(){
+  const labelInput = document.getElementById('cpt-label-input');
+  const valeurInput = document.getElementById('cpt-valeur-input');
+  const label = (labelInput.value || '').trim() || 'Compteur';
+  const valeur = parseInt(valeurInput.value, 10) || 0;
+  compteursDivers.push({ id:'cpt-' + Date.now() + '-' + Math.floor(Math.random()*1000), label:label, valeur:valeur });
+  labelInput.value = '';
+  valeurInput.value = '0';
+  labelInput.focus();
+  renderCompteurs();
+  planifierSauvegardeAutoEcranMJ();
+}
+function ajusterCompteur(id, delta){
+  const c = compteursDivers.find(c => c.id === id);
+  if(!c) return;
+  c.valeur += delta;
+  renderCompteurs();
+  planifierSauvegardeAutoEcranMJ();
+}
+function retirerCompteur(id){
+  compteursDivers = compteursDivers.filter(c => c.id !== id);
+  renderCompteurs();
+  planifierSauvegardeAutoEcranMJ();
+}
+function renderCompteurs(){
+  const cont = document.getElementById('cpt-liste');
+  if(compteursDivers.length === 0){
+    cont.innerHTML = '<div class="cpt-vide">Aucun compteur actif.</div>';
+    return;
+  }
+  cont.innerHTML = compteursDivers.map(function(c){
+    return '<div class="cpt-item">' +
+      '<span class="cpt-item-label" title="' + attrSafe(c.label) + '">' + escapeHtml(c.label) + '</span>' +
+      '<div class="cpt-item-controls">' +
+        '<button type="button" class="ronde-btn" onclick="ajusterCompteur(\'' + c.id + '\', -1)" title="-1">&minus;</button>' +
+        '<span class="cpt-item-valeur">' + c.valeur + '</span>' +
+        '<button type="button" class="ronde-btn" onclick="ajusterCompteur(\'' + c.id + '\', 1)" title="+1">+</button>' +
+        '<button type="button" class="cpt-item-remove" onclick="retirerCompteur(\'' + c.id + '\')" title="Retirer">&times;</button>' +
+      '</div></div>';
+  }).join('');
+}
+
+// ============================================================
+// DÉS
+// ============================================================
+function lancerDe(faces){ return 1 + Math.floor(Math.random()*faces); }
+function parserExpressionDes(expr){
+  const m = String(expr).trim().match(/(\d*)d(\d+)\s*([+-]\s*\d+)?/i);
+  if(!m) return null;
+  const nombre = parseInt(m[1]||'1', 10) || 1;
+  const faces = parseInt(m[2], 10);
+  const mod = m[3] ? parseInt(m[3].replace(/\s+/g,''), 10) : 0;
+  return { nombre, faces, mod };
+}
+function extraireAttaqueStandard(texte){
+  if(!texte) return null;
+  const m = String(texte).match(/(\d*d\d+(?:\s*[+-]\s*\d+)?)\s*(phy|mag|physique|magique)?/i);
+  if(!m) return null;
+  let type = (m[2]||'').toLowerCase();
+  type = type.startsWith('mag') ? 'mag' : (type.startsWith('phy') ? 'phy' : '');
+  return { expr: m[1].replace(/\s+/g,''), type };
+}
+function enrichirTexteAvecDes(texte, contexteNom){
+  if(!texte) return '';
+  const echappe = escapeHtml(texte);
+  const label = attrSafe(contexteNom);
+  return echappe.replace(/(\d*d\d+(?:\s*[+-]\s*\d+)?)(\s*(?:d[ée]g[âa]ts?\s*)?(physiques?|magiques?)?)?/gi, function(match, expr, suite, motType){
+    let type = '';
+    if(motType){ type = motType.toLowerCase().startsWith('mag') ? 'mag' : 'phy'; }
+    const exprPropre = expr.replace(/\s+/g,'');
+    const cls = type ? (' ' + type) : '';
+    return '<button type="button" class="des-inline' + cls + '" onclick="lancerDegatsExpression(\'' + exprPropre + '\', \'' + type + '\', \'' + label + '\')">' + expr + '</button>' + (suite||'');
+  });
+}
+function ajouterEntreeHistorique(entree){
+  historiqueDes.push(entree);
+  if(historiqueDes.length > 40) historiqueDes = historiqueDes.slice(-40);
+  renderHistorique();
+}
+function viderHistorique(){
+  historiqueDes = [];
+  renderHistorique();
+}
+function renderHistorique(){
+  const conteneur = document.getElementById('dice-history');
+  const btnVider = document.getElementById('dice-clear-btn');
+  if(btnVider) btnVider.disabled = (historiqueDes.length === 0);
+  if(historiqueDes.length === 0){
+    conteneur.innerHTML = '<div class="dice-vide">Aucun jet pour l\'instant.</div>';
+    return;
+  }
+  conteneur.innerHTML = historiqueDes.map(function(e){
+    if(e.type === 'attaque'){
+      return '<div class="dice-entry attaque"><div class="dice-entry-titre"><span>' + escapeHtml(e.label) + '</span><span class="dice-entry-total">' + e.total + '</span></div>' +
+        '<div class="dice-entry-detail">d20 (' + e.d20 + ') + ' + e.mod + '</div></div>';
+    }
+    const classeType = e.dmgType ? (' ' + e.dmgType) : '';
+    return '<div class="dice-entry degats"><div class="dice-entry-titre"><span>' + escapeHtml(e.label) + '</span><span class="dice-entry-total' + classeType + '">' + e.total + '</span></div>' +
+      '<div class="dice-entry-detail">' + e.expr + ' &rarr; [' + e.rolls.join(', ') + ']' + (e.mod ? (e.mod > 0 ? ' +' + e.mod : ' ' + e.mod) : '') + '</div></div>';
+  }).join('');
+}
+function lancerAttaqueCourante(){
+  const base = parseInt(document.getElementById('dice-mod-base').value, 10) || 0;
+  const bonus = parseInt(document.getElementById('dice-mod-bonus').value, 10) || 0;
+  const mod = base + bonus;
+  const d20 = lancerDe(20);
+  const total = d20 + mod;
+  ajouterEntreeHistorique({ type:'attaque', label:(cibleD20Nom || 'Attaque'), d20:d20, mod:mod, total:total });
+}
+function ciblerPourD20(id){
+  const adv = blocsAdversaires.find(a=>a.id===id);
+  if(!adv) return;
+  document.getElementById('dice-mod-base').value = adv.modAttaque || 0;
+  cibleD20Nom = adv.nom;
+  document.getElementById('dice-cible-label').textContent = 'Cible : ' + adv.nom;
+}
+function lancerDegatsExpression(expr, type, label){
+  const p = parserExpressionDes(expr);
+  if(!p) return;
+  const rolls = [];
+  for(let i=0;i<p.nombre;i++) rolls.push(lancerDe(p.faces));
+  const total = rolls.reduce((a,b)=>a+b,0) + p.mod;
+  ajouterEntreeHistorique({ type:'degats', label: label || expr, expr: expr, rolls: rolls, mod: p.mod, dmgType: type, total: total });
+}
+function lancerDesPersonnalises(){
+  const input = document.getElementById('dice-custom-input');
+  const brut = (input.value || '').trim();
+  if(!brut) return;
+  const expressions = brut.split(/[;,]/).map(e => e.trim()).filter(Boolean);
+  let auMoinsUn = false;
+  expressions.forEach(function(expr){
+    const propre = expr.replace(/\s+/g, '');
+    if(!parserExpressionDes(propre)) return;
+    auMoinsUn = true;
+    lancerDegatsExpression(propre, '', propre);
+  });
+  if(auMoinsUn) input.value = '';
+}
+
+// ============================================================
+// ADVERSAIRES (assets/JS/bestiaire.js, déjà présent dans le Compendium)
+// ============================================================
+function tousLesAdversaires(){
+  return (typeof BESTIAIRE_DATA !== 'undefined' && BESTIAIRE_DATA.adversaires) ? BESTIAIRE_DATA.adversaires : [];
+}
+function peuplerFiltresAdv(){
+  const items = tousLesAdversaires();
+  const paliers = Array.from(new Set(items.map(a=>a.palier))).sort((a,b)=>a-b);
+  const categories = Array.from(new Set(items.map(a=>a.categorie).filter(Boolean))).sort();
+  const selPalier = document.getElementById('adv-filtre-palier');
+  const valPalier = selPalier.value;
+  selPalier.innerHTML = '<option value="">Tous paliers</option>' + paliers.map(p=>'<option value="'+p+'">Palier '+p+'</option>').join('');
+  selPalier.value = valPalier;
+  const selCat = document.getElementById('adv-filtre-categorie');
+  const valCat = selCat.value;
+  selCat.innerHTML = '<option value="">Toutes catégories</option>' + categories.map(c=>'<option value="'+escapeHtml(c)+'">'+escapeHtml(c)+'</option>').join('');
+  selCat.value = valCat;
+}
+function onRechercheAdvChange(v){ advEtat.recherche = v.trim().toLowerCase(); renderListeAdv(); }
+function onFiltreAdvChange(){
+  advEtat.palier = document.getElementById('adv-filtre-palier').value;
+  advEtat.categorie = document.getElementById('adv-filtre-categorie').value;
+  renderListeAdv();
+}
+function adversairesFiltres(){
+  let items = tousLesAdversaires();
+  if(advEtat.palier !== '') items = items.filter(a => String(a.palier) === String(advEtat.palier));
+  if(advEtat.categorie !== '') items = items.filter(a => a.categorie === advEtat.categorie);
+  if(advEtat.recherche) items = items.filter(a => (a.nom||'').toLowerCase().includes(advEtat.recherche));
+  return items.sort((a,b) => ((a.palier||0) - (b.palier||0)) || (a.nom||'').localeCompare(b.nom||''));
+}
+function renderListeAdv(){
+  const conteneur = document.getElementById('adv-liste');
+  const items = adversairesFiltres();
+  if(items.length === 0){
+    conteneur.innerHTML = '<div class="fiches-vide">Aucun adversaire ne correspond.</div>';
+    return;
+  }
+  conteneur.innerHTML = items.map(function(a){
+    const actif = blocsAdversaires.some(b=>b.id===a.id) ? ' active' : '';
+    return '<button type="button" class="fiche-item' + actif + '" onclick="toggleBlocAdversaire(\'' + a.id + '\')">' +
+      '<span class="fiche-item-check"></span>' +
+      '<span class="fiche-item-texte"><span class="fiche-item-nom">' + escapeHtml(a.nom) + '</span>' +
+      '<span class="fiche-item-meta">Palier ' + a.palier + ' &middot; ' + escapeHtml(a.categorie||a.type||'') + '</span></span>' +
+      '</button>';
+  }).join('');
+}
+
+// --- Sélection multiple : blocs de fiches affichées en grille de 2 colonnes ---
+function toggleBlocAdversaire(id){
+  const idx = blocsAdversaires.findIndex(b=>b.id===id);
+  if(idx >= 0){
+    blocsAdversaires.splice(idx, 1);
+  } else {
+    const adv = tousLesAdversaires().find(a=>a.id===id);
+    if(adv) blocsAdversaires.push(adv);
+  }
+  renderListeAdv();
+  renderBlocsAdversaires();
+  planifierSauvegardeAutoEcranMJ();
+}
+function retirerBlocAdversaire(id){
+  blocsAdversaires = blocsAdversaires.filter(b=>b.id!==id);
+  renderListeAdv();
+  renderBlocsAdversaires();
+  planifierSauvegardeAutoEcranMJ();
+}
+function viderBlocsAdversaires(){
+  blocsAdversaires = [];
+  renderListeAdv();
+  renderBlocsAdversaires();
+  planifierSauvegardeAutoEcranMJ();
+}
+function renderBlocsAdversaires(){
+  const cont = document.getElementById('adv-blocs-grid');
+  if(blocsAdversaires.length === 0){
+    cont.innerHTML = '<div class="glass empty-state adv-bloc-vide">Sélectionne un ou plusieurs adversaires dans la liste ci-dessus, ou importe une liste.</div>';
+    return;
+  }
+  cont.innerHTML = blocsAdversaires.map(function(adv){
+    return renderFicheAdversaire(adv, idSafe(adv.id));
+  }).join('');
+}
+
+// --- Import d'une liste d'adversaires (même format que l'export du Compendium) ---
+function importerAdversairesFichier(input){
+  const fichier = input.files[0];
+  if(!fichier) return;
+  const reader = new FileReader();
+  reader.onload = function(e){
+    try{
+      const data = JSON.parse(e.target.result);
+      const liste = Array.isArray(data) ? data : (data.creatures || data.adversaires || []);
+      let ajoutes = 0;
+      liste.forEach(function(adv){
+        if(!adv || !adv.id) return;
+        if(!blocsAdversaires.some(b=>b.id===adv.id)){ blocsAdversaires.push(adv); ajoutes++; }
+      });
+      renderListeAdv();
+      renderBlocsAdversaires();
+      planifierSauvegardeAutoEcranMJ();
+      alert(ajoutes + ' adversaire(s) ajouté(s) à l\'écran.');
+    } catch(err){
+      alert("Ce fichier n'est pas une liste d'adversaires JSON valide.");
+    }
+    input.value = '';
+  };
+  reader.readAsText(fichier);
+}
+
+function genererCasesTrack(max){
+  let html = '';
+  for(let i=0;i<max;i++){ html += '<div class="track-box" onclick="this.classList.toggle(\'filled\')"></div>'; }
+  return html;
+}
+function ajouterInstanceCreature(id){
+  const adv = blocsAdversaires.find(a=>a.id===id);
+  if(!adv) return;
+  const cont = document.getElementById('sb-instances-' + idSafe(id));
+  if(!cont) return;
+  const numero = cont.children.length + 2;
+  const div = document.createElement('div');
+  div.className = 'sb-instance';
+  div.innerHTML =
+    '<div class="sb-instance-header"><span class="sb-instance-label">Cr&eacute;ature ' + numero + '</span>' +
+    '<button type="button" class="sb-instance-remove" onclick="this.closest(\'.sb-instance\').remove()" title="Retirer">&times;</button></div>' +
+    '<div class="sb-tracks">' +
+      '<div><div class="sb-track-label">blessure</div><div class="sb-track-boxes">' + genererCasesTrack(adv.blessure||0) + '</div></div>' +
+      '<div><div class="sb-track-label">stress</div><div class="sb-track-boxes">' + genererCasesTrack(adv.stress||0) + '</div></div>' +
+    '</div>';
+  cont.appendChild(div);
+}
+function renderFicheAdversaire(adv, suffix){
+  suffix = suffix || idSafe(adv.id);
+  const attStd = extraireAttaqueStandard(adv.attaqueStandard);
+  let html = '<div class="glass stat-block">';
+  html += '<div class="sb-header"><h2 class="sb-nom">' + escapeHtml(adv.nom) + '</h2>' +
+    '<div class="sb-header-actions">' +
+      '<button type="button" class="sb-mini-btn" onclick="ciblerPourD20(\'' + adv.id + '\')" title="Utiliser le mod. d\'attaque pour le d20 des Jets du MJ">cibler</button>' +
+      '<button type="button" class="sb-mini-btn retirer" onclick="retirerBlocAdversaire(\'' + adv.id + '\')" title="Retirer cette fiche">retirer</button>' +
+    '</div></div>';
+  html += '<div class="sb-badges"><span class="badge badge-palier">Palier ' + adv.palier + '</span><span class="badge">' + escapeHtml(adv.type||'') + '</span>' + (adv.categorie ? '<span class="badge badge-categorie">' + escapeHtml(adv.categorie) + '</span>' : '') + '</div>';
+  if(adv.description) html += '<div class="sb-desc">' + escapeHtml(adv.description) + '</div>';
+  if(adv.motivation) html += '<div class="sb-motivation"><b>Motivation :</b> ' + escapeHtml(adv.motivation) + '</div>';
+  html += '<div class="sb-stats-row">';
+  html += '<div class="sb-stat"><span class="sb-stat-label">Diff.</span><span class="sb-stat-value">' + (adv.difficulte ?? '-') + '</span></div>';
+  html += '<div class="sb-stat"><span class="sb-stat-label">Mineur</span><span class="sb-stat-value">' + (adv.seuilMineur ?? '-') + '</span></div>';
+  html += '<div class="sb-stat"><span class="sb-stat-label">Majeur</span><span class="sb-stat-value">' + (adv.seuilMajeur ?? '-') + '</span></div>';
+  html += '<div class="sb-stat"><span class="sb-stat-label">Attaque</span><span class="sb-stat-value">' + (adv.modAttaque >= 0 ? '+' : '') + (adv.modAttaque ?? 0) + '</span></div>';
+  html += '</div>';
+  html += '<div class="sb-tracks">';
+  html += '<div><div class="sb-track-label">blessure</div><div class="sb-track-boxes">' + genererCasesTrack(adv.blessure||0) + '</div></div>';
+  html += '<div><div class="sb-track-label">stress</div><div class="sb-track-boxes">' + genererCasesTrack(adv.stress||0) + '</div></div>';
+  html += '</div>';
+  html += '<div class="sb-instances" id="sb-instances-' + suffix + '"></div>';
+  html += '<button type="button" class="sb-add-instance-btn" onclick="ajouterInstanceCreature(\'' + adv.id + '\')">+ créature identique</button>';
+  if(adv.attaqueStandard){
+    html += '<div class="sb-attaque"><div class="sb-attaque-texte"><b>Attaque :</b> ' + escapeHtml(adv.attaqueStandard) + '</div>';
+    if(attStd){
+      const cls = attStd.type ? (' ' + attStd.type) : '';
+      const labelAtt = attrSafe(adv.nom) + ' : attaque standard';
+      html += '<button type="button" class="dice-roll-btn' + cls + '" onclick="lancerDegatsExpression(\'' + attStd.expr + '\', \'' + attStd.type + '\', \'' + labelAtt + '\')">lancer ' + attStd.expr + '</button>';
+    }
+    html += '</div>';
+  }
+  if(adv.aptitudes && adv.aptitudes.length){
+    html += '<div class="sb-aptitudes"><h3>Aptitudes</h3>';
+    adv.aptitudes.forEach(function(apt){
+      if(!apt || !apt.nom) return;
+      html += '<div class="aptitude"><span class="aptitude-nom">' + escapeHtml(apt.nom) + '</span> ' +
+        (apt.tag ? '<span class="aptitude-tag">(' + escapeHtml(apt.tag) + ')</span>' : '') +
+        '<div class="aptitude-texte">' + enrichirTexteAvecDes(apt.texte, adv.nom + ' : ' + apt.nom) + '</div></div>';
+    });
+    html += '</div>';
+  }
+  if(adv.source) html += '<div class="sb-source">' + escapeHtml(adv.source) + '</div>';
+  html += '</div>';
+  return html;
+}
+
+// ============================================================
+// ENVIRONNEMENTS (assets/JS/environnements.js)
+// Variable globale ENVIRONNEMENTS_DATA = { environnements: [...] } avec, pour chacun :
+// id, nom, palier, type, description, impulsions, difficulte, adversaires,
+// aptitudes [{nom, tag, texte, questions}], source.
+// Dans "texte" : une ligne = un paragraphe, une ligne qui commence par "- " = une puce.
+// ============================================================
+function tousLesEnvironnements(){
+  return (typeof ENVIRONNEMENTS_DATA !== 'undefined' && ENVIRONNEMENTS_DATA.environnements) ? ENVIRONNEMENTS_DATA.environnements : [];
+}
+function peuplerFiltresEnv(){
+  const items = tousLesEnvironnements();
+  const paliers = Array.from(new Set(items.map(e=>e.palier).filter(p=>p !== undefined && p !== null && p !== ''))).sort((a,b)=>a-b);
+  const sel = document.getElementById('env-filtre-palier');
+  const val = sel.value;
+  sel.innerHTML = '<option value="">Tous paliers</option>' + paliers.map(p=>'<option value="'+p+'">Palier '+p+'</option>').join('');
+  sel.value = val;
+}
+function onRechercheEnvChange(v){ envEtat.recherche = normTxt(v.trim()); renderListeEnv(); }
+function onFiltreEnvChange(){
+  envEtat.palier = document.getElementById('env-filtre-palier').value;
+  renderListeEnv();
+}
+function environnementsFiltres(){
+  let items = tousLesEnvironnements().slice();
+  if(envEtat.palier !== '') items = items.filter(e => String(e.palier) === String(envEtat.palier));
+  if(envEtat.recherche) items = items.filter(e => normTxt(e.nom).includes(envEtat.recherche));
+  return items.sort((a,b) => ((a.palier||0) - (b.palier||0)) || (a.nom||'').localeCompare(b.nom||'', 'fr'));
+}
+function renderListeEnv(){
+  const conteneur = document.getElementById('env-liste');
+  const items = environnementsFiltres();
+  if(tousLesEnvironnements().length === 0){
+    conteneur.innerHTML = '<div class="fiches-vide">Aucune donnée d\'environnement.<br>Vérifie que assets/JS/environnements.js est bien présent.</div>';
+    return;
+  }
+  if(items.length === 0){
+    conteneur.innerHTML = '<div class="fiches-vide">Aucun environnement ne correspond.</div>';
+    return;
+  }
+  conteneur.innerHTML = items.map(function(e){
+    const actif = e.id === environnementCourantId ? ' active' : '';
+    const meta = ['Palier ' + e.palier, e.type || '', (typeof e.difficulte === 'number' ? 'Diff. ' + e.difficulte : '')].filter(Boolean).map(escapeHtml).join(' &middot; ');
+    return '<button type="button" class="fiche-item' + actif + '" onclick="selectionnerEnvironnement(\'' + e.id + '\')">' +
+      '<span class="fiche-item-texte"><span class="fiche-item-nom">' + escapeHtml(e.nom) + '</span>' +
+      '<span class="fiche-item-meta">' + meta + '</span></span>' +
+      '</button>';
+  }).join('');
+}
+function selectionnerEnvironnement(id){
+  environnementCourantId = id;
+  renderListeEnv();
+  renderFicheEnvAffichee();
+  planifierSauvegardeAutoEcranMJ();
+}
+function fermerEnvironnement(){
+  environnementCourantId = null;
+  renderListeEnv();
+  renderFicheEnvAffichee();
+  planifierSauvegardeAutoEcranMJ();
+}
+
+// Texte d'aptitude : paragraphes et puces ("- ...") ; les jets de dés restent cliquables
+function formaterTexteEnv(texte, contexte){
+  if(!texte) return '';
+  const lignes = String(texte).split('\n').map(function(l){ return l.trim(); }).filter(Boolean);
+  let html = '';
+  let puces = [];
+  const fermerListe = function(){
+    if(puces.length){
+      html += '<ul>' + puces.map(function(p){ return '<li>' + p + '</li>'; }).join('') + '</ul>';
+      puces = [];
+    }
+  };
+  lignes.forEach(function(l){
+    if(l.indexOf('- ') === 0){
+      puces.push(enrichirTexteAvecDes(l.slice(2), contexte));
+    } else {
+      fermerListe();
+      html += '<p>' + enrichirTexteAvecDes(l, contexte) + '</p>';
+    }
+  });
+  fermerListe();
+  return html;
+}
+
+function renderFicheEnvironnement(env){
+  let html = '<div class="glass stat-block">';
+  html += '<div class="sb-header"><h2 class="sb-nom">' + escapeHtml(env.nom) + '</h2>' +
+    '<div class="sb-header-actions"><button type="button" class="sb-mini-btn retirer" onclick="fermerEnvironnement()" title="Fermer cette fiche">fermer</button></div></div>';
+  html += '<div class="sb-badges">' +
+    (env.palier ? '<span class="badge badge-palier">Palier ' + env.palier + '</span>' : '') +
+    (env.type ? '<span class="badge badge-categorie">' + escapeHtml(env.type) + '</span>' : '') + '</div>';
+  if(env.description) html += '<div class="sb-desc">' + escapeHtml(env.description) + '</div>';
+
+  if(typeof env.difficulte === 'number'){
+    html += '<div class="env-diff-row"><div class="sb-stat"><span class="sb-stat-label">Difficulté</span><span class="sb-stat-value">' + env.difficulte + '</span></div></div>';
+  } else if(env.difficulte){
+    html += '<div class="env-champ"><b>Difficulté :</b> ' + escapeHtml(env.difficulte) + '</div>';
+  }
+  if(env.impulsions) html += '<div class="env-champ"><b>Impulsions :</b> ' + escapeHtml(env.impulsions) + '</div>';
+  if(env.adversaires) html += '<div class="env-champ"><b>Adversaires potentiels :</b> ' + escapeHtml(env.adversaires) + '</div>';
+
+  if(env.aptitudes && env.aptitudes.length){
+    html += '<div class="sb-aptitudes"><h3>Aptitudes</h3>';
+    env.aptitudes.forEach(function(a){
+      if(!a || !a.nom) return;
+      const cls = a.tag ? (' ' + normTxt(a.tag).replace(/[^a-z]/g, '')) : '';
+      html += '<div class="apt-env' + cls + '">' +
+        '<div class="apt-env-entete"><span class="apt-env-nom">' + escapeHtml(a.nom) + '</span>' +
+        (a.tag ? '<span class="apt-env-tag">' + escapeHtml(a.tag) + '</span>' : '') + '</div>' +
+        '<div class="apt-env-texte">' + formaterTexteEnv(a.texte, env.nom + ' : ' + a.nom) + '</div>' +
+        (a.questions ? '<div class="apt-env-questions">' + escapeHtml(a.questions) + '</div>' : '') +
+        '</div>';
+    });
+    html += '</div>';
+  }
+  if(env.source) html += '<div class="sb-source">' + escapeHtml(env.source) + '</div>';
+  html += '</div>';
+  return html;
+}
+
+// ============================================================
+// AFFICHAGE DE LA FICHE ENVIRONNEMENT
+// ============================================================
+function renderFicheEnvAffichee(){
+  const cont = document.getElementById('fiche-env-container');
+  if(environnementCourantId){
+    const env = tousLesEnvironnements().find(e=>e.id===environnementCourantId);
+    if(env){ cont.innerHTML = renderFicheEnvironnement(env); return; }
+  }
+  cont.innerHTML = '<div class="glass empty-state">Choisis un environnement dans la liste ci-dessus.</div>';
+}
+
+// ============================================================
+// NOTES DU MJ
+// ============================================================
+function formaterNotes(action){
+  document.getElementById('notes-zone').focus();
+  if(action === 'titre'){
+    document.execCommand('formatBlock', false, 'h2');
+  } else {
+    document.execCommand(action);
+  }
+  planifierSauvegardeAutoEcranMJ();
+}
+
+// ============================================================
+// SAUVEGARDE / CHARGEMENT
+// ============================================================
+function collecterEtatEcranMJ(){
+  return {
+    version: 2,
+    peurNiveau: peurNiveau,
+    pointsBatailleMax: pointsBatailleMax,
+    pointsBatailleDepenses: pointsBatailleDepenses,
+    compteursDivers: compteursDivers,
+    notesHTML: document.getElementById('notes-zone').innerHTML,
+    blocsAdversaires: blocsAdversaires,
+    environnementCourantId: environnementCourantId,
+    date: dateDuJour()
+  };
+}
+function restaurerEtatEcranMJ(data){
+  if(!data) return;
+  peurNiveau = Math.max(0, Math.min(PEUR_MAX, parseInt(data.peurNiveau, 10) || 0));
+  pointsBatailleMax = Math.max(0, parseInt(data.pointsBatailleMax, 10) || 0);
+  pointsBatailleDepenses = Math.max(0, Math.min(pointsBatailleMax, parseInt(data.pointsBatailleDepenses, 10) || 0));
+  compteursDivers = Array.isArray(data.compteursDivers) ? data.compteursDivers : [];
+  document.getElementById('notes-zone').innerHTML = data.notesHTML || '';
+  blocsAdversaires = Array.isArray(data.blocsAdversaires) ? data.blocsAdversaires : [];
+  environnementCourantId = data.environnementCourantId || null;
+  renderPeur();
+  renderPointsBataille();
+  renderCompteurs();
+  renderListeAdv();
+  renderBlocsAdversaires();
+  renderListeEnv();
+  renderFicheEnvAffichee();
+}
+
+function ouvrirModaleSauvegarde(){
+  document.getElementById('sauvegarde-filename').value = 'ecran-mj_' + dateDuJour();
+  document.getElementById('modal-sauvegarde').classList.add('active');
+}
+function fermerModaleSauvegarde(){
+  document.getElementById('modal-sauvegarde').classList.remove('active');
+}
+function lancerSauvegardeEcranMJ(){
+  const nom = document.getElementById('sauvegarde-filename').value.trim() || ('ecran-mj_' + dateDuJour());
+  telechargerJSON(collecterEtatEcranMJ(), slugFichier(nom) + '.json');
+  fermerModaleSauvegarde();
+}
+function chargerEcranMJFichier(input){
+  const fichier = input.files[0];
+  if(!fichier) return;
+  const reader = new FileReader();
+  reader.onload = function(e){
+    try{
+      const data = JSON.parse(e.target.result);
+      restaurerEtatEcranMJ(data);
+      planifierSauvegardeAutoEcranMJ();
+      alert('Écran MJ chargé.');
+    } catch(err){
+      alert("Ce fichier n'est pas une sauvegarde d'écran MJ valide.");
+    }
+    input.value = '';
+  };
+  reader.readAsText(fichier);
+}
+
+// Sauvegarde automatique locale (au cas où l'onglet se ferme sans export manuel)
+function planifierSauvegardeAutoEcranMJ(){
+  clearTimeout(sauvegardeAutoTimer);
+  sauvegardeAutoTimer = setTimeout(function(){
+    try{ localStorage.setItem(LS_CLE_ECRANMJ, JSON.stringify(collecterEtatEcranMJ())); }
+    catch(e){ /* stockage indisponible : on ignore */ }
+  }, 400);
+}
+function restaurerSauvegardeAutoEcranMJ(){
+  let brut;
+  try{ brut = localStorage.getItem(LS_CLE_ECRANMJ); }
+  catch(e){ return; }
+  if(!brut) return;
+  try{ restaurerEtatEcranMJ(JSON.parse(brut)); }
+  catch(e){ /* sauvegarde corrompue : on ignore */ }
+}
+
+// ============================================================
+// INITIALISATION
+// ============================================================
+function initialiser(){
+  peuplerFiltresAdv();
+  peuplerFiltresEnv();
+  renderListeAdv();
+  renderBlocsAdversaires();
+  renderListeEnv();
+  renderPeur();
+  renderPointsBataille();
+  renderCompteurs();
+  renderHistorique();
+  renderFicheEnvAffichee();
+  restaurerSauvegardeAutoEcranMJ();
+}
+initialiser();
+</script>
+</body>
+</html>

@@ -420,6 +420,13 @@ const CONSOMMABLE_DATA = {
       "rarete": "Légendaire",
       "nom": "Goutte d'étoile",
       "description": "Vous pouvez utiliser cette goutte d'étoile pour invoquer une grêle de comètes qui infligent 8d20 dégâts physiques à toutes es cibles à Très longue portée"
+    },
+    {
+      "source": "Livre de règle (2026, Les colosses des Terrarides)",
+      "jet": null,
+      "rarete": "Les colosses des Terrarides",
+      "nom": "Dynamite",
+      "description": "Vous pouvez alluumer ce bâton de dynamite et le lancer a courte portée. Toutes les créature à trés courte portée de son point de chute doivent réussir un jet en réaction (14). Celles qui échouent subbissent 1d20+2 dégâts physique. les  cibles qui réussissent doivent cocher un stress. la dynamite inflige des dégâts doublés aux objets et structure inanimés."
     }
   ]
 };

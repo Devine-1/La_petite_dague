@@ -960,7 +960,7 @@ const BESTIAIRE_DATA = {
       {
         "nom": "Submerger",
         "tag": "réaction",
-        "texte": "Lorsque les zombies marquent HP à partir d'une attaque à portée de mêlée, vous pouvez marquer un stress pour lancer une attaque standard contre l'attaquant."
+        "texte": "Lorsque les zombies marquent PB à partir d'une attaque à portée de mêlée, vous pouvez marquer un stress pour lancer une attaque standard contre l'attaquant."
       }
     ]
   },
@@ -5005,6 +5005,776 @@ const BESTIAIRE_DATA = {
         "nom": "Opportuniste de talent",
         "tag": "réaction",
         "texte": "Lorsqu'un autre adversaire inflige des dégâts à une cible située à très courte portée du zombie, dépensez une Peur pour ajouter les dégâts d'attaque standard du zombie au jet de dégâts."
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "ikeri-les-blessures-indicibles",
+    "palier": 1,
+    "type": "Colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Ikéri, les blessures indicibles",
+    "description": "Cette créature simiensque a une tête d'oisseau. Elle est faite de pierre el porte une gigantesque mesa sur son dos.",
+    "motivation": "écraser, enchevétrer intimider, picorer\ntaille 30m de haut, 18m de large",
+    "difficulte": null,
+    "seuilMineur": 11,
+    "seuilMajeur": 22,
+    "blessure": null,
+    "stress": 6,
+    "modAttaque": null,
+    "attaqueStandard": null,
+    "experience": "Oeil de lynx +3, gigantesque +2",
+    "aptitudes": [
+      {
+        "nom": "Puissance colossale",
+        "tag": "réaction",
+        "texte": "Lorsqu' kéri rate une attaque, vous gagnez une Peur"
+      },
+      {
+        "nom": "Eliminer les insecte",
+        "tag": "réaction",
+        "texte": "Lorsqu'une cible volante attaque Ikéri à Longue portée, vous pouvez faire une attaque standard Picorer (Tête) ou Coup de poing (Bras) contre elle. Sur un succès, ajouter un 1d20 au jet de dégâts. De plus, la cible est jetée à terre aux pieds du colosse."
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "bars-d-ikeri-2",
+    "palier": 1,
+    "type": "Segment de colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Bars d'Ikéri (2)",
+    "description": "Voir page 319",
+    "motivation": null,
+    "difficulte": 13,
+    "seuilMineur": 11,
+    "seuilMajeur": 22,
+    "blessure": 3,
+    "stress": null,
+    "modAttaque": 2,
+    "attaqueStandard": "Coup de poing : très courte, 1d8+6 phy",
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Chaîne (A)",
+        "tag": "passive",
+        "texte": "Le colosse est vaincu lorsque tous les segment de la Chaîne A sont Détruits."
+      },
+      {
+        "nom": "Boyer",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour faire une attaque sur un autre segment d'ikéri. Sur un succès le colosse attrape sa cible et la broie, lui infligeant 1d20+4 dégâts physiques. Elle est Bloquée jusqu'à ce que le Bras subisse des dégâts Majeurs ou pire. Quand ce Bras est mis en avant alors qu'ikéri a toujours une cicle dans sa main, le malheureuse subit 1d20 dégâts physiques."
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "tete-d-ikeri",
+    "palier": 1,
+    "type": "Segment de colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Tête d'Ikéri",
+    "description": "Voir page 319",
+    "motivation": null,
+    "difficulte": 16,
+    "seuilMineur": 11,
+    "seuilMajeur": 22,
+    "blessure": 5,
+    "stress": null,
+    "modAttaque": 2,
+    "attaqueStandard": "Picorer : très courte, 1d10+1 phy",
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Fatal",
+        "tag": "passive",
+        "texte": "Le colosse est vaincu quand cette partie est Détruit"
+      },
+      {
+        "nom": "Frappe (mêlée)",
+        "tag": "passive",
+        "texte": "La Tête est immunisée contre tous les dégâts issus d'attaques effectuées autrement qu'en Mêlée."
+      },
+      {
+        "nom": "Enchaîner",
+        "tag": "réaction",
+        "texte": "Quand la Tête réussit une attaque contre une cible, elle peut immédiatement faire une attaque contre une autre cible qu'elle n'a pas encore attaquée pendant ce tour de MJ."
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "torse-d-ikeri",
+    "palier": 1,
+    "type": "Segment de colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Torse d'Ikéri",
+    "description": "Voir page 319",
+    "motivation": null,
+    "difficulte": 14,
+    "seuilMineur": 11,
+    "seuilMajeur": 22,
+    "blessure": 8,
+    "stress": null,
+    "modAttaque": null,
+    "attaqueStandard": null,
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Fatal",
+        "tag": "passive",
+        "texte": "Le colosse est vaincu quand cette partie est Détruit"
+      },
+      {
+        "nom": "S'en débarraser",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour faire tomber les adversaires présents sur ikeri. Toutes les créatures présentes sur lu doivent faire un jet de réaction de Force. Celles qui échouent tombent à terre et doivent cocher un PB. Les cibles qui réussissent doivent cocher un Stress."
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "jambe-d-ikeri-2",
+    "palier": 1,
+    "type": "Segment de colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Jambe d'Ikéri (2)",
+    "description": "Voir page 319",
+    "motivation": null,
+    "difficulte": 13,
+    "seuilMineur": 11,
+    "seuilMajeur": 22,
+    "blessure": 3,
+    "stress": null,
+    "modAttaque": 2,
+    "attaqueStandard": "Piétinement : très courte, 1d6+3 phy",
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Chaîne (A)",
+        "tag": "passive",
+        "texte": "Le colosse est vaincu lorsque tous les segment de la Chaîne A sont Détruits."
+      },
+      {
+        "nom": "Piétinement massif",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour faire une attaque standard avec un avantage contre un groupe"
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "daktadae-le-tranchor",
+    "palier": 2,
+    "type": "Colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Daktadae, le tranchor",
+    "description": "Cet énorme rhinocéros d'acier est fait à partir d'un croir o vapeur et possède un gigantesque tronchoir sur la tête en guise de corne",
+    "motivation": "couper, déforester, ecraser, trancher\n40m de haut, 70m de long",
+    "difficulte": null,
+    "seuilMineur": 16,
+    "seuilMajeur": 25,
+    "blessure": null,
+    "stress": 6,
+    "modAttaque": null,
+    "attaqueStandard": null,
+    "experience": "piétiner +2, gigantesque +2",
+    "aptitudes": [
+      {
+        "nom": "A vapeur",
+        "tag": "action",
+        "texte": "Des jets de vapeur brûlante fusent du corps de Daktadae. Mettez un segment en avant pour effectuer une attaque avec un modificateur d'attaque de 1 contre une cible présente dessus. Sur un succès, vous infligez 206+3 dégâts physiques"
+      },
+      {
+        "nom": "Roulade",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que Daktadae se laisse tomber au sol et se roule. Tous les Pj qui se trouvent sur lui ou à Courte portée doivent réussir un jet de réaction d'instinct (14) ou subir 2d20+5 dégâts physques. Qu'un Pj échoue ou réussisse, est éjecté de Daktadae et tombe à terre en Mélée avec le colosse."
+      },
+      {
+        "nom": "Récupération lente",
+        "tag": "action",
+        "texte": "Retirez un jeton d'un segment Cassé ou Effondre"
+      },
+      {
+        "nom": "Puissance colossale",
+        "tag": "réaction",
+        "texte": "Lorsque le colosse rate une attaque vous gagnez une Peur"
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "tete-de-daktadae",
+    "palier": 2,
+    "type": "Segment de colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Tête de Daktadae",
+    "description": "Voir pages 322",
+    "motivation": null,
+    "difficulte": 15,
+    "seuilMineur": 16,
+    "seuilMajeur": 25,
+    "blessure": 5,
+    "stress": null,
+    "modAttaque": 2,
+    "attaqueStandard": "Tranchoir :  mêlée, 2d20+8 phy",
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Invulnérable",
+        "tag": "passive",
+        "texte": "La Tête subit des dégâts seulement quand elle est Cassée"
+      },
+      {
+        "nom": "Tranchoir divin",
+        "tag": "action",
+        "texte": "Effectuez une attaque standard contre une cible. Sur un succès, cochez un Stress pour infliger 3d20+12 dégâts physiques à la place des dégâts standards"
+      },
+      {
+        "nom": "Coup tête",
+        "tag": "action",
+        "texte": "Cochez un Stress et effectuez une attaque standard contre toutes les cibles à portée qui ne se trouvent ni sur ce segment ni sur le Torse. Sur un succes, posez deux jetons sur ce segment. Il est Cassé jusqu'à ce qu'il soit débarrassé de tous ses jetont"
+      },
+      {
+        "nom": "Réparation du tranchoir",
+        "tag": "réaction",
+        "texte": "Après avoir fait une attaque stan card, posez un jeton sur ce segmentest Cassé jusqu'à ce qu'il soit débarraste de tous ses jetons"
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "torse-de-daktadae",
+    "palier": 2,
+    "type": "Segment de colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Torse de Daktadae",
+    "description": "Voir pages 322",
+    "motivation": null,
+    "difficulte": 14,
+    "seuilMineur": 16,
+    "seuilMajeur": 25,
+    "blessure": 6,
+    "stress": null,
+    "modAttaque": null,
+    "attaqueStandard": null,
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Fatal",
+        "tag": "passive",
+        "texte": "Le colosse est vaincu quand cette partie est Détruit"
+      },
+      {
+        "nom": "Escalade (+3)",
+        "tag": "passive",
+        "texte": "La Difficulté du Torse bénéficie d'un bonus de +3 contre les jets d'action visant à l'Escalader, à moins que la Tête ne soit Cassée"
+      },
+      {
+        "nom": "Protégé",
+        "tag": "passive",
+        "texte": "Le Torse est couvert de côtes externes en minérau incassables. Il est impossible de faire des dégâts sur ce segment à moins que la Tête ne soit Cassée ou Détruite,"
+      },
+      {
+        "nom": "Point faible",
+        "tag": "passive",
+        "texte": "La partie ventrale basse du Torse a un point faible. Quand ce segment coche un PB suite à une attaque en Mêlee alors que la tête est Cassée ou Détruite, il doit cocher un PB de plus"
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "anterieur-de-daktadae-2",
+    "palier": 2,
+    "type": "Segment de colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Antérieur de Daktadae (2)",
+    "description": "Voir pages 323",
+    "motivation": null,
+    "difficulte": 14,
+    "seuilMineur": 16,
+    "seuilMajeur": 25,
+    "blessure": 3,
+    "stress": null,
+    "modAttaque": 1,
+    "attaqueStandard": "Piétinement : très courte, 2d20+8 phy",
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Sabot massif",
+        "tag": "passive",
+        "texte": "L'attaque standard de ce segment se fait avec un avantage et peut cibler un groupe"
+      },
+      {
+        "nom": "Faire trenbler la terre",
+        "tag": "action",
+        "texte": "Daktadae se cabre avant de retomber lourdement, créant une onde de choc qui projette à Courte portée tous les Pj qui ne sont pas sur son dos mais se trouvent à Très courte portée. Ils sont Secoués jusqu'à ce qu'ils réussissent un jet avec Espoir. Tant qu ils sont Secoués, ils ont un désavantage sur leurs jets de réaction."
+      },
+      {
+        "nom": "Effrondrement",
+        "tag": "réaction",
+        "texte": "Si l'un des Antérieurs est Détruit, posez un jeton sur ce segment. Tant qu'il est là, Daktadae est Effondré, ce qui permet aux PJ de grimper directement sur son Torse et sa ête. Si les deux Antérieurs sont Détruits, Daktadae reste definitive-ment Effondré"
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "posterieurs-de-daktadae",
+    "palier": 2,
+    "type": "Segment de colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Postérieurs de Daktadae",
+    "description": "Voir pages 323",
+    "motivation": null,
+    "difficulte": 14,
+    "seuilMineur": 16,
+    "seuilMajeur": 25,
+    "blessure": 3,
+    "stress": null,
+    "modAttaque": 1,
+    "attaqueStandard": "Piétinement : très courte, 2d20+8 phy",
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Sabot massif",
+        "tag": "passive",
+        "texte": "L'attaque standard de ce segment se fait avec un avantage et peut cibler un groupe"
+      },
+      {
+        "nom": "Ruade",
+        "tag": "action",
+        "texte": "Toutes les cibles à Très courte portée der rière Daktadae doivent réussir un jet de réaction d'Agilité ou subir 2d8+10 dégâts physiques."
+      },
+      {
+        "nom": "Effondrement",
+        "tag": "réaction",
+        "texte": "Si l'un des Postérieurs est Détruit, posez un jeton sur ce segment. Tant qu'est là, Daktadae est Effondré, ce qui permet aux Pj de grimper directement sur son Torse et sa Tête Si les deux Postérieurs sont détruits, Daktadae reste définitivement Effondre"
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "poy-lecumeur-celeste-de-la-mer-de-poussiere",
+    "palier": 3,
+    "type": "Colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Poy, lécumeur céleste de la mer de poussière",
+    "description": "Ce gigantesque bec-en-sobat est fait de la poussière des Terrarides et piège ses ennemis dans son bec caverneux.",
+    "motivation": "intimider, rassembler, tenir à distance70m de long, 50m d'envergure",
+    "difficulte": null,
+    "seuilMineur": 25,
+    "seuilMajeur": 48,
+    "blessure": null,
+    "stress": 6,
+    "modAttaque": null,
+    "attaqueStandard": null,
+    "experience": "Attaque d'en haut +3, Gigantesque +3, manoeuvre+3",
+    "aptitudes": [
+      {
+        "nom": "Volant",
+        "tag": "passive",
+        "texte": "Poy peut voler tant que ses Ailes ne sont pas Détruites. Tant qu'il vole, la Difficulté de chacun de ses segments bénéficie d'un bonus de +2 contre les jets d'action des PJ qui ne se trouverent pas sur lui."
+      },
+      {
+        "nom": "Vent violent",
+        "tag": "passive",
+        "texte": "Lorsque Poy vole, aucune créature volante ne peut approcher à Courte portée sans se faire repousser par ses puissantes ailes."
+      },
+      {
+        "nom": "chute",
+        "tag": "réaction",
+        "texte": "Quand un Pj tombe de Poy alors que le colosse est en vol, il subit 3d20-6 dégâts physiques s'il heurte le sol."
+      },
+      {
+        "nom": "Puissance colossale",
+        "tag": "réaction",
+        "texte": "Lorsque le colosse rate une attaque vous gagnez une Peur"
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "tete-de-poy",
+    "palier": 3,
+    "type": "Segment de colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Tête de Poy",
+    "description": "Voir pages 324",
+    "motivation": null,
+    "difficulte": 16,
+    "seuilMineur": 25,
+    "seuilMajeur": 48,
+    "blessure": 5,
+    "stress": null,
+    "modAttaque": 3,
+    "attaqueStandard": "Hurlement :  très longue, 3d8+2 mag",
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "bec-piège",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour faire une attaque contre une cible de Poy. Sur un succès, elle subit 3d6+6 dégâts physiques et elle se retrouve Piégée dans le bec de Poy jusqu'à ce que sa Tête subisse des dégâts Majeurs ou pire. Les seuils du dégâts de Poy sont doublés contre les dégâts venant de cibles Piégées."
+      },
+      {
+        "nom": "Cascade",
+        "tag": "réaction",
+        "texte": "Lorsque ce segment est Détruit, le Cou doit cocher 3 PB"
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "cou-de-poy",
+    "palier": 3,
+    "type": "Segment de colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Cou de Poy",
+    "description": "Voir pages 324",
+    "motivation": null,
+    "difficulte": 13,
+    "seuilMineur": 25,
+    "seuilMajeur": 48,
+    "blessure": 6,
+    "stress": null,
+    "modAttaque": null,
+    "attaqueStandard": null,
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Fatal",
+        "tag": "passive",
+        "texte": "Le colosse est vaincu quand cette partie est Détruit"
+      },
+      {
+        "nom": "Protégé",
+        "tag": "passive",
+        "texte": "Le Cou de Poy est protégé par une magie ondoyante. Le Cou ne coche que les PB découlant de l'Aptitude \"Cascade\""
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "ailes-de-de-poy-2",
+    "palier": 3,
+    "type": "Segment de colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Ailes de  de Poy (2)",
+    "description": "Voir pages 325",
+    "motivation": null,
+    "difficulte": 16,
+    "seuilMineur": 25,
+    "seuilMajeur": 48,
+    "blessure": 5,
+    "stress": null,
+    "modAttaque": 2,
+    "attaqueStandard": "Battement : Mêlée,3d12+9 phy",
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Tempête de poussière",
+        "tag": "passive",
+        "texte": "Poy bat des ailes pour remplir l'air de poussière et réduire la visibilité. Les attaques des Pj à une portée supérieure à Mélée subissent un désavantage jusqu'su prochain tour du MJ."
+      },
+      {
+        "nom": "Battement d'ailes",
+        "tag": "action",
+        "texte": "Poy donne un violent coup avec ses Aile. Cochez un Stress pour faire une attaque contre toutes les cibles présentes sur l'Aile. Celles qu'il touche subissent 3d8+4 cégâts physiques et sont repoussées sur la Queue. Si la Queue est Détruite, elles tombent de Poy"
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "corps-de-poy",
+    "palier": 3,
+    "type": "Segment de colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Corps de Poy",
+    "description": "Voir pages 325",
+    "motivation": null,
+    "difficulte": 15,
+    "seuilMineur": 25,
+    "seuilMajeur": 48,
+    "blessure": null,
+    "stress": null,
+    "modAttaque": null,
+    "attaqueStandard": null,
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Invulnérable",
+        "tag": "passive",
+        "texte": "Le segment est immunisé contre les dégâts."
+      },
+      {
+        "nom": "Bonbardement en piqué",
+        "tag": "réaction",
+        "texte": "Quand une créature réussit une attaque contre ce segment, Poys attaque en piqué, ainsi que toutes les cibles à Très courte portée par rapport à elle. Les cibles doivent faire un jet de réaction d'Instinct. Celles qui échouent subissent 2d6+9 dégâts physiques. Celles qui réussissent peuvent coche un Stress pour grimper sur l'une des serres de Poy"
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "queue-de-poy",
+    "palier": 3,
+    "type": "Segment de colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Queue de Poy",
+    "description": "Voir pages 325",
+    "motivation": null,
+    "difficulte": 15,
+    "seuilMineur": 25,
+    "seuilMajeur": 48,
+    "blessure": 3,
+    "stress": null,
+    "modAttaque": 1,
+    "attaqueStandard": "Fouet : très courte, 3d12+12 phy",
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Balayage",
+        "tag": "action",
+        "texte": "Poy recourbe sa queue et s'en sert pour balayer un autre segment. Dépensez une Peur pour choisir un autre segment et faire ure attaque contre toutes les cibles présentes dessus. Celles que Poy touche subissent 3d8+5 dégâts physiques et sont repoussées sur un segment adjacent de votre choix."
+      },
+      {
+        "nom": "Cascade",
+        "tag": "réaction",
+        "texte": "Lorsque ce segment est Détruit, le Cou doit cocher 2 PB"
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "serres-de-poy-2",
+    "palier": 3,
+    "type": "Segment de colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Serres de Poy (2",
+    "description": "Voir pages 325",
+    "motivation": null,
+    "difficulte": 14,
+    "seuilMineur": 25,
+    "seuilMajeur": 48,
+    "blessure": 5,
+    "stress": null,
+    "modAttaque": 2,
+    "attaqueStandard": "coup de serres : mêlée, 3d10+5 phy",
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Emporter",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour faire une attaque contre une cible en Mélée. S'il y a une autre cible à Très courte portée de la première, vous pouvez mettre les deux Serres en avant en même temps et faire une attaque contre les ceux cibles à la place. Sur un succes, Poy attrape ses cibles, s'envole avec et les lâche. Une cible qui heurte le sol subit 5d20+4 dégâts physiques."
+      },
+      {
+        "nom": "Cascade",
+        "tag": "réaction",
+        "texte": "Lorsque ce segment est Détruit, le Cou doit cocher 1 PB"
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "kelir-la-haine-virulente-et-ses-centaines-d-enfant",
+    "palier": 4,
+    "type": "Colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Kélir, la haine virulente et ses centaines d'enfant",
+    "description": "Une bête aur allures de crabe aussi grande qu'une montagne, dont les enfants courent en tous sens et lui apportent de la nourriture en guise de tribut",
+    "motivation": "Dévorer, grouillet, ravager\n85m de haut, 45m de large",
+    "difficulte": null,
+    "seuilMineur": 30,
+    "seuilMajeur": 65,
+    "blessure": 6,
+    "stress": null,
+    "modAttaque": null,
+    "attaqueStandard": null,
+    "experience": "Mépris +2, giganstesque +4, perception du mouvement +4",
+    "aptitudes": [
+      {
+        "nom": "Attaque de couvée",
+        "tag": "action",
+        "texte": "Mettez en avant n'importe quel segment pour faire une attaque avec un modificateur d'attaque de +6 contre un Pj présent sur ce segment alors que les centaines de centaines d'enfants de Kélir le submergent sous leurs pinces Sur un succès, vous infligez 4d8 dégâts physiques"
+      },
+      {
+        "nom": "Eliminer les insecte",
+        "tag": "réaction",
+        "texte": "Lorsqu'une cible volante attaque Kélir à Longue portée, vous pouvez faire une attaque standard pince (griffe) ou Coup de poing (Bras) contre elle. Sur un succès, ajouter un d20 au jet de dégâts. De plus, la cible est jetée à terre aux pieds du colosse."
+      },
+      {
+        "nom": "Puissance colossale",
+        "tag": "réaction",
+        "texte": "Lorsque le colosse rate une attaque vous gagnez une Peur"
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "cavite-corporelle-de-kelir",
+    "palier": 4,
+    "type": "Segment de colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Cavité corporelle de Kélir",
+    "description": "Voir pages 326",
+    "motivation": null,
+    "difficulte": 17,
+    "seuilMineur": 30,
+    "seuilMajeur": 65,
+    "blessure": 6,
+    "stress": null,
+    "modAttaque": null,
+    "attaqueStandard": null,
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Fatal",
+        "tag": "passive",
+        "texte": "Le colosse est vaincu quand cette partie est Détruit"
+      },
+      {
+        "nom": "coeur haineux",
+        "tag": "passive",
+        "texte": "Le cœur de Kélir est suspendu dans sa Cavite corporelle, où il est relié à des artères et des veines épaisses. La Cavité corporelle est immunisée contre les dégâts, à moins que cœur ne soit la cible d'une attaque réussie. Pour attaquer le cœur, faut impérativement se trouver à Longue portée ou plus, mais un PJ situé à l'intérieur de la Cavité corporelle peut l'attaquer en Mélée si il réussit un jet d'Agilite."
+      },
+      {
+        "nom": "Attraper et déchiqueter",
+        "tag": "action",
+        "texte": "Effectuez une attaque avec l'action Attaque de couvée de Kelir contre une cible présente dans la Cavité corporelle, Sur un succès, dépensez une Peur pour doubler les dégâts infigés et Bloquer la cible jusqu'à ce qu'elle se libère ave un jet de Force."
+      },
+      {
+        "nom": "Nuée protectrice",
+        "tag": "réaction",
+        "texte": "Les rejetons de Kélir grouillent dans sa Cavite corporelle et protègent son coeur. Un Pj qui effectue un jet d'action dans la Cavité corporelle doit cocher un Stress tandis qu'il repcusse les petits du colosse et leurs pinces acérées"
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "carapace-corporelle-de-kelir",
+    "palier": 4,
+    "type": "Segment de colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Carapace corporelle de Kélir",
+    "description": "Voir pages 327",
+    "motivation": null,
+    "difficulte": 16,
+    "seuilMineur": 30,
+    "seuilMajeur": 65,
+    "blessure": 6,
+    "stress": null,
+    "modAttaque": null,
+    "attaqueStandard": null,
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Caparaçonné",
+        "tag": "passive",
+        "texte": "Lorsque la Carapace coche des PB suite à une attaque, elle en coche un de mains."
+      },
+      {
+        "nom": "Furie contagieuse",
+        "tag": "action",
+        "texte": "Tous les Pj situés devant la Tête et à Longue portée remplacent leur dé d'Espoir par un de lors de leur prochain jet d'action tandis qu'ils s'efforcent de résister à la haine de Kelir qui tente de les consumer."
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "pattes-de-kelir-4",
+    "palier": 4,
+    "type": "Segment de colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Pattes de Kélir (4)",
+    "description": "Voir pages 327",
+    "motivation": null,
+    "difficulte": 15,
+    "seuilMineur": 30,
+    "seuilMajeur": 65,
+    "blessure": 3,
+    "stress": null,
+    "modAttaque": 4,
+    "attaqueStandard": "piétiner : très courte, 4d10+6 phy",
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Escalade (-2)",
+        "tag": "passive",
+        "texte": "Tout jet d'action visant à grimper sur une patte subit un malus de -2 à la Difficulté"
+      },
+      {
+        "nom": "Cavalcade destructrice",
+        "tag": "action",
+        "texte": "Cocher un Stress pour avancer cans n'importe quelle direction jusqu'à Longue portée. Toutes les créatures sur le chemin doivent faire un jet de réaction d'Aglité. Celles qui échouent subissent 4d10+6 deglits physiques et doivent cacher un Stress. Celles qui réussissent doivent seulement cacher un Stress. Kellir ne peut pas utiliser cette action si elle est Effondrée"
+      },
+      {
+        "nom": "effrondrement complet",
+        "tag": "réaction",
+        "texte": "Une fois que Kélir a trois Pattes de Détruites, elle S'effondre et les P) peuvent grimper sur la Carapace et la Tête depuis le sol."
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "pince-de-kelir-2",
+    "palier": 4,
+    "type": "Segment de colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "pince de Kélir (2)",
+    "description": "Voir pages 327",
+    "motivation": null,
+    "difficulte": 15,
+    "seuilMineur": 30,
+    "seuilMajeur": 65,
+    "blessure": 5,
+    "stress": null,
+    "modAttaque": 5,
+    "attaqueStandard": "Pinces : très courte, 3d20+8 phy",
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Frappe (très courte)",
+        "tag": "passive",
+        "texte": "Les Pinces sont immunisées contre les attaques effectuées autrement qu'à Très courte portée"
+      },
+      {
+        "nom": "Briser l'espoir",
+        "tag": "action",
+        "texte": "Effectuez une attaque standard contre un Pj Sur un succès, cochez un Stress pour lui faire perdre 1d4 Espoirs Gagnez autant de Peurs que d'Espoirs perdus"
+      },
+      {
+        "nom": "Attraper et lancer",
+        "tag": "action",
+        "texte": "Effectuez une attaque standard contre une cible Sur un succes, lancer-la à Longue portée dans n'importa quelle direction au lieu de lui infiger des dégâts. Elle doit réussir un jet de réaction d'Agilité, sinon elle subit 3d20 dégâts physiques à cause de la chute"
+      }
+    ]
+  },
+  {
+    "source": "Livre de règle (2026, Les colosses des Terrarides)",
+    "id": "tete-de-kelir",
+    "palier": 4,
+    "type": "Segment de colosse",
+    "categorie": "Les colosses des terrarides",
+    "nom": "Tête de Kélir",
+    "description": "Voir pages 327",
+    "motivation": null,
+    "difficulte": 18,
+    "seuilMineur": 30,
+    "seuilMajeur": 65,
+    "blessure": 4,
+    "stress": null,
+    "modAttaque": 4,
+    "attaqueStandard": "Rayon oculaire : courte, 4d6+6 mag",
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Frappe (très courte)",
+        "tag": "passive",
+        "texte": "La Tête est immunisée contre les attaques effectuées autrement qu'à Très courte portée"
+      },
+      {
+        "nom": "Regard haineaux",
+        "tag": "action",
+        "texte": "Toutes les cibles que Kelir voit et qui se trouvent à Longue portée doivent réussir un jet de réaction de Présence ou cocher 1d6 Stress tandis que la haine de Kélir tente de dévorer leur espit"
       }
     ]
   }

@@ -96,6 +96,132 @@ const ARME_SECONDAIRE_DATA = {
       "aptitude": null
     },
     {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Grande fourchette",
+      "trait": "agilité",
+      "portee": "Mêlée",
+      "degats": "d8 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Apparié",
+        "description": "+2 aux dégâts de l'arme principale pour les cible en mêlée."
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Bouclier en couvercle de tonneau",
+      "trait": "Force",
+      "portee": "Mêlée",
+      "degats": "d4 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Protecteur",
+        "description": "+1 à la Valeur d'armure"
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Table Bouclier",
+      "trait": "Force",
+      "portee": "Mêlée",
+      "degats": "d6 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Barrière",
+        "description": "+2 à la Valeur d'armure, -1 à l'Esquive"
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Couteau à éplucher",
+      "trait": "Finesse",
+      "portee": "Mêlée",
+      "degats": "d8 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "apparié",
+        "description": "+2 aux dégâts de l'arme principale pour les cible en mêlée."
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Fouet de festival",
+      "trait": "Présence",
+      "portee": "Très courte",
+      "degats": "d6 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Surprenant",
+        "description": "Cochez un Stress pour faire claquer le fouet et obliger tous les adversaires en Mélée à reculer à Courte"
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Crochet de câble de remorquage",
+      "trait": "Finesse",
+      "portee": "Mêlée",
+      "degats": "d6 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Crochet",
+        "description": "Sur une attaque réussie, vous pouvez tirer votre cible jusqu'à l'amener en Mêlée."
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Tripaille et ripailles)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Lance fusée",
+      "trait": "Finesse",
+      "portee": "Mêlée",
+      "degats": "d6+1 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "lumineux",
+        "description": "cette arme illumine temporairement la zone ou tombe la fusée."
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Les colosses des Terrarides)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Lasso",
+      "trait": "agilité",
+      "portee": "Très courte",
+      "degats": "d4 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Capturé",
+        "description": "sur une attaque réussi, vous pouvez temporairement Capturer l'ennemi plutôt que de lui infliger les dégâts. Tant que la cible est Caputée, elle est bloquée et vulnérable, mais vous devez rester à courte portée par rapport à elle. Lorsque la cible élimine cet état vous pouvez faire un jet en réaction de force sur un succès, elle reste Capturé."
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Les colosses des Terrarides)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Petit récolver",
+      "trait": "Finesse",
+      "portee": "Longue",
+      "degats": "d6 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Tir rapide",
+        "description": "Dépenser 2 espoir pour gagner un bonus de +4 sur les dégâts de l'arme principale"
+      }
+    },
+    {
       "source": "Livre de règle (2026)",
       "palier": 2,
       "type": "Physique",
@@ -230,6 +356,34 @@ const ARME_SECONDAIRE_DATA = {
       "aptitude": {
         "nom": "Boomerang",
         "description": "Lorsque vous lancez cette arme sans dépasser sa portée, elle réapparaît dans votre main immédiatement après l'attaque."
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Les colosses des Terrarides)",
+      "palier": 2,
+      "type": "Physique",
+      "nom": "Lasso",
+      "trait": "agilité",
+      "portee": "Très courte",
+      "degats": "d4+3 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Capturé",
+        "description": "sur une attaque réussi, vous pouvez temporairement Capturer l'ennemi plutôt que de lui infliger les dégâts. Tant que la cible est Caputée, elle est bloquée et vulnérable, mais vous devez rester à courte portée par rapport à elle. Lorsque la cible élimine cet état vous pouvez faire un jet en réaction de force sur un succès, elle reste Capturé."
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Les colosses des Terrarides)",
+      "palier": 2,
+      "type": "Physique",
+      "nom": "Petit récolver",
+      "trait": "Finesse",
+      "portee": "Longue",
+      "degats": "d6+3 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Tir rapide",
+        "description": "Dépenser 2 espoir pour gagner un bonus de +4 sur les dégâts de l'arme principale"
       }
     },
     {
@@ -370,6 +524,34 @@ const ARME_SECONDAIRE_DATA = {
       }
     },
     {
+      "source": "Livre de règle (2026, Les colosses des Terrarides)",
+      "palier": 3,
+      "type": "Physique",
+      "nom": "Lasso",
+      "trait": "agilité",
+      "portee": "Très courte",
+      "degats": "d4+6 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Capturé",
+        "description": "sur une attaque réussi, vous pouvez temporairement Capturer l'ennemi plutôt que de lui infliger les dégâts. Tant que la cible est Caputée, elle est bloquée et vulnérable, mais vous devez rester à courte portée par rapport à elle. Lorsque la cible élimine cet état vous pouvez faire un jet en réaction de force sur un succès, elle reste Capturé."
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Les colosses des Terrarides)",
+      "palier": 3,
+      "type": "Physique",
+      "nom": "Petit récolver",
+      "trait": "Finesse",
+      "portee": "Longue",
+      "degats": "d6+6 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Tir rapide",
+        "description": "Dépenser 2 espoir pour gagner un bonus de +4 sur les dégâts de l'arme principale"
+      }
+    },
+    {
       "source": "Livre de règle (2026)",
       "palier": 4,
       "type": "Physique",
@@ -504,6 +686,34 @@ const ARME_SECONDAIRE_DATA = {
       "aptitude": {
         "nom": "Cible verrouillée",
         "description": "Sur une attaque réussie, votre prochaine attaque effectuée avec votre arme principale contre la même cible est un succès automatique"
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Les colosses des Terrarides)",
+      "palier": 4,
+      "type": "Physique",
+      "nom": "Lasso",
+      "trait": "agilité",
+      "portee": "Très courte",
+      "degats": "d4+9 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Capturé",
+        "description": "sur une attaque réussi, vous pouvez temporairement Capturer l'ennemi plutôt que de lui infliger les dégâts. Tant que la cible est Caputée, elle est bloquée et vulnérable, mais vous devez rester à courte portée par rapport à elle. Lorsque la cible élimine cet état vous pouvez faire un jet en réaction de force sur un succès, elle reste Capturé."
+      }
+    },
+    {
+      "source": "Livre de règle (2026, Les colosses des Terrarides)",
+      "palier": 4,
+      "type": "Physique",
+      "nom": "Petit récolver",
+      "trait": "Finesse",
+      "portee": "Longue",
+      "degats": "d6+9 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Tir rapide",
+        "description": "Dépenser 2 espoir pour gagner un bonus de +4 sur les dégâts de l'arme principale"
       }
     }
   ]
