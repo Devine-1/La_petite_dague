@@ -105,9 +105,9 @@ const FORME_BESTIALE_DATA = {
     {
       source: "Livre de règle (2026)",
       palier: 2, niveau: 2,
-      nom: "Bête Brutale",
+      nom: "Bête puissante",
       exemple: "Ours, Taureau, Élan, etc.",
-      stat: "+1 Force | Attaque Mêlée/Force/d10+4 (phy) | Esquive +3",
+      stat: "+3 Force | Attaque Mêlée/Force/d10+4 (phy) | Esquive +1",
       avantage: "Naviguer, Effrayer, Protéger",
       aptitudes: [
         { nom: "Carnage", description: "Lorsque vous lancez des dés pour infliger des dégâts d'une attaque, pour chaque 1 que vous obtenez, vous pouvez lancer un autre d10 et l'ajouter à votre jet de dégâts. Avant de faire un jet d'attaque, vous pouvez marquer du Stress pour gagner +1 en Maîtrise pour l'attaque." },
@@ -129,12 +129,12 @@ const FORME_BESTIALE_DATA = {
     {
       source: "Livre de règle (2026)",
       palier: 2, niveau: 2,
-      nom: "Serpent Agressif",
+      nom: "Serpent mordeur",
       exemple: "Vipère, Cobra, Serpent à sonnettes, etc.",
       stat: "+1 Finesse | Attaque Très Près/Finesse/d8+4 (phy) | Esquive +2",
       avantage: "Attaquer, Grimper, Tromper",
       aptitudes: [
-        { nom: "Coup Venimeux", description: "Attaquez toutes les cibles à portée Très Près. Toute cible touchée devient temporairement Empoisonnée. Une créature Empoisonnée subit 1d10 dégâts physiques directs chaque fois qu'elle agit. Cette condition ne peut pas s'accumuler." }
+        { nom: "Coup Venimeux", description: "Attaquez toutes les cibles à très courteportée Près. Toute cible touchée devient temporairement Empoisonnée. Une créature Empoisonnée subit 1d10 dégâts physiques directs chaque fois qu'elle agit. Cette condition ne peut pas s'accumuler." }
       ]
     },
     {

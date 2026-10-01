@@ -24,8 +24,8 @@ const ARME_SECONDAIRE_DATA = {
       "degats": "d4 phy",
       "encombrement": "Une main",
       "aptitude": {
-        "nom": "Protecteur",
-        "description": "+1 à la Valeur d'armure"
+        "nom": "Déviation",
+        "description": "Lorsque vous êtes attaqué, vous pouvez cocher un Emplacement d'armure pour gagner un bonus à l'Esquive égal à vos Emplacements d'armure disponibles contre cette attaque."
       }
     },
     {
@@ -245,8 +245,8 @@ const ARME_SECONDAIRE_DATA = {
       "degats": "d4 phy",
       "encombrement": "Une main",
       "aptitude": {
-        "nom": "Protecteur",
-        "description": "+1 à la Valeur d'armure"
+        "nom": "Déviation",
+        "description": "Lorsque vous êtes attaqué, vous pouvez cocher un Emplacement d'armure pour gagner un bonus à l'Esquive égal à vos Emplacements d'armure disponibles contre cette attaque."
       }
     },
     {
@@ -410,8 +410,8 @@ const ARME_SECONDAIRE_DATA = {
       "degats": "d4 phy",
       "encombrement": "Une main",
       "aptitude": {
-        "nom": "Protecteur",
-        "description": "+1 à la Valeur d'armure"
+        "nom": "Déviation",
+        "description": "Lorsque vous êtes attaqué, vous pouvez cocher un Emplacement d'armure pour gagner un bonus à l'Esquive égal à vos Emplacements d'armure disponibles contre cette attaque."
       }
     },
     {
@@ -575,8 +575,8 @@ const ARME_SECONDAIRE_DATA = {
       "degats": "d4 phy",
       "encombrement": "Une main",
       "aptitude": {
-        "nom": "Protecteur",
-        "description": "+1 à la Valeur d'armure"
+        "nom": "Déviation",
+        "description": "Lorsque vous êtes attaqué, vous pouvez cocher un Emplacement d'armure pour gagner un bonus à l'Esquive égal à vos Emplacements d'armure disponibles contre cette attaque."
       }
     },
     {

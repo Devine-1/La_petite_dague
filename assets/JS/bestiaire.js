@@ -1450,7 +1450,7 @@ const BESTIAIRE_DATA = {
       {
         "nom": "Eclats déchiqueteurs d'armure",
         "tag": "passive",
-        "texte": "Apres une attaque reussie contre le Serpent au Corps a corps, l'attaquant doit cocher un emplacement d'Armure. S'il ne peut pas marquer de Slot d'Armure, il doit marquer un PB."
+        "texte": "Apres une attaque reussie contre le Serpent au Corps a corps, l'attaquant doit cocher un emplacement d'Armure. S'il ne peut pas marquer d'emplacement d'Armure, il doit marquer un PB."
       },
       {
         "nom": "Serpent tourbillonnant",
@@ -4198,7 +4198,7 @@ const BESTIAIRE_DATA = {
       },
       {
         "nom": "Soufle halucinogéne",
-        "tag": "réaction",
+        "tag": "action",
         "texte": "Compte a rebours (Boucle 1d6). Lorsque la créture subit des dégâts pour la premiere fois, activez le Compte a rebours. Lorsqu'il se declenche, la créature souffle un gaz hallucinogene sur toutes les cibles devant elle jusqu'à longue portée. Les cibles doivent reussir un Jet en réaction d'Instinct ou etre tourmentees par des hallucinations effrayantes. Les cibles dont les peurs sont connues de la créature ont le Desavantage sur ce jet. Les cibles qui echouent subissent 3d8+3 dégâts magique direct."
       }
     ]
@@ -5165,7 +5165,7 @@ const BESTIAIRE_DATA = {
   },
   {
     "source": "Livre de règle (2026, Les colosses des Terrarides)",
-    "id": "daktadae-le-tranchor",
+    "id": "daktadae-le-tranchoir",
     "palier": 2,
     "type": "Colosse",
     "categorie": "Les colosses des terrarides",

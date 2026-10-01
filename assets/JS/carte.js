@@ -545,8 +545,8 @@ const CARTE_DATA = {
       "domaine": "Os",
       "niveau": 9,
       "type": "Capacité",
-      "nom": "Frappe éclatante",
-      "description": "Dépensez un Point d’Espoir et effectuez une attaque contre tous les adversaires à portée de votre arme. Une fois par Repos Long, pour chaque cible contre laquelle vous réussissez, totalisez tous les dégâts infligés, ensuite répartissez-les comme vous le souhaitez entre les cibles touchées. Pour chaque cible qui subit des dégâts, lancez un dé de dégâts supplémentaire et ajoutez le résultat aux dégâts infligés à cette cible",
+      "nom": "Frappe répartie",
+      "description": "Dépensez un Espoir et faites une attaque contre tous les adversaires à portée de votre arme. Une fois par repos long, en cas de réussite contre une ou plusieurs cibles, lancez les dégâts de votre arme et répartissez ces dégâts comme vous le souhaitez entre les cibles contre lesquelles vous avez réussi. Avant d'infliger les dégâts à chaque cible, lancez un dé de dégâts supplémentaire et ajoutez son résultat aux dégâts que vous lui infligez.",
       "cout_rappel": 3
     },
     {
@@ -645,7 +645,7 @@ const CARTE_DATA = {
       "niveau": 4,
       "type": "Grimoire",
       "nom": "LIVRE DE GRYNN",
-      "description": "Déflexion Arcanique : Une fois par Repos Long, dépensez un Point d’Espoir pour annuler les dégâts d’une attaque qui vous cible ou cible un allié à portée Très Proche.Verrou Temporel : Ciblez un objet à portée Lointaine. Il est figé dans l’espace-temps jusqu’à votre prochain repos. Si quelqu’un tente de le déplacer, faites un Jet d’Incantation contre lui pour maintenir l’effet.Mur de Flammes : Faites un Jet d’Incantation (15). En cas de succès, créez un mur de flammes magiques entre deux points à portée Lointaine. Toutes les créatures sur le trajet doivent choisir un côté. Toute entité traversant le mur subit 4D10+3 dégâts magiques.",
+      "description": "Déflexion Arcanique : Une fois par Repos Long, dépensez un Point d’Espoir pour annuler les dégâts d’une attaque qui vous cible ou cible un allié à portée Très Proche.Verrou Temporel : Ciblez un objet à portée Lointaine. Il est figé dans l’espace-temps jusqu’à votre prochain repos. Si quelqu’un tente de le déplacer, faites un Jet d’Incantation contre lui pour maintenir l’effet.Mur de Flammes : Faites un Jet d’Incantation (15). En cas de succès, créez un mur de flammes magiques temporaire entre deux points à portée Lointaine. Toutes les créatures sur le trajet doivent choisir un côté. Toute entité traversant le mur subit 4D10+3 dégâts magiques.",
       "cout_rappel": 2
     },
     {
