@@ -357,6 +357,11 @@
         gap: 8px;
         margin-bottom: 8px;
       }
+      .cartes-titre-info {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
       .cartes-header-right {
         display: flex;
         align-items: center;
@@ -929,6 +934,58 @@
       .liens-reponse {
         margin-bottom: 14px;
       }
+      .liens-question-wrap {
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+        margin-bottom: 4px;
+      }
+      .liens-question-wrap .liens-question {
+        flex: 1 1 auto;
+        margin-bottom: 0;
+        min-width: 0;
+      }
+      .liens-question-wrap .q-edit-input {
+        flex: 1 1 auto;
+        min-width: 0;
+        min-height: 60px;
+        font-size: 0.82rem;
+        font-style: italic;
+        font-family: "Merriweather", serif;
+        line-height: 1.4;
+        background: var(--paper);
+        color: var(--ink);
+        border: 1px solid var(--accent);
+        border-radius: 8px;
+        padding: 6px 8px;
+        resize: vertical;
+      }
+      .q-actions {
+        display: flex;
+        gap: 4px;
+        flex: 0 0 auto;
+      }
+      .q-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        padding: 0;
+        background: var(--paper-2);
+        color: var(--muted);
+        border: 1px solid var(--rule);
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .q-btn:hover,
+      .q-btn:focus-visible {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+      .liens-question-wrap.perso .liens-question {
+        color: var(--accent);
+      }
       .histoire-toolbar {
         display: flex;
         gap: 6px;
@@ -997,6 +1054,9 @@
         line-height: 1.45;
         border-radius: 10px;
         border: 1px solid var(--rule);
+      }
+      .niveau-palier1-info {
+        margin-bottom: 14px;
       }
       .niveau-instruction {
         font-size: 0.75rem;
@@ -1879,7 +1939,14 @@
         text-align: center;
         position: relative;
         overflow: visible;
-        z-index: 100;
+      }
+
+      /* Les sections restent au même niveau ; seule celle qui contient une
+         info-bulle ouverte passe temporairement au premier plan. */
+      .panel:has(.tooltip-box.open) {
+        position: relative;
+        z-index: 500;
+        overflow: visible;
       }
 
       /* L'info-bulle de la section Espoir doit rester au-dessus du panneau
@@ -1898,7 +1965,6 @@
       .inv-list {
         position: relative;
         overflow: visible;
-        z-index: 100;
       }
 
       .inv-list .select-with-info {
@@ -2185,6 +2251,9 @@
           text-shadow: none !important;
         }
         .effet-ouverture {
+          display: none !important;
+        }
+        .q-actions {
           display: none !important;
         }
         :root {
@@ -3727,7 +3796,26 @@
 
         <div class="panel cartes-panel">
           <div class="cartes-header-row">
-            <h2 style="margin-bottom: 0">Cartes de domaine</h2>
+            <div class="cartes-titre-info">
+              <h2 style="margin-bottom: 0">Cartes de domaine</h2>
+              <div class="select-with-info">
+                <span
+                  class="info-icon"
+                  tabindex="0"
+                  onclick="toggleTooltip('cartes-domaine-tooltip')"
+                  onkeypress="
+                    if (event.key === 'Enter')
+                      toggleTooltip('cartes-domaine-tooltip');
+                  "
+                  >i</span
+                >
+                <div class="tooltip-box" id="cartes-domaine-tooltip">
+                  <b>Carte de domaine :</b> au niveau 1, regardez les cartes des
+                  deux domaines et choisissez deux cartes, sachant que vous
+                  choisirez une autre carte à chaque niveau que vous gagnerez.
+                </div>
+              </div>
+            </div>
             <div class="cartes-header-right">
               <label class="mode-switch">
                 <input
@@ -3837,9 +3925,12 @@
             <div class="liens-grid-header">liens entre les personnages</div>
 
             <div>
-              <div class="liens-question">
-                Qu'avez-vous fait pour que les gens de votre communauté se
-                méfient de vous ?
+              <div class="liens-question-wrap" data-qid="liens-bg-1">
+                <div class="liens-question" id="q-liens-bg-1">Qu'avez-vous fait pour que les gens de votre communauté se méfient de vous ?</div>
+                <div class="q-actions">
+                  <button type="button" class="q-btn q-btn-reset" style="display: none" title="Rétablir la question officielle" aria-label="Rétablir la question officielle" onclick="reinitialiserQuestion('liens-bg-1')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button>
+                  <button type="button" class="q-btn q-btn-edit" title="Modifier la question" aria-label="Modifier la question" onclick="basculerEditionQuestion('liens-bg-1')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button>
+                </div>
               </div>
               <textarea
                 class="liens-reponse"
@@ -3848,8 +3939,12 @@
               ></textarea>
             </div>
             <div>
-              <div class="liens-question">
-                Pourquoi as-tu tellement confiance en moi ?
+              <div class="liens-question-wrap" data-qid="liens-pj-1">
+                <div class="liens-question" id="q-liens-pj-1">Pourquoi as-tu tellement confiance en moi ?</div>
+                <div class="q-actions">
+                  <button type="button" class="q-btn q-btn-reset" style="display: none" title="Rétablir la question officielle" aria-label="Rétablir la question officielle" onclick="reinitialiserQuestion('liens-pj-1')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button>
+                  <button type="button" class="q-btn q-btn-edit" title="Modifier la question" aria-label="Modifier la question" onclick="basculerEditionQuestion('liens-pj-1')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button>
+                </div>
               </div>
               <textarea
                 class="liens-reponse"
@@ -3859,9 +3954,12 @@
             </div>
 
             <div>
-              <div class="liens-question">
-                Quel mentor vous a appris à contrôler votre magie/force
-                indomptée ? Et pourquoi ne peut-il plus vous guider ?
+              <div class="liens-question-wrap" data-qid="liens-bg-2">
+                <div class="liens-question" id="q-liens-bg-2">Quel mentor vous a appris à contrôler votre magie/force indomptée ? Et pourquoi ne peut-il plus vous guider ?</div>
+                <div class="q-actions">
+                  <button type="button" class="q-btn q-btn-reset" style="display: none" title="Rétablir la question officielle" aria-label="Rétablir la question officielle" onclick="reinitialiserQuestion('liens-bg-2')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button>
+                  <button type="button" class="q-btn q-btn-edit" title="Modifier la question" aria-label="Modifier la question" onclick="basculerEditionQuestion('liens-bg-2')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button>
+                </div>
               </div>
               <textarea
                 class="liens-reponse"
@@ -3870,9 +3968,12 @@
               ></textarea>
             </div>
             <div>
-              <div class="liens-question">
-                Qu'ai-je fait pour que tu fasses preuve d'autant de confiance en
-                moi ?
+              <div class="liens-question-wrap" data-qid="liens-pj-2">
+                <div class="liens-question" id="q-liens-pj-2">Qu'ai-je fait pour que tu fasses preuve d'autant de confiance en moi ?</div>
+                <div class="q-actions">
+                  <button type="button" class="q-btn q-btn-reset" style="display: none" title="Rétablir la question officielle" aria-label="Rétablir la question officielle" onclick="reinitialiserQuestion('liens-pj-2')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button>
+                  <button type="button" class="q-btn q-btn-edit" title="Modifier la question" aria-label="Modifier la question" onclick="basculerEditionQuestion('liens-pj-2')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button>
+                </div>
               </div>
               <textarea
                 class="liens-reponse"
@@ -3882,9 +3983,12 @@
             </div>
 
             <div>
-              <div class="liens-question">
-                Vous nourrissez une peur profonde que vous cachez à tout le
-                monde. Laquelle, et pourquoi vous terrorise-t-elle autant ?
+              <div class="liens-question-wrap" data-qid="liens-bg-3">
+                <div class="liens-question" id="q-liens-bg-3">Vous nourrissez une peur profonde que vous cachez à tout le monde. Laquelle, et pourquoi vous terrorise-t-elle autant ?</div>
+                <div class="q-actions">
+                  <button type="button" class="q-btn q-btn-reset" style="display: none" title="Rétablir la question officielle" aria-label="Rétablir la question officielle" onclick="reinitialiserQuestion('liens-bg-3')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button>
+                  <button type="button" class="q-btn q-btn-edit" title="Modifier la question" aria-label="Modifier la question" onclick="basculerEditionQuestion('liens-bg-3')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button>
+                </div>
               </div>
               <textarea
                 class="liens-reponse"
@@ -3893,8 +3997,12 @@
               ></textarea>
             </div>
             <div>
-              <div class="liens-question">
-                Pourquoi gardons-nous autant de secret sur notre passé commun ?
+              <div class="liens-question-wrap" data-qid="liens-pj-3">
+                <div class="liens-question" id="q-liens-pj-3">Pourquoi gardons-nous autant de secret sur notre passé commun ?</div>
+                <div class="q-actions">
+                  <button type="button" class="q-btn q-btn-reset" style="display: none" title="Rétablir la question officielle" aria-label="Rétablir la question officielle" onclick="reinitialiserQuestion('liens-pj-3')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button>
+                  <button type="button" class="q-btn q-btn-edit" title="Modifier la question" aria-label="Modifier la question" onclick="basculerEditionQuestion('liens-pj-3')"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></button>
+                </div>
               </div>
               <textarea
                 class="liens-reponse"
@@ -4361,6 +4469,12 @@
       <!-- /tab-forme-sauvage -->
 
       <div class="main-tab-panel" id="tab-montee-niveau">
+        <div class="niveau-header-text niveau-palier1-info">
+          <b>Palier 1 - Niveau 1</b> &nbsp;|&nbsp; Traits : répartissez les
+          modificateurs de départ suivant les traits de votre personnage dans
+          l'ordre de votre choix. Points à distribuer à la création de
+          personnage : +2, +1, +1, 0, 0, -1.
+        </div>
         <div class="niveau-columns">
           <div class="panel">
             <h2>Palier 2 - Niveaux 2 à 4</h2>
@@ -8251,6 +8365,96 @@
         updateTooltip("ascendance");
       }
 
+      // ---------- questions personnalisables (histoire & liens) ----------
+      var questionsPerso = {};
+      var ICONE_VALIDER =
+        '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+      var ICONE_CRAYON =
+        '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>';
+      function questionDefaut(qid) {
+        const el = document.getElementById("q-" + qid);
+        if (el && el.dataset.defaut === undefined)
+          el.dataset.defaut = el.textContent.trim();
+        return el ? el.dataset.defaut : "";
+      }
+      function afficherQuestion(qid) {
+        const wrap = document.querySelector(
+          '.liens-question-wrap[data-qid="' + qid + '"]',
+        );
+        const el = document.getElementById("q-" + qid);
+        if (!wrap || !el) return;
+        const defaut = questionDefaut(qid);
+        const perso = questionsPerso[qid];
+        el.textContent = perso || defaut;
+        el.hidden = false;
+        wrap.classList.toggle("perso", !!perso);
+        const edit = wrap.querySelector(".q-edit-input");
+        if (edit) edit.remove();
+        const btnEdit = wrap.querySelector(".q-btn-edit");
+        btnEdit.innerHTML = ICONE_CRAYON;
+        btnEdit.title = "Modifier la question";
+        btnEdit.setAttribute("aria-label", "Modifier la question");
+        wrap.querySelector(".q-btn-reset").style.display = perso
+          ? ""
+          : "none";
+      }
+      function basculerEditionQuestion(qid) {
+        const wrap = document.querySelector(
+          '.liens-question-wrap[data-qid="' + qid + '"]',
+        );
+        const el = document.getElementById("q-" + qid);
+        if (!wrap || !el) return;
+        const enEdition = wrap.querySelector(".q-edit-input");
+        if (enEdition) {
+          const v = enEdition.value.replace(/\s+/g, " ").trim();
+          if (!v || v === questionDefaut(qid)) delete questionsPerso[qid];
+          else questionsPerso[qid] = v;
+          afficherQuestion(qid);
+          return;
+        }
+        questionDefaut(qid);
+        const ta = document.createElement("textarea");
+        ta.className = "q-edit-input";
+        ta.rows = 3;
+        ta.value = questionsPerso[qid] || el.dataset.defaut;
+        ta.addEventListener("keydown", function (e) {
+          if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault();
+            basculerEditionQuestion(qid);
+          } else if (e.key === "Escape") {
+            e.preventDefault();
+            afficherQuestion(qid);
+          }
+        });
+        el.hidden = true;
+        wrap.insertBefore(ta, wrap.querySelector(".q-actions"));
+        const btnEdit = wrap.querySelector(".q-btn-edit");
+        btnEdit.innerHTML = ICONE_VALIDER;
+        btnEdit.title = "Valider la question";
+        btnEdit.setAttribute("aria-label", "Valider la question");
+        wrap.querySelector(".q-btn-reset").style.display = "";
+        ta.focus();
+        ta.setSelectionRange(ta.value.length, ta.value.length);
+      }
+      function reinitialiserQuestion(qid) {
+        delete questionsPerso[qid];
+        afficherQuestion(qid);
+      }
+      function appliquerQuestionsPerso(obj) {
+        questionsPerso = {};
+        if (obj && typeof obj === "object") {
+          Object.keys(obj).forEach(function (k) {
+            if (typeof obj[k] === "string" && obj[k].trim())
+              questionsPerso[k] = obj[k];
+          });
+        }
+        document
+          .querySelectorAll(".liens-question-wrap")
+          .forEach(function (w) {
+            afficherQuestion(w.dataset.qid);
+          });
+      }
+
       // ---------- sauvegarde / chargement de la fiche ----------
       function estElementSauvegardable(el) {
         if (el.id === "fiche-load-input" || el.id === "mixte-import-input")
@@ -8258,6 +8462,7 @@
         if (el.closest("#modal-mixte-overlay")) return false;
         if (el.closest("#domain-tooltip-3")) return false;
         if (el.closest("#modal-des-overlay")) return false;
+        if (el.classList.contains("q-edit-input")) return false;
         return true;
       }
       function listerChamps() {
@@ -8327,6 +8532,7 @@
             expExtra: document.getElementById("rodeur-exp-extra-lines").children
               .length,
             ascendancesMixtes: ASCENDANCES_MIXTES,
+            questionsPerso: questionsPerso,
           },
         };
       }
@@ -8513,6 +8719,7 @@
         refreshCapacitesClasse();
         updateFormeSauvageVisibility();
         updateCompagnonRodeurVisibility();
+        appliquerQuestionsPerso(et.questionsPerso);
         const fsSel = document.getElementById("forme-sauvage-select");
         if (fsSel && fsSel.value !== "") onFormeSauvageChange();
         planifierSauvegardeAuto();

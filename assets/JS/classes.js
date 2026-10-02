@@ -412,7 +412,7 @@ const CLASSES_DATA = {
       "trait_incantation": "Finesse",
       "aptitude_espoir": {
         "nom": "Esquive du roublard",
-        "description": "Dépensez 3 Espoir pour Obtenir un bonus +2 à votre Esquive jusqu'à ce q'une attaque vous touche. Sinon, ce bonus persite jusqu'à votre prochain repos."
+        "description": "Dépensez 3 Espoir pour Obtenir un bonus +2 à votre Esquive jusqu'à ce qu'une attaque vous touche. Sinon, ce bonus persiste jusqu'à votre prochain repos."
       },
       "aptitudes_classe": [
         {

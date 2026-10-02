@@ -395,6 +395,7 @@
     <div class="memo-tabs">
       <button type="button" class="memo-tab actif" data-memo="etat" onclick="afficherMemo('etat')">État</button>
       <button type="button" class="memo-tab" data-memo="portee" onclick="afficherMemo('portee')">Portée</button>
+      <button type="button" class="memo-tab" data-memo="combat" onclick="afficherMemo('combat')">Combat</button>
       <button type="button" class="memo-tab" data-memo="repos" onclick="afficherMemo('repos')">Repos</button>
       <button type="button" class="memo-tab" data-memo="peur" onclick="afficherMemo('peur')">Peur</button>
       <button type="button" class="memo-tab" data-memo="mort" onclick="afficherMemo('mort')">Actes de mort</button>
@@ -434,6 +435,22 @@
     </div>
 
     <!-- REPOS -->
+    <!-- COMBAT -->
+    <div class="memo-panel" id="memo-combat">
+      <div class="memo-carte">
+        <h3>Critique des ennemis</h3>
+        <p>Les adversaires réalisent un succès critique sur un <b>20</b>. Ils infligent les dégâts imaginaires <b>plus</b> les dégâts effectués lors d'un jet de dégâts classique.</p>
+      </div>
+      <div class="memo-carte">
+        <h3>Dégâts massifs <span style="font-weight:normal;color:var(--muted)">(règle optionnelle)</span></h3>
+        <p>Si vous subissez des dégâts égaux au <b>double de votre seuil de dégâts graves</b>, vous cochez <b>4 PB</b>.</p>
+      </div>
+      <div class="memo-carte">
+        <h3>Esquive</h3>
+        <p>Si le résultat est égal ou supérieur à la valeur d'esquive du PJ, l'attaque est un succès, sinon elle échoue.</p>
+      </div>
+    </div>
+
     <div class="memo-panel" id="memo-repos">
       <div class="memo-carte">
         <h3>Repos court</h3>
