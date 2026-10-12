@@ -514,8 +514,8 @@
       <div class="memo-carte">
         <h3>Cicatrices</h3>
         <p>Vous vous êtes relevé, mais à quel prix ?</p>
-        <p>Si vous obtenez une cicatrice, vous cochez un slot d'espoir que vous ne pourrez plus utiliser. Il est possible de retrouver ces slots d'espoir perdus, cela dépendra de l'évolution de votre personnage et s'il réussit à guérir de ses cicatrices.</p>
-        <p>Si tous vos slots d'espoir sont cochés, il est l'heure pour vous d'arrêter la vie d'aventurier.</p>
+        <p>Si vous obtenez une cicatrice, vous rayer un emplacement d'espoir que vous ne pourrez plus utiliser. Il est possible de retrouver ces emplacements d'espoir perdus, cela dépendra de l'évolution de votre personnage et s'il réussit à guérir de ses cicatrices.</p>
+        <p>Si tous vos emplacements d'espoir sont cochés, il est l'heure pour vous d'arrêter la vie d'aventurier.</p>
       </div>
       <div class="memo-carte">
         <h3>Résurrection</h3>
@@ -1168,7 +1168,7 @@ function environnementsFiltres(){
   let items = tousLesEnvironnements().slice();
   if(envEtat.palier !== '') items = items.filter(e => String(e.palier) === String(envEtat.palier));
   if(envEtat.recherche) items = items.filter(e => normTxt(e.nom).includes(envEtat.recherche));
-  return items.sort((a,b) => ((a.palier||0) - (b.palier||0)) || (a.nom||'').localeCompare(b.nom||'', 'fr'));
+  return items.sort((a,b) => (a.nom||'').localeCompare(b.nom||'', 'fr', {sensitivity:'base'}) || ((a.palier||0) - (b.palier||0)));
 }
 function renderListeEnv(){
   const conteneur = document.getElementById('env-liste');

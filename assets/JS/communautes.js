@@ -52,7 +52,7 @@ const COMMUNAUTES_DATA = {
       "description": "Faire partie d'une communauté liée à l'ordre , c'est appartenir à un collectivité qui se concentre sur la discipline ou la religion et respecte un ensemble de principequi reflétent votre expérienceen son sein.",
       "aptitude": {
         "nom": "Dévoué",
-        "description": "Notez trois adages ou valeur que votre éduction vous a inculqués. uen fois par repos , vous pouvez lancer un D20 comme dés d'espore à condition de décrire comment vous incarnez ces principes par votre action actuelle."
+        "description": "Notez trois adages ou valeur que votre éduction vous a inculqués. uen fois par repos , vous pouvez lancer un D20 comme dés d'espoire à condition de décrire comment vous incarnez ces principes par votre action actuelle."
       }
     },
     {
@@ -80,6 +80,60 @@ const COMMUNAUTES_DATA = {
       "aptitude": {
         "nom": "Vie dans la pénombre",
         "description": "Lorsque vous vous trouvez dans une zone ou la lumière est faible ou l'ombre est épaisse, vous avez un avantage sur les jets visant à vous cacher, à enquêter ou à percevoir des détails dans cette zone."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "nom": "Liée au froid",
+      "description": "Faire partie d’une communauté gelée signifie que vous venez d’un endroit de neige et de glace.",
+      "aptitude": {
+        "nom": "Robuste",
+        "description": "Lorsque vous vous reposez, vous retire un Point de blesure."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "nom": "Liée à la guerre",
+      "description": "Faire partie d’une communauté de guerre signifie que vous venez d’un endroit qui est, ou a été, ravagé par la guerre.",
+      "aptitude": {
+        "nom": "Visage courageux ",
+        "description": "Une fois par séance où quand vous êtes obligé de marquer un stress, vous pouvez marquer un espoir à la place."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "nom": "Liée au désert",
+      "description": "Faire partie d'une communauté dune signifie que vous avez élu domicile parmi les sables mouvants et le climat aride du désert.",
+      "aptitude": {
+        "nom": "Oasis",
+        "description": "Pendant un repos court, vous ou un allié pouvez relancer un dé utilisé pour un temps du repos et prenez le résultat le plus élevé."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "nom": "Liée à la liberté",
+      "description": "Faire partie d'une communauté libre signifie que vous faites partie d'un collectif qui vivait autrefois sous un régime tyrannique mais qui est maintenant libéré.",
+      "aptitude": {
+        "nom": "Non lié",
+        "description": "Une fois par session lorsque vous réaliser un jet avec Peur, vous pouvez le transformer se lancer avec Espoir."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "nom": "Liée au foyer",
+      "description": "Faire partie d'une communauté du foyer signifie que vous venez d'origines modestes, ayant vécu dans un village modeste ou une campagne pittoresque.",
+      "aptitude": {
+        "nom": "Solidaires de longue date",
+        "description": "Une fois par repos long, vous pouvez dépenser un nombre quelconque d’Espoir pour accorder à un allié situé à portée Lointaine un nombre égal d’Espoir."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "nom": "Liée à la renaissance",
+      "description": "Vous étiez autrefois membre d’une communauté différente dont vous ne faites plus partie",
+      "aptitude": {
+        "nom": "Famille retrouvée",
+        "description": "Une fois par repos, vous pouvez dépenser un Espoir pour utiliser l’Expérience d’un allié comme si c’était la vôtre. Lorsque vous faites cela, décrivez comment votre temps passé avec cet allié vous a préparé à ce moment-là.\n\nLorsque vous rejoignez une nouvelle communauté ou redécouvrez votre ancienne, vous pouvez échanger définitivement cette carte contre celle-là."
       }
     }
   ]

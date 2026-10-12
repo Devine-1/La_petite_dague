@@ -9,7 +9,6 @@ const CLASSES_DATA = {
         "Grâce",
         "Arcane"
       ],
-      "trait_incantation": "Présence",
       "aptitude_espoir": {
         "nom": "Faire une scène",
         "description": "Dépensez 3 Espoir pour distraire temporairement une cible à courte portée, ce qui impose un malus de -2 à leur difficulté."
@@ -43,6 +42,7 @@ const CLASSES_DATA = {
         {
           "nom": "Troubadour",
           "description": "Jouez au Troubadour si vous voulez jouer de la musique pour renforcer vos alliés.",
+          "trait_incantation": "Présence",
           "paliers": {
             "base": [
               {
@@ -67,6 +67,7 @@ const CLASSES_DATA = {
         {
           "nom": "Génie des mots",
           "description": "Optez pour un Génie des mots si vous souhaitez utiliser des jeux de mots intelligents et captiver les foules.",
+          "trait_incantation": "Présence",
           "paliers": {
             "base": [
               {
@@ -102,7 +103,6 @@ const CLASSES_DATA = {
         "Sagesse",
         "Arcane"
       ],
-      "trait_incantation": "Instinct",
       "aptitude_espoir": {
         "nom": "Evolution",
         "description": "Dépensez 3 Espoirs pour passer sous Forme bestiale sans cocherde Stress. Lorsque vous le faites, augementez un trait de votre choix de +1 jusqu'à ce que vous abandonniez cette forme de bestiale."
@@ -140,17 +140,18 @@ const CLASSES_DATA = {
         {
           "nom": "Protecteur des éléments",
           "description": "Optez pour le protecteur des éléments si vous souhaitez incarner les éléments naturels du monde sauvage.",
+          "trait_incantation": "Instinct",
           "paliers": {
             "base": [
               {
                 "nom": "Incarnation élémentaire",
-                "description": "Cocher un stress pour à Canaliser l’un des éléments suivants jusqu’à ce que vous subissiez des dégâts graves ou jusqu’à votre prochain repos.<br>- Feu. Lorsqu'un adversaire en mêlée vous inflige des dégâts, il prend 1d10 dégâts magiques.<br>- Terre. Ajouter un bonus égale à votre compétence à vos seuil de dégâts.<br>- Eau. Lorsque vous infligez des dégâts à un adversaire en mêlée, tous les autres adversaires à très courte portée doivent cocher un stress.<br>- Air. Vous pouvez planer, gagnant ainsi l'avantage sur jet d'agilité."
+                "description": "Cocher un stress pour à Canaliser l’un des éléments suivants jusqu’à ce que vous subissiez des dégâts graves ou jusqu’à votre prochain repos.<br><br>- Feu. Lorsqu'un adversaire en mêlée vous inflige des dégâts, il prend 1d10 dégâts magiques.<br>- Terre. Ajouter un bonus égale à votre compétence à vos seuil de dégâts.<br>- Eau. Lorsque vous infligez des dégâts à un adversaire en mêlée, tous les autres adversaires à très courte portée doivent cocher un stress.<br>- Air. Vous pouvez planer, gagnant ainsi l'avantage sur jet d'agilité."
               }
             ],
             "specialisation": [
               {
                 "nom": "Aura élémentaire",
-                "description": "Une fois par repos lorsque vous canalisez, vous pouvez émettre une aura accordée à votre élément. Elle affecte les cibles à courte portée jusqu'à la fin de votre Canalisation.<br>- Feu. Lorsqu'un adversaire coche 1 ou plusieurs points Blessure, il doit aussi cocher un stress.<br>- Terre. Vos alliés gagnent un bonus de +1 à la force.<br>- Eau. Lorsqu'un adversaire vous inflige des dégâts, vous pouvez cocher un stress pour le déplacer n'importe où à très courte de là où il se trouve.<br>- Air. Lorsque vous ou un allié subissez des dégâts issue d'une attaque d'une portée supérieur à mêlée, réduisez ces dégâts en 1D8."
+                "description": "Une fois par repos lorsque vous canalisez, vous pouvez émettre une aura accordée à votre élément. Elle affecte les cibles à courte portée jusqu'à la fin de votre Canalisation.<br><br>- Feu. Lorsqu'un adversaire coche 1 ou plusieurs points Blessure, il doit aussi cocher un stress.<br>- Terre. Vos alliés gagnent un bonus de +1 à la force.<br>- Eau. Lorsqu'un adversaire vous inflige des dégâts, vous pouvez cocher un stress pour le déplacer n'importe où à très courte de là où il se trouve.<br>- Air. Lorsque vous ou un allié subissez des dégâts issue d'une attaque d'une portée supérieur à mêlée, réduisez ces dégâts en 1D8."
               }
             ],
             "maitrise": [
@@ -164,6 +165,7 @@ const CLASSES_DATA = {
         {
           "nom": "Protecteur du renouveau",
           "description": "Incarnez un protecteur du Renouveau si vous souhaitez utiliser une magie puissante pour guérir votre groupe.",
+          "trait_incantation": "Instinct",
           "paliers": {
             "base": [
               {
@@ -203,7 +205,6 @@ const CLASSES_DATA = {
         "Vaillance",
         "Lame"
       ],
-      "trait_incantation": null,
       "aptitude_espoir": {
         "nom": "En première ligne",
         "description": "Dépensez 3 Espoire pour effacer 2 emplacements d'armure."
@@ -237,6 +238,7 @@ const CLASSES_DATA = {
         {
           "nom": "Robuste",
           "description": "Optez pour le Robuste si vous voulez prendre de lourds coups et continuer à vous battre.",
+          "trait_incantation": null,
           "paliers": {
             "base": [
               {
@@ -273,6 +275,7 @@ const CLASSES_DATA = {
         {
           "nom": "Vengeur",
           "description": "incarnez le vengeur si vous souhaitez abattre des ennemis qui vous font du mal ou font du mal à vos alliés.",
+          "trait_incantation": null,
           "paliers": {
             "base": [
               {
@@ -308,10 +311,9 @@ const CLASSES_DATA = {
         "Os",
         "Sagesse"
       ],
-      "trait_incantation": "Agilité",
       "aptitude_espoir": {
         "nom": "N'avance pas",
-        "description": "Dépensez 3 Espoirlorsque vous réussissez une attaque a l'aide d'une arme pour appliquer le même jet contre deux adversaires supplémentaires à portée de l'attaque."
+        "description": "Dépensez 3 Espoir lorsque vous réussissez une attaque a l'aide d'une arme pour appliquer le même jet contre deux adversaires supplémentaires à portée de l'attaque."
       },
       "aptitudes_classe": [
         {
@@ -342,6 +344,7 @@ const CLASSES_DATA = {
         {
           "nom": "Compagnon des bêtes",
           "description": "Incarnez le compagnon des bêtes si vous souhaitez nouer un lien profond avec un animal.",
+          "trait_incantation": "Agilité",
           "paliers": {
             "base": [
               {
@@ -374,6 +377,7 @@ const CLASSES_DATA = {
         {
           "nom": "Explorateur",
           "description": "Optez pour l'Eplorateur si vous voulez chasser votre proie et frapper avec une force mortelle.",
+          "trait_incantation": "Agilité",
           "paliers": {
             "base": [
               {
@@ -409,7 +413,6 @@ const CLASSES_DATA = {
         "Minuit",
         "Grâce"
       ],
-      "trait_incantation": "Finesse",
       "aptitude_espoir": {
         "nom": "Esquive du roublard",
         "description": "Dépensez 3 Espoir pour Obtenir un bonus +2 à votre Esquive jusqu'à ce qu'une attaque vous touche. Sinon, ce bonus persiste jusqu'à votre prochain repos."
@@ -447,6 +450,7 @@ const CLASSES_DATA = {
         {
           "nom": "Marchenuit",
           "description": "Optez pour le Marchenuit si vous souhaitez manipuler les ombres pour manœuvrer dans l'environnement.",
+          "trait_incantation": "Finesse",
           "paliers": {
             "base": [
               {
@@ -479,6 +483,7 @@ const CLASSES_DATA = {
         {
           "nom": "Syndicat",
           "description": "Incarnez le syndicat si vous souhaitez avoir un réseau de contacts partout où vous allez.",
+          "trait_incantation": "Finesse",
           "paliers": {
             "base": [
               {
@@ -510,10 +515,9 @@ const CLASSES_DATA = {
         "Splendeur",
         "Vaillance"
       ],
-      "trait_incantation": "Force",
       "aptitude_espoir": {
         "nom": "Soutien Vital",
-        "description": "Dépensez 3 Espoire pour effacer un point de Blessuresur un allié à Courte portée."
+        "description": "Dépensez 3 Espoirs pour effacer un point de Blessure sur un allié à Courte portée."
       },
       "aptitudes_classe": [
         {
@@ -544,6 +548,7 @@ const CLASSES_DATA = {
         {
           "nom": "Arme divine",
           "description": "Optez pour une arme divine si vous souhaitez dominer le champ de bataille avec une arme légendaire.",
+          "trait_incantation": "Force",
           "paliers": {
             "base": [
               {
@@ -564,7 +569,7 @@ const CLASSES_DATA = {
             "maitrise": [
               {
                 "nom": "Résonance sacrée",
-                "description": "Lorsque que vous lancez les dégâts pour l'aptitude\"Arme spirituelle\", si vius obtenez deux dés égaux, vous doublez la valeur de chacun. par exemple, si vous obtenez deux 5, ils comptent comme deux 10."
+                "description": "Lorsque que vous lancez les dégâts pour l'aptitude \"Arme spirituelle\", si vous obtenez deux dés égaux, vous doublez la valeur de chacun. par exemple, si vous obtenez deux 5, ils comptent comme deux 10."
               }
             ]
           }
@@ -572,6 +577,7 @@ const CLASSES_DATA = {
         {
           "nom": "Sentinelle ailée",
           "description": "Incarnez une Sentinelle Ailée si vous voulez prendre votre envol et frapper des coups écrasants depuis le ciel.",
+          "trait_incantation": "Force",
           "paliers": {
             "base": [
               {
@@ -607,7 +613,6 @@ const CLASSES_DATA = {
         "Arcane",
         "Minuit"
       ],
-      "trait_incantation": "Instinct",
       "aptitude_espoir": {
         "nom": "Magie volatile",
         "description": "Dépensez 3 Espoir pour relancer n'importe quel nombre de vos dés de dégâts sur une attaque qui inflige des dégâts magiques."
@@ -649,6 +654,7 @@ const CLASSES_DATA = {
         {
           "nom": "Origine élémentaire",
           "description": "Optez pour l'Origine Élémentaire si vous souhaitez canaliser la magie brute pour prendre la forme d'un élément particulier.",
+          "trait_incantation": "Instinct",
           "paliers": {
             "base": [
               {
@@ -673,6 +679,7 @@ const CLASSES_DATA = {
         {
           "nom": "Origine primordiale",
           "description": "Optez pour l'origine primordialesi vous souhaitez étendre la polyvalence de vos sorts de manière puissante.",
+          "trait_incantation": "Instinct",
           "paliers": {
             "base": [
               {
@@ -704,7 +711,6 @@ const CLASSES_DATA = {
         "Lame",
         "Os"
       ],
-      "trait_incantation": null,
       "aptitude_espoir": {
         "nom": "Pas de pité",
         "description": "Dépensez 3 Espoir pour gagner un bonus de +1 à vos jets d'attaque jusqu'à votre prochain repos."
@@ -742,6 +748,7 @@ const CLASSES_DATA = {
         {
           "nom": "Appel du brave",
           "description": "Opter pour l'Appel des Braves si vous souhaitez utiliser la puissance de vos ennemis pour alimenter votre propre pouvoir.",
+          "trait_incantation": null,
           "paliers": {
             "base": [
               {
@@ -770,6 +777,7 @@ const CLASSES_DATA = {
         {
           "nom": "Appel du tueur",
           "description": "Optez pour l'Appel du Tueur si vous voulez abattre des adversaires avec une force immense.",
+          "trait_incantation": null,
           "paliers": {
             "base": [
               {
@@ -801,7 +809,6 @@ const CLASSES_DATA = {
         "Codex",
         "Splendeur"
       ],
-      "trait_incantation": "Savoir",
       "aptitude_espoir": {
         "nom": "Pas cette fois",
         "description": "Dépensez 3 Espoirs pour obliger un adversaire à Longue portée à relancer un jet de dégâts ou d'attaque."
@@ -839,6 +846,7 @@ const CLASSES_DATA = {
         {
           "nom": "Ecole du savoir",
           "description": "Optez pour l’École de la connaissance si vous souhaitez une compréhension approfondie du monde qui vous entoure.",
+          "trait_incantation": "Savoir",
           "paliers": {
             "base": [
               {
@@ -875,6 +883,7 @@ const CLASSES_DATA = {
         {
           "nom": "Ecole de la guerre",
           "description": "Optez pour l'École de guerre si vous souhaitez utiliser la magie entraînée pour la violence.",
+          "trait_incantation": "Savoir",
           "paliers": {
             "base": [
               {
@@ -905,6 +914,450 @@ const CLASSES_DATA = {
                 "nom": "Sans peur",
                 "description": "Les dégâts magiques supplémentaires de l'aptitude « Affronter ses peur » augmentent à 3d10."
               }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "nom": "Assasin",
+      "description": "Les assassins sont des maîtres de la furtivité et de la précision, capables d'éliminer leurs cibles avec une efficacité redoutable. Formés dans l'art de l'espionnage, du sabotage et du meurtre, ils opèrent souvent dans l'ombre, utilisant leur intelligence et leur agilité pour atteindre leurs objectifs. Les assassins peuvent travailler pour des organisations secrètes, des guildes ou en tant qu'indépendants, mais tous partagent un engagement envers la discrétion et la maîtrise de leur art.",
+      "domaines": [
+        "Lame",
+        "Minuit"
+      ],
+      "aptitude_espoir": {
+        "nom": "Détermination mortelle",
+        "description": "Dépensez 3 Espoir pour éliminer 2 stress."
+      },
+      "aptitudes_classe": [
+        {
+          "nom": "Marqué pour la mort",
+          "description": "Lorsqu’une attaque d’arme réussit, vous pouvez dépenser 1 Stress pour marquer la cible comme « Marquée pour la Mort ». Lorsque vous infligez des dégâts à une cible que vous avez marquée pour la Mort, ajoutez un nombre de d4 égal à votre palier au jet de dégâts.\nVous ne pouvez avoir qu’un seul adversaire marqué pour la Mort à la fois. Cette condition dure jusqu’à votre repos, jusqu’à ce que l’adversaire marqué pour la Mort soit vaincu, ou jusqu’à ce que le Maître du Jeu dépense un nombre de Peur égal à votre niveau pour la dissiper."
+        },
+        {
+          "nom": "Entrée et Sortie Discrètes",
+          "description": "Dépensez 1 Espoir pour demander au Maître du Jeu un moyen rapide ou discret d’entrer dans ou de sortir d’un endroit que vous pouvez voir. Le prochain jet que vous effectuez qui agit sur cette information bénéficie d’un avantage."
+        }
+      ],
+      "equipement_depart": {
+        "esquive": 12,
+        "points_blessure": 5,
+        "objets_classe": [
+          "Une liste de noms avec plusieurs marqués",
+          "Une lame rouillée inscrite avec un insigne"
+        ],
+        "attributs": {
+          "agilite": null,
+          "force": null,
+          "finesse": null,
+          "instinct": null,
+          "presence": null,
+          "savoir": null
+        },
+        "arme_primaire": null,
+        "arme_secondaire": null,
+        "armure": "Armure de cuir"
+      },
+      "sous_classes": [
+        {
+          "nom": "Guilde des empoisonneurs",
+          "description": "Jouez un agent de la Guilde des Empoisonneurs si vous souhaitez affaiblir vos cibles avec des afflictions punitives.",
+          "trait_incantation": "Savoir",
+          "paliers": {
+            "base": [
+              {
+                "nom": "Concoctions Toxiques",
+                "description": "Marquez 1 Stress pour placer 1d4+1 jetons sur cette carte. Lorsque vous portez une attaque d’arme réussie, vous pouvez dépenser un jeton pour infliger au cible un poison. Vous connaissez ces poisons:\nPétale du fantôme: la cible devient temporairement Vulnérable.\nSpore toxique: la cible doit aussi marquer 1 Stress.\nSangsue: vous infligez 1d6 dégâts supplémentaires sur cette attaque.\nLors d’un repos long, retirez tous les jetons non dépensés."
+              }
+            ],
+            "specialisation": [
+              {
+                "nom": "Compendium des Poisons",
+                "description": "vous connaissez aussi ces poisons:\nVigne nocturne: la cible a désavantage sur les jets d’attaque tant qu’elle ne marque pas 1 Stress pour dissiper cet effet.\nRacine de gorgone: la cible devient temporairement Bloqué.\n\nCroc jumeau: quand vous affligez une cible Marquée pour la Mort par un poison que vous connaissez, vous pouvez dépenser un jeton supplémentaire pour infliger aussi l’effet d’un deuxième poison que vous connaissez."
+              }
+            ],
+            "maitrise": [
+              {
+                "nom": "Vénomancien",
+                "description": "vous connaissez aussi ces poisons:\nGraine de mildiou: la cible reçoit un malus −3 à ses seuils de dégâts jusqu’à la fin de la scène. Cet effet ne peut pas s’empiler.\nFeuille de peur: vous infligez des dégâts supplémentaires équivalant au résultat de votre Dé Peur sur cette attaque.\nEpine de cadavre: la cible subit un désavantage sur les jets de réaction jusqu’à la fin de la scène.\n\nBénédiction vipère: vous êtes immunisé contre les poisons et autres toxines."
+              }
+            ]
+          }
+        },
+        {
+          "nom": "Guilde des éxécuteurs",
+          "description": "Jouez un agent de la Guilde des Exécuteurs si vous voulez abattre vos cibles avec une précision mortelle.",
+          "trait_incantation": "Agilité",
+          "paliers": {
+            "base": [
+              {
+                "nom": "Premier Coup",
+                "description": "La première fois d’une scène où vous portez une attaque avec succès, vous infligez le double de dégâts."
+              },
+              {
+                "nom": "Embuscade",
+                "description": "Votre capacité « Marqué pour la Mort » utilise des d6 au lieu de d4."
+              }
+            ],
+            "specialisation": [
+              {
+                "nom": "Frappe Mortelle",
+                "description": "Lorsque vous infligez des dégâts Grave à une créature, vous pouvez dépenser 1 Stress pour forcer cette créature à marquer un point de blessure supplémentaire."
+              },
+              {
+                "nom": "Posture du Scorpion",
+                "description": "Vous gagnez un bonus +2 à votre esquive contre les attaques d’une créature que vous avez Marquée pour la Mort."
+              }
+            ],
+            "maitrise": [
+              {
+                "nom": "frappe véritable",
+                "description": "Une fois par repos long, lorsque vous ratez une attaque, vous pouvez dépenser 1 Espoir pour la faire réussir."
+              },
+              {
+                "nom": "Coup de poignard dans le dos",
+                "description": "Votre capacité « Marqué pour la Mort » utilise des d8 au lieu de d6."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "nom": "Pugiliste",
+      "description": "Les pugilistes sont des combattants qui se spécialisent dans le combat à mains nues, utilisant leur force, leur agilité et leur technique pour vaincre leurs adversaires. Ils sont souvent entraînés dans des arts martiaux ou des styles de combat spécifiques, et peuvent être trouvés dans des arènes de combat, des clubs de boxe ou même en tant que mercenaires. Les pugilistes sont connus pour leur endurance et leur capacité à encaisser les coups tout en infligeant des dégâts significatifs avec leurs poings.",
+      "domaines": [
+        "Vaillance",
+        "Os"
+      ],
+      "aptitude_espoir": {
+        "nom": "Confrontation",
+        "description": "Dépensez 3 Espoir pour intimider une cible dans la Portée Proche, la rendant temporairement Vulnérable"
+      },
+      "aptitudes_classe": [
+        {
+          "nom": "Je suis une l'arme",
+          "description": "Vos coups à mains nues sont aussi efficaces qu’une lame. Vous disposez d’une arme principale appelée Coup du Combattant qui est équipée tant que vous n’avez pas d’autre Arme Active. Elle utilise un trait de votre choix, a une portée Mêlée et inflige des dégâts physiques de d8+d6 dégâts physique, selon votre Compétence. Tant que cette arme est active, vous gagnez un bonus de +1 à votre Évasion."
+        },
+        {
+          "nom": "Enchaînement",
+          "description": "Après avoir infligé des dégâts lors d’une attaque avec une arme de mêlée, vous pouvez dépenser 1 Espoir pour lancer un combo. Lancez votre Dé Combo et notez le résultat, puis continuez à lancer votre Dé Combo tant que le résultat du dernier lancer est supérieur ou égal au précédent, vous vous arrêtez lorsque le dernier lancer est inférieur au précédent. Vous infligez des dégâts supplémentaires égaux à la somme de tous les résultats du Dé Combo sur cette attaque. Les résultats ne peuvent pas être modifiés.\n\nVotre Dé Combo démarre à d4. Une fois par palier, vous pouvez augmenter votre Dé Combo d’un cran en tant qu’option d’avancement de niveau."
+        }
+      ],
+      "equipement_depart": {
+        "esquive": 10,
+        "points_blessure": 6,
+        "objets_classe": [
+          "Des bandages pour les mains de votre mentor",
+          "livre sur votre passe-temps secret"
+        ],
+        "attributs": {
+          "agilite": null,
+          "force": null,
+          "finesse": null,
+          "instinct": null,
+          "presence": null,
+          "savoir": null
+        },
+        "arme_primaire": null,
+        "arme_secondaire": null,
+        "armure": "Armure de cuir"
+      },
+      "sous_classes": [
+        {
+          "nom": "Mastodonte",
+          "description": "Jouez un mastodonte si vous voulez pulvériser vos adversaires avec des coups écrasants.",
+          "trait_incantation": null,
+          "paliers": {
+            "base": [
+              {
+                "nom": "Robuste",
+                "description": "Gagnez un bonus permanent de +3 à votre seuil de dommage Grave."
+              },
+              {
+                "nom": "Submerger ",
+                "description": "Lorsque vous réussissez une attaque contre une cible, vous pouvez dépenser 1 Espoir pour la projeter dans la Portée Proche ou pour la forcer à marquer un Stress."
+              }
+            ],
+            "specialisation": [
+              {
+                "nom": "Cerné ",
+                "description": "Lors d’une attaque avec une arme de mêlée, vous pouvez dépenser n’importe quel nombre d’Espoir pour viser le même nombre de créatures supplémentaires dans la portée de mêlée."
+              },
+              {
+                "nom": "oeil pour oeil",
+                "description": "Une fois par repos lorsque qu’un adversaire en mêlée vous fait marquer un nombre quelconque de Points de blessure, vous pouvez marquer 1 Stress pour l’obliger à marquer le même nombre de blessure."
+              }
+            ],
+            "maitrise": [
+              {
+                "nom": "Une joie percutante",
+                "description": "Lorsqu’une attaque d’arme de mêlée réussit avec critique, vous gagnez 1 Espoir supplémentaire, retirez 1 Stress supplémentaire et augmentez votre Compétence d’un +1 pour cette attaque."
+              },
+              {
+                "nom": "pas encore fini",
+                "description": "Lorsque vous subissez des dégâts sévères, vous pouvez gagner 1 Espoir ou retirer 1 Stress."
+              }
+            ]
+          }
+        },
+        {
+          "nom": "Artiste Martial",
+          "trait_incantation": null,
+          "paliers": {
+            "base": [
+              {
+                "nom": "posture de combat",
+                "description": "Vous pouvez canaliser votre détermination pour passer en postures martiales offrant des avantages en combat.\n\nNote: Prenez la fiche des Postures Martiales et choisissez deux postures du palier 1. À chaque montée de niveau, choisissez une posture supplémentaire du même tier ou d’un tier inférieur."
+              }
+            ],
+            "specialisation": [
+              {
+                "nom": "Défenses acharnées",
+                "description": "Lorsque vous êtes visé par une attaque, vous pouvez dépenser un Focus pour gagner un bonus d'esquive égal à votre palier contre l’attaque."
+              },
+              {
+                "nom": "Tir focalisée",
+                "description": "Dépensez un Focus pour effectuer un Jet d’Instinct contre un adversaire à Portée Lointaine. En cas de réussite, infligez d20+3 dégâts magiques en utilisant votre Compétence."
+              }
+            ],
+            "maitrise": [
+              {
+                "nom": "Dépasser vos limite",
+                "description": "Une fois par repos, vous pouvez réaliser un exploit athlétique incroyable (par ex. courir sur l’eau, sauter entre toits, etc.). Lorsque vous le faites, gagnez 1 Espoir et retirez 1 Stress."
+              },
+              {
+                "nom": "Maîtrise du flux",
+                "description": "Vous pouvez marquer un Stress au lieu de dépenser un Focus pour changer de posture. De plus, vous pouvez dépenser un Focus au lieu de marquer un Stress pour lancer un Enchaînement."
+              }
+            ]
+          }
+        }
+      ]
+    },
+		{
+      "source": "Espoir et Peur (2027)",
+      "nom": "Démoniste",
+      "description": "Les démonistes sont des individus qui explorent les mystères cachés de l'univers, souvent en étudiant des arts ésotériques, des rituels anciens et des connaissances interdites. Ils cherchent à comprendre et à manipuler les forces invisibles qui régissent le monde, allant de la magie noire aux secrets de l'alchimie. Les démonistes peuvent être des chercheurs solitaires, des membres de sociétés secrètes ou des conseillers pour ceux qui cherchent à exploiter le pouvoir occulte. Leur quête de savoir peut les amener à franchir des limites morales et éthiques, mais leur expertise dans les arts occultes en fait des alliés précieux et redoutables.",
+      "domaines": [
+        "Peur",
+        "Grâce"
+      ],
+      "aptitude_espoir": {
+        "nom": "Faveur du patron",
+        "description": "Lorsque vous échouez à un lancer, vous pouvez dépenser 3 Espoir relancer avec avantage."
+      },
+      "aptitudes_classe": [
+        {
+          "nom": "Pacte du Mécène",
+          "description": "Vous vous êtes engagé envers une entité surnaturelle, telle qu’un dieu, une fée ou un démon, en échange de pouvoir.\nNotez son nom sur votre feuille de personnage, puis travaillez avec le MJ pour déterminer son domaine d’influence (par ex. Nature, Chaos, Sagesse, Farce, Amour, Guerre, Justice, ou Mort). Avant d’effectuer un jet d’action lié au domaine d’influence de votre mécène, vous pouvez dépenser une faveur pour invoquer son aide, en lançant votre Dé du Mécène et en ajoutant son résultat au total. Votre Dé du Mécène commence à d6 et augmente à d8 au niveau 5."
+        },
+        {
+          "nom": "Faveur",
+          "description": "Vous commencez avec 3 Faveur. Vous pouvez utiliser une action de repos pour témoigner votre hommage à votre Patron. Décrivez comment et gagnez des faveur équivalents à votre trait d'incantation. De plus, lorsque vous réussissez un jet d’action avec l’Espoir, vous pouvez choisir de gagner une faveur au lieu d’un Espoir."
+        }
+      ],
+      "equipement_depart": {
+        "esquive": 11,
+        "points_blessure": 5,
+        "objets_classe": [
+          "Une sculpture qui symbolise votre patron",
+          "Une bague que vous ne pouvez pas retirer"
+        ],
+        "attributs": {
+          "agilite": null,
+          "force": null,
+          "finesse": null,
+          "instinct": null,
+          "presence": null,
+          "savoir": null
+        },
+        "arme_primaire": null,
+        "arme_secondaire": null,
+        "armure": "Armure de cuir"
+      },
+      "sous_classes": [
+        {
+          "nom": "Pacte Éternel",
+          "description": "Dévouer sa vie au Pacte des Éternels si vous voulez tenir bon face aux ennemis et éviter la mort.",
+		  "trait_incantation": "Présence",
+          "paliers": {
+            "base": [
+              {
+                "nom": "Vêtir des atouts de votre patron",
+                "description": "Dépensez une Faveur pour vous envelopper d’un aspect terrifiant de votre Patron, qui dure jusqu’à ce que vous subissiez des dégâts Grave ou jusqu’à la fin de la scène. Tant que cet effet est actif, vous gagnez un bonus à vos Seuils de dégâts égal à votre Palier et vous avez l’avantage sur les jets d’action pour intimider une cible"
+              },
+              {
+                "nom": "Étreinte immortelle",
+                "description": " Une fois par repos, dépensez n'importe quel nombre de faveurs lancer un nombre égal de dés. Pour chaque résultat de 4 ou plus, effacez a Point de blessure."
+              }
+            ],
+            "specialisation": [
+              {
+                "nom": "Invocation Abominable",
+                "description": "Lorsqu’un adversaire vous vise, vous ou un allié dans la portée Très Proche avec une attaque, vous pouvez dépenser une Faveur pour infliger un désavantage au jet. Si l’adversaire échoue, il doit aussi marquer 1 Stress."
+              },
+              {
+                "nom": "Absortion des dégâts",
+                "description": "Une fois par repos, vous pouvez dépenser une Faveur pour réduire de moitié les dégâts reçu."
+              }
+            ],
+            "maitrise": [
+              {
+                "nom": "Égide obscure",
+                "description": "Une fois par repos long, lorsque vous allez subir des dégâts, vous pouvez dépenser une Faveur à la place de marquer des PB."
+              },
+              {
+                "nom": "Malédiction drainante",
+                "description": "Quand un adversaire vous vise, vous ou un allié dans la portée Très Proche, vous pouvez dépenser une Faveur pour le Drainer. Lors de cela, il doit marquer 1 Stress et vous pouvez effacer 1 Stress. Tant que Drainé, la cible utilise un D12 au lieu d’un D20 pour ses jets d’attaque (avantage ou désavantage inclus) jusqu’à ce qu’un échec se produise."
+              }
+            ]
+          }
+        },
+        {
+          "nom": "Pacte de la colére",
+          "description": "Signé de votre sang le Pacte de la colére si vous voulez détruire ceux qui agissent contre vous.",
+		  "trait_incantation": "Présence",
+          "paliers": {
+            "base": [
+              {
+                "nom": "La fureur du patron",
+                "description": "Dépensez une Faveur pour imprégner vos attaques de la puissance de votre Patron jusqu’à ce que vous infligiez des dégâts Grave ou que la scène se termine. Lorsque vous infligez des dégâts tant que cet effet est actif, vous lancez aussi un nombre égal de Dés égale à votre Palier et ajoutez leur total aux dégâts infligés."
+              },
+              {
+                "nom": "Vengeance Mortelle",
+                "description": "Lorsque vous marquez un nombre quelconque de PB suite à une attaque, vous pouvez dépenser une Faveur pour lancer un nombre égal de Dés Faveur. Pour chaque résultat de 4 ou plus, l’attaquant marque un PB."
+              }
+            ],
+            "specialisation": [
+              {
+                "nom": "Jamais très loin",
+                "description": "Dépensez une Faveur pour augmenter la portée de votre arme principale d’un cran (par ex. de Corps-à-corps à Très Proche, ou Très Proche à Proche) jusqu’à une portée Très Lointaine maximale. Cet effet prend fin après une attaque réussie avec cette arme."
+              },
+              {
+                "nom": "Malédiction du faible",
+                "description": "Lorsque vous réussissez un jet avec Espoir contre une cible, vous pouvez dépenser n’importe quel nombre de Faveur pour forcer la cible à marquer un nombre égal de Stress."
+              }
+            ],
+            "maitrise": [
+              {
+                "nom": "Attaque Redoutable",
+                "description": " Dépensez une Faveur pour relancer n’importe quel nombre de vos dés de dégâts. Vous pouvez continuer à dépenser des Faveur pour utiliser cette caractéristique sur le même jet de dégâts."
+              },
+              {
+                "nom": "Colère surnaturel",
+                "description": "Une fois par repos lorsque vous subissez des dégâts, vous pouvez dépensez n'importe quel nombre de faveurs lancer autant de dés de patron et cibler un nombre de créatures à courte portée égal au résultat le plus élevé. Chaque cible doit marquer un point de Blessure."
+              }
+            ]
+          }
+        }
+      ]
+    },
+		{
+      "source": "Espoir et Peur (2027)",
+      "nom": "Sorcière",
+      "description": "à faire",
+      "domaines": [
+        "Sagesse",
+        "Peur"
+      ],
+      "trait_incantation": null,
+      "aptitude_espoir": {
+        "nom": "Charme de sorcière",
+        "description": "Lorsque vous ou un allié situé à Portée Très Lointaine échouez à un jet d’action, vous pouvez dépenser 3 Espoir pour en faire une réussite avec Peur à la place."
+      },
+      "aptitudes_classe": [
+        {
+          "nom": "Malédiction",
+          "description": "Marquez 1 Stress pour maudire temporairement une cible située à Portée Très Lointaine. Tant que la cible est maudite, elle subit une pénalité à ses jets de dégâts et à sa Difficulté égale à votre Palier. Le nombre maximal de créatures que vous pouvez maudire en même temps est égal à votre trait d'incantation."
+        },
+        {
+          "nom": "Connexion avec l’Au-Delà",
+          "description": "Une fois par repos long, lors d’un moment de calme, vous pouvez communiquer avec un ancêtre, une divinité, un esprit ou une entité d’outre-monde. Posez-leur une question, puis lancez un nombre de Dés égal à votre trait d'incantation. Choisissez l’un des résultats et référez-vous au tableau ci‑dessous pour l’effet.\n\n1-3: Vous goûtez une saveur, sentez une odeur ou ressentez une sensation liée à la réponse.\n4-5: Vous entendez des sons ou voyez une vision liée à la réponse.\n6: Vous vivez psychiquement une scène liée à la réponse comme si vous y étiez."
+        }
+      ],
+      "equipement_depart": {
+        "esquive": 10,
+        "points_blessure": 6,
+        "objets_classe": [
+          "Un petit animal de compagnie inoffensif",
+          "une pierre de voyance"
+        ],
+        "attributs": {
+          "agilite": null,
+          "force": null,
+          "finesse": null,
+          "instinct": null,
+          "presence": null,
+          "savoir": null
+        },
+        "arme_primaire": null,
+        "arme_secondaire": null,
+        "armure": "Armure de cuir"
+      },
+      "sous_classes": [
+        {
+          "nom": "Haine",
+          "description": "Jouez la haine si vous voulez utiliser votre art pour vous donner du pouvoir ainsi qu’à votre groupe.",
+		  "trait_incantation": "Savoir",
+          "paliers": {
+            "base": [
+              {
+                "nom": "Remèdes à base de plantes",
+                "description": "Lorsque vous ou un allié dans la scène effacez 1 ou plusieurs Points de blessure ou Stress suite à l'utilisation d'un consommable, augmentez le nombre effacé de 1."
+              },
+              {
+                "nom": "Talisman enchanté",
+                "description": "Une fois par repos, vous pouvez imprégner un petit objet de votre essence protectrice. Dépensez un nombre quelconque d’Espoir pour placer un nombre égal de jetons sur cette carte. Lorsque la personne qui porte le talisman prend des dégâts, dépensez un jeton pour réduire le nombre de PB qu’elle marque d’un point. Retirez tous les jetons de cette carte lorsque vous prenez un repos."
+              }
+            ],
+            "specialisation": [
+              {
+                "nom": "Marcher entre les mondes",
+                "description": "Lors d’un moment de calme, faites un jet d'incantation (13). Une fois par repos, en cas de réussite, vous pouvez marquer 1 Stress pour franchir le voile de la mort et converser avec des esprits proches. Placez un nombre de jetons égal à votre trait d'incantation sur cette carte et retirez-en un à chaque fois qu’un esprit répond à une question. Lorsque le dernier jeton est retiré ou à la fin de la scène, revenez au Monde des Mortels au même endroit où vous l’avez quitté."
+              },
+              {
+                "nom": "Malédiction insupportable",
+                "description": "Vous avez l’avantage sur les attaques contre les créatures victime de votre malédiction."
+              }
+            ],
+            "maitrise": [
+              {
+                "nom": "Cercle de pouvoir",
+                "description": "Une fois par repos, tracez un cercle au sol délimitant une zone Très Proche autour de vous, et placez un nombre de jetons égal à votre trait d'incantation sur cette carte. Tant que vous et vos alliés êtes dans ce cercle, vous bénéficiez d’un bonus +2 aux seuils de dégâts, jets d’attaque et esquive. Retirez un jeton à chaque fois que vous ou un allié dans le cercle effectuez un jet d’action ou esquive une attaque. Cet effet dure jusqu’au retrait du dernier jeton ou à la sortie du cercle."
+              },
+            ]
+          }
+        },
+        {
+          "nom": "Lune",
+          "description": "Incarner la puissnce lunaire pour amplifier votre magie.",
+		  "trait_incantation": "Instinct",
+          "paliers": {
+            "base": [
+              {
+                "nom": "Charme nocturne",
+                "description": "Lancez un jet d'incantation (13) pour vous revêtir d'une une apparence ensorcelante. Tant que vous êtes sous cette apparence, vous avez l’avantage sur les jets qui exploitent votre apparence surnaturel. De plus, les adversaires dans la Portée Proche doivent marquer 1 Stress pour vous attaquer.\nSauf si vous maintenez cette apparence en dépenser un Stress, il tombe lorsque vous marquez un PB ou infligez des dégâts."
+              },
+            ],
+            "specialisation": [
+              {
+                "nom": "Rayon lunaire",
+                "description": "Une fois par session, vous pouvez invoquer une colonne de clair de lune qui éclaire la zone dans Portée Proche jusqu’à la fin de la scène. Dans ce clair de lune, vous et vos alliés gagnez +1 à vos Lancers de sort et pouvez voir à travers les illusions."
+              },
+              {
+                "nom": "Courroux de l'astre lunaire",
+                "description": "Lorsqu’une créature sous effet de votre malédiction à distance Très Lointain rate une attaque, elle doit marquer un Stress."
+              }
+            ],
+            "maitrise": [
+              {
+                "nom": "Phases lunaires",
+                "description": "Phases lunaires: Au début de chaque session, lancez un d6 et placez-le sur cette carte. Vous obtenez l’effet correspondant jusqu’à la fin de la session.\n\n1: Nouvelle phase - Dépensez un Espoir pour annuler des dégâts mineur.\n2–3: Lune croissante - +2 aux jets de dégâts.\n4: Pleine lune - +3 aux seuils de dégâts.\n5–6: Diminution - +1 à l'Esquive.\n\nUne fois par repos, vous pouvez Dépenser un espoir pour augmenter la valeur de ce dé d'un. Si vous augmentez la valeur d'un 6, cela devient un 1."
+              },
             ]
           }
         }

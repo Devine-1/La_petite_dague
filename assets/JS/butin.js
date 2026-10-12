@@ -1,4 +1,4 @@
-// Données BUTIN : générées depuis BUTIN.ods (60 entrées, jets 1 à 60)
+// Données BUTIN : générées depuis BUTIN.ods (122 entrées : 60 du Livre de règle (2026) + 60 de Espoir et Peur (2027), jets 1 à 60 pour chaque source, + 2 objets de campagne sans jet : règne de la drakanthrope)
 const BUTIN_DATA = {
   "butins": [
     {
@@ -6,7 +6,7 @@ const BUTIN_DATA = {
       "jet": 1,
       "rarete": "Ordinaire",
       "nom": "Sac de couchage haut de gamme",
-      "description": "Ce sifflet fait main émet un san très reconnaissable. Lorsque vous soufflez dedans, son sifflement perçant s'entend à 1,5 km à la ronde"
+      "description": "Pendant une pause, vous effacer automatiquement un stress."
     },
     {
       "source": "Livre de règle (2026)",
@@ -420,6 +420,440 @@ const BUTIN_DATA = {
       "rarete": "Légendaire",
       "nom": "Ceinture d'unité",
       "description": "Une fois par session, vous pouvez dépenser 5 Espoirs pour déclencher un jet d'Équipe avec trois PJ au lieu de deux"
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 1,
+      "rarete": "Ordinaire",
+      "nom": "Chausse-trappes",
+      "description": "Vous pouvez répandre ces chausse-trappes dans une zone Très proche autour de vous. Une créature qui se précipite à travers cette zone doit cocher un Stress."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 2,
+      "rarete": "Ordinaire",
+      "nom": "Grappin",
+      "description": "Vous avez l'avantage aux jets d'action pour escalader des surfaces abruptes."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 3,
+      "rarete": "Ordinaire",
+      "nom": "Billes de roulement",
+      "description": "Cette bourse contient des sphères métalliques parfaitement lisses."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 4,
+      "rarete": "Ordinaire",
+      "nom": "Boîte de poussière de dragon",
+      "description": "Cette tabatière est remplie d'une poudre combustible."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 5,
+      "rarete": "Ordinaire",
+      "nom": "Anneau du Chasseur de nuit",
+      "description": "Dépensez un Espoir pour activer la gemme de cet anneau jusqu'à la fin de la scène. Tant qu'elle est active, la gemme change de couleur pour indiquer la proximité du porteur avec un trésor caché : couleurs chaudes pour proche, couleurs froides pour éloigné."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 6,
+      "rarete": "Ordinaire",
+      "nom": "Longue-vue elfique",
+      "description": "Vous pouvez utiliser cette longue-vue pour grossir votre vision au centuple."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 7,
+      "rarete": "Ordinaire",
+      "nom": "Granules gourmets",
+      "description": "Cette poudre savoureuse rend délicieux et sain tout aliment sur lequel on la saupoudre, aussi fade ou pourri soit-il."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 8,
+      "rarete": "Ordinaire",
+      "nom": "Perche télescopique",
+      "description": "Vous pouvez démonter cette perche de 6m en six segments reliés de 1m chacun."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 9,
+      "rarete": "Ordinaire",
+      "nom": "Plume d'aile noire",
+      "description": "Cette plume à écrire ne manque jamais d'encre et n'a jamais besoin d'être taillée."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 10,
+      "rarete": "Ordinaire",
+      "nom": "Couteau pliant de Silee",
+      "description": "Cette lame de 8cm a un tranchant qui découpe facilement n'importe quoi, sauf le manche dans lequel elle est rangée."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 11,
+      "rarete": "Ordinaire",
+      "nom": "Jouet mécanique",
+      "description": "Ce petit dispositif mécanique a la forme d'un chiot peut être programmé pour exécuter des tours simples."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 12,
+      "rarete": "Ordinaire",
+      "nom": "Dés pipés",
+      "description": "Vous pouvez choisir le résultat de ce jeu de dés pondérés en réussissant un jet de Finesse (14). Si vous faites le jet avec Peur, tous ceux qui regardent savent que les dés sont pipés."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 13,
+      "rarete": "Ordinaire",
+      "nom": "Cor d'écorce creuse",
+      "description": "Vous pouvez souffler dans ce cor pour invoquer une petite créature des bois afin qu'elle accomplisse une tâche simple."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 14,
+      "rarete": "Ordinaire",
+      "nom": "Corde à nœuds automatiques",
+      "description": "Vous pouvez ordonner à cette corde de se nouer ou de se dénouer d'elle-même."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 15,
+      "rarete": "Ordinaire",
+      "nom": "Boussole du voleur",
+      "description": "Cette boussole indique la direction de la sortie la plus proche à l'intérieur et de l'entrée la plus proche à l'extérieur."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 16,
+      "rarete": "Ordinaire",
+      "nom": "Cloche du voyageur",
+      "description": "Une fois par repos long, vous pouvez faire sonner cette cloche pour ouvrir magiquement le chemin sûr le plus court à travers un terrain accidenté pendant 1 heure."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 17,
+      "rarete": "Ordinaire",
+      "nom": "Torche mandragorienne",
+      "description": "Cette torche émet une lumière que seul le porteur peut voir."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 18,
+      "rarete": "Ordinaire",
+      "nom": "Bottes de la souple mystique",
+      "description": "Tant que vous portez ces bottes, vous ne laissez ni traces ni empreintes."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 19,
+      "rarete": "Ordinaire",
+      "nom": "Jarre de Zéphyr",
+      "description": "Vous pouvez ouvrir cette jarre vide par mauvais temps pour capturer la tempête et laisser derrière vous un ciel dégagé. La tempête reste à l'intérieur jusqu'à ce qu'on la libère en rouvrant la jarre."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 20,
+      "rarete": "Ordinaire",
+      "nom": "Anneau de retour",
+      "description": "Quand vous lancez votre arme principale en portant cet anneau, l'arme réapparaît dans votre main immédiatement après l'attaque."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 21,
+      "rarete": "Ordinaire",
+      "nom": "Filet du martin-pêcheur",
+      "description": "Une fois par repos long, vous pouvez utiliser ce filet pour sortir un poisson vivant de n'importe quelle quantité d'eau, aussi improbable soit-il qu'il y ait des poissons dans cette eau."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 22,
+      "rarete": "Ordinaire",
+      "nom": "Ceinture du Titan",
+      "description": "Une fois par scène, vous pouvez activer cette ceinture pour obtenir un bonus de +1 à votre Compétence pour votre prochaine attaque."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 23,
+      "rarete": "Ordinaire",
+      "nom": "Voile de fer",
+      "description": "Cette coiffe en mailles rend le porteur invisible aux créatures féeriques."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 24,
+      "rarete": "Ordinaire",
+      "nom": "Sac à boules de poils",
+      "description": "Une fois par repos, vous pouvez faire sortir de ce sac 2d20 créatures poilues inoffensives, de la taille d'un chat, d'origine et d'espèce indéterminées."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 25,
+      "rarete": "Inhabituel",
+      "nom": "Bracelet de cheville de pas feutrés",
+      "description": "Ce bracelet de cheville rend vos pas silencieux tant que vous ne vous déplacez pas plus vite qu'à la vitesse de la marche."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 26,
+      "rarete": "Inhabituel",
+      "nom": "Loupe de l'enchanteur",
+      "description": "Vous pouvez utiliser cette loupe pour voir à travers les illusions et les enchantements."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 27,
+      "rarete": "Inhabituel",
+      "nom": "Boule-miroir d'Escher",
+      "description": "Une fois par repos long, vous pouvez ordonner à cet orbe d'argent de la taille d'un poing de capturer sur sa surface une image omnidirectionnelle de son environnement. Cette image dure jusqu'à votre prochain repos long."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 28,
+      "rarete": "Inhabituel",
+      "nom": "Pièce du tricheur",
+      "description": "Quand vous lancez cette pièce, vous pouvez dépenser un Espoir pour déterminer sur quelle face elle retombe."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 29,
+      "rarete": "Inhabituel",
+      "nom": "Cloche du gardien des tombes",
+      "description": "Cette cloche sonne quand un fantôme ou une créature morte-vivante se déplace à portée Éloignée d'elle."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 30,
+      "rarete": "Inhabituel",
+      "nom": "Reliquaire du Saint aveugle",
+      "description": "Vous obtenez un bonus de +1 à votre dé d'Espoir quand vous effectuez le mouvement de mort Tout risquer."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 31,
+      "rarete": "Inhabituel",
+      "nom": "Carte de la Révélation",
+      "description": "Vous pouvez accorder cette carte à une seule créature à la fois. La carte montre toujours la position de la créature accordée."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 32,
+      "rarete": "Inhabituel",
+      "nom": "Ardoise d'obsidienne de Dagginae",
+      "description": "Cette feuille de verre volcanique, fine comme une plaquette, est utilisée par les archivistes pour prendre des notes. Toute information gravée à sa surface disparaît, mais peut être rappelée au moyen d'une commande que vous définissez."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 33,
+      "rarete": "Inhabituel",
+      "nom": "Sac à dos de Gadiman",
+      "description": "Une fois par repos, vous pouvez dépenser un Espoir pour conjurer, à l'intérieur de cette besace, un objet ordinaire pouvant atteindre un pied cube."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 34,
+      "rarete": "Inhabituel",
+      "nom": "Pièce d'éclipse",
+      "description": "Une fois par repos, lancez une pièce. Sur face, vous obtenez un bonus de +1 aux jets d'attaque jusqu'à votre prochaine attaque réussie. Sur pile, vous obtenez +1 à votre Esquive jusqu'à ce qu'une attaque échoue contre vous."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 35,
+      "rarete": "Inhabituel",
+      "nom": "Chapeau de sorcier",
+      "description": "Ce chapeau conique bleu est couvert d'étoiles d'argent. Une fois par repos, vous pouvez lancer un sort de votre réserve dont le coût de rappel est inférieur ou égal à votre palier. Cela ne fonctionne pas pour les cartes placées définitivement en réserve."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 36,
+      "rarete": "Inhabituel",
+      "nom": "Gants en peau de goule",
+      "description": "Quand vous attaquez avec une arme physique en portant ces gants, les dégâts sont considérés à la fois comme physiques et magiques."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 37,
+      "rarete": "Rare",
+      "nom": "Gants de célérité",
+      "description": "Quand vous devriez cocher un Stress pour recharger une arme, vous ne le cochez pas."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 38,
+      "rarete": "Rare",
+      "nom": "Périapte de l'insomniaque",
+      "description": "Quand vous prenez un repos sans effacer de points de blessure ni de Stress, vous obtenez un bonus de +2 aux jets d'attaque et de dégâts jusqu'à votre prochain repos."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 39,
+      "rarete": "Rare",
+      "nom": "Selle du cavalier sauvage",
+      "description": "Cette selle donne à tout animal sur lequel elle est sanglée la capacité de comprendre les ordres de son cavalier."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 40,
+      "rarete": "Rare",
+      "nom": "Diadèmes des âmes jumelles",
+      "description": "Deux créatures peuvent porter cette paire de diadèmes. Vous pouvez dépenser un Espoir pour échanger votre place avec celui qui porte l'autre diadème."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 41,
+      "rarete": "Rare",
+      "nom": "Oracle du nommeur",
+      "description": "Une fois par session, vous pouvez lancer ce jeu de dés runiques pour révéler le nom complet de la dernière personne que vous avez touchée."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 42,
+      "rarete": "Rare",
+      "nom": "Lunettes du creuset",
+      "description": "Ces lunettes révèlent les points faibles des objets et des créatures. Trois fois par repos, vous pouvez dépenser un Espoir pour obtenir l'avantage à un jet d'attaque."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 43,
+      "rarete": "Rare",
+      "nom": "Broche d'égide à deux faces",
+      "description": "Une fois par repos, lancez une pièce. Sur face, vous devenez immunisé contre les prochains dégâts physiques que vous subissez. Sur pile, vous devenez immunisé contre les prochains dégâts magiques que vous subissez."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 44,
+      "rarete": "Rare",
+      "nom": "Bracelets de repoussement",
+      "description": "Sur une attaque d'arme réussie, vous pouvez repousser votre cible jusqu'à portée Proche de sa position."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 45,
+      "rarete": "Rare",
+      "nom": "Disque de force",
+      "description": "Ce disque scintillant bidimensionnel de force magique a un diamètre de 1,5m et est magiquement relié à un caillou. Le disque flotte toujours 1m au nord du caillou, à la même altitude que lui. Le caillou a une masse égale au centième de la masse totale portée par le disque."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 46,
+      "rarete": "Rare",
+      "nom": "Moufles en patte de taupe",
+      "description": "Dépensez un Espoir pour creuser dans la terre comme si c'était de l'eau pendant les 10 minutes suivantes."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 47,
+      "rarete": "Rare",
+      "nom": "Pendentif du gardien du temps",
+      "description": "Vous pouvez choisir un acte de repos supplémentaire à chaque repos."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 48,
+      "rarete": "Rare",
+      "nom": "Pendentif de dague de fer",
+      "description": "Une fois par repos long, vous pouvez dépenser un Espoir pour dire au pendentif le nom d'une créature. Le pendentif vous tire doucement vers la position actuelle de cette créature jusqu'à votre prochain repos long."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 49,
+      "rarete": "Légendaire",
+      "nom": "Collier d'ascendance",
+      "description": "Un animal qui porte ce collier acquiert la capacité de parler et de comprendre la langue commune."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 50,
+      "rarete": "Légendaire",
+      "nom": "Sanctuaire temporel",
+      "description": "Un PJ qui prend un repos dans le sanctuaire temporel peut choisir un acte de repos supplémentaire."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 51,
+      "rarete": "Légendaire",
+      "nom": "Heaume du héros",
+      "description": "Quand vous réussissez une attaque de façon critique, tous les alliés à portée Proche gagnent un Espoir."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 52,
+      "rarete": "Légendaire",
+      "nom": "Anneaux d'amitié",
+      "description": "Deux créatures peuvent porter cette paire d'anneaux en forme de serpents enroulés. Vous pouvez dépenser l'Espoir de celui qui porte l'autre anneau (avec sa permission) comme s'il était le vôtre."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 53,
+      "rarete": "Légendaire",
+      "nom": "Anneaux de camaraderie",
+      "description": "Deux créatures peuvent porter cette paire d'anneaux en bois. Vous pouvez cocher le Stress de celui qui porte l'autre anneau (avec sa permission) comme s'il était le vôtre."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 54,
+      "rarete": "Légendaire",
+      "nom": "Anneaux d'alliance",
+      "description": "Deux créatures peuvent porter cette paire d'anneaux en or rose. Une fois par session, vous pouvez initier un jet d'équipe avec celui qui porte l'autre anneau sans dépenser d'Espoir et sans que cela compte dans votre limite de jets d'équipe par session."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 55,
+      "rarete": "Légendaire",
+      "nom": "Diadème du phobophage",
+      "description": "Quand le MJ dépense une Peur, lancez un d4. Une fois par scène, sur un résultat de 4, vous effacez un Stress."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 56,
+      "rarete": "Légendaire",
+      "nom": "Châle de piquants",
+      "description": "Si un adversaire vous attaque à portée de Mêlée, il doit réussir un jet de réaction (12) ou cocher un point de blessure."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 57,
+      "rarete": "Légendaire",
+      "nom": "Pendentif de distorsion",
+      "description": "Une fois par repos, en marquant un Stress, vous vous téléportez vers un endroit que vous voyez clairement."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 58,
+      "rarete": "Légendaire",
+      "nom": "Cadres-portails",
+      "description": "Cette paire de petits cadres ornés, l'un rouge et l'autre bleu, est reliée. Tout ce qui entre dans l'un ressort par l'autre."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 59,
+      "rarete": "Légendaire",
+      "nom": "Relique de communion",
+      "description": "Une fois par repos, vous pouvez dépenser un Espoir pour utiliser l'Expérience d'un allié comme si c'était la vôtre. Vous ne pouvez porter qu'une seule relique."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "jet": 60,
+      "rarete": "Légendaire",
+      "nom": "Relique de l'augure",
+      "description": "Une fois par repos long, vous pouvez activer votre aptitude d'Espoir sans dépenser d'Espoir. Vous ne pouvez porter qu'une seule relique."
+    },
+    {
+      "source": "Espoir et Peur (2027, règne de la drakanthrope)",
+      "jet": null,
+      "rarete": "Règne de la drakanthrope",
+      "nom": "Épée longue de Dame Lavande",
+      "description": "Arme physique principale de palier 3 \n(Trait : Agilité, Portée : Mêlée, Dégâts : d8+10 phy, Encombrement : Deux mains).\n La poignée de cette lame a la forme de deux chiens bondissant dans des directions opposées. L'arme appartient à Dame Lavande, chevalière de Whelvia à la retraite qui vit à Knightstead. \nBriseur de malédiction : cette arme efface toutes les malédictions magiques sur une créature qu'elle touche."
+    },
+    {
+      "source": "Espoir et Peur (2027, règne de la drakanthrope)",
+      "jet": null,
+      "rarete": "Règne de la drakanthrope",
+      "nom": "Zootrope de la Bacchanale radieuse",
+      "description": "Sauf si vous décidez qu'elle a été emportée ailleurs, une babiole magique repose enfouie parmi les cendres et les poutres de la chaumière des Lykona à Witch's End, intacte malgré le feu et le passage du temps. Fait de cuivre, l'objet est un cylindre creux dans lequel sont découpés des faunes dansants.\n Quand vous placez une bougie dans le cylindre de ce zootrope et tournez dans le sens inverse des aiguilles d'une montre la clé métallique fixée à sa base, le cylindre tourne et projette sur les surfaces proches un défilé lumineux de faunes dansants.\nTant que le zootrope allumé tourne, il efface toutes les malédictions magiques sur les créatures à courte portée."
     }
   ]
 };

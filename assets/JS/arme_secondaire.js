@@ -715,6 +715,678 @@ const ARME_SECONDAIRE_DATA = {
         "nom": "Tir rapide",
         "description": "Dépenser 2 espoir pour gagner un bonus de +4 sur les dégâts de l'arme principale"
       }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Hachette",
+      "trait": "Agilité",
+      "portee": "Mêlée",
+      "degats": "d8 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Enchaînement",
+        "description": "Après une attaque réussie avec votre arme principale en mêlée, vous pouvez marquer 1 Stress pour obtenir +1 en Compétence pour cette attaque."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Poings américains de poche",
+      "trait": "Force",
+      "portee": "Mêlée",
+      "degats": "d8 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Apparié",
+        "description": "+2 aux dégâts de l'arme principale pour les cible en mêlée."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Couteaux de lancer",
+      "trait": "Finesse",
+      "portee": "Mêlée",
+      "degats": "d8 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Jamais à cours",
+        "description": "Vous pouvez lancer cette arme sur une cible à portée Lointaine en effectuant un jet d’attaque avec Finesse sans avoir à la récupérer, car vous en avez toujours une autre à portée de main."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Cape de combat",
+      "trait": "Présence",
+      "portee": "Mêlée",
+      "degats": "d4 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Matelassée",
+        "description": "+2 aux seuils de dégâts"
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 1,
+      "type": "Magique",
+      "nom": "Bouclier runique",
+      "trait": "Savoir",
+      "portee": "Mêlée",
+      "degats": "d4 mag",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Protecteur",
+        "description": "+1 à la Valeur d'armure"
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 1,
+      "type": "Magique",
+      "nom": "Runes de focalisation",
+      "trait": "Instinct",
+      "portee": "Très courte",
+      "degats": "d6 mag",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Focalisateur",
+        "description": "+1 aux dégâts de l’arme principale à très courte portée"
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 2,
+      "type": "Physique",
+      "nom": "Hachette améliorée",
+      "trait": "Agilité",
+      "portee": "Mêlée",
+      "degats": "d8+2 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Enchaînement",
+        "description": "Après une attaque réussie avec votre arme principale en mêlée, vous pouvez marquer 1 Stress pour obtenir +1 en Compétence pour cette attaque."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 2,
+      "type": "Physique",
+      "nom": "Poings américains de poche amélioré",
+      "trait": "Force",
+      "portee": "Mêlée",
+      "degats": "d8+2 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Apparié",
+        "description": "+2 aux dégâts de l'arme principale pour les cible en mêlée."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 2,
+      "type": "Physique",
+      "nom": "Couteaux de lancer améliorés",
+      "trait": "Finesse",
+      "portee": "Mêlée",
+      "degats": "d8+2 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Jamais à cours",
+        "description": "Vous pouvez lancer cette arme sur une cible à portée Lointaine en effectuant un jet d’attaque avec Finesse sans avoir à la récupérer, car vous en avez toujours une autre à portée de main."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 2,
+      "type": "Physique",
+      "nom": "Cape de combat améliorée",
+      "trait": "Présence",
+      "portee": "Mêlée",
+      "degats": "d4+2 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Matelassée",
+        "description": "+3 aux seuils de dégâts"
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 2,
+      "type": "Magique",
+      "nom": "Bouclier runique amélioré",
+      "trait": "Savoir",
+      "portee": "Mêlée",
+      "degats": "d4+2 mag",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Protecteur",
+        "description": "+2 à la Valeur d'armure"
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 2,
+      "type": "Magique",
+      "nom": "Runes de focalisation améliorées",
+      "trait": "Instinct",
+      "portee": "Très courte",
+      "degats": "d6+2 mag",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Focalisateur",
+        "description": "+1 aux dégâts de l’arme principale à très courte portée"
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 2,
+      "type": "Physique",
+      "nom": "Matraque télescopique",
+      "trait": "Force",
+      "portee": "Mêlée",
+      "degats": "d8 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Non létal",
+        "description": "Lorsque une attaque avec cette arme inflige des PB à une cible, celle-ci marque un Stress égal à ce nombre à la place."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 2,
+      "type": "Magique",
+      "nom": "Gantelet eldritch",
+      "trait": "Instinct",
+      "portee": "Mêlée",
+      "degats": "d8 mag",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Déviation",
+        "description": "Lorsque vous êtes attaqué, vous pouvez cocher un Emplacement d'armure pour gagner un bonus à l'Esquive égal à vos Emplacements d'armure disponibles contre cette attaque."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 2,
+      "type": "Physique",
+      "nom": "Sanjiegun",
+      "trait": "Agilité",
+      "portee": "Très courte",
+      "degats": "d6+4 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Double utilité",
+        "description": "-1 à la Valeur d'armure: +1 aux dégâts de l'arme principale en Mêlée"
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 2,
+      "type": "Physique",
+      "nom": "Fil tranchant",
+      "trait": "Finesse",
+      "portee": "Très courte",
+      "degats": "d6+3 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Entravant",
+        "description": "Dépenser 1 Espoir pour rendre la cible vulnérable"
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 3,
+      "type": "Physique",
+      "nom": "Hachette avancée",
+      "trait": "Agilité",
+      "portee": "Mêlée",
+      "degats": "d8+4 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Enchaînement",
+        "description": "Après une attaque réussie avec votre arme principale en mêlée, vous pouvez marquer 1 Stress pour obtenir +1 en Compétence pour cette attaque."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 3,
+      "type": "Physique",
+      "nom": "Poings américains de poche avancé",
+      "trait": "Force",
+      "portee": "Mêlée",
+      "degats": "d8+4 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Apparié",
+        "description": "+2 aux dégâts de l'arme principale pour les cible en mêlée."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 3,
+      "type": "Physique",
+      "nom": "Couteaux de lancer avancés",
+      "trait": "Finesse",
+      "portee": "Mêlée",
+      "degats": "d8+4 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Jamais à cours",
+        "description": "Vous pouvez lancer cette arme sur une cible à portée Lointaine en effectuant un jet d’attaque avec Finesse sans avoir à la récupérer, car vous en avez toujours une autre à portée de main."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 3,
+      "type": "Physique",
+      "nom": "Cape de combat avancée",
+      "trait": "Présence",
+      "portee": "Mêlée",
+      "degats": "d4+4 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Matelassée",
+        "description": "+4 aux seuils de dégâts"
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 3,
+      "type": "Magique",
+      "nom": "Bouclier runique avancé",
+      "trait": "Savoir",
+      "portee": "Mêlée",
+      "degats": "d4+4 mag",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Protecteur",
+        "description": "+3 à la Valeur d'armure"
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 3,
+      "type": "Magique",
+      "nom": "Runes de focalisation avancées",
+      "trait": "Instinct",
+      "portee": "Très courte",
+      "degats": "d6+4 mag",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Focalisateur",
+        "description": "+1 aux dégâts de l’arme principale à très courte portée"
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 3,
+      "type": "Physique",
+      "nom": "Marteau du bricoleur",
+      "trait": "Force",
+      "portee": "Mêlée",
+      "degats": "d8+4 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Fiable",
+        "description": "+1 sur les jets d'attaque"
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 3,
+      "type": "Magique",
+      "nom": "Éclat vorpal",
+      "trait": "Savoir",
+      "portee": "Mêlée",
+      "degats": "d4 mag",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Ciblé",
+        "description": "Dépenser 1 Espoir après un échec pour réussir automatiquement la prochaine attaque"
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 3,
+      "type": "Magique",
+      "nom": "Chaîne d’âme",
+      "trait": "Présence",
+      "portee": "Très courte",
+      "degats": "d6+5 mag",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Drainant",
+        "description": "Après une attaque qui touche, vous pouvez dépenser un Espoir pour obliger la cible à marquer un Stress. Si elle y parvient, retirez un Stress à vous."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 3,
+      "type": "Physique",
+      "nom": "Dard de guerre",
+      "trait": "Agilité",
+      "portee": "Longue",
+      "degats": "d6+5 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Polyvalent",
+        "description": "Cette arme peut aussi s'utiliser avec les statistiques suivantes : mêlée, d8+5"
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 4,
+      "type": "Physique",
+      "nom": "Hachette légendaire",
+      "trait": "Agilité",
+      "portee": "Mêlée",
+      "degats": "d8+6 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Enchaînement",
+        "description": "Après une attaque réussie avec votre arme principale en mêlée, vous pouvez marquer 1 Stress pour obtenir +1 en Compétence pour cette attaque."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 4,
+      "type": "Physique",
+      "nom": "Poings américains de poche légendaire",
+      "trait": "Force",
+      "portee": "Mêlée",
+      "degats": "d8+6 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Apparié",
+        "description": "+2 aux dégâts de l'arme principale pour les cible en mêlée."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 4,
+      "type": "Physique",
+      "nom": "Couteaux de lancer légendaires",
+      "trait": "Finesse",
+      "portee": "Mêlée",
+      "degats": "d8+6 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Jamais à cours",
+        "description": "Vous pouvez lancer cette arme sur une cible à portée Lointaine en effectuant un jet d’attaque avec Finesse sans avoir à la récupérer, car vous en avez toujours une autre à portée de main."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 4,
+      "type": "Physique",
+      "nom": "Cape de combat légendaire",
+      "trait": "Présence",
+      "portee": "Mêlée",
+      "degats": "d4+6 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Matelassée",
+        "description": "+2 aux seuils de dégâts"
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 4,
+      "type": "Magique",
+      "nom": "Bouclier runique légendaire",
+      "trait": "Savoir",
+      "portee": "Mêlée",
+      "degats": "d4+6 mag",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Protecteur",
+        "description": "+5 à la Valeur d'armure"
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 4,
+      "type": "Magique",
+      "nom": "Runes de focalisation légendaires",
+      "trait": "Instinct",
+      "portee": "Très courte",
+      "degats": "d6+6 mag",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Focalisateur",
+        "description": "+1 aux dégâts de l’arme principale à très courte portée"
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 4,
+      "type": "Physique",
+      "nom": "Aiguille du Vide",
+      "trait": "Finesse",
+      "portee": "Mêlée",
+      "degats": "d4+6 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Inversé",
+        "description": "Lorsque vous effectuez une attaque avec une arme avec Peur, vous gagnez un Espoir et inversement."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 4,
+      "type": "Magique",
+      "nom": "Lame d’Écho",
+      "trait": "Présence",
+      "portee": "Mêlée",
+      "degats": "d4+6 mag",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Double utilité",
+        "description": "-1 à la Valeur d'armure: +1 aux dégâts de l'arme principale en Mêlée"
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 4,
+      "type": "Magique",
+      "nom": "Orbe de Möbius",
+      "trait": "Savoir",
+      "portee": "Mêlée",
+      "degats": "d8+6 mag",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Récursif",
+        "description": "Lorsque vous obtenez la valeur maximale sur un dé de dégâts, lancez un dé de dégâts supplémentaire et ajoutez le résultat au total des dégâts. Cette capacité peut se déclencher à répétition."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "palier": 4,
+      "type": "Magique",
+      "nom": "Tentacule de Sang-Noir",
+      "trait": "Instinct",
+      "portee": "Courte",
+      "degats": "d6+8 mag",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Poison",
+        "description": "Lorsque une cible marque un nombre quelconque de PB suite à une attaque que vous avez lancée avec Peur, elle marque le même nombre de Stress."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027, Sombre cœur d'andalurie)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Pieux en Bois",
+      "trait": "Force",
+      "portee": "Mêlée",
+      "degats": "d8 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Pairé",
+        "description": "Vous bénéficiez d’un bonus égal à 1 + votre Compétence aux dégâts de votre arme principale lorsqu’une cible est en portée Mêlée."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027, Sombre cœur d'andalurie)",
+      "palier": 2,
+      "type": "Physique",
+      "nom": "Pieux en Bois amélioré",
+      "trait": "Force",
+      "portee": "Mêlée",
+      "degats": "d8+2 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Pairé",
+        "description": "Vous bénéficiez d’un bonus égal à 1 + votre Compétence aux dégâts de votre arme principale lorsqu’une cible est en portée Mêlée."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027, Sombre cœur d'andalurie)",
+      "palier": 3,
+      "type": "Physique",
+      "nom": "Pieux en Bois perfectionné",
+      "trait": "Force",
+      "portee": "Mêlée",
+      "degats": "d8+4 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Pairé",
+        "description": "Vous bénéficiez d’un bonus égal à 1 + votre Compétence aux dégâts de votre arme principale lorsqu’une cible est en portée Mêlée."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027, Sombre cœur d'andalurie)",
+      "palier": 4,
+      "type": "Physique",
+      "nom": "Pieux en Bois légendaire",
+      "trait": "Force",
+      "portee": "Mêlée",
+      "degats": "d8+6 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Pairé",
+        "description": "Vous bénéficiez d’un bonus égal à 1 + votre Compétence aux dégâts de votre arme principale lorsqu’une cible est en portée Mêlée."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027, Sombre cœur d'andalurie)",
+      "palier": 1,
+      "type": "Magique",
+      "nom": "Bouclier Sacré",
+      "trait": "Instinct",
+      "portee": "Mêlée",
+      "degats": "d4 mag",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Résonant",
+        "description": "Lors d’une réussite critique sur une attaque avec votre arme principale, vous gagnez un Espoir supplémentaire."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027, Sombre cœur d'andalurie)",
+      "palier": 2,
+      "type": "Magique",
+      "nom": "Bouclier Sacré amélioré",
+      "trait": "Instinct",
+      "portee": "Mêlée",
+      "degats": "d4+2 mag",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Résonant",
+        "description": "Lors d’une réussite critique sur une attaque avec votre arme principale, vous gagnez un Espoir supplémentaire."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027, Sombre cœur d'andalurie)",
+      "palier": 3,
+      "type": "Magique",
+      "nom": "Bouclier Sacré perfectionné",
+      "trait": "Instinct",
+      "portee": "Mêlée",
+      "degats": "d4+4 mag",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Résonant",
+        "description": "Lors d’une réussite critique sur une attaque avec votre arme principale, vous gagnez un Espoir supplémentaire."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027, Sombre cœur d'andalurie)",
+      "palier": 4,
+      "type": "Magique",
+      "nom": "Bouclier Sacré légendaire",
+      "trait": "Instinct",
+      "portee": "Mêlée",
+      "degats": "d4+6 mag",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Résonant",
+        "description": "Lors d’une réussite critique sur une attaque avec votre arme principale, vous gagnez un Espoir supplémentaire."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027, Sombre cœur d'andalurie)",
+      "palier": 1,
+      "type": "Physique",
+      "nom": "Jiu jie bian",
+      "trait": "Présence",
+      "portee": "Très courte",
+      "degats": "d6+1 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Crochet",
+        "description": "Sur une attaque réussie, vous pouvez tirer votre cible jusqu'à l'amener en Mêlée."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027, Sombre cœur d'andalurie)",
+      "palier": 2,
+      "type": "Physique",
+      "nom": "Jiu jie bian amélioré",
+      "trait": "Présence",
+      "portee": "Très courte",
+      "degats": "d6+3 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Crochet",
+        "description": "Sur une attaque réussie, vous pouvez tirer votre cible jusqu'à l'amener en Mêlée."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027, Sombre cœur d'andalurie)",
+      "palier": 3,
+      "type": "Physique",
+      "nom": "Jiu jie bian perfectionné",
+      "trait": "Présence",
+      "portee": "Très courte",
+      "degats": "d6+5 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Crochet",
+        "description": "Sur une attaque réussie, vous pouvez tirer votre cible jusqu'à l'amener en Mêlée."
+      }
+    },
+    {
+      "source": "Espoir et Peur (2027, Sombre cœur d'andalurie)",
+      "palier": 4,
+      "type": "Physique",
+      "nom": "Jiu jie bian légendaire",
+      "trait": "Présence",
+      "portee": "Très courte",
+      "degats": "d6+7 phy",
+      "encombrement": "Une main",
+      "aptitude": {
+        "nom": "Crochet",
+        "description": "Sur une attaque réussie, vous pouvez tirer votre cible jusqu'à l'amener en Mêlée."
+      }
     }
   ]
 };

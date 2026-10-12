@@ -27,7 +27,7 @@ const ASCENDANCES_DATA = {
         },
         {
           "nom": "Efficace",
-          "description": "Lorsque vous prenez un court repos, vous pouvez choisir un acte de pause de long repos au lieu d'un acte de pause de court repos."
+          "description": "Lorsque vous prenez un court repos, vous pouvez choisir un acte de long repos au lieu d'un acte de repos court."
         }
       ]
     },
@@ -68,7 +68,7 @@ const ASCENDANCES_DATA = {
       "aptitudes": [
         {
           "nom": "Réactions rapides",
-          "description": "Cochez un stress pour obtenir un avantage sur un rouleau de réaction."
+          "description": "Cochez un stress pour obtenir un avantage sur un jet de réaction."
         },
         {
           "nom": "Transe céleste",
@@ -127,8 +127,8 @@ const ASCENDANCES_DATA = {
       "description": "Les champignons ressemblent aux champignons humanoïdes",
       "aptitudes": [
         {
-          "nom": "Réseau Fungril",
-          "description": "Faire un Rouleau d'instinct (12) d'utiliser votre réseau mycélien pour parler avec d'autres personnes de votre ascendance. En cas de succès, vous pouvez communiquer à n’importe quelle distance."
+          "nom": "Réseau Fongique",
+          "description": "Faire un jet d'instinct (12) d'utiliser votre réseau mycélien pour parler avec d'autres personnes de votre ascendance. En cas de succès, vous pouvez communiquer à n’importe quelle distance."
         },
         {
           "nom": "Lien avec la mort",
@@ -147,7 +147,7 @@ const ASCENDANCES_DATA = {
         },
         {
           "nom": "Rétracter",
-          "description": "Cocher un stress pour se rétracter dans votre coquille. Dans votre coque, vous avez une résistance aux dommages physiques, vous avez un désavantage sur les rouleaux d'action et vous ne pouvez pas bouger."
+          "description": "Cocher un stress pour se rétracter dans votre coquille. Dans votre coque, vous avez une résistance aux dommages physiques, vous avez un désavantage sur les jets d'action et vous ne pouvez pas bouger."
         }
       ]
     },
@@ -158,7 +158,7 @@ const ASCENDANCES_DATA = {
       "aptitudes": [
         {
           "nom": "Endurance",
-          "description": "Obtenez un emplacement Hit Point supplémentaire lors de la création du personnage."
+          "description": "Obtenez un emplacement Point blessure supplémentaire lors de la création du personnage."
         },
         {
           "nom": "Atteindre",
@@ -203,7 +203,7 @@ const ASCENDANCES_DATA = {
       "aptitudes": [
         {
           "nom": "Haute endurance",
-          "description": "Gagnez un créneau de stress supplémentaire lors de la création du personnage."
+          "description": "Gagnez un emplacement de stress supplémentaire lors de la création du personnage."
         },
         {
           "nom": "Adaptabilité",
@@ -218,11 +218,11 @@ const ASCENDANCES_DATA = {
       "aptitudes": [
         {
           "nom": "Sans peur",
-          "description": "Lorsque vous roulez avec la peur, vous pouvez cocher 2 Stress pour le transformer en un rôle avec Hope à la place."
+          "description": "Lorsque vous lancez avec la peur, vous pouvez cocher 2 Stress pour le transformer en un rôle avec espoir à la place."
         },
         {
           "nom": "Visage redouté",
-          "description": "Vous avez l'avantage sur les rouleaux d'intimider les créatures hostiles."
+          "description": "Vous avez l'avantage sur les jets d'intimider les créatures hostiles."
         }
       ]
     },
@@ -268,6 +268,96 @@ const ASCENDANCES_DATA = {
         {
           "nom": "Longue langue",
           "description": "Vous pouvez utiliser votre longue langue pour saisir des objets à courte portée. Cocher un stress pour utiliser votre langue comme une arme Finesse à courte portée qui inflige d12 dommages physiques basés sur votre compétence."
+        }
+      ]
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "nom": "Gnome",
+      "description": "Les gnomes sont généralement de petits humanoïdes dotés d’une tête conique et de la capacité de se téléporter sur de courtes distances.",
+      "aptitudes": [
+        {
+          "nom": "Doigts agiles",
+          "description": "Quand vous faite un jet de Finesse, vous pouvez dépenser 2 Espoir pour relancer votre Dé d’Espoir."
+        },
+        {
+          "nom": "Pas scintillant",
+          "description": "Une fois par scène, tu peux te téléporter vers un point que tu vois à l’intérieur de la portée Lointaine."
+        }
+      ]
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "nom": "Terregène",
+      "description": "Descendants des éléments terrestres, les membres de cette ascendance sont formés de chair et de roche, de cristal, d'argile, de sol, de sable ou d'un mélange de ces matériaux. Certains sont principalement constitués de chair et de sang avec une seule caractéristique terrestre, comme la peau, la couleur ou la texture des formations de pierre ou de cristal qui ornent leur tête comme des cheveux.",
+      "aptitudes": [
+        {
+          "nom": "Peau de pierre",
+          "description": "Gagnez un permanent +1 bonus à votre Score d'armure et seuils de dommages lors de la création du personnage."
+        },
+        {
+          "nom": "Inébranlable",
+          "description": "Tant que vous touchez le sol, vous ne pouvez pas être soulevé ou déplacé contre votre volonté."
+        }
+      ]
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "nom": "Pélagique",
+      "description": "Descendant des élémentaires d'eau, les Pélagique possèdent des oreilles en forme de nageoires et des sangles entre leurs doigts. La couleur de leur peau, de leurs cheveux et de leurs yeux reflète celle des nombreuses formes d'eau, certaines présentant des nuances, de vert et d'écume de mer comme les rivières peu profondes ou les océans tropicaux, tandis que d'autres présentent des bleus foncés et des violets provenant des océans les plus profonds.",
+      "aptitudes": [
+        {
+          "nom": "Amphibie",
+          "description": "Vous pouvez respirer et vous déplacer naturellement sous l’eau."
+        },
+        {
+          "nom": "Sursaut vital",
+          "description": "Une fois par repos, lorsque vous avez accès à une petite quantité d’eau, vous pouvez dépenser 1 Stress pour soigner 1 point de blessure sur vous-même ou sur un allié à portée Très proche."
+        }
+      ]
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "nom": "Pyrogène",
+      "description": "Descendant des élémentaires du feu, les Pyrogènes possèdent une peau rouge et orangée, des cheveux flamboyants et des yeux qui brillent comme les flammes. Ils sont souvent associés à la chaleur, au feu et à la destruction.",
+      "aptitudes": [
+        {
+          "nom": "Ignifuge",
+          "description": "Vous êtes immunisé contre causés par une flamme magique ou banale."
+        },
+        {
+          "nom": "Allumage",
+          "description": "Marquez 1 Stress pour enflammer votre arme principale jusqu’à la fin de la scène. Tant que l’arme est en flamme, elle émet une lumière vive et vous bénéficiez d’un bonus de 1d6 aux jets de dégâts avec cette arme."
+        }
+      ]
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "nom": "Zéphyrien",
+      "description": "Descendant des élémentaires de l'air, les Zéphyriens ont une peau changeante de couleur qui reflète les gris et les bleus pâles d'un ciel matinal clair, les oranges et les fuchsias brûlants du soleil couchant, ou les zibelines et les violets profonds d'une nuit tachetée d'étoiles.",
+      "aptitudes": [
+        {
+          "nom": "Rafale de vent",
+          "description": "Marquez 1 Stress pour invoquer une rafale de vent qui vous porte ou porte vos alliés jusqu’à Très loin. De plus, vous pouvez toujours contrôler la vitesse à laquelle vous tombez."
+        },
+        {
+          "nom": "L’Œil du cyclone",
+          "description": "Dépensez 2 Espoir pour vous accorder, ou accorder à un allié à portée Mêlée, un bonus de +1 en Esquive jusqu’à ce que vous subissiez des dégâts graves ou que vous utilisiez à nouveau cette capacité."
+        }
+      ]
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "nom": "Aetheris",
+      "description": "Les Aetheris sont des humanoïdes plus facilement reconnaissables à leurs ailes et à leurs marques sacrées. Ils sont les descendants d’anges venus des cieux.",
+      "aptitudes": [
+        {
+          "nom": "Aura sacrée",
+          "description": "Une fois par repos long, lorsqu’un allié dans une portée Proche obtient un jet avec Peur, vous pouvez remplacer ce jet par un jet avec l’Espoir à la place."
+        },
+        {
+          "nom": "Ailes Célestes",
+          "description": "Vous avez des ailes qui vous permettent de voler. Une fois par scène, lorsque vous volez, vous pouvez dépenser un Espoir au lieu de marquer un emplacement d’Armure."
         }
       ]
     }

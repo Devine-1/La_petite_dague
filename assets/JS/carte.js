@@ -1700,6 +1700,198 @@ const CARTE_DATA = {
       "nom": "Armure solide",
       "description": "Quand vous devriez cocher une Case d’Armure, lancez un nombre de D6 égal à votre Maîtrise. Si au moins un dé donne 6, vous réduisez la sévérité des dégâts d’un seuil sans cocher de Case d’Armure.",
       "cout_rappel": 1
+    },
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    {
+      "source": "Espoir et Peur (2027)",
+      "domaine": "Peur",
+      "niveau": 1,
+      "type": "sort",
+      "nom": "Invocation des peurs",
+      "description": "Effectuez un jet d'incantation contre une cible à portée Lointaine. En cas de réussite:\nAvec Espoir: vous infligez 1d6+1 dégâts magiques, en utilisant votre bonus de maîtrise.\nAvec Peur: vous infligez 1d10+1 dégâts magiques, en utilisant votre bonus de maîtrise.\nLa prochaine attaque réussie de la cible inflige la moitié des dégâts.\nEn échec, vous devez dépenser 1 Espoir ou marquer 1 Stress.",
+      "cout_rappel": 1
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "domaine": "Peur",
+      "niveau": 1,
+      "type": "sort",
+      "nom": "Bouclier d’Ombres",
+      "description": "Une fois par repos, vous pouvez marquer 1 Stress pour vous envelopper d’énergie ombreuse. Lorsque vous le faites, placez sur cette carte un nombre de jetons égal au nombre de Peur dans le Compteur du MJ.\nAprès qu’un jet d’attaque ait été effectué contre vous, vous pouvez dépenser n’importe quel nombre de jetons pour imposer un malus de -1 au résultat par jeton dépensé.\nÀ la fin de la scène, retirez tous les jetons non dépensés.",
+      "cout_rappel": 1
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "domaine": "Peur",
+      "niveau": 1,
+      "type": "sort",
+      "nom": "Voix de la Terreur",
+      "description": "Vous pouvez, à distance visible, parler magiquement à une créature et la tourmenter par vos mots. Effectuez un jet de Lancer d'incantation contre elle. En cas de réussite, elle doit marquer un Stress et est figée par la terreur, ce qui lui confère l'état Bloqué temporairement.",
+      "cout_rappel": 1
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "domaine": "Peur",
+      "niveau": 2,
+      "type": "sort",
+      "nom": "Châtiment hideux",
+      "description": "Lorsque un allié dans la Portée Proche subit des dégâts infligés par une cible que vous pouvez voir, vous pouvez effectuer un jet de réaction contre cette cible en utilisant votre trait d'incantation. En cas de réussite, vous marquez 1 Stress et infligez 1d6 dégâts magiques en utilisant votre Compétence.",
+      "cout_rappel": 2
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "domaine": "Peur",
+      "niveau": 2,
+      "type": "sort",
+      "nom": "Drain d’Essence",
+      "description": "Lancez un jet de Lancer d'incantation contre une cible à Portée Très Proche. Une fois par repos long, en cas de réussite, la cible subit 1d12+4 dégâts magiques en utilisant votre Compétence. En cas de réussite avec Peur, vous gagnez un bonus de +1 à votre Compétence pour cette attaque.\nVous restaurez un nombre de Points de blessure égal au nombre de PB que la cible a perdus lors de cette attaque.",
+      "cout_rappel": 1
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "domaine": "Peur",
+      "niveau": 3,
+      "type": "sort",
+      "nom": "Traumatisme partagé",
+      "description": "Vous pouvez transférer la souffrance d’une créature à une autre. Une fois par repos, vous pouvez marquer un nombre quelconque de Points de blessure sur une créature consentante dans la portée de mêlée pour retirer un nombre égal de Points de blessure sur une autre créature consentante dans la portée de mêlée.",
+      "cout_rappel": 1
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "domaine": "Peur",
+      "niveau": 3,
+      "type": "sort",
+      "nom": "Terrifier",
+      "description": "Effectuez un jet d'incantation contre une cible à Portée Proche. En cas de réussite, la cible Marque 1d4 Stress et peut être forcée à fuir d’un pas (par exemple, de Très proche à proche, ou de Proche à Lointain). En cas de réussite avec Peur, la cible devient aussi temporairement Vulnérable.",
+      "cout_rappel": 1
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "domaine": "Peur",
+      "niveau": 4,
+      "type": "sort",
+      "nom": "Invocation d’Horreur",
+      "description": "Une fois par scène, marquez 1 Stress pour invoquer une créature d’un autre monde qui inflige d8+1 dégâts magiques à une cible à Portée Lointaine en utilisant votre trait d'incantation. Si la cible marque des Points de blessure avec cette attaque, elle doit réussir un jet de Réaction (12) pour se résister à l’horreur ou marquer un nombre égal de Stress.\nAprès avoir effectué l’attaque, la créature se dissipe.",
+      "cout_rappel": 2
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "domaine": "Peur",
+      "niveau": 4,
+      "type": "sort",
+      "nom": "Chaînes d’Affliction",
+      "description": "Marquez 2 Stress pour enchaîner temporairement une cible dans la Portée Proche. Lorsque la créature enchaînée inflige des dégâts, la cible de son attaque subit un malus équivalent à un point de blessure en moins que d’habitude. Vous ne pouvez pas avoir plus d’une créature enchaînée à la fois.",
+      "cout_rappel": 2
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "domaine": "Peur",
+      "niveau": 5,
+      "type": "sort",
+      "nom": "Coup Funeste",
+      "description": "Lorsque une cible marque un quelconque nombre de Points de blessure suite à une attaque que vous portez, vous pouvez dépenser 1 Espoir pour drainer leur puissance. Le Maître du Jeu perd 1 Peur.",
+      "cout_rappel": 2
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "domaine": "Peur",
+      "niveau": 5,
+      "type": "sort",
+      "nom": "Brume Spectrale",
+      "description": "Dépensez 2 Espoir pour invoquer une brume étrange qui rend vous et les alliés de votre choix à Portée Proche momentanément incorporels. Tant qu’ils restent incorporels, ils peuvent traverser les objets solides et sont Immunisés contre les dégâts physiques. Ils redeviennent corporel après avoir traversé un objet solide ou après avoir effectué un jet d’action. Sinon, cet effet dure jusqu’à la fin de la scène.",
+      "cout_rappel": 0
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "domaine": "Peur",
+      "niveau": 6,
+      "type": "sort",
+      "nom": "Feu Sombre",
+      "description": "Une fois par scène, dépensez un nombre quelconque d’Espoir pour cibler autant d’adversaires dans la Portée Proche. Chaque cible effectue un jet de Réaction (15). Celles qui échouent subissent d8+6 dégâts magiques en utilisant votre trait d'incantation, tandis qu’elles sont enveloppées par le feu sombre. Celles qui réussissent subissent la moitié des dégâts.",
+      "cout_rappel": 2
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "domaine": "Peur",
+      "niveau": 6,
+      "type": "sort",
+      "nom": "Sursaut terrifiant",
+      "description": "Lorsque vous infligez des dégâts magiques à une cible, vous pouvez dépenser 1 Stress pour vous téléporter en mêlée avec elle. Une fois à portée, la cible devient Temporairement Vulnérable jusqu’à ce qu’elle marque 1 PV ou plus.",
+      "cout_rappel": 1
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "domaine": "Peur",
+      "niveau": 7,
+      "type": "capacité",
+      "nom": "Touché par la terreur",
+      "description": "Lorsque 4 cartes ou plus de votre main proviennent du domaine de la Peur, vous bénéficiez des effets suivants:\nLorsque vous réussissez un jet avec Peur, vous pouvez dépenser 2 Stress pour empêcher le Maître du Jeu d’obtenir de la Peur.\nUne fois par repos, lorsque vous effectuez un jet d’action, vous pouvez gagner un bonus à ce jet égal au nombre de Peur du compteur du Maître du jeux (MJ).",
+      "cout_rappel": 2
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "domaine": "Peur",
+      "niveau": 7,
+      "type": "sort",
+      "nom": "Mur de la famine",
+      "description": "Lancez un jet de Lancer d'incantation (10). En cas de réussite, vous pouvez dépenser 1 Espoir pour créer un mur visible d’énergie nécrrotique entre deux points situés à Portée Lointaine. Le mur dure jusqu’à ce que vous marquiez un PB ou que vous lanciez ce sort à nouveau. Toute créature à l’intérieur du mur lors de son apparition ou qui le traverse doit marquer 2 Stress.",
+      "cout_rappel": 2
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "domaine": "Peur",
+      "niveau": 8,
+      "type": "sort",
+      "nom": "Armée des Ténèbres",
+      "description": "Lancez un jet d'incantation (14). Une fois par repos long, en cas de réussite, vous pouvez invoquer des Monstres ou Démons qui vous entourent et se déplacent avec vous. Placez 8 jetons sur cette carte.\nLorsque vous infligez des dégâts à une cible à Portée Très Proche, vous pouvez dépenser n’importe quel nombre de jetons pour ajouter 1d8 de dégâts par jeton dépensé à votre jet de dégâts.\nDe plus, lorsque vous subissez des dégâts, vous pouvez dépenser n’importe quel nombre de jetons pour réduire les dégâts de 1d8 par jeton dépensé.\nÀ chaque dépense d’un jeton, un démon agit en votre nom, puis disparaît.\nLors d’un repos, retirez tous les jetons non dépensés.",
+      "cout_rappel": 2
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "domaine": "Peur",
+      "niveau": 8,
+      "type": "sort",
+      "nom": "Chair Eldritch",
+      "description": "Gagnez un bonus de +1 à vos seuils de dégâts pour chaque Stress que vous avez marqué. De plus, lorsque vous effectuez un jet lié à la Peur, vous pouvez dépenser 2 Espoir pour retirer un Emplacement d’Armure.",
+      "cout_rappel": 1
+    },
+    
+    {
+      "source": "Espoir et Peur (2027)",
+      "domaine": "Peur",
+      "niveau": 9,
+      "type": "sort",
+      "nom": "Damnation",
+      "description": "Lancez un jet d'incantation contre une cible à Portée Lointaine. En cas de réussite, vous pouvez marquer n’importe quel nombre de Stress pour lancer un nombre équivalent de d20 et infliger des dégâts magiques égaux au total des dés. Si cette attaque tue la cible (la porte à 0 PV), tous les adversaires dans la Portée Lointaine de la cible doivent marquer un Stress.",
+      "cout_rappel": 2
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "domaine": "Peur",
+      "niveau": 9,
+      "type": "sort",
+      "nom": "Savourer l’Angoisse",
+      "description": "Lorsqu’un adversaire situé dans la Portée Proche subit des dégâts sévères, vous pouvez retirer 1 Stress.",
+      "cout_rappel": 1
+    },
+    
+    {
+      "source": "Espoir et Peur (2027)",
+      "domaine": "Peur",
+      "niveau": 10,
+      "type": "sort",
+      "nom": "Avatar de Terreur",
+      "description": "Marquez 1 Stress pour vous transformer en une créature alimentée par la peur. Tant que vous êtes dans cette forme, vous gagnez un bonus de 1d6 à vos jets de dégâts pour chaque Peur dans le compteur du MJ. De plus, vous gagnez 1 Espoir lorsque le Maître du Jeu dépense une Peur pour mettre en lumière un adversaire situé à Très Proche.\nAvant de réaliser un jet d’action, vous devez dépenser 1 Espoir. Si vous ne pouvez pas, vous revenez à votre forme normale.",
+      "cout_rappel": 2
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "domaine": "Peur",
+      "niveau": 10,
+      "type": "sort",
+      "nom": " Invocation du Tourment",
+      "description": "Vous infligez le double de dégâts à toutes les cibles qui ont tous leurs Stress marqués.\nDe plus, lorsqu’un adversaire dans la Portée Proche est vaincu alors qu’il a tous ses Stress marqués, vous gagnez 1 Espoir.",
+      "cout_rappel": 2
     }
   ]
 };

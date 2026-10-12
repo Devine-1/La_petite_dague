@@ -45,6 +45,17 @@ const DOMAINES_DATA = {
       "source": "Livre de règle (2026)",
       "nom": "Vaillance",
       "description": "La Vaillance est le domaine de la protection. Que ce soit en attaquant ou en défendant, ceux qui optent pour ce domaine canalisent une force formidable pour protéger leurs alliés au combat. La Vaillance offre de grands pouvoirs à ceux qui lèvent leur bouclier pour défendre autrui."
+    },
+    {
+      "source": "non identifié",
+      "nom": "Sang",
+      "description": "Description en attente de la sortie du livre."
+    },
+    {
+      "source": "Espoir et Peur (2027)",
+      "nom": "Peur",
+      "description": "La Peur est l’apanage des cauchemars et de l'effroi. Ceux qui empruntent cette voie peuvent invoquer des monstruosités, affaiblir leurs ennemis et canaliser une magie terrifiante pour anéantir leurs adversaires. La peur confère à ses adeptes un pouvoir sur des forces que bien des gens craindraient d’employer."
     }
+    
   ]
 };

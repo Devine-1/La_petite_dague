@@ -3018,7 +3018,7 @@ const BESTIAIRE_DATA = {
     "id": "scintillewyrn",
     "palier": 2,
     "type": "Traqueur",
-    "categorie": "draconien",
+    "categorie": "Draconien",
     "nom": "Scintillewyrn",
     "description": "Une vouivre aux écailles de glace semblables à des miroirs.",
     "motivation": "Frapper et battre en retraire, hiberner, prendre en embuscade, se nourrir",
@@ -3793,7 +3793,7 @@ const BESTIAIRE_DATA = {
     "id": "hydre",
     "palier": 3,
     "type": "Solo",
-    "categorie": "draconien",
+    "categorie": "Draconien",
     "nom": "Hydre",
     "description": "Une créature quadrupède dont les multipkes long cous sont surmontés de têtes aux geules plienes de crocs menaçant.",
     "motivation": "Dévorer, regénérer, térrifier",
@@ -3838,7 +3838,7 @@ const BESTIAIRE_DATA = {
     "id": "jeune-dragon-de-glace",
     "palier": 3,
     "type": "Solo",
-    "categorie": "draconien",
+    "categorie": "Draconien",
     "nom": "Jeune dragon de glace",
     "description": "Un dragon bleu glacier ddoté de quatre menbres et d'ailes d'une teinte de givre.",
     "motivation": "Déclencher un avalanche, défendre se qui lui appartient, défendre sont repaire, geler, mutiler, voler",
@@ -4433,7 +4433,7 @@ const BESTIAIRE_DATA = {
     "id": "fleau-en-fusion-dragon-volcanique",
     "palier": 4,
     "type": "Solo",
-    "categorie": "draconien",
+    "categorie": "Draconien",
     "nom": "Fléau en fusion, dragon volcanique",
     "description": "Furieux d'être blessé, le dragon se couvre de lave ne fusion.",
     "motivation": "asperger de lave incinéree, repouser les envahisseurs, se repositionner",
@@ -4673,7 +4673,7 @@ const BESTIAIRE_DATA = {
     "id": "predateur-obsidien-dragon-volcanique",
     "palier": 4,
     "type": "Solo",
-    "categorie": "draconien",
+    "categorie": "Draconien",
     "nom": "Prédateur obsidien, dragon volcanique",
     "description": "Une énorme créature ailée avec des écailles d'obsidienne et des griffes incroyablement pointues.",
     "motivation": "Défendre un repaire, attaquer en piqué, voler, chasser, intimider",
@@ -4923,7 +4923,7 @@ const BESTIAIRE_DATA = {
     "id": "tyran-cendreux-dragon-volcanique",
     "palier": 4,
     "type": "Solo",
-    "categorie": "draconien",
+    "categorie": "Draconien",
     "nom": "Tyran cendreux, dragon volcanique",
     "description": "Aucun ennemi n'a jamais eu l'insolence de bleser ainsi ce dragon. Alors que la lave refroisit, il se change en cendres, comme ses précédents adversaires.",
     "motivation": "Etouffer, intimider, tuer ou être tué, voler",
@@ -5775,6 +5775,5316 @@ const BESTIAIRE_DATA = {
         "nom": "Regard haineaux",
         "tag": "action",
         "texte": "Toutes les cibles que Kelir voit et qui se trouvent à Longue portée doivent réussir un jet de réaction de Présence ou cocher 1d6 Stress tandis que la haine de Kélir tente de dévorer leur espit"
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "ahuizotl",
+    "palier": 1,
+    "type": "Traqueur",
+    "categorie": "Bête",
+    "nom": "Ahuizotl",
+    "description": "Un prédateur d'embuscade canin, doté d'une main griffue au bout d'une longue queue préhensile, qui traîne ses victimes dans les rivières pour les noyer.",
+    "motivation": "Tendre une embuscade, noyer, entraver",
+    "difficulte": 12,
+    "seuilMineur": 5,
+    "seuilMajeur": 9,
+    "blessure": 4,
+    "stress": 3,
+    "modAttaque": 2,
+    "attaqueStandard": "Morsure : mêlée, 1d6+2 phy",
+    "experience": "Discrétion +2, Natation +2",
+    "aptitudes": [
+      {
+        "nom": "Attaquant aquatique",
+        "tag": "passive",
+        "texte": "Quand l'Ahuizotl attaque depuis l'eau, il a l'avantage sur l'attaque et inflige 1d6 dégâts supplémentaires."
+      },
+      {
+        "nom": "Coup de queue",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire une attaque contre une cible à très courte portée. En cas de succès, infligez 1d8+2 dégâts physiques."
+      },
+      {
+        "nom": "Attraper et traîner",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que l'Ahuizotl saisisse avec sa queue une cible à courte portée, la tire au Corps à corps et l'Entrave temporairement. L'Ahuizotl a l'avantage sur les attaques contre les cibles ainsi Bloquées."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "armure-ensorcelee",
+    "palier": 1,
+    "type": "Cogneur",
+    "categorie": "Artificielle",
+    "nom": "Armure ensorcelée",
+    "description": "Une armure complète de plates, vide, qui brille d'une faible corona de lumière fantomatique.",
+    "motivation": "Cliquetie bruyamment, se mouvoir comme un mécanisme, observer en silence",
+    "difficulte": 10,
+    "seuilMineur": 9,
+    "seuilMajeur": 17,
+    "blessure": 6,
+    "stress": 0,
+    "modAttaque": 0,
+    "attaqueStandard": "Zweihänder : très courte, 1d10+1 phy",
+    "experience": "Gardien +2",
+    "aptitudes": [
+      {
+        "nom": "Infatigable",
+        "tag": "passive",
+        "texte": "L'Armure ne peut pas être forcée à marquer du Stress. Quand un effet la ferait marquer du Stress, l'Armure ignore cette partie de l'effet."
+      },
+      {
+        "nom": "Cliquetis et réassemblage",
+        "tag": "réaction",
+        "texte": "Une fois par scène, quand l'Armure est vaincue, vous pouvez dépenser une Peur pour la réactiver. Effacez 2 PB et mettez-la immédiatement en avant."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "atototl",
+    "palier": 1,
+    "type": "Standard",
+    "categorie": "Bête",
+    "nom": "Atototl",
+    "description": "Un majestueux oiseau vert d’eau, d'une envergure de trois mètres, chassé pour la pierre divinatoire qu'il porte dans l'estomac.",
+    "motivation": "Éviter, fuir, détourner l'attention",
+    "difficulte": 12,
+    "seuilMineur": 8,
+    "seuilMajeur": 12,
+    "blessure": 5,
+    "stress": 3,
+    "modAttaque": 1,
+    "attaqueStandard": "Serres : mêlée, 1d8+1 phy",
+    "experience": "Vol +3, Jungles +3",
+    "aptitudes": [
+      {
+        "nom": "Seigneur du vent",
+        "tag": "passive",
+        "texte": "Tant que l'Atototl vole, les attaques contre lui sont faites avec désavantage."
+      },
+      {
+        "nom": "Pierre des présages",
+        "tag": "passive",
+        "texte": "L'Atototl porte une pierre qui présage la bonne ou la mauvaise fortune selon sa couleur. Un PJ qui fouille la dépouille de l'Atototl trouve la pierre et fait un jet de destin. Sur un résultat pair, le PJ gagne de l'Espoir égal à la moitié du résultat, qu'il peut répartir entre les PJ comme il le souhaite. Sur un résultat impair, vous gagnez de la Peur égale à la moitié du résultat."
+      },
+      {
+        "nom": "Fléau des archers",
+        "tag": "réaction",
+        "texte": "Quand une créature au-delà de très courte portée s'apprête à infliger des dégâts à l'Atototl avec une attaque d'arme, vous pouvez dépenser une Peur pour faire un jet d'attaque contre elle. En cas de succès, des vents tourbillonnants réfléchissent l'attaque et renvoient à l'attaquant les dégâts qu'il a infligés."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "bande-de-gremlins-4-pb",
+    "palier": 1,
+    "type": "Horde",
+    "categorie": "Fée",
+    "nom": "Bande de Gremlins (4/PB)",
+    "description": "Un groupe de petites créatures étranges vêtues d'armures fabriquées avec des déchets et des ustensiles ménagers volés.",
+    "motivation": "Tendre une embuscade, célébrer un peu trop tôt, frapper et fuir, se battre entre eux, saboter, semer le chaos",
+    "difficulte": 12,
+    "seuilMineur": 5,
+    "seuilMajeur": 11,
+    "blessure": 3,
+    "stress": 2,
+    "modAttaque": 1,
+    "attaqueStandard": "Ciseaux de tailleur : mêlée, 1d8+2 phy",
+    "experience": "Pièges +3",
+    "aptitudes": [
+      {
+        "nom": "Horde (1d4+1)",
+        "tag": "passive",
+        "texte": "Quand la Bande a marqué la moitié ou plus de ses PB, son attaque standard inflige 1d4+1 dégâts physiques à la place."
+      },
+      {
+        "nom": "Lâche",
+        "tag": "réaction",
+        "texte": "Quand la Bande marque son dernier Stress ou qu'un Meneur allié est vaincu, lancez un d6. Sur un résultat de 2 ou moins, la Bande fuit la scène."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "mordeur-des-profondeurs",
+    "palier": 1,
+    "type": "Standard",
+    "categorie": "Aquatique",
+    "nom": "Mordeur des profondeurs",
+    "description": "Une créature-poisson trapue aux rangées de dents tranchantes comme des rasoirs.",
+    "motivation": "Grimper sur la berge, frapper et fuir, guetter au-dessus de la ligne d'eau",
+    "difficulte": 12,
+    "seuilMineur": 5,
+    "seuilMajeur": 10,
+    "blessure": 4,
+    "stress": 2,
+    "modAttaque": 1,
+    "attaqueStandard": "Armement détrempé : courte, 1d8+1 phy",
+    "experience": "Aquatique +2",
+    "aptitudes": [
+      {
+        "nom": "Ka-Croc",
+        "tag": "action",
+        "texte": "Marquez un Stress pour attaquer une cible au Corps à corps. En cas de succès, la cible subit 1d12 dégâts physiques et doit marquer un emplacement d'Armure sans en recevoir le bénéfice (elle peut tout de même utiliser son armure pour réduire les dégâts)."
+      },
+      {
+        "nom": "Frénésie alimentaire",
+        "tag": "réaction",
+        "texte": "Quand une créature marque des PB, vous pouvez dépenser une Peur pour mettre en avant toutes les Bêtes-branchies dentées à très courte portée de celle-ci. Ces Bêtes-branchies se déplacent au Corps à corps de la créature et font chacune une attaque standard contre elle. Si des attaques réussissent, additionnez leurs dégâts."
+      },
+      {
+        "nom": "Écailleux",
+        "tag": "réaction",
+        "texte": "Quand la Bête-branchie devrait marquer un nombre quelconque de PB, lancez un d6. Sur un résultat de 6, vous pouvez marquer un Stress à la place."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "boucher-bonnet-rouge",
+    "palier": 1,
+    "type": "Standard",
+    "categorie": "Bonnet-rouge",
+    "nom": "Boucher bonnet-rouge",
+    "description": "Une créature féerique de la taille d'un halfelin qui dépèce ses victimes avec divers instruments tranchants. Elle porte un bonnet rouge conique scellé sur la tête avec de la cire de bougie.",
+    "motivation": "Sourire de façon dérangeante, taillader, se précipiter",
+    "difficulte": 12,
+    "seuilMineur": 5,
+    "seuilMajeur": 10,
+    "blessure": 4,
+    "stress": 3,
+    "modAttaque": 1,
+    "attaqueStandard": "Couperet : mêlée, 1d8+1 phy",
+    "experience": "Détaler +2",
+    "aptitudes": [
+      {
+        "nom": "Frénésie de hachage",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire une attaque standard contre jusqu'à trois cibles. Pour chaque cible qui marque des PB, vous gagnez une Peur."
+      },
+      {
+        "nom": "Lanceur de couteaux",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire une attaque standard contre une cible à longue portée. Si le Boucher est Caché, il fait l'attaque avec avantage."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "briseur-bonnet-rouge",
+    "palier": 1,
+    "type": "Cogneur",
+    "categorie": "Bonnet-rouge",
+    "nom": "Briseur bonnet-rouge",
+    "description": "Une grande créature féerique brutale, coiffée d'un bonnet rouge conique scellé sur la tête avec de la cire de bougie.",
+    "motivation": "Se frapper la poitrine et beugler, malmener les faibles ennemis, charger avec témérité",
+    "difficulte": 13,
+    "seuilMineur": 8,
+    "seuilMajeur": 15,
+    "blessure": 6,
+    "stress": 3,
+    "modAttaque": 1,
+    "attaqueStandard": "Maillet en bois : mêlée, 1d12+2 phy",
+    "experience": "Os +2",
+    "aptitudes": [
+      {
+        "nom": "Brise-échine",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire une attaque contre une cible au Corps à corps. En cas de succès, infligez 3d4+10 dégâts physiques. Une cible qui marque des PB à cause de cette attaque est Bloquée jusqu'à ce qu'elle efface un PB."
+      },
+      {
+        "nom": "Casse-genoux",
+        "tag": "réaction",
+        "texte": "Quand le Briseur réussit une attaque standard, vous pouvez dépenser une Peur pour rendre la cible temporairement Vulnérable."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "gobelour",
+    "palier": 1,
+    "type": "Cogneur",
+    "categorie": "Guerrier",
+    "nom": "Gobelour",
+    "description": "Une grande créature bipède au museau garni de défenses et au pelage rêche.",
+    "motivation": "Tendre une embuscade, brutaliser, rechercher le carnage et les objets brillants",
+    "difficulte": 13,
+    "seuilMineur": 8,
+    "seuilMajeur": 15,
+    "blessure": 5,
+    "stress": 3,
+    "modAttaque": 1,
+    "attaqueStandard": "Masse hérissée : très courte, 1d8+6 phy",
+    "experience": "Pièges +3",
+    "aptitudes": [
+      {
+        "nom": "Surprise !",
+        "tag": "passive",
+        "texte": "Si le Bugboar fait sa première attaque d'une scène avant d'avoir marqué des PB ou du Stress, il a l'avantage sur l'attaque et inflige 1d8 dégâts supplémentaires."
+      },
+      {
+        "nom": "Brutal",
+        "tag": "réaction",
+        "texte": "Quand le Bugboar réussit une attaque standard, vous pouvez marquer un Stress pour infliger 1d6 dégâts supplémentaires."
+      },
+      {
+        "nom": "Cœur de guerrier",
+        "tag": "réaction",
+        "texte": "Quand une condition serait imposée au Bugboar, vous pouvez dépenser une Peur pour l'annuler."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "chandelier-bonnet-rouge",
+    "palier": 1,
+    "type": "Meneur",
+    "categorie": "Bonnet-rouge",
+    "nom": "Chandelier bonnet-rouge",
+    "description": "Un chef de secte pâle et décharné coiffé d'un bonnet rouge conique scellé sur la tête avec de la cire de bougie. Il brandit une longue perche surmontée d'une chandelle faite de la main d'un criminel pendu.",
+    "motivation": "Projeter de longues ombres, rester hors de la mêlée, leur montrer la lumière",
+    "difficulte": 13,
+    "seuilMineur": 7,
+    "seuilMajeur": 13,
+    "blessure": 6,
+    "stress": 3,
+    "modAttaque": 3,
+    "attaqueStandard": "Chandelier ardent : très courte, 1d10+2 mag",
+    "experience": "Vigilance +3",
+    "aptitudes": [
+      {
+        "nom": "Main de gloire",
+        "tag": "passive",
+        "texte": "Quand le Chandelier apparaît, placez 5 jetons sur ce bloc de stats. Retirez un jeton chaque fois que le Chandelier marque un PB. Tant que ce bloc de stats a 1 jeton ou plus, le Chandelier est Caché."
+      },
+      {
+        "nom": "Porteur de flambeau",
+        "tag": "passive",
+        "texte": "La lumière de la Main de gloire du Chandelier inspire la soif de sang chez ses alliés. Tant que ce bloc de stats a 1 jeton ou plus, chaque adversaire bonnet-rouge à courte portée gagne un bonus de +1 à ses jets de dégâts."
+      },
+      {
+        "nom": "Danse dans les flammes",
+        "tag": "action",
+        "texte": "Dépensez un jeton de ce bloc de stats. Le Chandelier fait surgir une boule de feu sur un groupe de PJ à longue portée. Chaque cible doit faire un jet de réaction d'Agilité. Celles qui échouent subissent 2d10 dégâts magiques. Celles qui réussissent subissent la moitié des dégâts."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "creation-de-cire",
+    "palier": 1,
+    "type": "Solo",
+    "categorie": "Artificielle",
+    "nom": "Création de cire",
+    "description": "Un construct de cire de bougie semi-solide (et semi-conscient) haut de trois mètres.",
+    "motivation": "Avancer d'un pas lourd et menaçant, gémir de la douleur d'une non-vie, étouffer",
+    "difficulte": 13,
+    "seuilMineur": 8,
+    "seuilMajeur": 15,
+    "blessure": 10,
+    "stress": 3,
+    "modAttaque": 2,
+    "attaqueStandard": "Poings : très courte, 1d20 phy",
+    "experience": "Gigantesque +2",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (2)",
+        "tag": "passive",
+        "texte": "La Création peut être mise en avant jusqu'à deux fois par tour du MJ. Dépensez de la Peur comme d'habitude pour la mettre en avant."
+      },
+      {
+        "nom": "Sans organes vitaux",
+        "tag": "passive",
+        "texte": "La Création ne subit pas de dégâts supplémentaires des attaques qui réussissent de manière critique contre elle."
+      },
+      {
+        "nom": "Boule de cire",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que la Création lance une boule de cire sur une cible à longue portée. Faites une attaque contre la cible. En cas de succès, la cible subit 1d12+2 dégâts physiques et devient Bloquée jusqu'à ce qu'elle réussisse un jet de Force (15)."
+      },
+      {
+        "nom": "Splotch !",
+        "tag": "réaction",
+        "texte": "Quand un PJ au Corps à corps de la Création fait une attaque d'arme contre elle, lancez un d6. Sur un 5 ou plus, l'arme de l'attaquant reste coincée dans la Création et ne peut être retirée qu'avec un jet de Force (15) réussi."
+      },
+      {
+        "nom": "Étreinte étouffante",
+        "tag": "réaction",
+        "texte": "Quand la Création réussit une attaque standard contre une cible au Corps à corps, vous pouvez dépenser une Peur pour Piéger la cible à l'intérieur de son corps de cire. Tant qu'elle est Piégée, la cible est Bloquée, doit marquer un Stress et se déplacer avec la Création chaque fois que celle-ci est mise en avant. Une créature Piégée est libérée quand la Création subit des dégâts Majeurs ou supérieurs."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "ecorcheur-bonnet-rouge",
+    "palier": 1,
+    "type": "Sbire",
+    "categorie": "Bonnet-rouge",
+    "nom": "Écorcheur bonnet-rouge",
+    "description": "Une créature féerique de la taille d'un chat, armée d'un rasoir droit et coiffée d'un bonnet rouge conique scellé sur la tête avec de la cire de bougie.",
+    "motivation": "Dépecer, ricaner, racler, trancher",
+    "difficulte": 9,
+    "seuilMineur": null,
+    "seuilMajeur": null,
+    "blessure": 1,
+    "stress": 1,
+    "modAttaque": -1,
+    "attaqueStandard": "Rasoir : mêlée, 2 phy",
+    "experience": "Travail du cuir +3",
+    "aptitudes": [
+      {
+        "nom": "Sbire (4)",
+        "tag": "passive",
+        "texte": "L'Écorcheur est vaincu dès qu'il subit des dégâts. Pour chaque tranche de 4 dégâts qu'un PJ inflige à l'Écorcheur, il vainc un Sbire supplémentaire à portée contre lequel l'attaque aurait réussi."
+      },
+      {
+        "nom": "Entailles superficielles",
+        "tag": "passive",
+        "texte": "Quand un PJ échoue à un jet, il subit 1 dégât physique pour chaque Écorcheur à son Corps à corps. Additionnez ces dégâts."
+      },
+      {
+        "nom": "Attaque de groupe",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour choisir une cible et mettre en avant tous les Écorcheurs bonnets-rouges à courte portée de celle-ci. Ces Sbires se déplacent au Corps à corps de la cible et font un seul jet d'attaque partagé. En cas de succès, ils infligent chacun 2 dégâts physiques. Additionnez ces dégâts."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "fantome",
+    "palier": 1,
+    "type": "Standard",
+    "categorie": "Esprit",
+    "nom": "Fantôme",
+    "description": "L'écho d'une âme perdue sous la forme d'une ombre ectoplasmique.",
+    "motivation": "Créer des zones froides, planer dans les airs, chuchoter de sombres présages",
+    "difficulte": 11,
+    "seuilMineur": 5,
+    "seuilMajeur": null,
+    "blessure": 2,
+    "stress": 1,
+    "modAttaque": -1,
+    "attaqueStandard": "Toucher glacial : mêlée, 1d6+2 mag",
+    "experience": "Effrayant +3",
+    "aptitudes": [
+      {
+        "nom": "Immatériel",
+        "tag": "passive",
+        "texte": "Le Fantôme a une résistance aux dégâts physiques et peut traverser les objets solides."
+      },
+      {
+        "nom": "Aura de peur",
+        "tag": "passive",
+        "texte": "Un PJ qui prend la mise en avant à très courte portée du Fantôme doit réussir un jet de réaction de Présence (10) ou marquer un Stress."
+      },
+      {
+        "nom": "Hantise persistante",
+        "tag": "réaction",
+        "texte": "Compte à rebours (1d6). Quand le Fantôme est vaincu, vous pouvez dépenser une Peur pour activer le compte à rebours. Il avance quand un PJ fait un jet avec Peur. Quand il arrive à terme, effacez les PB du Fantôme et mettez-le immédiatement en avant."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "faucon",
+    "palier": 1,
+    "type": "Traqueur",
+    "categorie": "Bête",
+    "nom": "Faucon",
+    "description": "Un oiseau de proie aux longues ailes pointues et au bec crochu.",
+    "motivation": "Tournoyer, saisir, plonger, épier",
+    "difficulte": 12,
+    "seuilMineur": 5,
+    "seuilMajeur": 8,
+    "blessure": 3,
+    "stress": 3,
+    "modAttaque": 2,
+    "attaqueStandard": "Serres : mêlée, 1d6+1 phy",
+    "experience": "Sens aiguisés +4, Vol +3",
+    "aptitudes": [
+      {
+        "nom": "Voltigeur agile",
+        "tag": "passive",
+        "texte": "En vol, le Faucon gagne un bonus de +3 à sa Difficulté."
+      },
+      {
+        "nom": "Piqué",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire une attaque standard contre une cible depuis les airs. Le Faucon gagne un bonus de +2 aux jets d'attaque et de dégâts."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "feux-follets-8-pb",
+    "palier": 1,
+    "type": "Horde",
+    "categorie": "Esprit",
+    "nom": "Feux follets (8/PB)",
+    "description": "Des orbes de lumière changeante flottant paresseusement.",
+    "motivation": "Éblouir et distraire, désorienter, égarer",
+    "difficulte": 9,
+    "seuilMineur": 5,
+    "seuilMajeur": 9,
+    "blessure": 4,
+    "stress": 2,
+    "modAttaque": -3,
+    "attaqueStandard": "Éclair : courte, 1d4+2 mag",
+    "experience": "Obscurité +3",
+    "aptitudes": [
+      {
+        "nom": "Horde (1d4-1)",
+        "tag": "passive",
+        "texte": "Quand les Feux follets ont marqué la moitié ou plus de leurs PB, leur attaque standard inflige 1d4-1 dégâts magiques à la place."
+      },
+      {
+        "nom": "Kaléidoscopiques",
+        "tag": "passive",
+        "texte": "Les Feux follets pulsent et dansent en motifs hypnotiques aux couleurs changeantes qui fascinent toute créature qui les regarde. Toutes les cibles à très courte portée des Feux follets sont Vulnérables."
+      },
+      {
+        "nom": "Fascinants",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que les Feux follets tracent des traînées lumineuses sinueuses dans l'air, laissant des images rémanentes qui supplient d'être déchiffrées. Chaque PJ à longue portée doit réussir un jet de réaction d'Instinct (13) ou marquer un Stress et se déplacer jusqu'à courte portée vers les Feux follets."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "tisseuse-de-sombretoile",
+    "palier": 1,
+    "type": "Standard",
+    "categorie": "Sombretoile",
+    "nom": "Tisseuse de Sombretoile",
+    "description": "Un arachnide de la taille d'un sanglier, tissé de soie d'ombre primordiale.",
+    "motivation": "Mordre, rester dans l'obscurité",
+    "difficulte": 12,
+    "seuilMineur": 6,
+    "seuilMajeur": 9,
+    "blessure": 4,
+    "stress": 3,
+    "modAttaque": 1,
+    "attaqueStandard": "Crocs : mêlée, 1d8+1 phy",
+    "experience": "Trous +2, Toiles +2",
+    "aptitudes": [
+      {
+        "nom": "Emmailloter de soie d'ombre",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire une attaque contre une cible au Corps à corps. En cas de succès, la cible est Vulnérable et Bloquée jusqu'à ce qu'elle réussisse un jet de Force (10)."
+      },
+      {
+        "nom": "Croc d'ombre",
+        "tag": "réaction",
+        "texte": "Quand la Fileuse réussit une attaque contre une cible au Corps à corps, vous pouvez dépenser une Peur pour rendre la cible Tremblante jusqu'à ce qu'elle réussisse un jet d'Instinct (10). Tant qu'elle est Tremblante, la cible a le désavantage sur ses jets d'attaque."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "harpie",
+    "palier": 1,
+    "type": "Traqueur",
+    "categorie": "Monstre",
+    "nom": "Harpie",
+    "description": "Un oiseau féroce et nauséabond, d'une envergure de deux mètres quarante, au buste et au visage humains.",
+    "motivation": "Défendre le nid, larguer les ennemis de très haut, ravager depuis les airs, hurler sans cesse",
+    "difficulte": 12,
+    "seuilMineur": 3,
+    "seuilMajeur": 7,
+    "blessure": 3,
+    "stress": 3,
+    "modAttaque": 0,
+    "attaqueStandard": "Serres : mêlée, 1d8+1 phy",
+    "experience": "Îles +3",
+    "aptitudes": [
+      {
+        "nom": "Aura toxique",
+        "tag": "passive",
+        "texte": "La Harpie dégage une puanteur qui rend Vulnérables toutes les créatures autres que des Harpies à très courte portée."
+      },
+      {
+        "nom": "Attaque en piqué",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que la Harpie se déplace en ligne droite jusqu'à un point à longue portée et fasse une attaque contre une cible sur son trajet. En cas de succès, la Harpie inflige 3d6 dégâts physiques."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "kelpie",
+    "palier": 1,
+    "type": "Traqueur",
+    "categorie": "Fée",
+    "nom": "Kelpie",
+    "description": "Un métamorphe des rivières qui préfère prendre une séduisante forme équine, dans l'eau comme hors de l'eau.",
+    "motivation": "Adopter une forme attirante ou utile, noyer et dévorer, attirer les voyageurs imprudents",
+    "difficulte": 12,
+    "seuilMineur": 4,
+    "seuilMajeur": 8,
+    "blessure": 3,
+    "stress": 5,
+    "modAttaque": -2,
+    "attaqueStandard": "Sabots : très courte, 1d8+2 phy",
+    "experience": "Entrave +3, Lecteur d'esprit +3",
+    "aptitudes": [
+      {
+        "nom": "Captivante",
+        "tag": "passive",
+        "texte": "Un PJ doit marquer un Stress pour quitter le Corps à corps de la Kelpie."
+      },
+      {
+        "nom": "Désir du cœur",
+        "tag": "passive",
+        "texte": "Après avoir interagi avec une créature ou l'avoir observée pendant au moins cent battements de cœur, la Kelpie connaît la forme physique que cette créature trouverait la plus plaisante ou séduisante."
+      },
+      {
+        "nom": "Métamorphe",
+        "tag": "action",
+        "texte": "Marquez un Stress pour changer la forme physique de la Kelpie en n'importe quelle créature ou objet plus petit qu'un chariot. Une créature a le désavantage sur ses jets contre la Kelpie tant que celle-ci est sous une forme que la créature trouve plaisante ou séduisante."
+      },
+      {
+        "nom": "Envoûter",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que la Kelpie berne un PJ à courte portée. Le PJ doit réussir un jet de réaction d'Instinct ou être Envoûté jusqu'à ce qu'il subisse des dégâts. Tant qu'il est Envoûté, le PJ perçoit la Kelpie comme un ami ou un allié de confiance et fait ce que la Kelpie dit, à moins que cela ne contredise ses convictions morales les plus profondes."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "mage-a-l-ame-brisee",
+    "palier": 1,
+    "type": "Solo",
+    "categorie": "Mort-vivant",
+    "nom": "Mage à l'âme brisée",
+    "description": "Un lanceur de sorts dont la psyché a été brisée par un savoir qu'il aurait mieux valu laisser caché.",
+    "motivation": "Babiller dans une langue inconnue, rire de façon troublante, manier un pouvoir hors de contrôle",
+    "difficulte": 12,
+    "seuilMineur": 8,
+    "seuilMajeur": 15,
+    "blessure": 6,
+    "stress": 5,
+    "modAttaque": 2,
+    "attaqueStandard": "Bâton d'armoise : longue, 1d12 mag",
+    "experience": "Savoir interdit +2",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "Le Mage peut être mis en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Magie brisée",
+        "tag": "action",
+        "texte": "Marquez un Stress pour lancer un d6. Le Mage utilise l'action correspondante. 1-2 : Faille dimensionnelle. Choisissez une cible à longue portée. La cible se téléporte à un point que vous choisissez à courte portée de sa position d'origine et subit 2d6 dégâts magiques directs pendant que son corps et son esprit se reconstituent. 3-4 : Dilatation du temps. Choisissez un groupe de PJ à longue portée. Chaque cible est Ralentie jusqu'à ce qu'elle fasse un jet avec Espoir. Tant qu'elle est Ralentie, la cible est Vulnérable et doit marquer un Stress quand elle se déplace. 5-6 : Visions discordantes. Faites une attaque contre jusqu'à trois cibles à courte portée. Les cibles contre lesquelles le Mage réussit subissent 2d8 dégâts magiques directs."
+      },
+      {
+        "nom": "Ressentez ma douleur",
+        "tag": "réaction",
+        "texte": "Quand le Mage marque des PB, lancez un nombre de d6 égal au nombre de Stress que le Mage a marqués. Le Mage inflige des dégâts magiques directs égaux au résultat total à tous les PJ à très courte portée."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "mascara-de-la-muerte",
+    "palier": 1,
+    "type": "Solo",
+    "categorie": "Esprit",
+    "nom": "Máscara de la Muerte",
+    "description": "L'âme furieuse d'un catcheur masqué et malfaisant.",
+    "motivation": "Haranguer, humilier, galvaniser le public, clouer ses adversaires au sol",
+    "difficulte": 13,
+    "seuilMineur": 7,
+    "seuilMajeur": 14,
+    "blessure": 8,
+    "stress": 4,
+    "modAttaque": 4,
+    "attaqueStandard": "Coups : mêlée, 1d12+2 mag",
+    "experience": "Lutteur +3, M'as-tu-vu +3",
+    "aptitudes": [
+      {
+        "nom": "Libre",
+        "tag": "passive",
+        "texte": "Le Masque Muerte ne peut pas être Bloqué."
+      },
+      {
+        "nom": "Tour de traître",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire une attaque contre un PJ à courte portée. En cas de succès, la cible doit marquer un Stress et est temporairement Vulnérable tandis que le Masque Muerte l'accable d'un flot d'insultes."
+      },
+      {
+        "nom": "Suplex spectral",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Masque Muerte exécute un suplex sur un PJ Bloqué, lui infligeant 1d10+6 dégâts magiques."
+      },
+      {
+        "nom": "Démasquage mortel",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Masque Muerte retire un instant son masque, révélant l'horrible visage en dessous. Chaque PJ à courte portée doit réussir un jet de réaction de Présence ou marquer un Stress."
+      },
+      {
+        "nom": "Relais d'équipe",
+        "tag": "réaction",
+        "texte": "Quand le Masque Muerte inflige des dégâts à un PJ, vous pouvez dépenser une Peur pour qu'un catcheur spectral apparaisse et Cloue la cible jusqu'à ce qu'elle s'échappe avec un jet de Force réussi. Tant qu'elle est Clouée, la cible est Bloquée et subit 1d12 dégâts magiques supplémentaires des attaques du Masque Muerte."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "des-gueules-sur-pied-3-pb",
+    "palier": 1,
+    "type": "Horde",
+    "categorie": "Monstre",
+    "nom": "Des Gueules sur pied(3/PB)",
+    "description": "Ces boules de poils, de membres et de dents, grosses comme des chats, voyagent en « mawb » d'une douzaine.",
+    "motivation": "Chuchoter et mâchonner, se serrer les uns contre les autres, rouler",
+    "difficulte": 8,
+    "seuilMineur": 4,
+    "seuilMajeur": 8,
+    "blessure": 4,
+    "stress": 2,
+    "modAttaque": -2,
+    "attaqueStandard": "Morsure : mêlée, 1d6+3 phy",
+    "experience": "Souterrain +2",
+    "aptitudes": [
+      {
+        "nom": "Horde (1d4+1)",
+        "tag": "passive",
+        "texte": "Quand le Mawb a marqué la moitié ou plus de ses PB, son attaque standard inflige 1d4+1 dégâts physiques à la place."
+      },
+      {
+        "nom": "Revenir pire",
+        "tag": "réaction",
+        "texte": "Quand le Mawb est vaincu, vous pouvez dépenser une Peur pour le ramener à la vie, effaçant tous ses PB et son Stress. Le Mawb gagne un bonus à tous ses jets égal au nombre de fois que cette aptitude a été utilisée par ce Mawb."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "orbe-mecanique",
+    "palier": 1,
+    "type": "Standard",
+    "categorie": "Artificielle",
+    "nom": "Orbe mécanique",
+    "description": "Une sphère d'horlogerie flottante aux membres télescopiques, venue d'un royaume de machines et de métal.",
+    "motivation": "Coordonner, (dés)assembler, se déplacer orthogonalement, parler en binaire",
+    "difficulte": 12,
+    "seuilMineur": 5,
+    "seuilMajeur": 10,
+    "blessure": 4,
+    "stress": 3,
+    "modAttaque": 1,
+    "attaqueStandard": "Aiguille : mêlée, 1d10+1 phy",
+    "experience": "Machines +2",
+    "aptitudes": [
+      {
+        "nom": "Esprit de ruche",
+        "tag": "passive",
+        "texte": "Le Mécanorbe gagne un bonus de +1 à sa Difficulté pour chaque autre Mécanorbe à courte portée."
+      },
+      {
+        "nom": "Tactique adaptative",
+        "tag": "passive",
+        "texte": "Réserve. Quand un Mécanorbe échoue à un jet d'attaque, ajoutez un jeton à la Réserve des Mécanorbes. Tous les Mécanorbes de la scène gagnent un bonus aux jets d'attaque égal au nombre de jetons dans la Réserve. Retirez tous les jetons quand un Mécanorbe subit des dégâts Grave ou est vaincu."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "mordeurs-bonnets-rouges-3-pb",
+    "palier": 1,
+    "type": "Horde",
+    "categorie": "Bonnet-rouge",
+    "nom": "Mordeurs bonnets-rouges (3/PB)",
+    "description": "Une troupe de créatures féeriques grosses comme des poings, aux dents acérées comme des aiguilles et coiffées de bonnets rouges coniques scellés sur leur tête avec de la cire de bougie.",
+    "motivation": "Les mettre à terre, célébrer de petites victoires, ricaner et gazouiller, filer entre les murs",
+    "difficulte": 10,
+    "seuilMineur": 6,
+    "seuilMajeur": 11,
+    "blessure": 5,
+    "stress": 3,
+    "modAttaque": -1,
+    "attaqueStandard": "Morsure : mêlée, 1d8+4 phy",
+    "experience": "Recoins +3",
+    "aptitudes": [
+      {
+        "nom": "Horde (1d4+2)",
+        "tag": "passive",
+        "texte": "Quand les Mordeurs ont marqué la moitié ou plus de leurs PB, leur attaque standard inflige 1d4+2 dégâts physiques à la place."
+      },
+      {
+        "nom": "Poids aux chevilles",
+        "tag": "passive",
+        "texte": "Un PJ doit marquer un Stress pour quitter le Corps à corps des Mordeurs."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "nuee-de-sombretoile-8-pb",
+    "palier": 1,
+    "type": "Horde",
+    "categorie": "Sombretoile",
+    "nom": "Nuée de Sombretoile (8/PB)",
+    "description": "Une nuée grouillante de minuscules araignées tissées de soie d'ombre.",
+    "motivation": "Jaillir des trous, grimper le long des jambes, ramper dans les oreilles, se faufiler sous les vêtements",
+    "difficulte": 9,
+    "seuilMineur": 4,
+    "seuilMajeur": 8,
+    "blessure": 8,
+    "stress": 4,
+    "modAttaque": 0,
+    "attaqueStandard": "Morsure : mêlée, 1d8 phy",
+    "experience": "Escalade +2",
+    "aptitudes": [
+      {
+        "nom": "Horde (1d4)",
+        "tag": "passive",
+        "texte": "Quand la Nuée a marqué la moitié ou plus de ses PB, son attaque standard inflige 1d4 dégâts physiques à la place."
+      },
+      {
+        "nom": "« Enlevez-les, enlevez-les ! »",
+        "tag": "réaction",
+        "texte": "Quand une attaque de la Nuée fait marquer des PB à une cible, vous pouvez marquer un Stress pour que la cible soit temporairement Couverte d'araignées. Tant qu'elle est Couverte d'araignées, la cible doit lancer un d6 quand elle fait un jet d'action. Sur un résultat de 4 ou plus, elle doit marquer un Stress ou vous gagnez une Peur."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "panthere",
+    "palier": 1,
+    "type": "Traqueur",
+    "categorie": "Bête",
+    "nom": "Panthère",
+    "description": "Un grand félin prédateur qui traque ses proies depuis l'ombre.",
+    "motivation": "Grimper aux arbres, bondir, traquer",
+    "difficulte": 14,
+    "seuilMineur": 5,
+    "seuilMajeur": 10,
+    "blessure": 4,
+    "stress": 3,
+    "modAttaque": 2,
+    "attaqueStandard": "Crocs et griffes : mêlée, 1d8+1 phy",
+    "experience": "Sens aiguisés +3, Se faufiler +3",
+    "aptitudes": [
+      {
+        "nom": "Traqueuse de l'ombre",
+        "tag": "passive",
+        "texte": "Tant qu'elle est Cachée, la Panthère gagne un bonus de +2 à ses jets d'attaque."
+      },
+      {
+        "nom": "Attaque bondissante",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que la Panthère bondisse au Corps à corps d'une cible à longue portée et fasse une attaque contre elle. En cas de succès, infligez 1d12+2 dégâts physiques."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "pieuvre",
+    "palier": 1,
+    "type": "Traqueur",
+    "categorie": "Aquatique",
+    "nom": "Pieuvre",
+    "description": "Un invertébré aquatique au corps mou, aux huit bras garnis de ventouses et à la mâchoire dure en forme de bec.",
+    "motivation": "Ramper sur le fond marin, manger du poisson, projeter de l'encre pour s'échapper",
+    "difficulte": 12,
+    "seuilMineur": 3,
+    "seuilMajeur": 7,
+    "blessure": 2,
+    "stress": 3,
+    "modAttaque": -1,
+    "attaqueStandard": "Bec : mêlée, 1d6 phy",
+    "experience": "Dextérité +3, Eau +3",
+    "aptitudes": [
+      {
+        "nom": "Agripper",
+        "tag": "action",
+        "texte": "Faites un jet d'attaque contre une cible à courte portée. En cas de succès, la cible devient Bloquée et Vulnérable jusqu'à ce qu'elle s'échappe avec un jet de Force réussi."
+      },
+      {
+        "nom": "Jet d'encre",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que la Pieuvre projette de l'encre. Sur terre, l'encre recouvre le sol à très courte portée. Chaque créature qui traverse cette zone doit réussir un jet de réaction d'Agilité ou glisser et tomber, devenant Vulnérable jusqu'à ce qu'elle quitte la zone. Si cette aptitude est utilisée alors que la Pieuvre est sous l'eau, elle crée à la place un nuage d'obscurité qui remplit une zone à très courte portée et bloque la ligne de vue."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "poltergeist",
+    "palier": 1,
+    "type": "Distant",
+    "categorie": "Esprit",
+    "nom": "Poltergeist",
+    "description": "Un esprit funeste et translucide qui possède des objets inanimés.",
+    "motivation": "Faire vaciller les bougies, secouer les chaînes, faire trembler les fenêtres, projeter les gens à travers la pièce",
+    "difficulte": 9,
+    "seuilMineur": 4,
+    "seuilMajeur": 7,
+    "blessure": 2,
+    "stress": 2,
+    "modAttaque": -1,
+    "attaqueStandard": "Objet projeté : longue, 1d6+3 phy",
+    "experience": "Effrayant +3",
+    "aptitudes": [
+      {
+        "nom": "Spectre",
+        "tag": "passive",
+        "texte": "Le Poltergeist a une résistance aux dégâts physiques. Marquez un Stress pour vous déplacer jusqu'à courte portée à travers des objets solides."
+      },
+      {
+        "nom": "Possesseur",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que le Poltergeist s'insinue dans un objet non magique entièrement à courte portée, l'imprégnant d'une lueur fantomatique. La prochaine fois que le Poltergeist devrait subir des dégâts, l'objet est détruit à la place et le Poltergeist en est expulsé."
+      },
+      {
+        "nom": "Tempête fantôme",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Poltergeist aspire dans un tourbillon violent tous les objets non magiques non équipés à très courte portée. Chaque cible dans cette zone doit faire un jet de réaction d'Agilité. Celles qui échouent subissent 1d12+2 dégâts physiques. Celles qui réussissent subissent la moitié des dégâts."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "chasseuse-sombretoile",
+    "palier": 1,
+    "type": "Sbire",
+    "categorie": "Sombretoile",
+    "nom": "Chasseuse Sombretoile",
+    "description": "Une araignée de la taille d'une tête humaine, tissée de soie d'ombre.",
+    "motivation": "Se cacher dans l'ombre, frapper les imprudents, attendre une ouverture",
+    "difficulte": 10,
+    "seuilMineur": null,
+    "seuilMajeur": null,
+    "blessure": 1,
+    "stress": 1,
+    "modAttaque": -2,
+    "attaqueStandard": "Morsure : mêlée, 2 phy",
+    "experience": "Obscurité +3",
+    "aptitudes": [
+      {
+        "nom": "Sbire (3)",
+        "tag": "passive",
+        "texte": "Le Rampant est vaincu dès qu'il subit des dégâts. Pour chaque tranche de 3 dégâts qu'un PJ inflige au Rampant, il vainc un Sbire supplémentaire à portée contre lequel l'attaque aurait réussi."
+      },
+      {
+        "nom": "Chair de poule",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour forcer tous les PJ au Corps à corps du Rampant à marquer un Stress."
+      },
+      {
+        "nom": "Attaque de groupe",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour choisir une cible et mettre en avant tous les Rampants tisse-ombre à courte portée de celle-ci. Ces Sbires se déplacent au Corps à corps de la cible et font un seul jet d'attaque partagé. En cas de succès, ils infligent chacun 2 dégâts physiques. Additionnez ces dégâts."
+      },
+      {
+        "nom": "Venin tisse-ombre",
+        "tag": "réaction",
+        "texte": "Quand le Rampant réussit une attaque, vous pouvez marquer un Stress pour Épuiser la cible jusqu'à ce qu'elle réussisse un jet de Force (9). Tant qu'elle est Épuisée, la cible doit marquer un Stress chaque fois qu'elle fait un jet d'action."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "reine-sombretoile",
+    "palier": 1,
+    "type": "Solo",
+    "categorie": "Sombretoile",
+    "nom": "Reine Sombretoile",
+    "description": "Une araignée grande comme un chariot, tissée de soie d'ombre par un dieu oublié depuis longtemps. Chacun de ses nombreux yeux porte le visage d'une victime différente.",
+    "motivation": "Tendre une embuscade, escalader murs et plafonds, détourner l'attention, paralyser, mettre les corps de côté pour plus tard, voler des visages",
+    "difficulte": 14,
+    "seuilMineur": 8,
+    "seuilMajeur": 15,
+    "blessure": 9,
+    "stress": 4,
+    "modAttaque": 3,
+    "attaqueStandard": "Morsure d'araignée : très courte, 1d12+4 phy",
+    "experience": "Gigantesque +3, Chasseuse +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "La Reine peut être mise en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour la mettre en avant."
+      },
+      {
+        "nom": "Mère nourricière",
+        "tag": "action",
+        "texte": "Une fois par scène, dépensez 2 Peur pour invoquer jusqu'à deux adversaires tisse-ombre (autres que des Reines tisse-ombre), qui apparaissent à courte portée et prennent immédiatement la mise en avant."
+      },
+      {
+        "nom": "Plus rapide qu'elle n'en a l'air",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour vous déplacer jusqu'à longue portée et faire une attaque standard avec avantage."
+      },
+      {
+        "nom": "Envenimation des crocs sombres",
+        "tag": "réaction",
+        "texte": "Quand la Reine réussit une attaque standard, vous pouvez dépenser une Peur pour rendre la cible Vulnérable et Bloquée jusqu'à ce qu'elle réussisse un jet de Force (12) ou prenne un repos."
+      },
+      {
+        "nom": "Terrifiante",
+        "tag": "réaction",
+        "texte": "Quand un PJ échoue à un jet d'attaque contre la Reine, vous gagnez une Peur."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "rugaru",
+    "palier": 1,
+    "type": "Solo",
+    "categorie": "Monstre",
+    "nom": "Rugaru",
+    "description": "Un humanoïde à tête de loup, maudit par les dieux à hanter les marais en quête de sang.",
+    "motivation": "Blasphémer, viser la gorge, traquer, terroriser",
+    "difficulte": 14,
+    "seuilMineur": 7,
+    "seuilMajeur": 14,
+    "blessure": 8,
+    "stress": 4,
+    "modAttaque": 4,
+    "attaqueStandard": "Morsure : mêlée, 2d8+4 phy",
+    "experience": "Marais +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "Le Rugaru peut être mis en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Enfant de la nuit",
+        "tag": "passive",
+        "texte": "Au clair de lune, le Rugaru gagne un bonus de +2 à sa Difficulté."
+      },
+      {
+        "nom": "Soif de sang",
+        "tag": "passive",
+        "texte": "Quand un PJ marque des PB à cause de l'attaque standard du Rugaru, ajoutez un jeton à ce bloc de stats. Le Rugaru gagne un bonus aux jets d'attaque égal au nombre de jetons sur ce bloc de stats. Retirez tous les jetons quand le Rugaru subit des dégâts Grave."
+      },
+      {
+        "nom": "Hurlement à la lune",
+        "tag": "action",
+        "texte": "Marquez un Stress pour forcer chaque PJ à longue portée à faire un jet de réaction de Présence (15). Les cibles qui échouent perdent un Espoir. Gagnez une Peur pour chaque Espoir perdu. Si un PJ n'a plus d'Espoir, il doit marquer un Stress et devenir Vulnérable jusqu'à ce qu'il fasse un jet avec Espoir."
+      },
+      {
+        "nom": "Déchireur de chair",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire une attaque contre une cible au Corps à corps. En cas de succès, infligez 1d12+2 dégâts physiques directs."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "troll-des-montagnes",
+    "palier": 1,
+    "type": "Solo",
+    "categorie": "Géant",
+    "nom": "Troll des montagnes",
+    "description": "Un géant hideux né d'un énorme rocher. Il porte une armure volée et une ceinture de têtes ou de crânes tranchés.",
+    "motivation": "Tendre une embuscade, beugler, lancer d'énormes rochers, fracasser, piétiner",
+    "difficulte": 14,
+    "seuilMineur": 8,
+    "seuilMajeur": 15,
+    "blessure": 8,
+    "stress": 3,
+    "modAttaque": 2,
+    "attaqueStandard": "Fléau à crâne : très courte, 1d8+1 phy",
+    "experience": "Montagnes +4",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "Le Troll peut être mis en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Armure volée",
+        "tag": "passive",
+        "texte": "Compte à rebours. Quand le combat commence, activez un compte à rebours dont la valeur est égale au nombre de PJ. Quand le Troll subit des dégâts, réduisez la gravité d'un seuil, puis faites avancer le compte à rebours. Quand il arrive à terme, le Troll évolue (voir « Troll des montagnes enragé »)."
+      },
+      {
+        "nom": "Balayage de fléau",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire une attaque contre toutes les cibles devant le Troll à très courte portée. Les cibles contre lesquelles le Troll réussit subissent 2d8+2 dégâts physiques."
+      },
+      {
+        "nom": "Troll des montagnes enragé",
+        "tag": "évolution",
+        "texte": "Le Troll perd ses aptitudes « Armure volée » et « Balayage de fléau », puis gagne un bonus de +1 à sa Difficulté. De plus, il gagne l'aptitude « Double balayage » et remplace « Fléau à crâne » par l'attaque standard suivante : Coup de griffes : très courte, 1d10+3 phy"
+      },
+      {
+        "nom": "Double balayage",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour vous déplacer jusqu'à courte portée et faire deux attaques standard contre une cible au Corps à corps. Si les deux attaques réussissent, additionnez les dégâts et la cible perd un Espoir."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "vipere",
+    "palier": 1,
+    "type": "Sbire",
+    "categorie": "Bête",
+    "nom": "Vipère",
+    "description": "Un petit serpent qui envenime ses proies avec ses crocs articulés.",
+    "motivation": "Attendre à l'affût, glisser, frapper",
+    "difficulte": 11,
+    "seuilMineur": null,
+    "seuilMajeur": null,
+    "blessure": 1,
+    "stress": 1,
+    "modAttaque": 3,
+    "attaqueStandard": "Morsure : mêlée, 1 phy",
+    "experience": "Au ras du sol +4",
+    "aptitudes": [
+      {
+        "nom": "Sbire (4)",
+        "tag": "passive",
+        "texte": "La Vipère est vaincue dès qu'elle subit des dégâts. Pour chaque tranche de 4 dégâts qu'un PJ inflige à la Vipère, il vainc un Sbire supplémentaire à portée contre lequel l'attaque aurait réussi."
+      },
+      {
+        "nom": "Venimeuse",
+        "tag": "passive",
+        "texte": "Quand la Vipère réussit une attaque standard, la cible devient temporairement Envenimée. Tant qu'elle est Envenimée, la cible doit marquer un Stress chaque fois qu'elle fait un jet d'action."
+      },
+      {
+        "nom": "Attaque de groupe",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour choisir une cible et mettre en avant toutes les Vipères à courte portée de celle-ci. Ces Sbires se déplacent au Corps à corps de la cible et font un seul jet d'attaque partagé. En cas de succès, ils infligent chacun 1 dégât physique. Additionnez ces dégâts."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "voyou-ordinaire",
+    "palier": 1,
+    "type": "Standard",
+    "categorie": "Royaume",
+    "nom": "Voyou ordinaire",
+    "description": "Un ouvrier ou un artisan du coin que les circonstances ont poussé à s'en prendre aux autres.",
+    "motivation": "Faire usage de violence, chercher sécurité et survie",
+    "difficulte": 12,
+    "seuilMineur": 6,
+    "seuilMajeur": 10,
+    "blessure": 4,
+    "stress": 4,
+    "modAttaque": 0,
+    "attaqueStandard": "Arme improvisée : mêlée, 1d8 phy",
+    "experience": "Désespéré +3",
+    "aptitudes": [
+      {
+        "nom": "Attaque de groupe",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour choisir une cible et mettre en avant tous les Voyous à courte portée de celle-ci. Les Voyous se déplacent au Corps à corps de la cible et font un seul jet d'attaque partagé. En cas de succès, ils infligent chacun 1d8 dégâts physiques. Additionnez ces dégâts."
+      },
+      {
+        "nom": "Instinct de survie",
+        "tag": "réaction",
+        "texte": "Quand le Voyou marque la moitié de ses PB, lancez un d6. Sur un résultat de 4 ou plus, le Voyou fuit la scène. Sinon, vous gagnez une Peur."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "wapiti",
+    "palier": 1,
+    "type": "Traqueur",
+    "categorie": "Bête",
+    "nom": "Wapiti",
+    "description": "Un grand cervidé.",
+    "motivation": "Bondir au loin, brouter, être en rut, sentir le danger",
+    "difficulte": 13,
+    "seuilMineur": 4,
+    "seuilMajeur": 8,
+    "blessure": 3,
+    "stress": 2,
+    "modAttaque": 0,
+    "attaqueStandard": "Bois : mêlée, 1d8+1 phy",
+    "experience": "Sens aiguisés +3, Course +3",
+    "aptitudes": [
+      {
+        "nom": "Coup de tête",
+        "tag": "passive",
+        "texte": "Quand le Wapiti se déplace depuis courte portée ou plus loin avant de faire une attaque standard, il inflige 1d12+2 dégâts physiques au lieu de ses dégâts standard."
+      },
+      {
+        "nom": "Détaler",
+        "tag": "réaction",
+        "texte": "Quand le Wapiti marque un PB ou du Stress, il doit réussir un jet de réaction (10) ou fuir la scène."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "yufo",
+    "palier": 1,
+    "type": "Social",
+    "categorie": "Royaume extérieurs",
+    "nom": "Yufo",
+    "description": "Une grande créature interdimensionnelle semblable à une méduse, qui flotte dans le flux du temps et en sort.",
+    "motivation": "Échanger des informations sur de possibles lignes temporelles, se nourrir d'émotions exacerbées, observer depuis l'ombre",
+    "difficulte": 14,
+    "seuilMineur": 6,
+    "seuilMajeur": 10,
+    "blessure": 3,
+    "stress": 5,
+    "modAttaque": -3,
+    "attaqueStandard": "Fouet de tentacule : très courte, 1d6+3 phy",
+    "experience": "Secrets +3, Bizarrerie flottante +3",
+    "aptitudes": [
+      {
+        "nom": "Télépathe",
+        "tag": "passive",
+        "texte": "Le Yufo peut communiquer mentalement avec les créatures à très longue portée."
+      },
+      {
+        "nom": "Coffre-fort psychique",
+        "tag": "passive",
+        "texte": "Le Yufo est immunisé contre les capacités et aptitudes qui affecteraient ou altéreraient ses pensées ou émotions."
+      },
+      {
+        "nom": "Onde de dysfonctionnement",
+        "tag": "action",
+        "texte": "Dépensez une Peur et choisissez jusqu'à trois cibles à courte portée. Chaque cible doit réussir un jet de réaction d'Instinct ou être désynchronisée de la réalité et avoir le désavantage aux jets d'Instinct jusqu'à ce qu'elle utilise une action de temps mort pour ancrer sa psyché dans le présent."
+      },
+      {
+        "nom": "Corrosion temporelle",
+        "tag": "réaction",
+        "texte": "Quand le Yufo réussit une attaque standard, vous pouvez marquer un Stress pour que le Yufo excrète un acide entropique par sa peau, donnant à la cible une pénalité de -2 à ses seuils de dégâts jusqu'à ce qu'elle utilise une action de temps mort pour réparer son armure."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "alebrujo-guahalan",
+    "palier": 2,
+    "type": "Solo",
+    "categorie": "Guahalan",
+    "nom": "Alebrujo guahalan",
+    "description": "Une énorme bête chimérique et colorée, formée de nombreux animaux.",
+    "motivation": "Détruire, ne faire aucun quartier, ravager",
+    "difficulte": 14,
+    "seuilMineur": 13,
+    "seuilMajeur": 26,
+    "blessure": 6,
+    "stress": 5,
+    "modAttaque": 3,
+    "attaqueStandard": "Crocs et griffes : très courte, 2d10+4 mag",
+    "experience": "Brutal +2, Rapide +2",
+    "aptitudes": [
+      {
+        "nom": "La bête déchaînée",
+        "tag": "passive",
+        "texte": "L'Alebrujo gagne un bonus aux jets de dégâts égal au nombre de Peur que vous avez."
+      },
+      {
+        "nom": "Sacrifice guahalan",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que l'Alebrujo dévore un Sbire à très courte portée, puis efface un PB ou un Stress."
+      },
+      {
+        "nom": "Hurlement des Guahala",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que l'Alebrujo pousse un hurlement. Chaque PJ à longue portée doit réussir un jet de réaction de Présence ou devenir temporairement Paniqué. Tant qu'il est Paniqué, un PJ doit marquer un Stress quand il prend la mise en avant."
+      },
+      {
+        "nom": "Déchirer et lacérer",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour faire une attaque standard avec avantage. En cas de succès, vous pouvez marquer un Stress pour faire une autre attaque standard contre une cible supplémentaire à portée. Vous pouvez continuer à marquer du Stress pour faire des attaques supplémentaires jusqu'à ce que l'Alebrujo rate un jet d'attaque."
+      },
+      {
+        "nom": "Spectacle brutal",
+        "tag": "réaction",
+        "texte": "Quand l'Alebrujo inflige des dégâts Grave, vous pouvez dépenser une Peur pour forcer toutes les cibles à courte portée à marquer un Stress."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "chef-berserker",
+    "palier": 2,
+    "type": "Meneur",
+    "categorie": "Guerrier",
+    "nom": "Chef berserker",
+    "description": "Un chef de guerre vétéran qui boit des élixirs magiques pour se transformer en bête et mener sa meute à la chasse.",
+    "motivation": "Embrasser le changement, hurler à la lune, mener la meute, traquer les ennemis",
+    "difficulte": 14,
+    "seuilMineur": 13,
+    "seuilMajeur": 26,
+    "blessure": 6,
+    "stress": 4,
+    "modAttaque": 3,
+    "attaqueStandard": "Crocs et griffes : mêlée, 2d10+2 phy",
+    "experience": "Chasse +3, Sens aiguisés +2",
+    "aptitudes": [
+      {
+        "nom": "Furie de la meute",
+        "tag": "passive",
+        "texte": "L'Alpha gagne un bonus de +1 à ses jets d'attaque pour chaque allié à très courte portée de la cible de son attaque."
+      },
+      {
+        "nom": "Aboiement à la lune",
+        "tag": "action",
+        "texte": "Une fois par scène, dépensez une Peur pour que chaque allié à courte portée de l'Alpha efface un PB et un Stress."
+      },
+      {
+        "nom": "Rage berserker",
+        "tag": "réaction",
+        "texte": "La première fois dans une scène que l'Alpha marque son dernier Stress, il gagne un bonus de +6 à ses jets de dégâts."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "banshee",
+    "palier": 2,
+    "type": "Traqueur",
+    "categorie": "Esprit",
+    "nom": "Banshee",
+    "description": "Un esprit féerique corrompu qui hante la nuit sous la forme d'un spectre longiligne vêtu d'une robe de gaze lumineuse.",
+    "motivation": "Surgir d'objets solides, effrayer à mort, pleurer la vie et la beauté perdues, hurler lugubrement",
+    "difficulte": 14,
+    "seuilMineur": 9,
+    "seuilMajeur": 18,
+    "blessure": 5,
+    "stress": 3,
+    "modAttaque": 2,
+    "attaqueStandard": "Ongles : mêlée, 2d6+1 mag",
+    "experience": "Vaniteuse +3, Courroucée +3",
+    "aptitudes": [
+      {
+        "nom": "Spectre",
+        "tag": "passive",
+        "texte": "La Banshee a une résistance aux dégâts physiques. Marquez un Stress pour vous déplacer jusqu'à courte portée à travers des objets solides."
+      },
+      {
+        "nom": "Terrifiante",
+        "tag": "passive",
+        "texte": "Quand la Banshee réussit une attaque, tous les PJ à courte portée perdent un Espoir et vous gagnez une Peur."
+      },
+      {
+        "nom": "Coup de frayeur",
+        "tag": "action",
+        "texte": "Jusqu'à trois fois par scène, dépensez une Peur pour que la Banshee se téléporte jusqu'à très longue portée et effraie un PJ au Corps à corps. Le PJ marque 1d4 Stress. Si cela lui fait marquer des PB, il perd aussi un Espoir."
+      },
+      {
+        "nom": "Lamentation du désespoir",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que la Banshee pousse un cri funèbre de douleur et d'angoisse. Chaque PJ à courte portée doit faire un jet de réaction de Présence. Les cibles qui réussissent subissent 1d12+1 dégâts magiques. Celles qui échouent subissent le double des dégâts et sont repoussées à courte portée."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "basilic",
+    "palier": 2,
+    "type": "Standard",
+    "categorie": "Monstre",
+    "nom": "Basilic",
+    "description": "Un lézard monstrueux à six pattes, à la tête de vautour, à l'échine hérissée de pointes et au regard pétrifiant.",
+    "motivation": "Se mouvoir lentement et sûrement, savourer les proies pétrifiées, changer tout le monde en pierre, observer et attendre",
+    "difficulte": 14,
+    "seuilMineur": 8,
+    "seuilMajeur": 19,
+    "blessure": 4,
+    "stress": 4,
+    "modAttaque": 1,
+    "attaqueStandard": "Mâchoires et griffes : mêlée, 2d6+4 phy",
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Pétrifier",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour forcer un PJ à longue portée à faire un jet de réaction d'Instinct. En cas de succès, la cible marque un Stress. En cas d'échec, la cible devient Raide. Si la cible est déjà Raide, elle devient Pétrifiée. Tant qu'il est Raide, le PJ doit marquer un Stress chaque fois qu'il agit, jusqu'à ce qu'il prenne un repos ou que le Basilic soit vaincu. Tant qu'il est Pétrifié, le PJ ne peut pas agir. L'état Pétrifié ne peut être levé qu'en appliquant de la salive de Basilic sur la cible."
+      },
+      {
+        "nom": "CROUNCH !",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que le Basilic broie un PJ Pétrifié au Corps à corps. La cible doit faire une action de mort."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "behemoth-requin-terrestre",
+    "palier": 2,
+    "type": "Solo",
+    "categorie": "Monstre",
+    "nom": "Béhémoth requin terrestre",
+    "description": "Un requin terrestre qui a vécu assez longtemps pour devenir une monstruosité fouisseuse à la peau d'acier et aux dents tranchantes comme des rasoirs.",
+    "motivation": "Mordre, creuser, jaillir du sol",
+    "difficulte": 15,
+    "seuilMineur": 15,
+    "seuilMajeur": 28,
+    "blessure": 10,
+    "stress": 4,
+    "modAttaque": 2,
+    "attaqueStandard": "Morsure : très courte, 2d12+6 phy",
+    "experience": "Souterrain +4, Assoiffé de sang +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "Le Béhémoth peut être mis en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Plongeur des profondeurs",
+        "tag": "passive",
+        "texte": "Le Béhémoth peut se déplacer dans le sol aussi facilement qu'à la surface. Quand il se déplace, il peut choisir de s'enfouir ou de remonter à la surface. Tant qu'il est sous terre, le Béhémoth est immunisé contre les dégâts mais ne peut pas attaquer."
+      },
+      {
+        "nom": "Peau d'acier",
+        "tag": "passive",
+        "texte": "Tous les dégâts infligés au Béhémoth sont réduits d'un seuil."
+      },
+      {
+        "nom": "Éruption puissante",
+        "tag": "action",
+        "texte": "Le Béhémoth jaillit du sol, forçant chaque PJ à très courte portée à réussir un jet de réaction d'Agilité ou être renversé, devenant Vulnérable jusqu'à ce qu'il fasse un jet d'action. Pour chaque PJ rendu Vulnérable ainsi, vous gagnez une Peur."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "bete-spirituelle-guahalan",
+    "palier": 2,
+    "type": "Sbire",
+    "categorie": "Guahalan",
+    "nom": "Bête spirituelle guahalan",
+    "description": "Un esprit aux couleurs vives, sous la forme d'un animal.",
+    "motivation": "Protéger, se sacrifier, encercler",
+    "difficulte": 13,
+    "seuilMineur": null,
+    "seuilMajeur": null,
+    "blessure": 1,
+    "stress": 2,
+    "modAttaque": 1,
+    "attaqueStandard": "Morsure et griffes : mêlée, 5 mag",
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Sbire (5)",
+        "tag": "passive",
+        "texte": "La Bête spirituelle est vaincue dès que elle subit des dégâts. Pour chaque tranche de 5 dégâts qu'un PJ inflige à la Bête spirituelle, il vainc un Sbire supplémentaire à portée contre lequel l'attaque aurait réussi."
+      },
+      {
+        "nom": "Forme éthérée",
+        "tag": "passive",
+        "texte": "La Bête spirituelle a une résistance aux dégâts physiques."
+      },
+      {
+        "nom": "Attaque de groupe",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour choisir une cible et mettre en avant tous les Bêtes spirituelles guahalan à courte portée de celle-ci. Ces Sbires se déplacent au Corps à corps de la cible et font un seul jet d'attaque partagé. En cas de succès, ils infligent chacun 5 dégâts magiques. Additionnez ces dégâts."
+      },
+      {
+        "nom": "Bombe bestiale",
+        "tag": "réaction",
+        "texte": "Quand la Bête spirituelle est vaincue, elle explose en une flamme blanche et inflige 5 dégâts magiques aux créatures au Corps à corps."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "momie-panthere",
+    "palier": 2,
+    "type": "Solo",
+    "categorie": "Momie",
+    "nom": "Momie panthère",
+    "description": "Un grand squelette humanoïde mort-vivant à tête de crâne de panthère.",
+    "motivation": "Charger, déchiqueter, terrifier",
+    "difficulte": 15,
+    "seuilMineur": 12,
+    "seuilMajeur": 23,
+    "blessure": 7,
+    "stress": 3,
+    "modAttaque": 2,
+    "attaqueStandard": "Griffes-rasoirs : très courte, 2d12+2 phy",
+    "experience": "Sauvage +2",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "La Bête-chat peut être mise en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour la mettre en avant."
+      },
+      {
+        "nom": "Frappe sanglante",
+        "tag": "passive",
+        "texte": "Un PJ qui marque 3 PB ou plus à cause d'une attaque de la Bête-chat doit marquer 1 PB supplémentaire."
+      },
+      {
+        "nom": "Miaulement strident",
+        "tag": "action",
+        "texte": "Marquez un Stress pour forcer chaque PJ à longue portée de la Bête-chat à faire un jet de réaction de Présence. Les cibles qui échouent deviennent Ébranlées jusqu'à ce qu'elles fassent un jet avec Espoir. Quand la Bête-chat réussit une attaque contre un PJ Ébranlé, lancez les dégâts deux fois et gardez le meilleur résultat, puis retirez l'état Ébranlé de la cible."
+      },
+      {
+        "nom": "Moi seul",
+        "tag": "réaction",
+        "texte": "Quand la Bête-chat apparaît pour la première fois, vous pouvez choisir de lui faire absorber l'essence de ses alliés. Vainquez immédiatement n'importe quel nombre d'alliés sur le champ de bataille et gagnez une Peur pour chaque allié ainsi vaincu."
+      },
+      {
+        "nom": "Représailles vicieuses",
+        "tag": "réaction",
+        "texte": "Quand la Bête-chat subit des dégâts d'une attaque faite par un PJ à très courte portée, vous pouvez marquer un Stress pour faire une attaque standard contre ce PJ."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "cabane-a-pattes-de-poulet",
+    "palier": 2,
+    "type": "Cogneur",
+    "categorie": "Artificielle",
+    "nom": "Cabane à pattes de poulet",
+    "description": "Une haute cabane en bois qui se déplace sur d'immenses pattes de poulet.",
+    "motivation": "Griffer, protéger son maître, courir et sauter, piétiner",
+    "difficulte": 16,
+    "seuilMineur": 14,
+    "seuilMajeur": 27,
+    "blessure": 8,
+    "stress": 2,
+    "modAttaque": 2,
+    "attaqueStandard": "Pieds griffus : très courte, 2d10+3 phy",
+    "experience": "Forêts +2",
+    "aptitudes": [
+      {
+        "nom": "Rapide",
+        "tag": "passive",
+        "texte": "La Cabane peut se déplacer jusqu'à longue portée quand elle est mise en avant."
+      },
+      {
+        "nom": "Double frappe",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire deux attaques standard. Si les deux attaques réussissent contre la même cible, additionnez les dégâts."
+      },
+      {
+        "nom": "Clouer",
+        "tag": "réaction",
+        "texte": "Quand la Cabane réussit une attaque standard, vous pouvez marquer un Stress pour Entraver temporairement la cible. La Cabane traîne la cible Bloquée quand elle se déplace."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "chantre-d-esprits-guahalan",
+    "palier": 2,
+    "type": "Soutien",
+    "categorie": "Guahalan",
+    "nom": "Chantre d'esprits guahalan",
+    "description": "Un invocateur métamorphe aux traits animaux.",
+    "motivation": "Conjurer, renforcer, invoquer",
+    "difficulte": 14,
+    "seuilMineur": 9,
+    "seuilMajeur": 18,
+    "blessure": 4,
+    "stress": 6,
+    "modAttaque": 2,
+    "attaqueStandard": "Flamme spirituelle : courte, 2d6+4 mag",
+    "experience": "Rituel +3, Histoire ancienne +2",
+    "aptitudes": [
+      {
+        "nom": "Libérer la bête",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Chantre adopte une forme plus bestiale. Sous cette forme, il gagne un bonus aux jets d'attaque et de dégâts égal au nombre de Stress il a marqués. De plus, il peut se déplacer jusqu'à longue portée au lieu de courte portée avant d'agir."
+      },
+      {
+        "nom": "Appel des bêtes",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Chantre invoque 2d4 Bêtes spirituelles guahalan à très courte portée et en mette une immédiatement en avant."
+      },
+      {
+        "nom": "Rage des esprits",
+        "tag": "action",
+        "texte": "Marquez un Stress pour mettre en avant n'importe quel nombre de Bêtes spirituelles guahalan à très courte portée. Chacune se déplace au Corps à corps du PJ le plus proche et fait une attaque standard. Si des attaques réussissent contre la même cible, additionnez leurs dégâts."
+      },
+      {
+        "nom": "Sacrifice spirituel",
+        "tag": "réaction",
+        "texte": "Quand le Chantre devrait subir des dégâts alors qu'il est à très courte portée d'une Bête spirituelle guahalan, vous pouvez dépenser une Peur pour sacrifier la Bête spirituelle et annuler les dégâts."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "chevalier-dragon",
+    "palier": 2,
+    "type": "Cogneur",
+    "categorie": "Millitaire",
+    "nom": "Chevalier-dragon",
+    "description": "Un chevalier vêtu d'une armure en écailles de dragon et coiffé d'un heaume en forme de tête de dragon.",
+    "motivation": "Exploiter une ouverture, prendre de la distance, déséquilibrer les ennemis, frapper d'en haut",
+    "difficulte": 15,
+    "seuilMineur": 15,
+    "seuilMajeur": 30,
+    "blessure": 5,
+    "stress": 3,
+    "modAttaque": 2,
+    "attaqueStandard": "Lance : très courte, 2d12+3 phy",
+    "experience": "Joutes +2",
+    "aptitudes": [
+      {
+        "nom": "Position dominante",
+        "tag": "passive",
+        "texte": "Le Chevalier a l'avantage sur les attaques faites contre des cibles en contrebas."
+      },
+      {
+        "nom": "Frappe bondissante",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que le Chevalier bondisse au Corps à corps d'une cible à longue portée et fasse une attaque standard contre elle. En cas de succès, l'attaque inflige 1d12 dégâts supplémentaires et la cible doit marquer un emplacement d'Armure sans en recevoir les bénéfices (elle peut tout de même utiliser son armure pour réduire les dégâts)."
+      },
+      {
+        "nom": "Retour en force",
+        "tag": "réaction",
+        "texte": "Quand le Chevalier échoue à une attaque standard, vous pouvez dépenser une Peur pour relancer l'attaque avec avantage."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "chien-illusoire",
+    "palier": 2,
+    "type": "Traqueur",
+    "categorie": "Bête",
+    "nom": "Chien illusoire",
+    "description": "Un vicieux canidé magique aux yeux brillants et à deux queues barbelées en forme de fouet. Il déconcerte ses ennemis en conjurant un double illusoire de lui-même.",
+    "motivation": "Tendre une embuscade à sa proie, tuer pour le plaisir, jouer avec sa nourriture, tromper et duper",
+    "difficulte": 14,
+    "seuilMineur": 9,
+    "seuilMajeur": 17,
+    "blessure": 4,
+    "stress": 5,
+    "modAttaque": 3,
+    "attaqueStandard": "Fouet barbelé : très courte, 2d8+2 phy",
+    "experience": "Ombres +3",
+    "aptitudes": [
+      {
+        "nom": "Bête clignotante",
+        "tag": "passive",
+        "texte": "Quand le combat commence, placez un double à courte portée du Chien-sosie. Le Chien-sosie occupe à la fois sa place et celle de son double. Le double peut se déplacer quand le Chien-sosie est mis en avant, et le Chien-sosie peut cibler des ennemis avec ses attaques comme s'il se trouvait à la place de son double. Quand le Chien-sosie ou son double est attaqué, l'attaquant lance un d6. Sur un résultat pair, il cible le Chien-sosie. Sur un résultat impair, il cible le double et l'attaque échoue. Si une attaque réussit contre le Chien-sosie, le double est dissipé jusqu'à ce que vous dépensiez une Peur pour le conjurer de nouveau."
+      },
+      {
+        "nom": "Double frappe",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire deux attaques standard. Si les deux attaques réussissent contre la même cible, additionnez les dégâts."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "elephant",
+    "palier": 2,
+    "type": "Cogneur",
+    "categorie": "Bête",
+    "nom": "Éléphant",
+    "description": "Un énorme pachyderme aux grandes oreilles et à la trompe préhensile.",
+    "motivation": "Manger de la végétation, protéger le troupeau, socialiser",
+    "difficulte": 15,
+    "seuilMineur": 14,
+    "seuilMajeur": 28,
+    "blessure": 6,
+    "stress": 3,
+    "modAttaque": 3,
+    "attaqueStandard": "Pieds et défenses : très courte, 2d12 phy",
+    "experience": "Énorme +2, N'oublie jamais +2",
+    "aptitudes": [
+      {
+        "nom": "Piétinement",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que l'Éléphant charge en ligne droite jusqu'à longue portée. Chaque cible sur son chemin doit réussir un jet de réaction d'Agilité ou subir 2d10+3 dégâts physiques."
+      },
+      {
+        "nom": "Projection",
+        "tag": "réaction",
+        "texte": "Quand l'Éléphant réussit une attaque standard, vous pouvez dépenser une Peur pour qu'il projette la cible à un autre endroit à courte portée et lui inflige 1d12 dégâts supplémentaires."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "epouvantail",
+    "palier": 2,
+    "type": "Standard",
+    "categorie": "Artificielle",
+    "nom": "Épouvantail",
+    "description": "Un fagot de paille ligoté en forme humanoïde, vêtu de haillons et animé par une âme prisonnière.",
+    "motivation": "Se reconstituer, griffer et lacérer",
+    "difficulte": 15,
+    "seuilMineur": 7,
+    "seuilMajeur": 15,
+    "blessure": 4,
+    "stress": 3,
+    "modAttaque": 1,
+    "attaqueStandard": "Faucille : mêlée, 2d6+1 phy",
+    "experience": "Oiseaux +2, Champs +2",
+    "aptitudes": [
+      {
+        "nom": "Fait de paille",
+        "tag": "passive",
+        "texte": "L'Épouvantail a une résistance aux dégâts physiques mais subit le double des dégâts du feu."
+      },
+      {
+        "nom": "Vision de terreur",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que l'Épouvantail plonge son regard dans celui d'un PJ à très courte portée, lui infligeant 2d8 dégâts magiques et le rendant Vulnérable jusqu'à ce qu'il fasse un jet avec Espoir."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "garde-d-elite-momie",
+    "palier": 2,
+    "type": "Standard",
+    "categorie": "Momie",
+    "nom": "Garde d'élite Momie",
+    "description": "Un soldat d'élite mort-vivant enterré avec son impératrice pour défendre la tombe contre le vol et la profanation.",
+    "motivation": "Se mettre en formation, protéger l'impératrice, frapper à l'unisson",
+    "difficulte": 15,
+    "seuilMineur": 9,
+    "seuilMajeur": 18,
+    "blessure": 4,
+    "stress": 3,
+    "modAttaque": 2,
+    "attaqueStandard": "Lame courbe : mêlée, 2d10+2 phy",
+    "experience": "Soldat +3",
+    "aptitudes": [
+      {
+        "nom": "Formation de combat",
+        "tag": "passive",
+        "texte": "Le Garde gagne un bonus de +1 à sa Difficulté pour chaque allié à très courte portée."
+      },
+      {
+        "nom": "Javelot",
+        "tag": "action",
+        "texte": "Faites une attaque contre une cible à très longue portée. En cas de succès, infligez 2d6+2 dégâts physiques."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "garde-centaure",
+    "palier": 2,
+    "type": "Distant",
+    "categorie": "Millitaire",
+    "nom": "Garde centaure",
+    "description": "Un gardien mi-humain, mi-cheval qui patrouille aux frontières de terres idylliques épargnées par la civilisation.",
+    "motivation": "Vivre en harmonie avec la nature, protéger la nature sauvage, user de mobilité et de distance pour chasser les intrus",
+    "difficulte": 14,
+    "seuilMineur": 10,
+    "seuilMajeur": 19,
+    "blessure": 5,
+    "stress": 3,
+    "modAttaque": 2,
+    "attaqueStandard": "Arc recourbé : longue, 2d8+4 phy",
+    "experience": "Nature +2, Philosophie +2",
+    "aptitudes": [
+      {
+        "nom": "Manœuvre de flanc",
+        "tag": "passive",
+        "texte": "Quand le Gardien fait une attaque standard contre une cible au Corps à corps d'un ou plusieurs alliés du Gardien, il gagne un bonus de +2 au jet d'attaque."
+      },
+      {
+        "nom": "Œil du sage",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire une attaque standard. Le Gardien a l'avantage au jet d'attaque et réussit de manière critique sur un résultat de 19-20."
+      },
+      {
+        "nom": "Piétinement",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Gardien galope en ligne droite jusqu'à longue portée. Chaque cible sur son chemin doit faire un jet de réaction d'Agilité. Celles qui réussissent subissent 1d6+2 dégâts physiques. Celles qui échouent subissent le double des dégâts et doivent marquer un Stress."
+      },
+      {
+        "nom": "Volée rapide",
+        "tag": "réaction",
+        "texte": "Quand le Gardien fait une attaque standard, vous pouvez marquer n'importe quel nombre de Stress pour cibler un nombre égal de créatures supplémentaires à portée."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "gargouille",
+    "palier": 2,
+    "type": "Cogneur",
+    "categorie": "Artificielle",
+    "nom": "Gargouille",
+    "description": "Une statue animée par magie qui ressemble à une bête ou à un démon terrifiant.",
+    "motivation": "Se cacher à la vue de tous, faire le guet, fondre en piqué",
+    "difficulte": 13,
+    "seuilMineur": 14,
+    "seuilMajeur": 28,
+    "blessure": 8,
+    "stress": 2,
+    "modAttaque": 2,
+    "attaqueStandard": "Griffes de pierre : mêlée, 2d10+3 phy",
+    "experience": "Camouflage +4, Ruines +3",
+    "aptitudes": [
+      {
+        "nom": "Inanimée",
+        "tag": "passive",
+        "texte": "La Gargouille a une résistance aux dégâts magiques."
+      },
+      {
+        "nom": "Piqué en vol",
+        "tag": "action",
+        "texte": "Choisissez un point à longue portée. La Gargouille se déplace jusqu'à ce point et fait une attaque standard contre une cible sur son trajet."
+      },
+      {
+        "nom": "Entaille pétrifiante",
+        "tag": "réaction",
+        "texte": "Quand la Gargouille inflige des dégâts, la cible doit réussir un jet de réaction de Force ou devenir Vulnérable. Si la cible est déjà Vulnérable, elle devient Bloquée. Si la cible est déjà Vulnérable et Bloquée, elle doit faire une action de mort. Le PJ peut dépenser un Espoir par condition pour la lever."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "traqueur",
+    "palier": 2,
+    "type": "Solo",
+    "categorie": "Monstre",
+    "nom": "Traqueur",
+    "description": "Une boule de chair flottante, hérissée de dents, dotée de nombreux yeux et d'un faisceau de tentacules en quête de proie qui tirent des rayons magiques.",
+    "motivation": "Tendre une embuscade à ses rivaux, chercher des richesses, tirer des rayons",
+    "difficulte": 15,
+    "seuilMineur": 10,
+    "seuilMajeur": 20,
+    "blessure": 8,
+    "stress": 6,
+    "modAttaque": 2,
+    "attaqueStandard": "Tentacules : très courte, 2d6+3 phy",
+    "experience": "Magie +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "Le Traqueur peut être mis en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Anti-Mystica-Halitose",
+        "tag": "passive",
+        "texte": "L'haleine rance du Traqueur crée un miasme invisible qui annule la magie. Une attaque, une capacité ou un sort qui inflige des dégâts magiques ou crée un effet magique échoue automatiquement s'il est utilisé à courte portée du Gobstalker."
+      },
+      {
+        "nom": "Rayons de tentacule",
+        "tag": "action",
+        "texte": "Marquez un Stress pour attaquer une cible à longue portée. En cas de succès, lancez un d8 pour un rayon aléatoire ou dépensez une Peur pour choisir à la place : \\n1. Berner. Le Traqueur Berne la cible. Tant qu'elle est Bernée, la cible voit le Traqueur comme un ami et ne peut pas l'attaquer. De plus, quand un PJ fait un jet avec Peur, un PJ Berné doit marquer un Stress ou attaquer une cible choisie par le Gobstalker. Un PJ Berné doit réussir un jet d'Instinct (16) pour lever l'état.\\n 2. Corroder. La cible subit 2d8 dégâts magiques et doit marquer un emplacement d'Armure sans en recevoir les bénéfices (elle peut tout de même utiliser son armure pour réduire les dégâts). Si elle ne le peut pas, doublez les dégâts.\\n 3. Funeste. La cible doit marquer tous ses PB, mais elle peut dépenser n'importe quel nombre d'Espoir pour réduire d'autant le nombre de PB ainsi marqués.\\n 4. Hypnose. La cible tombe dans une Transe profonde et ne peut rien faire d'autre que tenter de se réveiller. Cet état dure jusqu'à ce que la cible subisse des dégâts ou se réveille avec un jet de Présence (16) réussi.\\n 5. Paralyser. La cible se fige sur place, devenant Vulnérable et Bloquée jusqu'à ce qu'elle marque 2 Stress.\\n 6. Brûlure. La cible subit 2d8 dégâts magiques directs.\\n 7. Effrayer. La cible est Effrayée. Tant qu'elle est Effrayée, la cible ne peut rien faire d'autre que fuir le combat ou tenter de dissiper sa terreur. De plus, la cible doit marquer un Stress chaque fois que vous dépensez une Peur. La cible peut lever l'état avec un jet de Présence (16) réussi.\\n 8. Ralentir. La cible devient Vulnérable et doit marquer un Stress pour se déplacer jusqu'à ce qu'elle dépense 2 Espoir."
+      },
+      {
+        "nom": "Léchage vampirique",
+        "tag": "réaction",
+        "texte": "Quand le Gobstalker réussit une attaque standard, vous pouvez dépenser une Peur pour effacer un nombre de Stress égal au nombre de PB que la cible a marqués."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "mimique",
+    "palier": 2,
+    "type": "Standard",
+    "categorie": "Monstre",
+    "nom": "Mimique",
+    "description": "Un prédateur métamorphe qui prend l'apparence d'objets inanimés pour attirer les proies imprudentes à portée de ses attaques.",
+    "motivation": "Tendre une embuscade, rester à l'affût, avaler sans mâcher, prendre une forme anodine",
+    "difficulte": 14,
+    "seuilMineur": 8,
+    "seuilMajeur": 19,
+    "blessure": 4,
+    "stress": 4,
+    "modAttaque": 1,
+    "attaqueStandard": "Morsure : mêlée, 2d6+4 phy",
+    "experience": "Mimétisme +5, Affamé +3",
+    "aptitudes": [
+      {
+        "nom": "Attaque de langue",
+        "tag": "action",
+        "texte": "Marquez un Stress pour attaquer une créature à courte portée. En cas de succès, la cible est attirée au Corps à corps de l'Imitation et Bloquée jusqu'à ce qu'elle s'échappe avec un jet de Force réussi, et vous pouvez dépenser une Peur pour activer l'aptitude Dévorer de l'Imitation contre la cible."
+      },
+      {
+        "nom": "Dévorer",
+        "tag": "action",
+        "texte": "Faites une attaque contre une cible au Corps à corps. En cas de succès, l'Imitation Avale la cible. Tant qu'elle est Avalée, la cible est Bloquée et marque un PB quand l'Imitation est mise en avant. L'Imitation recrache toutes les créatures Avalées quand elle subit des dégâts Majeurs ou Grave."
+      },
+      {
+        "nom": "Jamais un seul",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour révéler qu'un autre objet du champ de bataille était en fait une Imitation vorace depuis le début, puis mettez-la immédiatement en avant."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "imperatrice-momie",
+    "palier": 2,
+    "type": "Meneur",
+    "categorie": "Momie",
+    "nom": "Impératrice Momie",
+    "description": "La souveraine morte-vivante d'un royaume oublié. On lui a infligé des rites funéraires blasphématoires pour empêcher son âme de poursuivre son chemin.",
+    "motivation": "Commander ses inférieurs, maudire les envahisseurs",
+    "difficulte": 16,
+    "seuilMineur": 12,
+    "seuilMajeur": 24,
+    "blessure": 6,
+    "stress": 5,
+    "modAttaque": 2,
+    "attaqueStandard": "Balayage : mêlée, 2d8+2 phy",
+    "experience": "Souveraine +4, Mort-vivante +2",
+    "aptitudes": [
+      {
+        "nom": "Coquille vide",
+        "tag": "passive",
+        "texte": "L'Impératrice a une résistance aux dégâts physiques."
+      },
+      {
+        "nom": "Organes manquants",
+        "tag": "passive",
+        "texte": "Les organes internes de l'Impératrice ont été retirés et placés dans six récipients de cristal cachés dans sa tombe. Chaque fois que les PJ trouvent et détruisent l'un d'eux, l'Impératrice marque un PB."
+      },
+      {
+        "nom": "Chaînes agrippantes",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que l'Impératrice cible une créature à courte portée et tente de la lier par télékinésie avec ses chaînes funéraires. Faites une attaque contre une cible à courte portée. En cas de succès, l'Impératrice attire la cible au Corps à corps, lui inflige 2d8 dégâts physiques et l'Entrave temporairement."
+      },
+      {
+        "nom": "Obéissance éternelle",
+        "tag": "action",
+        "texte": "Jusqu'à trois fois par scène, vous pouvez dépenser une Peur pour mettre en avant n'importe quel nombre d'alliés à courte portée. Si des attaques réussissent contre la même cible, additionnez les dégâts."
+      },
+      {
+        "nom": "Caresse maudite",
+        "tag": "réaction",
+        "texte": "Quand l'Impératrice réussit une attaque standard contre un PJ, vous pouvez dépenser une Peur pour activer un compte à rebours de Destin funeste (1d6+1) pour ce PJ. Il avance quand un PJ fait un jet avec Peur. Quand il arrive à terme, le PJ marque tous ses PB et fait une action de mort. Si l'Impératrice est vaincue ou que les PJ prennent un repos, tous les comptes à rebours de Destin funeste prennent fin."
+      },
+      {
+        "nom": "Transformation finale (Changement de phase)",
+        "tag": "réaction",
+        "texte": "Quand l'Impératrice marque son dernier PB, remplacez-la par la Bête-chat ensevelie et mettez-la immédiatement en avant."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "initie-berserker",
+    "palier": 2,
+    "type": "Standard",
+    "categorie": "Guerrier",
+    "nom": "Initié berserker",
+    "description": "Un guerrier enragé qui absorbe des concoctions rituelles pour doter son corps d'aspects d'une bête prédatrice.",
+    "motivation": "Se coordonner avec les compagnons de meute, danser autour du feu, hurler à la lune",
+    "difficulte": 13,
+    "seuilMineur": 9,
+    "seuilMajeur": 18,
+    "blessure": 4,
+    "stress": 3,
+    "modAttaque": 1,
+    "attaqueStandard": "Crocs et griffes : mêlée, 2d10 phy",
+    "experience": "Chasse +3",
+    "aptitudes": [
+      {
+        "nom": "Furie de la meute",
+        "tag": "passive",
+        "texte": "L'Initié gagne un bonus de +1 à ses jets d'attaque pour chaque allié à très courte portée de la cible de son attaque."
+      },
+      {
+        "nom": "Rage berserker",
+        "tag": "réaction",
+        "texte": "La première fois dans une scène que l'Initié marque son dernier Stress, il gagne un bonus de +4 à ses jets de dégâts."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "jack-o-lantern",
+    "palier": 2,
+    "type": "Sbire",
+    "categorie": "Royaume",
+    "nom": "Jack-o'-lantern",
+    "description": "Une citrouille ou autre cucurbitacée flottante dans laquelle un visage a été sculpté. L'âme qui y est piégée émet une lueur étrange.",
+    "motivation": "Mordre, flotter, rire, raconter des histoires effrayantes",
+    "difficulte": 14,
+    "seuilMineur": null,
+    "seuilMajeur": null,
+    "blessure": 1,
+    "stress": 1,
+    "modAttaque": 2,
+    "attaqueStandard": "Croc : mêlée, 6 phy",
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Sbire (4)",
+        "tag": "passive",
+        "texte": "Le Jack-o'-lantern est vaincu dès que il subit des dégâts. Pour chaque tranche de 4 dégâts qu'un PJ inflige au Jack-o'-lantern, il vainc un Sbire supplémentaire à portée contre lequel l'attaque aurait réussi."
+      },
+      {
+        "nom": "Attaque de groupe",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour choisir une cible et mettre en avant tous les Jack-o'-lanterns à courte portée de celle-ci. Ces Sbires se déplacent au Corps à corps de la cible et font un seul jet d'attaque partagé. En cas de succès, ils infligent chacun 6 dégâts physiques. Additionnez ces dégâts."
+      },
+      {
+        "nom": "Ricanement glaçant",
+        "tag": "réaction",
+        "texte": "Quand un PJ à très courte portée fait un jet avec Peur, vous pouvez marquer un Stress pour gagner une Peur supplémentaire."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "lutin",
+    "palier": 2,
+    "type": "Sbire",
+    "categorie": "Fée",
+    "nom": "Lutin",
+    "description": "Un minuscule guerrier ailé qui attaque les intrus avec des flèches empoisonnées.",
+    "motivation": "Éviter la détection, laisser le poison faire son œuvre, protéger la nature sauvage",
+    "difficulte": 13,
+    "seuilMineur": null,
+    "seuilMajeur": null,
+    "blessure": 1,
+    "stress": 1,
+    "modAttaque": 0,
+    "attaqueStandard": "Flèches acérées : courte, 5 phy",
+    "experience": "Discrétion +2, Vengeance +2",
+    "aptitudes": [
+      {
+        "nom": "Sbire (5)",
+        "tag": "passive",
+        "texte": "Le Lutin est vaincu dès que il subit des dégâts. Pour chaque tranche de 5 dégâts qu'un PJ inflige au Lutin, il vainc un Sbire supplémentaire à portée contre lequel l'attaque aurait réussi."
+      },
+      {
+        "nom": "Art de l'invisibilité",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour rendre le Lutin Caché jusqu'à ce qu'il attaque."
+      },
+      {
+        "nom": "Poison de pétale de rêve",
+        "tag": "action",
+        "texte": "Quand le Lutin réussit une attaque standard, vous pouvez dépenser une Peur pour rendre la cible Somnolente jusqu'à ce qu'elle subisse des dégâts. Tant qu'elle est Somnolente, la cible doit faire un jet de réaction de Présence avant de faire un jet d'action. En cas d'échec, elle doit marquer 2 Stress ou s'endormir jusqu'à ce qu'elle subisse des dégâts."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "macon-momie",
+    "palier": 2,
+    "type": "Sbire",
+    "categorie": "Momie",
+    "nom": "Maçon Momie",
+    "description": "Un malheureux ouvrier mort-vivant, désigné par tirage au sort pour murer de l'intérieur la tombe de son impératrice.",
+    "motivation": "Ne jamais cesser de travailler, se sacrifier pour l'impératrice",
+    "difficulte": 12,
+    "seuilMineur": null,
+    "seuilMajeur": null,
+    "blessure": 1,
+    "stress": 1,
+    "modAttaque": -1,
+    "attaqueStandard": "Marteau et ciseau : mêlée, 5 phy",
+    "experience": "Bâtisseur +2",
+    "aptitudes": [
+      {
+        "nom": "Sbire (5)",
+        "tag": "passive",
+        "texte": "Le Maçon est vaincu dès que il subit des dégâts. Pour chaque tranche de 5 dégâts qu'un PJ inflige au Maçon, il vainc un Sbire supplémentaire à portée contre lequel l'attaque aurait réussi."
+      },
+      {
+        "nom": "Attaque de groupe",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour choisir une cible et mettre en avant tous les Maçons ensevelis à courte portée de celle-ci. Ces Sbires se déplacent au Corps à corps de la cible et font un seul jet d'attaque partagé. En cas de succès, ils infligent chacun 5 dégâts physiques. Additionnez ces dégâts."
+      },
+      {
+        "nom": "Le travail ne s'arrête jamais",
+        "tag": "réaction",
+        "texte": "Quand le Maçon est vaincu par une attaque qui inflige des dégâts physiques, vous pouvez dépenser une Peur pour effacer les PB et le Stress du Maçon."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "mange-rouille",
+    "palier": 2,
+    "type": "Standard",
+    "categorie": "Insecte",
+    "nom": "Mange-rouille",
+    "description": "Un cafard de la taille d'un poney, couvert d'une chitine corrosive qui transforme le métal en rouille.",
+    "motivation": "Éviter la détection, manger de la rouille, flairer le métal",
+    "difficulte": 12,
+    "seuilMineur": 10,
+    "seuilMajeur": 18,
+    "blessure": 5,
+    "stress": 2,
+    "modAttaque": 1,
+    "attaqueStandard": "Morsure : mêlée, 2d6+4 phy",
+    "experience": "Reniflement +3",
+    "aptitudes": [
+      {
+        "nom": "Phéromones suffocantes",
+        "tag": "passive",
+        "texte": "Un PJ qui fait un jet d'action à très courte portée du Mange-rouille doit réussir un jet de réaction d'Instinct ou marquer un Stress."
+      },
+      {
+        "nom": "Toucher de rouille",
+        "tag": "passive",
+        "texte": "La carapace du Mange-rouille est couverte d'un acide corrosif qui ronge et rouille le métal. Quand un PJ au Corps à corps du Mange-rouille réussit une attaque contre lui avec une arme en métal, réduisez le dé de dégâts de l'arme d'un cran (par exemple d8 en d6 ou d6 en d4). Si le dé de dégâts d'une arme est réduit en dessous d'un d4, l'arme tombe en rouille. Le Mange-rouille dévore alors le tas de rouille et efface un PB."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "marcheur-de-la-ruche",
+    "palier": 2,
+    "type": "Standard",
+    "categorie": "Insecte",
+    "nom": "Marcheur de la ruche",
+    "description": "Un cadavre rempli et animé par une colonie d'abeilles charognardes.",
+    "motivation": "Enrober ses proies de miel, protéger la ruche",
+    "difficulte": 12,
+    "seuilMineur": 11,
+    "seuilMajeur": 24,
+    "blessure": 3,
+    "stress": 3,
+    "modAttaque": 1,
+    "attaqueStandard": "Poing putride : mêlée, 2d6+3 phy",
+    "experience": "Mangeur de viande +2",
+    "aptitudes": [
+      {
+        "nom": "Miel de sang",
+        "tag": "action",
+        "texte": "Le Marcheur régurgite un miel cramoisi épais sur toutes les cibles entre lui et un point à courte portée. Chaque cible sur cette ligne doit réussir un jet de réaction d'Agilité ou subir 2d8 dégâts magiques et devenir temporairement Bloquée tandis que le miel durcit sur elle."
+      },
+      {
+        "nom": "Éruption d'abeilles",
+        "tag": "réaction",
+        "texte": "Quand le Marcheur marque des PB, des abeilles vengeresses jaillissent de son corps pour le protéger. Chaque cible à très courte portée doit réussir un jet de réaction d'Instinct ou subir 1d8 dégâts physiques directs pour chaque PB que le Marcheur a marqué. Les cibles Bloquées échouent automatiquement au jet de réaction."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "metamorphe-guahalan",
+    "palier": 2,
+    "type": "Standard",
+    "categorie": "Guahalan",
+    "nom": "Métamorphe guahalan",
+    "description": "Un guerrier masqué métamorphe aux traits animaux.",
+    "motivation": "Fuir, tirer profit, jeter de la poudre aux yeux",
+    "difficulte": 15,
+    "seuilMineur": 9,
+    "seuilMajeur": 18,
+    "blessure": 4,
+    "stress": 3,
+    "modAttaque": 1,
+    "attaqueStandard": "Massue de guerre : mêlée, 2d8+4 phy",
+    "experience": "Chasseur +2, Trappeur +2",
+    "aptitudes": [
+      {
+        "nom": "Libérer la bête",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Métamorphe adopte une forme plus bestiale. Sous cette forme, il gagne un bonus aux jets d'attaque et de dégâts égal au nombre de Stress il a marqués. De plus, il peut se déplacer jusqu'à longue portée au lieu de courte portée avant d'agir."
+      },
+      {
+        "nom": "Attaque de meute",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire une attaque standard. En cas de succès, l'attaque gagne un bonus aux dégâts égal au nombre d'autres Métamorphes à très courte portée de la cible."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "necropretre-momie",
+    "palier": 2,
+    "type": "Soutien",
+    "categorie": "Momie",
+    "nom": "Nécroprêtre Momie",
+    "description": "Un nécromancien chargé de préserver la vie de l'impératrice au-delà de la mort.",
+    "motivation": "Renforcer ses alliés, conquérir le temps, immobiliser les ennemis, servir l'impératrice, manier la mort comme une arme",
+    "difficulte": 13,
+    "seuilMineur": 8,
+    "seuilMajeur": 16,
+    "blessure": 3,
+    "stress": 7,
+    "modAttaque": 2,
+    "attaqueStandard": "Trait de mort : longue, 2d6+2 mag",
+    "experience": "Magie noire +4, Protéger +2",
+    "aptitudes": [
+      {
+        "nom": "Revigorer",
+        "tag": "action",
+        "texte": "Marquez un Stress pour choisir jusqu'à trois alliés à longue portée. Chacun gagne l'avantage à son prochain jet d'attaque."
+      },
+      {
+        "nom": "Dernière étreinte",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour choisir un PJ à longue portée. Des mains squelettiques jaillissent du sol aux pieds du PJ et l'Entravent jusqu'à ce qu'il se libère avec un jet de Force réussi. Quand une cible Bloquée de cette façon dépense de l'Espoir, vous gagnez une Peur."
+      },
+      {
+        "nom": "Toucher glacial",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire une attaque standard contre une cible au Corps à corps. En cas de succès, la cible subit les dégâts standard et doit marquer 1d4 Stress. Si la cible marque son dernier Stress à cause de cette attaque, vous gagnez une Peur."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "nuee-de-corbeaux-decharne-3-pb",
+    "palier": 2,
+    "type": "Horde",
+    "categorie": "Mort-vivant",
+    "nom": "Nuée de corbeaux décharné (3/PB)",
+    "description": "Une nuée de cadavres de corbeaux morts-vivants, les yeux brillants d'une lueur nécroplasmique.",
+    "motivation": "Croasser sans cesse, griffer les visages, voleter dans les airs, picorer les yeux",
+    "difficulte": 14,
+    "seuilMineur": 10,
+    "seuilMajeur": 20,
+    "blessure": 5,
+    "stress": 3,
+    "modAttaque": 0,
+    "attaqueStandard": "Becs et griffes : mêlée, 2d6+2 mag",
+    "experience": "Voler +2, Essaim +2",
+    "aptitudes": [
+      {
+        "nom": "Horde (1d6+1)",
+        "tag": "passive",
+        "texte": "Quand la Nuée a marqué la moitié ou plus de ses PB, son attaque standard inflige 1d6+1 dégâts magiques à la place."
+      },
+      {
+        "nom": "Cacophonie démente",
+        "tag": "action",
+        "texte": "Marquez un Stress pour forcer chaque PJ à très courte portée à faire un jet de réaction d'Instinct. Les cibles qui échouent doivent dépenser un Espoir ou devenir Vulnérables jusqu'à ce qu'elles infligent des dégâts à la Nuée ou que la Nuée soit vaincue."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "ours-oie",
+    "palier": 2,
+    "type": "Cogneur",
+    "categorie": "Bête",
+    "nom": "Ours-oie",
+    "description": "Un grizzly au pelage de plumes et à la tête d'oie géante.",
+    "motivation": "Pousser les proies dans une embuscade, se battre jusqu'à la mort, chasser en couple",
+    "difficulte": 15,
+    "seuilMineur": 14,
+    "seuilMajeur": 28,
+    "blessure": 7,
+    "stress": 4,
+    "modAttaque": 3,
+    "attaqueStandard": "Dents d'oie et griffes d'ours : très courte, 2d12+2 phy",
+    "experience": "Sens aiguisés +3, Étangs +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (2)",
+        "tag": "passive",
+        "texte": "L'Ours-oie peut être mis en avant jusqu'à deux fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Double frappe",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire deux attaques standard. Si les deux attaques réussissent contre la même cible, additionnez les dégâts."
+      },
+      {
+        "nom": "Cri terrifiant",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que l'Ours-oie lance un terrifiant cri d'oie à vous percer les tympans. Chaque PJ à courte portée doit faire un jet de réaction de Présence. Les cibles qui échouent doivent marquer un Stress, s'éloigner de l'Ours-oie jusqu'à longue portée et devenir Vulnérables jusqu'à ce que l'Ours-oie leur inflige des dégâts. Les cibles qui réussissent doivent marquer un Stress ou s'éloigner de l'Ours-oie jusqu'à longue portée."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "pangolin-sinistre",
+    "palier": 2,
+    "type": "Cogneur",
+    "categorie": "Bête",
+    "nom": "Pangolin sinistre",
+    "description": "Un hybride pangolin-coati de la taille d'un carrosse, couvert de plaques d'armure. Il se sert de sa queue en lame pour projeter des écailles tranchantes comme des rasoirs.",
+    "motivation": "S'enfuir avec un repas, trancher et hacher, foncer dans le danger",
+    "difficulte": 14,
+    "seuilMineur": 14,
+    "seuilMajeur": 28,
+    "blessure": 7,
+    "stress": 4,
+    "modAttaque": 2,
+    "attaqueStandard": "Coup de queue : très courte, 2d12+3 phy",
+    "experience": "Escalade +3, Pistage olfactif +3",
+    "aptitudes": [
+      {
+        "nom": "Mangeur d'armure",
+        "tag": "passive",
+        "texte": "Quand le Pangolin sinistre réussit une attaque contre un PJ, ce PJ doit marquer un emplacement d'Armure supplémentaire pour réduire la gravité des dégâts."
+      },
+      {
+        "nom": "Toupie tranchante",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Pangolin sinistre tournoie rapidement sur lui-même. Chaque cible à très courte portée doit réussir un jet de réaction d'Agilité ou subir 2d8 dégâts physiques."
+      },
+      {
+        "nom": "Jet de lame",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que le Pangolin sinistre fasse claquer sa queue et projette une plaque d'armure tranchante comme un rasoir. Faites une attaque contre une cible à longue portée. En cas de succès, l'attaque inflige 2d6+10 dégâts physiques."
+      },
+      {
+        "nom": "Écailles de kératine",
+        "tag": "réaction",
+        "texte": "Quand le Pangolin sinistre devrait marquer des PB à cause d'une attaque, vous pouvez marquer un Stress pour réduire de 1 le nombre de PB qu'il marque."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "pieuvre-geante",
+    "palier": 2,
+    "type": "Solo",
+    "categorie": "Aquatique",
+    "nom": "Pieuvre géante",
+    "description": "Un invertébré aquatique monstrueux aux huit bras garnis de ventouses et à la mâchoire dure en forme de bec.",
+    "motivation": "Écraser et mordre, agripper, harceler les navires, chasser des proies",
+    "difficulte": 14,
+    "seuilMineur": 13,
+    "seuilMajeur": 26,
+    "blessure": 10,
+    "stress": 5,
+    "modAttaque": 3,
+    "attaqueStandard": "Fouet : courte, 2d10 phy",
+    "experience": "Intelligente +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "La Pieuvre peut être mise en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour la mettre en avant."
+      },
+      {
+        "nom": "Armée et dangereuse",
+        "tag": "passive",
+        "texte": "Quand la Pieuvre apparaît pour la première fois, placez un d8 sur ce bloc de stats avec la valeur 8 vers le haut. Quand la Pieuvre réussit une attaque standard contre un PJ, vous pouvez ajouter la valeur du dé aux dégâts infligés. Après avoir ajouté sa valeur à un jet, diminuez la valeur du dé de 1."
+      },
+      {
+        "nom": "Agripper",
+        "tag": "action",
+        "texte": "Quand la Pieuvre réussit une attaque standard, vous pouvez dépenser une Peur pour qu'elle Agrippe la cible. Tant qu'elle est Agrippée, la cible est Bloquée et Vulnérable jusqu'à ce qu'elle se libère avec un jet de Force ou de Finesse réussi."
+      },
+      {
+        "nom": "Écraser",
+        "tag": "action",
+        "texte": "Marquez un Stress pour infliger 3d8 dégâts physiques directs à une cible Agrippée par la Pieuvre."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "requin-terrestre",
+    "palier": 2,
+    "type": "Cogneur",
+    "categorie": "Monstre",
+    "nom": "Requin terrestre",
+    "description": "Un requin quadrupède qui nage à travers le sol.",
+    "motivation": "Creuser, jaillir du sol, tourner autour de ses proies",
+    "difficulte": 14,
+    "seuilMineur": 14,
+    "seuilMajeur": 25,
+    "blessure": 7,
+    "stress": 3,
+    "modAttaque": 2,
+    "attaqueStandard": "Morsure : très courte, 2d10+2 phy",
+    "experience": "Souterrain +3, Assoiffé de sang +2",
+    "aptitudes": [
+      {
+        "nom": "Fouisseur",
+        "tag": "passive",
+        "texte": "Le Requin terrestre peut se déplacer dans le sol aussi facilement qu'à la surface. Quand il se déplace, il peut choisir de s'enfouir ou de remonter à la surface. Tant qu'il est sous terre, le Requin terrestre a une résistance à tous les dégâts mais ne peut pas attaquer."
+      },
+      {
+        "nom": "Peau épaisse",
+        "tag": "passive",
+        "texte": "Quand le Requin terrestre serait forcé de marquer un nombre quelconque de PB, vous pouvez marquer un nombre égal de Stress à la place."
+      },
+      {
+        "nom": "Morsure déchirante",
+        "tag": "réaction",
+        "texte": "Quand le Requin terrestre réussit une attaque contre un PJ au Corps à corps, vous pouvez dépenser une Peur pour forcer la cible à marquer un emplacement d'Armure sans en recevoir les bénéfices (elle peut tout de même utiliser son armure pour réduire les dégâts)."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "scarabees-sous-cutanes-momie-5-pb",
+    "palier": 2,
+    "type": "Horde",
+    "categorie": "Momie",
+    "nom": "Scarabées sous-cutanés Momie (5/PB)",
+    "description": "Des scarabées mangeurs de chair qui s'enfouissent sous la peau.",
+    "motivation": "Recouvrir le sol, consommer les vivants, ramper sous les vêtements",
+    "difficulte": 14,
+    "seuilMineur": 10,
+    "seuilMajeur": 20,
+    "blessure": 5,
+    "stress": 3,
+    "modAttaque": 0,
+    "attaqueStandard": "Pinces : mêlée, 2d8+2 phy",
+    "experience": "Tombes +3",
+    "aptitudes": [
+      {
+        "nom": "Horde (2d4+1)",
+        "tag": "passive",
+        "texte": "Quand les Scarabées ont marqué la moitié ou plus de leurs PB, leur attaque standard inflige 2d4+1 dégâts physiques à la place."
+      },
+      {
+        "nom": "Omophage",
+        "tag": "action",
+        "texte": "Marquez un PB pour que 5 Scarabées s'enfouissent sous la peau d'un PJ au Corps à corps, le forçant à marquer un Stress et l'Infectant. Tant qu'elle est Infectée, la cible subit 6 dégâts physiques directs chaque fois qu'elle fait un jet avec Peur. Cet état est levé quand le PJ efface un PB ou un Stress."
+      },
+      {
+        "nom": "Élan",
+        "tag": "réaction",
+        "texte": "Quand les Scarabées réussissent une attaque contre un PJ, vous gagnez une Peur."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "seigneur-croc-guahalan",
+    "palier": 2,
+    "type": "Meneur",
+    "categorie": "Guahalan",
+    "nom": "Seigneur croc guahalan",
+    "description": "Un seigneur de guerre métamorphe qui mène un groupe de guerriers au combat.",
+    "motivation": "Galvaniser ses alliés, mener la meute, rallier les troupes",
+    "difficulte": 16,
+    "seuilMineur": 12,
+    "seuilMajeur": 24,
+    "blessure": 6,
+    "stress": 5,
+    "modAttaque": 2,
+    "attaqueStandard": "Lance : très courte, 2d8+4 phy",
+    "experience": "Savoir ancien +2, Chasseur +2",
+    "aptitudes": [
+      {
+        "nom": "Alpha de la meute",
+        "tag": "passive",
+        "texte": "Réserve. Quand le Seigneur croc réussit une attaque, ajoutez un jeton à la Réserve guahalan. Quand un allié guahalan à courte portée fait une attaque, vous pouvez dépenser un jeton de la Réserve guahalan pour lui donner l'avantage au jet."
+      },
+      {
+        "nom": "Libérer la bête",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Seigneur croc adopte une forme plus bestiale. Sous cette forme, il gagne un bonus aux jets d'attaque et de dégâts égal au nombre de Stress il a marqués. De plus, il peut se déplacer jusqu'à longue portée au lieu de courte portée avant d'agir."
+      },
+      {
+        "nom": "Appel des Guahala",
+        "tag": "action",
+        "texte": "Dépensez 2 Peur pour mettre en avant tous les Métamorphes guahalan à courte portée. Chacun fait une attaque standard contre une cible à portée. Si des attaques réussissent contre la même cible, additionnez leurs dégâts."
+      },
+      {
+        "nom": "Forme sauvage (Changement de phase)",
+        "tag": "réaction",
+        "texte": "Quand le Seigneur croc marque son dernier PB, remplacez-le par l'Alebrujo guahalan et mettez-le immédiatement en avant."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "sporelet-spongieux",
+    "palier": 2,
+    "type": "Sbire",
+    "categorie": "Plante",
+    "nom": "Sporelet Spongieux",
+    "description": "Une créature champignon de la taille d'un halfelin qui se défend contre ses assaillants avec de minuscules bouffées de spores neurotoxiques.",
+    "motivation": "Éviter la violence, asperger ses assaillants",
+    "difficulte": 13,
+    "seuilMineur": null,
+    "seuilMajeur": null,
+    "blessure": 1,
+    "stress": 1,
+    "modAttaque": -1,
+    "attaqueStandard": "Neurospore : très courte, 4 mag",
+    "experience": "Obscurité +3",
+    "aptitudes": [
+      {
+        "nom": "Sbire (6)",
+        "tag": "passive",
+        "texte": "Le Sporelet est vaincu dès que il subit des dégâts. Pour chaque tranche de 6 dégâts qu'un PJ inflige au Sporelet, il vainc un Sbire supplémentaire à portée contre lequel l'attaque aurait réussi."
+      },
+      {
+        "nom": "Attaque de groupe",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour choisir une cible et mettre en avant tous les Sporelets fungispunj à courte portée de celle-ci. Ces Sbires se déplacent au Corps à corps de la cible et font un seul jet d'attaque partagé. En cas de succès, ils infligent chacun 4 dégâts magiques. Additionnez ces dégâts."
+      },
+      {
+        "nom": "Se rassembler",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour combiner trois Sporelets dans une zone à courte portée et les remplacer par un Sporophore fungispunj."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "sporophore-spongieux",
+    "palier": 2,
+    "type": "Meneur",
+    "categorie": "Plante",
+    "nom": "Sporophore Spongieux",
+    "description": "Une créature champignon géante capable de commander les morts.",
+    "motivation": "Éveiller les défunts, défendre la colonie, répandre les spores",
+    "difficulte": 16,
+    "seuilMineur": 12,
+    "seuilMajeur": 24,
+    "blessure": 6,
+    "stress": 5,
+    "modAttaque": 2,
+    "attaqueStandard": "Poing spongieux : très courte, 2d8+4 phy",
+    "experience": "Commandant +5, Gardien +4",
+    "aptitudes": [
+      {
+        "nom": "Nuage de spores neurotoxiques",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que le Sporophore asperge d'un nuage de spores toutes les cibles à courte portée. Chaque PJ doit réussir un jet de réaction d'Agilité ou devenir Empoisonné jusqu'à ce qu'il dépense un Espoir pour lever l'état. Tant qu'elle est Empoisonnée, la cible doit lancer un d6 avant de faire un jet d'action. Sur un résultat de 4 ou moins, elle doit marquer un Stress."
+      },
+      {
+        "nom": "Réanimateur",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Sporophore asperge un cadavre à très courte portée d'un nuage de spores psychiques. Le cadavre efface tous ses PB et son Stress, puis se réanime sous le contrôle psychique du Sporophore. Quand le Sporophore est mis en avant, vous pouvez aussi mettre en avant tous les cadavres qu'il contrôle."
+      },
+      {
+        "nom": "Colonie",
+        "tag": "action",
+        "texte": "Marquez n'importe quel nombre de Stress pour que le Sporophore invoque un nombre égal de Sporelets fungispunj à courte portée."
+      },
+      {
+        "nom": "Fusion des esprits",
+        "tag": "réaction",
+        "texte": "Tous les Fungispunj peuvent communiquer par télépathie. Quand le Sporophore serait forcé de marquer du Stress à cause d'une attaque, il peut faire marquer ce Stress à la place à des alliés Fungispunj de la scène, réparti entre eux comme il le souhaite."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "titan-de-pierre",
+    "palier": 2,
+    "type": "Solo",
+    "categorie": "Géant",
+    "nom": "Titan de pierre",
+    "description": "Un colosse à la peau grise qui vit sous terre et se spécialise dans la fabrication d'objets puissants incrustés de runes magiques.",
+    "motivation": "Se fondre dans les rochers, fabriquer et contempler, poursuivre prophétie et solitude",
+    "difficulte": 17,
+    "seuilMineur": 17,
+    "seuilMajeur": 32,
+    "blessure": 5,
+    "stress": 5,
+    "modAttaque": 3,
+    "attaqueStandard": "Marteau de pierre : très courte, 3d6+8 phy",
+    "experience": "Artisanat +3, Runes +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "Le Titan peut être mis en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Frappe habile",
+        "tag": "passive",
+        "texte": "Avant que le Titan ne fasse une attaque, vous pouvez marquer un Stress et lancer un d6. Sur un résultat de 3 ou plus, l'Esquive de la cible est réduite de moitié contre cette attaque."
+      },
+      {
+        "nom": "Mal du soleil",
+        "tag": "passive",
+        "texte": "Quand le Titan apparaît pour la première fois à la surface, lancez un d4. Marquez un nombre de Stress égal au résultat. Le Titan gagne un bonus à ses jets d'attaque et de dégâts égal au nombre de Stress marqués."
+      },
+      {
+        "nom": "Fracas de marteau",
+        "tag": "action",
+        "texte": "Quand un PJ marque des PB à cause de l'attaque standard du Titan, vous pouvez dépenser une Peur pour forcer la cible à marquer un emplacement d'Armure sans en recevoir les bénéfices (elle peut tout de même utiliser son armure pour réduire les dégâts)."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "titan-des-collines",
+    "palier": 2,
+    "type": "Solo",
+    "categorie": "Géant",
+    "nom": "Titan des collines",
+    "description": "Un colosse vêtu de peaux d'animaux et entouré d'un essaim d'insectes.",
+    "motivation": "Manger, faire du désordre, patrouiller sur son territoire",
+    "difficulte": 14,
+    "seuilMineur": 13,
+    "seuilMajeur": 26,
+    "blessure": 10,
+    "stress": 5,
+    "modAttaque": 3,
+    "attaqueStandard": "Souche d'arbre : très courte, 2d10+4 phy",
+    "experience": "Survie +3, Rancunier +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "Le Titan peut être mis en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Crédule",
+        "tag": "passive",
+        "texte": "Les PJ ont l'avantage aux jets d'action pour duper le Titan ou le manipuler émotionnellement."
+      },
+      {
+        "nom": "Essaim d'insectes",
+        "tag": "passive",
+        "texte": "Les PJ sont Vulnérables à très courte portée."
+      },
+      {
+        "nom": "Balayage puissant",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour faire une attaque standard contre toutes les cibles à très courte portée."
+      },
+      {
+        "nom": "Élan",
+        "tag": "réaction",
+        "texte": "Quand le Titan réussit une attaque contre un PJ, vous gagnez une Peur."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "triceratops",
+    "palier": 2,
+    "type": "Cogneur",
+    "categorie": "Bête",
+    "nom": "Tricératops",
+    "description": "Un grand dinosaure à la collerette cuirassée et aux trois cornes.",
+    "motivation": "Manger des fougères, se déplacer en troupeau pour se protéger, patrouiller au point d'eau",
+    "difficulte": 15,
+    "seuilMineur": 14,
+    "seuilMajeur": 28,
+    "blessure": 7,
+    "stress": 5,
+    "modAttaque": 2,
+    "attaqueStandard": "Cornes : très courte, 2d10+4 phy",
+    "experience": "Défenseur +3",
+    "aptitudes": [
+      {
+        "nom": "Cuir épais",
+        "tag": "passive",
+        "texte": "Quand le Tricératops serait forcé de marquer des PB, vous pouvez marquer n'importe quel nombre de Stress au lieu d'un nombre égal de PB."
+      },
+      {
+        "nom": "Coup de queue",
+        "tag": "action",
+        "texte": "Marquez un Stress pour choisir jusqu'à trois cibles à très courte portée. Chaque cible doit faire un jet de réaction d'Agilité. Celles qui échouent subissent 5d6 dégâts physiques. Celles qui réussissent subissent la moitié des dégâts."
+      },
+      {
+        "nom": "Charge",
+        "tag": "action",
+        "texte": "Marquez un Stress pour choisir une cible à courte portée. Le Tricératops se déplace au Corps à corps de la cible et fait une attaque. En cas de succès, infligez 3d10 dégâts physiques directs."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "tyrannosaure",
+    "palier": 2,
+    "type": "Cogneur",
+    "categorie": "Bête",
+    "nom": "Tyrannosaure",
+    "description": "Un immense dinosaure carnivore qui marche sur deux pattes.",
+    "motivation": "Traverser la lisière de la forêt, manger, piétiner les environs",
+    "difficulte": 15,
+    "seuilMineur": 14,
+    "seuilMajeur": 28,
+    "blessure": 7,
+    "stress": 5,
+    "modAttaque": 2,
+    "attaqueStandard": "Puissantes Morsure : très courte, 2d10+4 phy",
+    "experience": "Prédateur +3",
+    "aptitudes": [
+      {
+        "nom": "Rugissement qui fait trembler la terre",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour forcer chaque PJ à courte portée à faire un jet de réaction de Présence. En cas d'échec, il doit choisir de perdre un Espoir ou de marquer 1d4 Stress."
+      },
+      {
+        "nom": "Piétinement",
+        "tag": "action",
+        "texte": "Marquez un Stress pour attaquer une cible au Corps à corps. En cas de succès, la cible subit 3d12 dégâts physiques directs."
+      },
+      {
+        "nom": "Morsure écrasante",
+        "tag": "réaction",
+        "texte": "Quand le Tyrannosaure réussit une attaque standard, vous pouvez dépenser une Peur pour forcer la cible à marquer 1 PB supplémentaire."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "urco",
+    "palier": 2,
+    "type": "Standard",
+    "categorie": "Esprit",
+    "nom": "Urco",
+    "description": "Un chien au pelage noir venu d'au-delà du voile de la mort, qui présage la mort et se nourrit de peur.",
+    "motivation": "Se nourrir, effrayer, chasser",
+    "difficulte": 15,
+    "seuilMineur": 9,
+    "seuilMajeur": 18,
+    "blessure": 4,
+    "stress": 3,
+    "modAttaque": 1,
+    "attaqueStandard": "Croc noir : mêlée, 2d8+4 mag",
+    "experience": "Présages +3, Discrétion +3",
+    "aptitudes": [
+      {
+        "nom": "Semeur de peur",
+        "tag": "passive",
+        "texte": "Quand un PJ à très courte portée échoue avec Espoir, vous gagnez une Peur."
+      },
+      {
+        "nom": "Alimenté par la terreur",
+        "tag": "passive",
+        "texte": "L'Urco gagne un bonus aux jets d'attaque et de dégâts égal au nombre de Peur que vous avez."
+      },
+      {
+        "nom": "Mangeur de peur",
+        "tag": "action",
+        "texte": "Dépensez n'importe quel nombre de Peur pour effacer le même nombre de Stress. Si l'Urco n'a aucun Stress marqué, vous pouvez dépenser n'importe quel nombre de Peur pour effacer le même nombre de PB."
+      },
+      {
+        "nom": "Regard funeste",
+        "tag": "réaction",
+        "texte": "Quand l'Urco subit des dégâts d'une attaque, vous pouvez dépenser une Peur pour infliger aux seuils de dégâts de l'attaquant une pénalité de -1 jusqu'à la fin de la scène. Cet effet se cumule."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "valdenhax",
+    "palier": 2,
+    "type": "Meneur",
+    "categorie": "Fée",
+    "nom": "Valdenhax",
+    "description": "Une sorcière malveillante des forêts, aux longs cheveux moussus, qui vole dans les airs sur un mortier et un pilon surdimensionnés.",
+    "motivation": "Collecter des âmes, voler, tourmenter les intrus",
+    "difficulte": 16,
+    "seuilMineur": 12,
+    "seuilMajeur": 24,
+    "blessure": 6,
+    "stress": 4,
+    "modAttaque": 2,
+    "attaqueStandard": "Pilon de pierre géant : mêlée, 2d8+2 phy",
+    "experience": "Sorcellerie +3",
+    "aptitudes": [
+      {
+        "nom": "À moi, mes jolis",
+        "tag": "action",
+        "texte": "Une fois par scène, invoquez 2d4 Hordes de palier 2, qui apparaissent à longue portée. Vous gagnez une Peur pour chaque Horde ainsi invoquée."
+      },
+      {
+        "nom": "Étrangleuse d'ombre",
+        "tag": "action",
+        "texte": "Marquez un Stress pour attaquer une cible à longue portée. En cas de succès, l'ombre de la main de la Valdenhax s'étire sur le sol jusqu'à saisir l'ombre de la cible et en drainer l'essence. La cible marque 1d4 Stress et vous gagnez autant de Peur."
+      },
+      {
+        "nom": "Chuchoteuse de cadavres",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que la Valdenhax appelle l'esprit persistant d'un allié tombé à courte portée. Lancez un d6. Sur un résultat pair, la Valdenhax ressuscite l'allié avec la moitié de ses PB effacés. Sur un résultat impair, la Valdenhax absorbe les restes de sa force vitale et efface un Stress."
+      },
+      {
+        "nom": "Mot irritant",
+        "tag": "réaction",
+        "texte": "Après qu'un PJ a fait un jet, vous pouvez marquer un Stress pour le forcer à le relancer. Cette aptitude ne peut pas être utilisée si le PJ réussit de manière critique."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "archimage",
+    "palier": 3,
+    "type": "Solo",
+    "categorie": "Royaume",
+    "nom": "Archimage",
+    "description": "Un chercheur de savoirs secrets, caché dans une tour remplie de tomes.",
+    "motivation": "Corrompre, détruire, écraser par un pouvoir maléfique",
+    "difficulte": 18,
+    "seuilMineur": 24,
+    "seuilMajeur": 45,
+    "blessure": 5,
+    "stress": 8,
+    "modAttaque": 5,
+    "attaqueStandard": "Grand bâton de l'Archimage : longue, 3d10 mag",
+    "experience": "Ésotérisme +4",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "L'Archimage peut être mis en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Égide orbitale",
+        "tag": "passive",
+        "texte": "Quand l'Archimage apparaît, il conjure six disques d'énergie magique qui orbitent autour de lui. Placez un dé d6 d'Égide sur ce bloc de stats avec la valeur 6 vers le haut. Quand un PJ réussit une attaque contre l'Archimage, lancez un d6. Si le résultat est inférieur ou égal à la valeur du dé d'Égide, faites baisser le dé d'Égide d'un cran et ignorez les dégâts. Un PJ peut faire un jet de Connaissance pour faire baisser le dé d'Égide de 1 en cas de succès ou de 2 en cas de succès avec Espoir."
+      },
+      {
+        "nom": "Salve de force",
+        "tag": "action",
+        "texte": "Dépensez n'importe quel nombre de Peur et lancez autant de d4. L'Archimage déchaîne un nombre de projectiles de force magiques à tête chercheuse égal au résultat total. Pour chaque projectile, une créature à longue portée marque un PB. La même créature peut être ciblée par jusqu'à trois projectiles de force."
+      },
+      {
+        "nom": "Boule de feu",
+        "tag": "action",
+        "texte": "Marquez n'importe quel nombre de Stress pour cibler le même nombre de PJ à longue portée. Chaque cible doit réussir un jet de réaction d'Agilité ou subir 4d10 dégâts magiques."
+      },
+      {
+        "nom": "Contresort",
+        "tag": "réaction",
+        "texte": "Quand un PJ réussit un jet d'incantation, vous pouvez dépenser une Peur pour que l'Archimage fasse un jet de réaction avec une Difficulté égale au résultat du jet d'incantation. En cas de succès, le jet d'incantation du PJ échoue à la place, et vous placez un jeton sur ce bloc de stats. Réutiliser cette aptitude coûte un nombre de Peur supplémentaire égal au nombre de jetons sur ce bloc de stats. Vous ne pouvez pas contrer un succès critique."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "baudroie-geante",
+    "palier": 3,
+    "type": "Traqueur",
+    "categorie": "Aquatique",
+    "nom": "Baudroie géante",
+    "description": "Une immense créature aquatique qui attire les proies imprudentes à portée de ses mâchoires avec sa tige frontale pendante et métamorphe.",
+    "motivation": "Appâter avec des savoirs secrets, refermer le piège, parler par une tige frontale transformée",
+    "difficulte": 16,
+    "seuilMineur": 16,
+    "seuilMajeur": 32,
+    "blessure": 6,
+    "stress": 5,
+    "modAttaque": 3,
+    "attaqueStandard": "Morsure : mêlée, 3d8+2 phy",
+    "experience": "Charme +3, Secrets +3",
+    "aptitudes": [
+      {
+        "nom": "Appât-sosie",
+        "tag": "action",
+        "texte": "La grappe membraneuse au bout de la tige frontale du Berneur peut prendre n'importe quelle forme humanoïde. Marquez un Stress pour choisir un PJ à courte portée. Son joueur doit vous dire qui son PJ trouverait le plus digne de confiance. La tige frontale du Berneur se transforme en cette personne et acquiert la capacité de parler avec sa voix."
+      },
+      {
+        "nom": "Appâter",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Berneur fasse une proposition séduisante à un PJ à courte portée. Le PJ doit réussir un jet de réaction de Présence (18) ou se déplacer au Corps à corps du Berneur. Si la tige frontale du Berneur est transformée en une personne que le PJ trouverait digne de confiance, il a le désavantage au jet de réaction."
+      },
+      {
+        "nom": "Engloutir",
+        "tag": "réaction",
+        "texte": "Quand un PJ se déplace au Corps à corps, vous pouvez dépenser une Peur pour faire un jet d'attaque contre lui. En cas de succès, la cible subit 3d6 dégâts physiques et est Avalée. Tant qu'elle est Avalée, la cible est Bloquée et subit 3d6 dégâts physiques quand le Berneur prend la mise en avant. Le Berneur recrache toutes les créatures Avalées quand il subit des dégâts Majeurs ou Grave."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "dandy",
+    "palier": 3,
+    "type": "Social",
+    "categorie": "Mort-vivant",
+    "nom": "Dandy",
+    "description": "Un squelette somptueusement paré, doté d'un appétit sans fin pour l'or.",
+    "motivation": "Dominer la conversation, chercher l'attention, tout voler",
+    "difficulte": 17,
+    "seuilMineur": 20,
+    "seuilMajeur": 32,
+    "blessure": 5,
+    "stress": 6,
+    "modAttaque": 3,
+    "attaqueStandard": "Flamme spirituelle : longue, 3d8+5 mag",
+    "experience": "Opulence +2, Conteur +2",
+    "aptitudes": [
+      {
+        "nom": "Attirée par la richesse",
+        "tag": "passive",
+        "texte": "Les PJ qui transportent au moins un sac d'or ont l'avantage aux jets de Présence faits pour influencer la Catrin."
+      },
+      {
+        "nom": "Le poids de l'opulence",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour tourner le regard de la Catrin vers le PJ qui porte le plus d'or. La cible doit réussir un jet de réaction d'Instinct ou perdre un Espoir pour chaque sac d'or qu'elle porte. Si le PJ perd son dernier Espoir ou n'a pas d'Espoir à perdre, il marque du Stress à la place."
+      },
+      {
+        "nom": "Échec coûteux",
+        "tag": "réaction",
+        "texte": "Quand un PJ au Corps à corps échoue à un jet d'action, vous pouvez marquer un Stress pour que la Catrin lui dérobe sans vergogne une poignée d'or."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "chimere",
+    "palier": 3,
+    "type": "Cogneur",
+    "categorie": "Monstre",
+    "nom": "Chimère",
+    "description": "Un monstre gigantesque cracheur de feu, à la tête de lion, au corps de chèvre et à la queue de serpent.",
+    "motivation": "Jouer avec sa nourriture, patrouiller son territoire, massacrer le bétail",
+    "difficulte": 17,
+    "seuilMineur": 22,
+    "seuilMajeur": 40,
+    "blessure": 9,
+    "stress": 5,
+    "modAttaque": 5,
+    "attaqueStandard": "Griffes : mêlée, 3d12 phy",
+    "experience": "Prédateur +3",
+    "aptitudes": [
+      {
+        "nom": "Mâchoires déchirantes",
+        "tag": "passive",
+        "texte": "Quand la Chimère réussit une attaque contre un PJ, la cible doit marquer 2 emplacements d'Armure pour réduire la gravité d'un seuil."
+      },
+      {
+        "nom": "Double griffe",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire deux attaques standard. Si les deux attaques réussissent contre la même cible, additionnez les dégâts."
+      },
+      {
+        "nom": "Souffle de feu",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour cibler jusqu'à trois PJ devant la Chimère à courte portée. Chaque cible doit faire un jet de réaction d'Agilité (20). Les cibles qui échouent subissent 3d12 dégâts magiques. Celles qui réussissent doivent choisir de marquer soit un emplacement d'Armure, soit un Stress."
+      },
+      {
+        "nom": "Coup de serpent",
+        "tag": "réaction",
+        "texte": "Quand un PJ à courte portée cible la Chimère avec une attaque, vous pouvez marquer un Stress pour attaquer le PJ en premier. En cas de succès, infligez 4d4+10 dégâts physiques et Empoisonnez-le jusqu'à son prochain repos ou jusqu'à ce qu'il réussisse un jet de Connaissance (20). Tant qu'il est Empoisonné, la cible doit lancer un d6 avant de faire un jet d'action. Sur un résultat de 3 ou moins, elle doit marquer un Stress."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "cryptimoth",
+    "palier": 3,
+    "type": "Traqueur",
+    "categorie": "Monstre",
+    "nom": "Cryptimoth",
+    "description": "Une grande créature phalène aux yeux rouges qui marche debout et présage des événements mystérieux ou maléfiques.",
+    "motivation": "Faire de l'écholocalisation, voler silencieusement, se fondre dans l'ombre",
+    "difficulte": 14,
+    "seuilMineur": 16,
+    "seuilMajeur": 30,
+    "blessure": 5,
+    "stress": 3,
+    "modAttaque": 2,
+    "attaqueStandard": "Griffes : mêlée, 3d8+5 phy",
+    "experience": "Sombres présages +3",
+    "aptitudes": [
+      {
+        "nom": "Terrifiant",
+        "tag": "passive",
+        "texte": "Quand le Cryptimoth réussit une attaque, tous les PJ à courte portée perdent un Espoir et vous gagnez une Peur."
+      },
+      {
+        "nom": "Cri psychique",
+        "tag": "action",
+        "texte": "Dépensez 2 Peur pour que le Cryptimoth libère une explosion d'énergie psychique qui fait subir à chaque PJ à longue portée des visions de son effroyable destin. Chaque cible doit faire un jet de réaction de Perspicacité (16). Les cibles qui échouent subissent 3d8 dégâts magiques directs et deviennent Vulnérables jusqu'à leur prochain repos. Les cibles qui réussissent doivent marquer un Stress ou subir la moitié des dégâts."
+      },
+      {
+        "nom": "Essaim d'ombres",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Cryptimoth conjure un essaim de créatures d'ombre semblables à des phalènes à longue portée. L'essaim remplit une zone à courte portée et bloque la ligne de vue. Les créatures qui ne sont pas des Cryptimoths sont Vulnérables à l'intérieur de cette zone et doivent marquer un Stress pour la traverser. Un PJ peut dissiper l'essaim avec un jet d'incantation (12) réussi."
+      },
+      {
+        "nom": "Regard paranoïaque",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Cryptimoth plonge son regard dans les yeux d'un PJ à courte portée et le rende Paranoïaque. Tant qu'il est Paranoïaque, le PJ se méfie des autres PJ et ne peut pas Aider un allié ni participer aux jets d'équipe. Pour lever cet état, le PJ doit réussir un jet de Perspicacité (16) ou participer à l'action de temps mort Préparer avec un ou plusieurs membres de son groupe pendant un repos."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "demon-metamorphe",
+    "palier": 3,
+    "type": "Social",
+    "categorie": "Déchu",
+    "nom": "Démon métamorphe",
+    "description": "Une entité maléfique qui usurpe l'identité d'une personne de confiance.",
+    "motivation": "Usurper l'identité, semer la discorde, pousser à la trahison",
+    "difficulte": 17,
+    "seuilMineur": 20,
+    "seuilMajeur": 32,
+    "blessure": 4,
+    "stress": 8,
+    "modAttaque": 3,
+    "attaqueStandard": "Lame cachée : mêlée, 3d8+3 phy",
+    "experience": "Manipuler +3, Imiter +2",
+    "aptitudes": [
+      {
+        "nom": "Nature démoniaque",
+        "tag": "passive",
+        "texte": "Le Démon a une résistance aux dégâts magiques et ne peut pas être dupé par des illusions magiques."
+      },
+      {
+        "nom": "Usurper",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Démon se transforme magiquement en un humanoïde avec lequel il a déjà interagi. Un PJ qui cible le Démon alors qu'il a l'apparence d'une personne que le PJ aime doit réussir un jet de réaction d'Instinct, sinon l'attaque échoue et le PJ doit marquer un Stress."
+      },
+      {
+        "nom": "Devenir invisible",
+        "tag": "action",
+        "texte": "Marquez un Stress pour rendre le Démon Caché jusqu'à ce qu'il fasse un jet d'action ou subisse des dégâts."
+      },
+      {
+        "nom": "Conseil perfide",
+        "tag": "réaction",
+        "texte": "Quand un PJ fait un jet d'action alors que le Démon est dans la scène, vous pouvez marquer un Stress pour ajouter 1d6 au résultat de son dé de Peur."
+      },
+      {
+        "nom": "Démasqué ! (Changement de phase)",
+        "tag": "réaction",
+        "texte": "Quand le Démon est vaincu ou que les PJ découvrent sa véritable identité, remplacez le Démon par le Démon métamorphe dévoilé et mettez-le immédiatement en avant."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "demon-metamorphe-demasque",
+    "palier": 3,
+    "type": "Solo",
+    "categorie": "Déchu",
+    "nom": "Démon métamorphe Démasqué",
+    "description": "Un humanoïde gigantesque à la tête d'insecte et à plusieurs paires d'yeux rouges lumineux.",
+    "motivation": "Réclamer des âmes, semer la confusion et la tromperie, s'échapper vers les Cercles inférieurs, se téléporter",
+    "difficulte": 17,
+    "seuilMineur": 20,
+    "seuilMajeur": 32,
+    "blessure": 10,
+    "stress": 8,
+    "modAttaque": 3,
+    "attaqueStandard": "Griffes de mante : très courte, 3d12+5 phy",
+    "experience": "Lié à l'Enfer +3, Immortel +2",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "Le Démon peut être mis en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Résistance démoniaque",
+        "tag": "passive",
+        "texte": "Le Démon a une résistance aux dégâts magiques et ne peut pas être dupé par des illusions magiques."
+      },
+      {
+        "nom": "Rage démoniaque",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour faire une attaque standard avec un bonus au jet d'attaque égal au Stress que le Démon a marqué. En cas de succès, l'attaque inflige des dégâts directs."
+      },
+      {
+        "nom": "Salle des miroirs",
+        "tag": "action",
+        "texte": "Marquez 2 Stress pour que le Démon invoque quatre doubles illusoires et active un compte à rebours de Duplicata (4). Quand le Démon est ciblé par une attaque, il gagne un bonus à sa Difficulté égal à la valeur actuelle du dé du compte à rebours. Le compte à rebours avance quand un PJ échoue à une attaque contre le Démon. Quand il arrive à terme, les doubles disparaissent."
+      },
+      {
+        "nom": "Griffe éclair",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Démon libère un arc d'énergie magique. Faites un jet d'attaque contre toutes les cibles à courte portée. Les cibles contre lesquelles l'attaque réussit subissent 3d20 dégâts magiques."
+      },
+      {
+        "nom": "Jeux de l'esprit",
+        "tag": "réaction",
+        "texte": "Quand une attaque ciblant le Démon depuis une distance supérieure à très courte portée réussit avec Peur, vous pouvez marquer un Stress pour que le Démon échange instantanément sa place avec un PJ à très courte portée. Le PJ subit les dégâts à la place."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "drake",
+    "palier": 3,
+    "type": "Traqueur",
+    "categorie": "Draconien",
+    "nom": "Drake",
+    "description": "Un quadrupède griffu au corps serpentin recouvert d'écailles, qui se met volontiers au service de ses cousins, les dragons.",
+    "motivation": "Enrouler et écraser, protéger son maître, se faufiler dans les antres et les ruines, frapper en premier",
+    "difficulte": 14,
+    "seuilMineur": 16,
+    "seuilMajeur": 30,
+    "blessure": 5,
+    "stress": 3,
+    "modAttaque": 4,
+    "attaqueStandard": "Griffes et dents : mêlée, 3d8+5 phy",
+    "experience": "Vicieux +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (2)",
+        "tag": "passive",
+        "texte": "Le Drake peut être mis en avant jusqu'à deux fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Chien de garde",
+        "tag": "réaction",
+        "texte": "Quand un PJ s'apprête à infliger des dégâts à une créature à courte portée, vous pouvez marquer un Stress pour que le Drake se déplace afin d'intercepter l'attaque et subisse les dégâts à la place. Si l'attaquant est au Corps à corps de la nouvelle position du Drake, vous pouvez mettre immédiatement le Drake en avant sans dépenser de Peur."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "dullahan",
+    "palier": 3,
+    "type": "Cogneur",
+    "categorie": "Mort-vivant",
+    "nom": "Dullahan",
+    "description": "Un spectre à cheval tenant sa propre tête tranchée dans une main et brandissant dans l'autre un fouet fait d'une colonne vertébrale humaine.",
+    "motivation": "Condamner d'un regard, galoper sur l'eau, donner de lourds coups de sabots",
+    "difficulte": 17,
+    "seuilMineur": 22,
+    "seuilMajeur": 40,
+    "blessure": 7,
+    "stress": 4,
+    "modAttaque": 3,
+    "attaqueStandard": "Fouet d'épine dorsale : très courte, 3d10+1 mag",
+    "experience": "Nocturne +3",
+    "aptitudes": [
+      {
+        "nom": "Spectre",
+        "tag": "passive",
+        "texte": "Le Dullahan a une résistance aux dégâts physiques. Marquez un Stress pour vous déplacer jusqu'à courte portée à travers des objets solides."
+      },
+      {
+        "nom": "Monture spectrale",
+        "tag": "passive",
+        "texte": "Tant qu'il est en selle, le Dullahan peut se déplacer jusqu'à longue portée au lieu de courte portée avant d'agir. Si le Dullahan est désarçonné, sa monture disparaît jusqu'à ce que vous marquiez un Stress pour la convoquer de nouveau. Le Dullahan est Vulnérable tant qu'il n'est pas sur son cheval."
+      },
+      {
+        "nom": "Frappe du fouet d'os",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire une attaque contre une cible au Corps à corps. En cas de succès, la cible subit 4d4+10 dégâts physiques directs et est Vulnérable jusqu'à ce qu'elle efface un PB."
+      },
+      {
+        "nom": "Regard de la mort",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour choisir un PJ à longue portée. La cible doit faire un jet de réaction de Présence (19). En cas de succès, elle marque un Stress. En cas d'échec, elle marque un PB et active un compte à rebours de Destin funeste (4). Il avance quand le Dullahan est mis en avant. Quand il arrive à terme, la cible fait une action de mort. Si le Dullahan est vaincu ou que les PJ prennent un repos, tous les comptes à rebours de Destin funeste prennent fin."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "enfants-de-la-nuit-2-pb",
+    "palier": 3,
+    "type": "Horde",
+    "categorie": "Monstre",
+    "nom": "Enfants de la nuit (2/PB)",
+    "description": "Un assortiment grouillant de démons nocturnes sous l'emprise d'un mal ancien.",
+    "motivation": "Ramener les victimes au maître, envahir les colonies, ramper dans l'ombre",
+    "difficulte": 16,
+    "seuilMineur": 17,
+    "seuilMajeur": 32,
+    "blessure": 7,
+    "stress": 4,
+    "modAttaque": 1,
+    "attaqueStandard": "Crocs et griffes : mêlée, 3d6+8 phy",
+    "experience": "Terroriser +3",
+    "aptitudes": [
+      {
+        "nom": "Horde (2d6+2)",
+        "tag": "passive",
+        "texte": "Quand les Enfants de la nuit ont marqué la moitié ou plus de leurs PB, leur attaque standard inflige 2d6+2 dégâts physiques à la place."
+      },
+      {
+        "nom": "Gonfler les rangs",
+        "tag": "action",
+        "texte": "Une fois par scène, marquez n'importe quel nombre de Stress pour que les Enfants de la nuit ouvrent un portail qui déverse des renforts et regarnit les rangs de la Horde. Effacez un nombre de PB égal au nombre de Stress marqués."
+      },
+      {
+        "nom": "Submerger",
+        "tag": "réaction",
+        "texte": "Quand les Enfants de la nuit marquent des PB à cause d'une attaque au Corps à corps, vous pouvez marquer un Stress pour faire une attaque standard contre l'attaquant."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "habitant-des-profondeurs",
+    "palier": 3,
+    "type": "Meneur",
+    "categorie": "Aquatique",
+    "nom": "Habitant des profondeurs",
+    "description": "Une immense lamproie psychique aux yeux noir de jais et aux tentacules toxiques.",
+    "motivation": "Abuser de son pouvoir, chercher l'adoration, traquer les ruines englouties",
+    "difficulte": 17,
+    "seuilMineur": 22,
+    "seuilMajeur": 42,
+    "blessure": 6,
+    "stress": 6,
+    "modAttaque": 5,
+    "attaqueStandard": "Dents et tentacules : courte, 3d10+4 phy",
+    "experience": "Mystères anciens +2, Eaux sombres +2",
+    "aptitudes": [
+      {
+        "nom": "Explosion psychique",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour choisir jusqu'à trois cibles à courte portée et les forcer à faire un jet de réaction d'Instinct ou de Connaissance. Les cibles qui réussissent marquent un Stress. Les cibles qui échouent subissent 3d10+4 dégâts magiques directs et sont Vulnérables jusqu'à ce qu'elles prennent la mise en avant."
+      },
+      {
+        "nom": "Drain cérébral",
+        "tag": "action",
+        "texte": "Marquez un Stress pour choisir un PJ Vulnérable à très courte portée. La cible marque 1d4 Stress et l'Habitant des profondeurs efface un nombre égal de PB."
+      },
+      {
+        "nom": "Appel des profondeurs",
+        "tag": "action",
+        "texte": "Dépensez 2 Peur pour invoquer 1d4 Ondins maudits, qui apparaissent à longue portée et prennent immédiatement la mise en avant."
+      },
+      {
+        "nom": "Contamination muqueuse",
+        "tag": "action",
+        "texte": "Faites un jet d'attaque contre un PJ à très courte portée. En cas de succès, l'Habitant des profondeurs immobilise la cible avec ses tentacules et la recouvre d'une vase toxique. La cible est Bloquée jusqu'à ce qu'elle se libère ou se dégage avec un jet de Force ou de Finesse réussi. Chaque fois que l'Habitant des profondeurs est mis en avant, tous les PJ ainsi Bloqués subissent 3d8 dégâts physiques directs. L'Habitant des profondeurs libère toutes les créatures qu'il a Bloquées quand il est vaincu ou subit des dégâts Grave."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "jeune-dragon-de-feu",
+    "palier": 3,
+    "type": "Solo",
+    "categorie": "Draconien",
+    "nom": "Jeune dragon de feu",
+    "description": "Un dragon cramoisi aux quatre membres puissants et aux ailes fumantes.",
+    "motivation": "Brûler, défendre son antre, entrer en éruption, voler, déchiqueter, prendre",
+    "difficulte": 18,
+    "seuilMineur": 21,
+    "seuilMajeur": 34,
+    "blessure": 10,
+    "stress": 6,
+    "modAttaque": 7,
+    "attaqueStandard": "Morsure et griffes : courte, 4d10 phy",
+    "experience": "Rage ardente +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "Le Dragon peut être mis en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Intimidant",
+        "tag": "passive",
+        "texte": "Quand vous dépensez une Peur pour mettre le Dragon en avant, tous les PJ à courte portée doivent marquer un Stress ou perdre un Espoir."
+      },
+      {
+        "nom": "Souffle de flammes",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Dragon déchaîne un souffle de flammes sur toutes les cibles devant lui à courte portée. Chaque cible doit faire un jet de réaction d'Agilité. Les cibles qui échouent subissent 4d8+3 dégâts magiques. Les cibles qui réussissent doivent marquer un Stress ou subir la moitié des dégâts. Une cible qui marque des PB à cause de cette attaque devient aussi Vulnérable jusqu'à ce qu'elle efface un PB."
+      },
+      {
+        "nom": "Éruption",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Dragon fende la terre d'un coup de queue, déclenchant une explosion de lave. Choisissez un point à longue portée. Chaque PJ sur la ligne entre le Dragon et le point choisi doit réussir un jet de réaction d'Agilité ou être brûlé et devenir Vulnérable jusqu'à son prochain repos. Vous gagnez une Peur pour chaque PJ qui échoue."
+      },
+      {
+        "nom": "Écailles ardentes",
+        "tag": "réaction",
+        "texte": "Quand une créature à très courte portée attaque le Dragon, l'attaquant doit marquer un Stress."
+      },
+      {
+        "nom": "Taillade et brûlure",
+        "tag": "réaction",
+        "texte": "Quand le Dragon réussit une attaque standard, vous gagnez une Peur et pouvez marquer un Stress pour que l'attaque inflige 10 dégâts magiques supplémentaires."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "lamie",
+    "palier": 3,
+    "type": "Traqueur",
+    "categorie": "Monstre",
+    "nom": "Lamie",
+    "description": "Un monstre humanoïde à queue de serpent qui rôde la nuit pour absorber l'énergie vitale des dormeurs.",
+    "motivation": "Attaquer les imprudents, éviter la lumière du soleil, drainer la force vitale, endormir, se faufiler dans les hautes herbes",
+    "difficulte": 17,
+    "seuilMineur": 18,
+    "seuilMajeur": 35,
+    "blessure": 6,
+    "stress": 5,
+    "modAttaque": 3,
+    "attaqueStandard": "Dague courbe : mêlée, 3d8+4 phy",
+    "experience": "Serpentine +3",
+    "aptitudes": [
+      {
+        "nom": "Constriction",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que la Lamie enroule sa queue autour d'un PJ au Corps à corps et serre. La cible doit réussir un jet de réaction de Finesse ou devenir Étreinte jusqu'à ce que la Lamie se déplace ou subisse des dégâts Majeurs ou supérieurs. Tant qu'elle est Étreinte, la cible est Bloquée et doit marquer un Stress quand la Lamie prend la mise en avant."
+      },
+      {
+        "nom": "Drain de vie",
+        "tag": "action",
+        "texte": "Marquez un Stress pour forcer une cible Vulnérable ou Bloquée au Corps à corps à marquer 1d4-1 PB. La Lamie efface alors un nombre égal de PB."
+      },
+      {
+        "nom": "Toxine soporifique",
+        "tag": "réaction",
+        "texte": "Quand la Lamie réussit une attaque standard contre un PJ, vous pouvez dépenser une Peur pour le rendre Vulnérable jusqu'à ce qu'il réussisse un jet d'Instinct (19)."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "lapin-cramoisi",
+    "palier": 3,
+    "type": "Solo",
+    "categorie": "Bête",
+    "nom": "Lapin cramoisi",
+    "description": "Un lapin aux yeux rouges qui ne pense qu'au meurtre.",
+    "motivation": "Être mignon, viser la gorge, sautiller",
+    "difficulte": 18,
+    "seuilMineur": 20,
+    "seuilMajeur": 35,
+    "blessure": 10,
+    "stress": 6,
+    "modAttaque": 3,
+    "attaqueStandard": "Morsure bondissante : très courte, 3d20 phy",
+    "experience": "Vicieux +4",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "Le Lapin peut être mis en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "« Aww... »",
+        "tag": "passive",
+        "texte": "Quand le Lapin apparaît pour la première fois, il est Trop mignon. Pour attaquer une créature Trop mignonne, un PJ doit réussir un jet de réaction d'Instinct (20). Levez l'état Trop mignon si un PJ inflige des dégâts au Lapin ou si le Lapin attaque un PJ."
+      },
+      {
+        "nom": "Terrifiant",
+        "tag": "passive",
+        "texte": "Quand le Lapin réussit une attaque, tous les PJ à courte portée perdent un Espoir et vous gagnez une Peur."
+      },
+      {
+        "nom": "Frappe jugulaire bondissante",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Lapin bondisse au Corps à corps d'une cible à longue portée et fasse une attaque contre elle. En cas de succès, infligez 3d20 dégâts physiques directs. Si la cible marque des PB à cause de cette attaque, elle devient Vulnérable jusqu'à ce qu'elle efface un PB."
+      },
+      {
+        "nom": "Esquive",
+        "tag": "réaction",
+        "texte": "Quand le Lapin devrait subir des dégâts, lancez un d6. Sur un 4 ou plus, divisez les dégâts par deux. Si les dégâts avaient déjà été divisés par deux, le Lapin ne subit aucun dégât."
+      },
+      {
+        "nom": "« Fuyez ! »",
+        "tag": "réaction",
+        "texte": "Quand un PJ sans Espoir prend la mise en avant à très longue portée du Lapin, il doit réussir un jet de réaction de Présence ou utiliser son action pour fuir le champ de bataille jusqu'à ce qu'il dépense un Espoir pour revenir."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "licorne",
+    "palier": 3,
+    "type": "Standard",
+    "categorie": "Divin",
+    "nom": "Licorne",
+    "description": "Un avatar céleste de la bonté sous la forme d'un cheval d'une beauté surnaturelle, au front orné d'une longue corne spiralée.",
+    "motivation": "Tenir le mal à distance, protéger le sacré, percevoir les émotions et les intentions",
+    "difficulte": 17,
+    "seuilMineur": 19,
+    "seuilMajeur": 36,
+    "blessure": 7,
+    "stress": 5,
+    "modAttaque": 3,
+    "attaqueStandard": "Sabot et corne : mêlée, 3d10+3 mag",
+    "experience": "Magie +3, Nature +3",
+    "aptitudes": [
+      {
+        "nom": "Lance céleste",
+        "tag": "passive",
+        "texte": "L'attaque standard de la Licorne inflige le double des dégâts à une créature qui lui a infligé des dégâts."
+      },
+      {
+        "nom": "Toucher guérisseur",
+        "tag": "action",
+        "texte": "La Licorne touche un allié au Corps à corps de sa corne et lui transmet une énergie guérisseuse. Marquez n'importe quel nombre de Stress pour effacer un nombre égal de PB de l'allié."
+      },
+      {
+        "nom": "Aura protectrice",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que la Licorne conjure une aura magique étincelante. Tant que l'aura est active, les jets d'attaque faits contre la Licorne ou un allié à très courte portée sont faits avec désavantage. Cet effet dure jusqu'à ce que la Licorne subisse des dégâts."
+      },
+      {
+        "nom": "Téléportation",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que la Licorne se téléporte jusqu'à très longue portée. La Licorne peut emmener avec elle jusqu'à trois alliés à très courte portée."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "manticore",
+    "palier": 3,
+    "type": "Solo",
+    "categorie": "Monstre",
+    "nom": "Manticore",
+    "description": "Une bête légendaire au visage humain, au corps de lion, à la queue de scorpion et aux ailes de dragon.",
+    "motivation": "Mordre, griffer, bondir, poser des énigmes, lacérer, fondre en piqué, tromper",
+    "difficulte": 17,
+    "seuilMineur": 20,
+    "seuilMajeur": 35,
+    "blessure": 12,
+    "stress": 6,
+    "modAttaque": 6,
+    "attaqueStandard": "Crocs et griffes : très courte, 3d12+6 phy",
+    "experience": "Végétation luxuriante +3, Énigmes +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "La Manticore peut être mise en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour la mettre en avant."
+      },
+      {
+        "nom": "Dis-moi une devinette",
+        "tag": "passive",
+        "texte": "La Manticore est obsédée par les énigmes et peut être distraite par des casse-tête, des jeux de mots ou d'autres divertissements semi-intellectuels."
+      },
+      {
+        "nom": "Ailée",
+        "tag": "passive",
+        "texte": "En vol, la Manticore gagne un bonus de +2 à sa Difficulté et à ses jets d'attaque."
+      },
+      {
+        "nom": "Attaque bondissante",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que la Manticore bondisse au Corps à corps d'une cible à longue portée et fasse une attaque contre elle. En cas de succès, infligez 3d20+6 dégâts physiques, et la cible devient Tremblante jusqu'à ce qu'elle dépense un Espoir. Tant qu'elle est Tremblante, la cible fait ses jets d'attaque avec désavantage."
+      },
+      {
+        "nom": "Pointe de queue paralysante",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire un jet d'attaque contre une cible à courte portée. En cas de succès, la cible subit 3d8 dégâts physiques et devient Bloquée jusqu'à ce qu'elle vainque la toxine avec un jet de Force réussi."
+      },
+      {
+        "nom": "Mâchoires verrouillées",
+        "tag": "réaction",
+        "texte": "Quand la Manticore réussit une attaque standard contre une cible au Corps à corps, vous pouvez marquer un Stress pour verrouiller ses mâchoires sur la cible, la rendant Bloquée et Vulnérable jusqu'à ce qu'elle s'échappe avec un jet de Force (19) réussi."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "nuee-de-chauves-souris-vampires-5-pb",
+    "palier": 3,
+    "type": "Horde",
+    "categorie": "Bête",
+    "nom": "Nuée de chauves-souris vampires (5/PB)",
+    "description": "Un nuage de chauves-souris suceuses de sang.",
+    "motivation": "Obscurcir la lune, murmurer, propager la maladie",
+    "difficulte": 15,
+    "seuilMineur": 16,
+    "seuilMajeur": 30,
+    "blessure": 8,
+    "stress": 3,
+    "modAttaque": 1,
+    "attaqueStandard": "Crocs : mêlée, 3d6+6 phy",
+    "experience": "Sang +3",
+    "aptitudes": [
+      {
+        "nom": "Horde (2d6)",
+        "tag": "passive",
+        "texte": "Quand la Nuée a marqué la moitié ou plus de ses PB, son attaque standard inflige 2d6 dégâts physiques à la place."
+      },
+      {
+        "nom": "Multitude aveuglante",
+        "tag": "passive",
+        "texte": "La Nuée est si dense qu'elle bloque la vue de tous ceux avec qui elle interagit. Les créatures au Corps à corps ont le désavantage aux attaques faites contre des adversaires autres que la Nuée."
+      },
+      {
+        "nom": "Suceuses de sang",
+        "tag": "réaction",
+        "texte": "Quand la Nuée inflige des dégâts à une cible, vous pouvez marquer un Stress pour que la Nuée se nourrisse. La cible marque 1 PB supplémentaire et la Nuée efface un PB."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "ondine-maudite",
+    "palier": 3,
+    "type": "Standard",
+    "categorie": "Aquatique",
+    "nom": "Ondine maudite",
+    "description": "Une créature mi-poisson, mi-humaine, psychiquement liée au service des Habitants des profondeurs.",
+    "motivation": "Séparer les ennemis, frapper depuis l'ombre, tirer parti du milieu aquatique",
+    "difficulte": 16,
+    "seuilMineur": 18,
+    "seuilMajeur": 35,
+    "blessure": 5,
+    "stress": 4,
+    "modAttaque": 3,
+    "attaqueStandard": "Trident enchaîné : longue, 3d6 phy",
+    "experience": "Aquatique +3",
+    "aptitudes": [
+      {
+        "nom": "Queue de poisson",
+        "tag": "passive",
+        "texte": "L'Ondin est Vulnérable hors de l'eau."
+      },
+      {
+        "nom": "Se liguer",
+        "tag": "passive",
+        "texte": "L'Ondin gagne un bonus de +2 aux jets d'attaque contre les cibles au Corps à corps d'un ou plusieurs alliés."
+      },
+      {
+        "nom": "« Viens ici ! »",
+        "tag": "réaction",
+        "texte": "Quand l'Ondin réussit une attaque standard contre une cible au-delà du Corps à corps, vous pouvez marquer un Stress pour l'attirer au Corps à corps. Si vous le faites, vous pouvez dépenser une Peur pour faire une attaque standard avec avantage contre la cible."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "phenix",
+    "palier": 3,
+    "type": "Distant",
+    "categorie": "Bête",
+    "nom": "Phénix",
+    "description": "Un immense aigle fait de flammes magiques, impossible à tuer, chassé pour son plumage guérisseur.",
+    "motivation": "Fuir ses poursuivants, vivre avec éclat, s'élever dans les cieux, manier la lumière et la flamme",
+    "difficulte": 18,
+    "seuilMineur": 19,
+    "seuilMajeur": 30,
+    "blessure": 6,
+    "stress": 6,
+    "modAttaque": 4,
+    "attaqueStandard": "Trait de feu : très longue, 3d10+3 mag",
+    "experience": "Éclatant +4, Légendaire +3",
+    "aptitudes": [
+      {
+        "nom": "Aura purificatrice",
+        "tag": "passive",
+        "texte": "Tout PJ qui agit au Corps à corps du Phénix peut dépenser un Espoir pour se purifier dans sa chaleur guérisseuse, effaçant un PB ou un Stress ainsi que toutes les conditions."
+      },
+      {
+        "nom": "Graine de feu",
+        "tag": "réaction",
+        "texte": "Le Phénix saigne du feu magique. Quand le Phénix marque un PB, invoquez un Élémentaire de feu mineur à très courte portée."
+      },
+      {
+        "nom": "Résurrection",
+        "tag": "évolution",
+        "texte": "Quand le Phénix est vaincu, il devient un nuage de cendres qui s'envole pour révéler un Œuf fumant. L'Œuf est immunisé contre tous les dégâts et possède une aura de chaleur qui inflige 3d4 dégâts magiques directs à quiconque le touche. L'Œuf éclot en un nouveau Phénix, avec tous ses PB et son Stress effacés, au bout de 7 jours."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "plesiosaure",
+    "palier": 3,
+    "type": "Standard",
+    "categorie": "Aquatique",
+    "nom": "Plésiosaure",
+    "description": "Un lézard marin long comme un canoë, au long cou et aux quatre nageoires.",
+    "motivation": "Plonger plus profond, manger du poisson, nager paisiblement",
+    "difficulte": 16,
+    "seuilMineur": 18,
+    "seuilMajeur": 35,
+    "blessure": 7,
+    "stress": 5,
+    "modAttaque": 2,
+    "attaqueStandard": "Morsure : très courte, 3d8+5 phy",
+    "experience": "Lochs +3",
+    "aptitudes": [
+      {
+        "nom": "Simple rumeur",
+        "tag": "passive",
+        "texte": "Quand il est en eau profonde, le Plésiosaure ne peut être ni localisé ni ciblé."
+      },
+      {
+        "nom": "Mur d'eau",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que le Plésiosaure émerge et retombe, envoyant un mur d'eau depuis un côté de son corps. Chaque PJ à longue portée de ce côté du Plésiosaure doit réussir un jet de réaction d'Agilité (18) ou subir 3d10 dégâts physiques et être repoussé à longue portée."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "pretre-de-la-douleur",
+    "palier": 3,
+    "type": "Social",
+    "categorie": "Royaume extérieurs",
+    "nom": "Prêtre de la douleur",
+    "description": "Un membre d'un ordre religieux d'une autre dimension, consacré à l'exploration des limites de la souffrance et de l'extase mortelles.",
+    "motivation": "Se nourrir d'émotions, repérer les innocents ou les curieux, les tenter avec leurs désirs les plus profonds",
+    "difficulte": 16,
+    "seuilMineur": 16,
+    "seuilMajeur": 32,
+    "blessure": 6,
+    "stress": 5,
+    "modAttaque": 0,
+    "attaqueStandard": "Instruments de torture : mêlée, 3d6+4 phy",
+    "experience": "Expérimentation +4",
+    "aptitudes": [
+      {
+        "nom": "Marcher entre les mondes",
+        "tag": "action",
+        "texte": "Marquez un Stress pour placer le Prêtre n'importe où à très longue portée et le mettre immédiatement en avant de nouveau."
+      },
+      {
+        "nom": "Plaisir et douleur",
+        "tag": "réaction",
+        "texte": "Quand un PJ à courte portée du Prêtre gagne un Espoir ou marque des PB, lancez un d8. Sur un résultat de 8, le Prêtre ouvre un portail vers sa dimension d'origine et s'y enfuit avec le membre du groupe le plus proche. Vous gagnez 1d6 Peur. Le portail reste ouvert jusqu'à ce que le Prêtre soit vaincu ou de nouveau mis en avant."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "roc",
+    "palier": 3,
+    "type": "Solo",
+    "categorie": "Bête",
+    "nom": "Roc",
+    "description": "Un faucon géant qui niche dans les montagnes et déchaîne les tempêtes.",
+    "motivation": "Souffler la foudre et parler en tonnerre, protéger ses œufs, lacérer de ses serres, épier de loin",
+    "difficulte": 18,
+    "seuilMineur": 20,
+    "seuilMajeur": 35,
+    "blessure": 12,
+    "stress": 6,
+    "modAttaque": 3,
+    "attaqueStandard": "Bec et serres : très courte, 3d12+8 phy",
+    "experience": "Pics escarpés +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "Le Roc peut être mis en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Oiseau de proie",
+        "tag": "passive",
+        "texte": "Une fois par tour du MJ, le Roc peut se déplacer jusqu'à très longue portée avant ou après avoir agi."
+      },
+      {
+        "nom": "Voici le grondement",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Roc déchaîne une tempête d'éclairs et de tonnerre. Faites un jet d'attaque contre 1d4+1 cibles à longue portée. Les cibles contre lesquelles le Roc réussit subissent 3d12 dégâts magiques. Ensuite, chaque cible à longue portée du Roc doit faire un jet de réaction d'Agilité (20). Les cibles qui échouent subissent 3d8 dégâts physiques et sont repoussées à courte portée. Les cibles qui réussissent doivent marquer un Stress."
+      },
+      {
+        "nom": "Étreinte écrasante",
+        "tag": "réaction",
+        "texte": "Quand le Roc réussit une attaque standard, vous pouvez marquer un Stress pour que le Roc écrase la cible dans ses serres, la forçant à marquer 1d4 Stress et l'Entravant jusqu'à ce qu'elle réussisse un jet de Force (20)."
+      },
+      {
+        "nom": "Gardien du nid",
+        "tag": "évolution",
+        "texte": "Quand les œufs du Roc sont menacés, il gagne les aptitudes suivantes :"
+      },
+      {
+        "nom": "Furieux",
+        "tag": "passive",
+        "texte": "Le Roc gagne un bonus de +2 à sa Difficulté et un bonus aux jets de dégâts égal au nombre de Stress qu'il a marqués."
+      },
+      {
+        "nom": "Aura électrisante",
+        "tag": "passive",
+        "texte": "Le Roc a une résistance aux dégâts magiques. Les PJ qui échouent à un jet à très courte portée doivent dépenser un Espoir ou marquer 1d4 Stress."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "roi-des-ombres-chevauchant",
+    "palier": 3,
+    "type": "Soutien",
+    "categorie": "Esprit",
+    "nom": "Roi des Ombres Chevauchant",
+    "description": "L'ombre d'un souverain oublié, condamné à patrouiller dans les cieux sur une anguille ailée, au service d'un mal plus grand encore.",
+    "motivation": "Trouver des objets magiques, inspirer la peur, patrouiller dans les cieux",
+    "difficulte": 15,
+    "seuilMineur": 24,
+    "seuilMajeur": 38,
+    "blessure": 8,
+    "stress": 5,
+    "modAttaque": 4,
+    "attaqueStandard": "Lance maudite : courte, 3d10+6 mag",
+    "experience": "Chercheur +3",
+    "aptitudes": [
+      {
+        "nom": "Monture funeste",
+        "tag": "passive",
+        "texte": "Tant que le Roi des ombres est sur sa monture, il gagne un bonus de +2 à sa Difficulté. Quand le Roi des ombres subit des dégâts Grave, il est désarçonné. Si le Roi des ombres est à pied, sa monture disparaît jusqu'à ce que vous marquiez un Stress pour la convoquer de nouveau."
+      },
+      {
+        "nom": "Lumière et ombre",
+        "tag": "passive",
+        "texte": "Le Roi des ombres a l'avantage aux jets d'attaque dans l'ombre ou l'obscurité et le désavantage aux jets d'attaque en pleine lumière."
+      },
+      {
+        "nom": "Chasseur de reliques",
+        "tag": "passive",
+        "texte": "Le Roi des ombres a l'avantage aux jets d'attaque contre les PJ qui ont des armes ou armures magiques équipées."
+      },
+      {
+        "nom": "Chant infernal",
+        "tag": "action",
+        "texte": "Dépensez 2 Peur pour que la monture du Roi des ombres pousse un cri glaçant qui résonne sur le champ de bataille. Chaque PJ à longue portée doit faire un jet de réaction de Présence (18). Les cibles qui réussissent doivent marquer un Stress. Celles qui échouent doivent marquer un Stress et perdre un Espoir. Si un PJ ne peut pas perdre d'Espoir, vous gagnez 2 Peur."
+      },
+      {
+        "nom": "Appui aérien",
+        "tag": "réaction",
+        "texte": "Trois fois par scène, vous pouvez dépenser une Peur pour qu'un allié à longue portée relance une attaque ratée avec avantage."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "seigneur-vampire",
+    "palier": 3,
+    "type": "Solo",
+    "categorie": "Mort-vivant",
+    "nom": "Seigneur vampire",
+    "description": "Un cruel seigneur vampire d'un âge révolu, maudit par l'immortalité.",
+    "motivation": "Corrompre, détruire, écraser par un pouvoir maléfique",
+    "difficulte": 18,
+    "seuilMineur": 24,
+    "seuilMajeur": 45,
+    "blessure": 7,
+    "stress": 7,
+    "modAttaque": 5,
+    "attaqueStandard": "Griffes : mêlée, 3d10+2 phy",
+    "experience": "Mal +3, Noble +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "Le Seigneur vampire peut être mis en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Cœur de minuit",
+        "tag": "passive",
+        "texte": "Compte à rebours à long terme (6). Le Seigneur vampire garde son cœur caché en lieu sûr. S'il est détruit, le Seigneur vampire meurt. Sinon, quand le Seigneur vampire est vaincu, activez le compte à rebours. Il avance chaque fois que les PJ terminent un repos long. Quand il arrive à terme, le Seigneur vampire revient à la vie à courte portée du cœur, avec tous ses PB et son Stress effacés."
+      },
+      {
+        "nom": "Terrifiant",
+        "tag": "passive",
+        "texte": "Quand le Seigneur vampire réussit un jet d'attaque, tous les PJ à courte portée perdent un Espoir et vous gagnez une Peur."
+      },
+      {
+        "nom": "Libérer le feu infernal",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que le Seigneur vampire conjure un instant 1d4 explosions de feu infernal à longue portée. Chaque explosion inflige 3d6 dégâts magiques à chaque cible à très courte portée. Si une cible subit des dégâts de plusieurs explosions, additionnez les dégâts."
+      },
+      {
+        "nom": "Regain",
+        "tag": "réaction",
+        "texte": "Quand un PJ à très courte portée fait un jet avec Espoir, vous pouvez dépenser une Peur pour effacer un PB ou un Stress."
+      },
+      {
+        "nom": "Se fondre dans l'ombre",
+        "tag": "réaction",
+        "texte": "Quand un PJ s'apprête à infliger des dégâts au Seigneur vampire, vous pouvez dépenser une Peur pour lancer un d6. Sur un résultat de 5 ou plus, annulez les dégâts, puis téléportez le Seigneur vampire à un point à longue portée."
+      },
+      {
+        "nom": "Aile d'enfer",
+        "tag": "évolution",
+        "texte": "Quand le Seigneur vampire marque la moitié de ses PB, il se transforme en Aile d'enfer : une chauve-souris démoniaque colossale. Il gagne les aptitudes « Sur des ailes cramoisies » et « Bain de sang » et remplace son attaque standard par l'attaque standard suivante : Griffes : courte, 3d12+6 phy. Sur des ailes cramoisies (passive) : En vol, l'Aile d'enfer gagne un bonus de +1 à sa Difficulté. Bain de sang (réaction) : Quand l'Aile d'enfer subit des dégâts Majeurs ou supérieurs, le sol à très courte portée est couvert de sang, infligeant 3d10 dégâts magiques à toutes les autres créatures de la zone. Quand l'Aile d'enfer prend la mise en avant lors des tours du MJ suivants, toutes les autres créatures de cette zone subissent 3d6 dégâts magiques."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "spectre-chuchotant",
+    "palier": 3,
+    "type": "Traqueur",
+    "categorie": "Esprit",
+    "nom": "Spectre chuchotant",
+    "description": "Les échos de promesses brisées et de rêves inaccomplis, qui se manifestent sous la forme d'un linceul flottant et translucide de velours noir en lambeaux, vaguement humanoïde.",
+    "motivation": "Lier les membres, se laisser tomber de très haut, soulever du sol, tournoyer dans les airs, s'enrouler autour des têtes",
+    "difficulte": 16,
+    "seuilMineur": 20,
+    "seuilMajeur": 32,
+    "blessure": 6,
+    "stress": 6,
+    "modAttaque": 4,
+    "attaqueStandard": "Toucher d'ombre : mêlée, 3d8+4 mag",
+    "experience": "Rêves +4",
+    "aptitudes": [
+      {
+        "nom": "Spectre supérieur",
+        "tag": "passive",
+        "texte": "Le Spectre a une résistance aux dégâts physiques et peut traverser les objets solides."
+      },
+      {
+        "nom": "Sinistre",
+        "tag": "passive",
+        "texte": "Quand le Spectre réussit une attaque, tous les PJ à courte portée doivent marquer un Stress et vous gagnez une Peur."
+      },
+      {
+        "nom": "Linceul de cauchemar",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Spectre s'enroule autour d'un PJ au Corps à corps, l'Enveloppant jusqu'à ce qu'il réussisse un jet de Force pour déloger le Spectre ou que le Spectre subisse des dégâts Majeurs ou supérieurs. Tant qu'elle est Enveloppée, la cible a le désavantage aux jets d'attaque et marque un Stress quand elle fait un jet avec Peur. De plus, les dégâts que le Spectre devrait subir sont répartis à parts égales entre le Spectre et la cible Enveloppée."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "suceur-d-entrailles",
+    "palier": 3,
+    "type": "Traqueur",
+    "categorie": "Déchu",
+    "nom": "Suceur d'entrailles",
+    "description": "Un démon vampirique dont le haut du corps se détache au crépuscule pour voler à travers les villages voisins en quête de victimes. Il a un buste ailé aux entrailles pendantes.",
+    "motivation": "S'agripper à sa proie, sucer le sang, déchirer en deux",
+    "difficulte": 14,
+    "seuilMineur": 16,
+    "seuilMajeur": 30,
+    "blessure": 5,
+    "stress": 3,
+    "modAttaque": 2,
+    "attaqueStandard": "Longs ongles : mêlée, 2d6+7 phy",
+    "experience": "Vol +3",
+    "aptitudes": [
+      {
+        "nom": "S'unir ou mourir",
+        "tag": "passive",
+        "texte": "Le Suceur d'entrailles meurt s'il n'a pas rattaché ses moitiés supérieure et inférieure avant l'aube."
+      },
+      {
+        "nom": "Entrailles enchevêtrantes",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Suceur d'entrailles s'accroche à une cible à très courte portée, l'Entravant jusqu'à ce qu'elle s'échappe avec un jet de Force (16) réussi."
+      },
+      {
+        "nom": "Succion de vie",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que le Suceur d'entrailles boive le sang d'une cible Bloquée au Corps à corps. La cible marque un PB et le Suceur d'entrailles efface un PB."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "titan-de-feu",
+    "palier": 3,
+    "type": "Solo",
+    "categorie": "Géant",
+    "nom": "Titan de feu",
+    "description": "Un colosse en armure à la peau gris cendre et à la chevelure de feu, qui brandit une épée à deux mains de maître forgée dans sa propre forge.",
+    "motivation": "Agir avec vaillance, faire la guerre, penser tactiquement",
+    "difficulte": 18,
+    "seuilMineur": 19,
+    "seuilMajeur": 35,
+    "blessure": 10,
+    "stress": 5,
+    "modAttaque": 3,
+    "attaqueStandard": "Épée à deux mains : courte, 3d12+4 phy",
+    "experience": "Forge +5, Tactique +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "Le Titan peut être mis en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Armure de maître",
+        "tag": "passive",
+        "texte": "Compte à rebours (3). Quand le Titan apparaît pour la première fois, activez le compte à rebours. Il avance quand le Titan subit des dégâts Majeurs ou Grave. Tant que le compte à rebours n'est pas arrivé à terme, réduisez les dégâts reçus de 1d12. Quand il arrive à terme, le Titan gagne un bonus de +1 à sa Difficulté et à ses jets d'attaque."
+      },
+      {
+        "nom": "Élan",
+        "tag": "passive",
+        "texte": "Quand le Titan réussit une attaque contre un PJ, vous gagnez une Peur."
+      },
+      {
+        "nom": "Jet de rocher",
+        "tag": "action",
+        "texte": "Marquez un Stress pour choisir un point à longue portée, puis faites une attaque contre toutes les cibles entre le Titan et ce point. Les cibles contre lesquelles le Titan réussit subissent 3d12 dégâts physiques."
+      },
+      {
+        "nom": "Fendeur de crânes",
+        "tag": "action",
+        "texte": "Marquez un Stress pour placer un jeton sur ce bloc de stats. La prochaine fois que le Titan est mis en avant, vous devez dépenser le jeton de ce bloc de stats et faire une attaque contre un PJ à courte portée. En cas de succès, infligez 3d20+5 dégâts physiques directs. En cas d'échec, la cible marque un Stress."
+      },
+      {
+        "nom": "Cœur flamboyant",
+        "tag": "réaction",
+        "texte": "Quand le Titan marque la moitié ou plus de ses PB, vous pouvez dépenser une Peur et marquer n'importe quel nombre de Stress pour effacer un nombre de PB égal au nombre de Stress marqués."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "titan-de-givre",
+    "palier": 3,
+    "type": "Cogneur",
+    "categorie": "Géant",
+    "nom": "Titan de givre",
+    "description": "Un colosse à la peau bleue et aux cheveux givrés, qui porte des trophées de batailles passées.",
+    "motivation": "Réclamer des trophées, piller et ravager, éprouver la valeur de ses adversaires",
+    "difficulte": 17,
+    "seuilMineur": 22,
+    "seuilMajeur": 40,
+    "blessure": 10,
+    "stress": 4,
+    "modAttaque": 7,
+    "attaqueStandard": "Haches jumelles : très courte, 3d10+2 phy",
+    "experience": "Froid +3, Guerre +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (2)",
+        "tag": "passive",
+        "texte": "Le Titan peut être mis en avant jusqu'à deux fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Cor de guerre",
+        "tag": "action",
+        "texte": "Marquez un Stress pour forcer chaque PJ à longue portée à réussir un jet de réaction de Présence ou à marquer un Stress et devenir Vulnérable jusqu'après la prochaine attaque contre lui."
+      },
+      {
+        "nom": "Charge de taureau",
+        "tag": "action",
+        "texte": "Marquez un Stress pour vous déplacer jusqu'à courte portée et faire un jet d'attaque contre une cible au Corps à corps. En cas de succès, infligez 4d10+2 dégâts physiques et repoussez la cible à courte portée."
+      },
+      {
+        "nom": "Frappe fendante",
+        "tag": "réaction",
+        "texte": "Quand un PJ marque des PB à cause de l'attaque standard du Titan, vous pouvez marquer un Stress pour forcer un autre PJ à très courte portée contre lequel l'attaque aurait réussi à marquer le même nombre de PB."
+      },
+      {
+        "nom": "Chasseur de trophées",
+        "tag": "réaction",
+        "texte": "Quand le Titan vainc un PJ, il prend la possession la plus précieuse du PJ en guise de trophée."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "titan-de-la-tempete",
+    "palier": 3,
+    "type": "Solo",
+    "categorie": "Géant",
+    "nom": "Titan de la tempête",
+    "description": "Un colosse ancien, sage et colérique, dont les cheveux sont faits de brume et dont la peau crépite d'électricité.",
+    "motivation": "Entrer en éruption violente, attendre, observer",
+    "difficulte": 20,
+    "seuilMineur": 35,
+    "seuilMajeur": 70,
+    "blessure": 11,
+    "stress": 8,
+    "modAttaque": 7,
+    "attaqueStandard": "Éclair : longue, 3d20+10 mag",
+    "experience": "Puissance de la tempête +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "Le Titan peut être mis en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Élan",
+        "tag": "passive",
+        "texte": "Quand le Titan réussit une attaque contre un PJ, vous gagnez une Peur."
+      },
+      {
+        "nom": "Foudre globulaire",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Titan conjure 1d4 sphères d'énergie électrique à courte portée. Quand le Titan est mis en avant, il peut déplacer chaque sphère jusqu'à courte portée. Quand une sphère se déplace à très courte portée d'un PJ, le PJ subit 4d6 dégâts magiques et la sphère disparaît. Chaque sphère a la même Difficulté que le Titan et disparaît si une créature lui inflige des dégâts magiques."
+      },
+      {
+        "nom": "Porteur de tempête",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que le Titan conjure une tempête déchaînée. Chaque PJ à courte portée du Titan doit faire un jet de réaction de Force. Les cibles qui échouent subissent 3d12 dégâts magiques et sont Vulnérables jusqu'à ce qu'elles prennent la mise en avant. Les cibles qui réussissent subissent la moitié des dégâts."
+      },
+      {
+        "nom": "Coup de tonnerre",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour cibler jusqu'à trois PJ devant le Titan à courte portée. Chaque cible marque un Stress et devient Vulnérable jusqu'à ce qu'elle fasse un jet avec Espoir."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "tortue-de-mer-titanesse",
+    "palier": 3,
+    "type": "Solo",
+    "categorie": "Aquatique",
+    "nom": "Tortue de mer titanesse",
+    "description": "Une tortue de mer monstrueuse à la carapace et au bec d'adamantium.",
+    "motivation": "Acquérir des richesses, faire chavirer les navires marchands, attendre à l'affût, utiliser les vagues comme couvert",
+    "difficulte": 18,
+    "seuilMineur": 21,
+    "seuilMajeur": 41,
+    "blessure": 10,
+    "stress": 6,
+    "modAttaque": 7,
+    "attaqueStandard": "Morsure écrasantes : très courte, 3d12+7 phy",
+    "experience": "Haute mer +5",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "La Tortue peut être mise en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour la mettre en avant."
+      },
+      {
+        "nom": "Morsure perforante",
+        "tag": "passive",
+        "texte": "Quand la Tortue réussit une attaque standard contre un PJ, le PJ doit soit marquer un emplacement d'Armure sans en recevoir le bénéfice, soit subir le double des dégâts."
+      },
+      {
+        "nom": "Coup de queue",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire une attaque standard contre tous les PJ derrière la Tortue à très courte portée. En cas de succès, une cible subit 1d12 dégâts physiques supplémentaires et est repoussée jusqu'à courte portée de la Tortue."
+      },
+      {
+        "nom": "Éclaboussure gigatonne",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que la Tortue utilise son poids pour déchaîner un mur d'eau irrésistible qui cible toutes les créatures à longue portée. Chaque PJ doit faire un jet de réaction de Force pour résister à la marée. Les cibles qui échouent sont repoussées jusqu'à courte portée de la Tortue, subissent 4d8 dégâts physiques et deviennent temporairement Vulnérables. Les cibles qui réussissent doivent marquer un Stress. Pour chaque cible qui a échoué, vous gagnez une Peur."
+      },
+      {
+        "nom": "Souffle de vapeur",
+        "tag": "action",
+        "texte": "Dépensez 2 Peur pour que la Tortue libère un jet de vapeur surchauffée ciblant tous les PJ devant elle à courte portée. Chaque cible doit faire un jet de réaction d'Agilité. Les cibles qui échouent subissent 4d8 dégâts magiques et deviennent temporairement Vulnérables. Les cibles qui réussissent doivent choisir de marquer un Stress ou de subir la moitié des dégâts."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "ver-des-sables",
+    "palier": 3,
+    "type": "Cogneur",
+    "categorie": "Monstre",
+    "nom": "Ver des sables",
+    "description": "Un ver fouisseur gigantesque à la carapace de plaques et aux mâchoires grinçantes. Ce chasseur intelligent et opportuniste nage dans le sable aussi vite qu'un guépard court sur terre.",
+    "motivation": "Tendre une embuscade par en dessous, manger et partir, creuser et jaillir, utiliser les deux extrémités",
+    "difficulte": 17,
+    "seuilMineur": 21,
+    "seuilMajeur": 40,
+    "blessure": 6,
+    "stress": 3,
+    "modAttaque": 1,
+    "attaqueStandard": "Morsure : très courte, 3d8+4 phy",
+    "experience": "Sens des vibrations +4",
+    "aptitudes": [
+      {
+        "nom": "Dard venimeux",
+        "tag": "action",
+        "texte": "Marquez un Stress pour attaquer une cible à courte portée. En cas de succès, la cible subit 3d10+2 dégâts physiques et doit réussir un jet de réaction de Force ou devenir Bloquée et Vulnérable jusqu'à ce qu'elle fasse un jet avec Espoir."
+      },
+      {
+        "nom": "Dévorer",
+        "tag": "action",
+        "texte": "Faites une attaque contre une cible au Corps à corps. En cas de succès, le Ver des sables Avale la cible. Tant qu'elle est Avalée, la cible est Bloquée et marque un PB quand le Ver des sables est mis en avant. Le Ver des sables recrache toutes les créatures Avalées quand il subit des dégâts Majeurs ou supérieurs."
+      },
+      {
+        "nom": "Affamé, pas stupide",
+        "tag": "réaction",
+        "texte": "Quand le Ver des sables marque la moitié de ses PB ou Avale une créature, lancez un d6. Sur un résultat de 3 ou moins, le Ver des sables se retire en lieu sûr."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "vouivre",
+    "palier": 3,
+    "type": "Standard",
+    "categorie": "Draconien",
+    "nom": "Vouivre",
+    "description": "Un dragon bipède qui s'envole de son aire de montagne pour dévorer le bétail.",
+    "motivation": "Projeter une longue ombre, saisir et emporter, tournoyer dans les airs",
+    "difficulte": 16,
+    "seuilMineur": 18,
+    "seuilMajeur": 35,
+    "blessure": 7,
+    "stress": 5,
+    "modAttaque": 2,
+    "attaqueStandard": "Dents et griffes : très courte, 3d8+5 phy",
+    "experience": "Mort venue du ciel +4",
+    "aptitudes": [
+      {
+        "nom": "Double frappe",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que la Vouivre fasse deux attaques standard. Si les deux attaques réussissent contre la même cible, additionnez les dégâts."
+      },
+      {
+        "nom": "Cri terrifiant",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que la Vouivre pousse un cri glaçant. Toutes les créatures à longue portée sont Terrifiées jusqu'à ce qu'elles réussissent un jet de Présence (18) pour lever l'état ou que la Vouivre soit vaincue. Tant qu'il est Terrifié, un PJ ne gagne pas d'Espoir quand il fait un jet avec Espoir."
+      },
+      {
+        "nom": "Saisie",
+        "tag": "réaction",
+        "texte": "Quand la Vouivre réussit une attaque contre un PJ, vous pouvez dépenser une Peur pour que la Vouivre Entrave la cible dans ses serres jusqu'à ce que le PJ réussisse un jet de Force (18) ou que la Vouivre subisse des dégâts Majeurs ou supérieurs. Tant qu'il est Bloqué ainsi, le PJ a le désavantage aux jets d'attaque."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "abomination-cephilith",
+    "palier": 4,
+    "type": "Cogneur",
+    "categorie": "céphilith",
+    "nom": "Abomination céphilith",
+    "description": "Une bête-grenouille balourde née dans les marais, dont la peau translucide laisse voir des sangsues semblables à des têtards qui s'y tortillent.",
+    "motivation": "Faire le gros du travail, bondir de façon menaçante, se déplacer étonnamment vite, saisir et frapper",
+    "difficulte": 19,
+    "seuilMineur": 35,
+    "seuilMajeur": 70,
+    "blessure": 7,
+    "stress": 5,
+    "modAttaque": 4,
+    "attaqueStandard": "Poings charnus : mêlée, 4d10+10 phy",
+    "experience": "Brute +3",
+    "aptitudes": [
+      {
+        "nom": "Peau toxique",
+        "tag": "passive",
+        "texte": "Un PJ qui entre en contact physique avec l'Abomination doit lancer un d6. Sur un résultat de 3 ou moins, le PJ doit marquer un emplacement d'Armure ou 2 PB."
+      },
+      {
+        "nom": "Étreinte d'ours",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire une attaque standard contre une cible au Corps à corps. En cas de succès, la cible subit les dégâts standard et est Agrippée jusqu'à ce qu'elle s'échappe avec un jet de Force réussi. Tant qu'elle est Agrippée, la cible est Vulnérable et Bloquée."
+      },
+      {
+        "nom": "Écrasement !",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour infliger 4d12 dégâts physiques directs à une créature Agrippée par l'Abomination."
+      },
+      {
+        "nom": "Attaque de langue",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que l'Abomination attire une cible à longue portée au Corps à corps, puis mettez immédiatement l'Abomination en avant de nouveau."
+      },
+      {
+        "nom": "Sangsues fouisseuses",
+        "tag": "réaction",
+        "texte": "Quand l'Abomination subit des dégâts Majeurs ou supérieurs, sa peau explose en une gerbe de vers sous-cutanés. Chaque PJ à courte portée doit faire un jet de réaction d'Agilité. Les cibles qui échouent sont couvertes de 2d4 sangsues, qui s'enfouissent sous leur peau. Tant que les sangsues n'ont pas été extraites avec un jet de Finesse (21) réussi, les dégâts subis par la cible reçoivent un bonus de +1 par sangsue sous sa peau."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "ch-ur-sacre-6-pb",
+    "palier": 4,
+    "type": "Horde",
+    "categorie": "Divin",
+    "nom": "Chœur sacré (6/PB)",
+    "description": "Une armée céleste d'humanoïdes ailés dont le chant fait jaillir des larmes d'effroi religieux.",
+    "motivation": "Étouffer l'incrédulité, élever les voix",
+    "difficulte": 17,
+    "seuilMineur": 24,
+    "seuilMajeur": 48,
+    "blessure": 7,
+    "stress": 6,
+    "modAttaque": 2,
+    "attaqueStandard": "Explosion chorale : longue, 4d10 mag",
+    "experience": "Musique +2",
+    "aptitudes": [
+      {
+        "nom": "Horde (2d10)",
+        "tag": "passive",
+        "texte": "Quand le Chœur a marqué la moitié ou plus de ses PB, son attaque standard inflige 2d10 dégâts magiques à la place."
+      },
+      {
+        "nom": "Coda céleste",
+        "tag": "passive",
+        "texte": "Compte à rebours (Boucle 3). Le chant divin du Chœur s'amplifie à chaque refrain. Quand le Chœur apparaît pour la première fois, activez le compte à rebours. Il avance quand un PJ gagne un Espoir. Quand il arrive à terme, placez un jeton sur ce bloc de stats. Le Chœur gagne un bonus à ses jets de dégâts égal au nombre de jetons sur ce bloc de stats."
+      },
+      {
+        "nom": "Assaut vocal",
+        "tag": "action",
+        "texte": "Le Chœur libère son énergie divine accumulée en une seule explosion, retirant tous les jetons de ce bloc de stats. Infligez 1d12 dégâts magiques directs à chaque ennemi à courte portée pour chaque jeton retiré."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "cipactli",
+    "palier": 4,
+    "type": "Solo",
+    "categorie": "Monstre",
+    "nom": "Cipactli",
+    "description": "Un crocodile gigantesque au corps recouvert d'un patchwork d'écailles de poisson, de peau de crapaud et de dizaines de bouches affamées.",
+    "motivation": "Consumer, remodeler la terre, piétiner",
+    "difficulte": 20,
+    "seuilMineur": 35,
+    "seuilMajeur": 60,
+    "blessure": 8,
+    "stress": 5,
+    "modAttaque": 8,
+    "attaqueStandard": "Morsure : courte, 4d8+12 phy",
+    "experience": "Affamé +3, Primordial +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "Le Cipactli peut être mis en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Nombreuses bouches",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire une attaque standard contre toutes les cibles à très courte portée. Les cibles contre lesquelles le Cipactli réussit doivent aussi marquer un Stress."
+      },
+      {
+        "nom": "Festin frénétique",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour forcer tous les PJ à courte portée à réussir un jet de réaction d'Instinct ou à subir 4d6 dégâts physiques directs. Le Cipactli efface un PB pour chaque créature qui a subi des dégâts Grave de cette attaque."
+      },
+      {
+        "nom": "Pas qui font trembler la terre",
+        "tag": "action",
+        "texte": "Marquez un Stress pour forcer chaque PJ à longue portée à faire un jet de réaction d'Agilité. Les cibles qui échouent doivent marquer 2 Stress et sont Vulnérables jusqu'à ce qu'elles subissent des dégâts. Les cibles qui réussissent doivent marquer un Stress."
+      },
+      {
+        "nom": "Sang vivifiant",
+        "tag": "réaction",
+        "texte": "Quand le Cipactli subit des dégâts Grave, son sang éclabousse le sol et y fait instantanément jaillir une jungle. Toutes les créatures à courte portée sont temporairement Bloquées."
+      },
+      {
+        "nom": "Explosion de verdure",
+        "tag": "réaction",
+        "texte": "Quand le Cipactli marque son dernier PB, son corps explose en une végétation dense qui envahit le paysage."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "supreme-demiurge-adonix",
+    "palier": 4,
+    "type": "Solo",
+    "categorie": "Divin",
+    "nom": "Suprême Démiurge Adonix",
+    "description": "L'ange à quatre visages des Hauts-Lieux qui se manifeste dans le Royaume mortel sous la forme d'un tétraèdre flottant aux innombrables yeux et à plusieurs paires d'ailes de plumes métalliques.",
+    "motivation": "Établir sa domination, exiler de la réalité, flotter au-dessus de tout, parler pour faire exister",
+    "difficulte": 20,
+    "seuilMineur": 35,
+    "seuilMajeur": 70,
+    "blessure": 12,
+    "stress": 10,
+    "modAttaque": 8,
+    "attaqueStandard": "Coup d'aile : courte, 4d12+10 phy",
+    "experience": "Omnipotence +10, N'ayez pas peur +5",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (4)",
+        "tag": "passive",
+        "texte": "Adonix peut être mis en avant jusqu'à quatre fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Archonte élémentaire",
+        "tag": "action",
+        "texte": "Marquez un Stress pour lancer un d4. Adonix active l'effet correspondant : 1. Rayon de feu. Adonix manifeste un rayon de feu élémentaire de la largeur de très courte portée, de lui-même jusqu'au bord du champ de bataille. Chaque cible sur le trajet du rayon doit faire un jet de réaction d'Agilité. Les cibles qui échouent subissent des dégâts Grave. Les cibles qui réussissent subissent des dégâts Mineurs. 2. Coup de tonnerre. Toutes les créatures à longue portée doivent marquer un Stress et deviennent Vulnérables jusqu'à ce qu'elles réussissent un jet d'attaque ou que le Démiurge soit vaincu. 3. Éclair. Faites une attaque contre une cible à très longue portée, infligeant 4d8 dégâts magiques en cas de succès. Si tous les résultats sont pairs, faites la même attaque contre une cible différente, en répétant le cycle jusqu'à obtenir un résultat impair ou manquer de cibles. 4. Tempête de glace. Chaque PJ à courte portée doit réussir un jet de réaction de Force ou marquer 1d4 Stress et devenir Bloqué jusqu'à ce qu'il dépense un Espoir pour s'échapper."
+      },
+      {
+        "nom": "De l'alpha à l'oméga",
+        "tag": "évolution",
+        "texte": "Quand Adonix est vaincu, il ressuscite sous sa forme Oméga avec tous ses PB et son Stress effacés. Chaque PJ à très longue portée doit réussir un jet de réaction de Présence ou perdre un Espoir. Vous gagnez une Peur pour chaque Espoir ainsi perdu. Sous cette forme, Adonix gagne les aptitudes suivantes :"
+      },
+      {
+        "nom": "Délaissé",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour choisir un PJ et activer un compte à rebours de Délaissement (1d8) pour lui. Il avance quand Adonix est mis en avant. Quand il arrive à terme, le PJ doit marquer tous ses PB. Le compte à rebours prend fin si Adonix subit des dégâts Grave. Vous ne pouvez avoir qu'un seul compte à rebours de Délaissement actif à la fois."
+      },
+      {
+        "nom": "Armageddon",
+        "tag": "réaction",
+        "texte": "Quand Adonix est de nouveau vaincu, il déchaîne une tempête de réalité qui secoue les royaumes jusqu'à leurs fondations. Lancez un d6. Sur un résultat de 5-6, chaque PJ doit faire une action de mort."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "vouivre-demoniaque",
+    "palier": 4,
+    "type": "Sbire",
+    "categorie": "Draconien",
+    "nom": "Vouivre démoniaque",
+    "description": "Un bipède reptilien créé par une ancienne et mystérieuse magie draconique. Les Vouivre démoniaque existent davantage comme des extensions de la volonté de leur maître draconique que comme des êtres individuels.",
+    "motivation": "Tenir la ligne, se sacrifier, servir, pulluler",
+    "difficulte": 17,
+    "seuilMineur": null,
+    "seuilMajeur": null,
+    "blessure": 1,
+    "stress": 1,
+    "modAttaque": 3,
+    "attaqueStandard": "Armes du trésor : mêlée, 11 phy",
+    "experience": "Lien draconique +2",
+    "aptitudes": [
+      {
+        "nom": "Sbire (13)",
+        "tag": "passive",
+        "texte": "Le Vouivre démoniaque est vaincu dès que il subit des dégâts. Pour chaque tranche de 13 dégâts qu'un PJ inflige au Vouivre démoniaque, il vainc un Sbire supplémentaire à portée contre lequel l'attaque aurait réussi."
+      },
+      {
+        "nom": "Morsure venimeuse",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour faire une attaque contre un PJ au Corps à corps. En cas de succès, infligez 4d4+4 dégâts physiques et Empoisonnez la cible jusqu'à ce qu'elle réussisse un jet de Force (20). Tant qu'elle est Empoisonnée, la cible doit lancer un d6 avant de faire un jet d'action. Sur un résultat de 4 ou moins, la cible doit marquer un Stress."
+      },
+      {
+        "nom": "Attaque de groupe",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour choisir une cible et mettre en avant tous les Vouivre démoniaque à courte portée de celle-ci. Ces Sbires se déplacent au Corps à corps de la cible et font un seul jet d'attaque partagé. En cas de succès, ils infligent chacun 11 dégâts physiques. Additionnez ces dégâts."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "dragon-de-rubis",
+    "palier": 4,
+    "type": "Standard",
+    "categorie": "Draconien",
+    "nom": "Dragon de rubis",
+    "description": "Un énorme dragon ailé dont des flammes visibles brillent sous les écailles incrustées de gemmes étincelantes. La chaleur de son corps fait fondre la pierre.",
+    "motivation": "Fendre la terre, faire fondre, protéger son trésor",
+    "difficulte": 19,
+    "seuilMineur": 30,
+    "seuilMajeur": 50,
+    "blessure": 6,
+    "stress": 4,
+    "modAttaque": 6,
+    "attaqueStandard": "Dent et griffe : courte, 4d10+8 phy",
+    "experience": "Montagnes +4",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "Le Dragon peut être mis en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Redoutable",
+        "tag": "passive",
+        "texte": "Quand le Dragon réussit une attaque contre un PJ ou qu'un PJ à longue portée échoue à un jet d'action, vous gagnez une Peur."
+      },
+      {
+        "nom": "Souffle de fusion",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que le Dragon déchaîne un jet de feu sur tous les PJ devant lui à courte portée. Chaque cible doit réussir un jet de réaction d'Agilité ou subir 4d12+10 dégâts magiques et marquer un emplacement d'Armure sans en recevoir les bénéfices (elle peut tout de même utiliser son armure pour réduire les dégâts)."
+      },
+      {
+        "nom": "Fissure volcanique",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Dragon fouette le sol de sa queue et ouvre une faille de lave qui se déverse sur la zone à courte portée. Chaque PJ dans cette zone doit faire un jet de réaction d'Agilité. Les cibles qui réussissent sortent immédiatement de la zone. Les cibles qui échouent subissent 4d8+5 dégâts magiques. Jusqu'à ce que le Dragon soit vaincu, une créature qui entre dans la zone subit 4d8+5 dégâts magiques."
+      },
+      {
+        "nom": "Sang chaud",
+        "tag": "réaction",
+        "texte": "Quand une créature réussit une attaque contre le Dragon à très courte portée, le sang du Dragon jaillit de la blessure et brûle l'attaquant, le forçant à marquer un emplacement d'Armure. S'il ne peut pas marquer d'emplacement d'Armure, il marque 1d4 PB."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "gardien-du-continuum",
+    "palier": 4,
+    "type": "Cogneur",
+    "categorie": "Artificielle",
+    "nom": "Gardien du continuum",
+    "description": "Un être mécanique gigantesque venu d'une dimension hors du temps, construit par les Gardiens du Temps pour préserver le Continuum sacré.",
+    "motivation": "Réparer la chronologie, traquer les hérétiques temporels, servir les Seigneurs de la Continuité",
+    "difficulte": 20,
+    "seuilMineur": 42,
+    "seuilMajeur": 68,
+    "blessure": 8,
+    "stress": 5,
+    "modAttaque": 4,
+    "attaqueStandard": "Marteau d'adamantium : très courte, 40 phy direct",
+    "experience": "Anomalies temporelles +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (2)",
+        "tag": "passive",
+        "texte": "Le gardien peut être mis en avant jusqu'à deux fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Boucleur de temps",
+        "tag": "passive",
+        "texte": "Compte à rebours (Boucle 2d6). Quand le gardien apparaît pour la première fois, activez le compte à rebours. Il avance quand l'Exécuteur est mis en avant. Quand il arrive à terme, le gardien efface tous ses PB, son Stress et ses conditions. Relancez le compte à rebours quand le gardien subit des dégâts Grave."
+      },
+      {
+        "nom": "Passer d'un instant à l'autre",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que le gardien se téléporte à un point à très longue portée, puis mettez-le de nouveau en avant."
+      },
+      {
+        "nom": "Retour en arrière instantané",
+        "tag": "réaction",
+        "texte": "Quand le gardien échoue à une attaque, vous pouvez dépenser une Peur pour relancer le dé."
+      },
+      {
+        "nom": "Inversion de polarité",
+        "tag": "réaction",
+        "texte": "Jusqu'à trois fois par scène, vous pouvez dépenser une Peur pour retourner un dé lancé sur sa face opposée. Cet effet ne peut pas être utilisé pour modifier un succès critique."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "griffon",
+    "palier": 4,
+    "type": "Standard",
+    "categorie": "Monstre",
+    "nom": "Griffon",
+    "description": "Une grande créature léonine à la tête, aux serres et aux ailes d'aigle.",
+    "motivation": "Chasser, chercher une ouverture, fondre en piqué",
+    "difficulte": 18,
+    "seuilMineur": 30,
+    "seuilMajeur": 45,
+    "blessure": 6,
+    "stress": 4,
+    "modAttaque": 4,
+    "attaqueStandard": "Bec et serres : très courte, 4d8+4 phy",
+    "experience": "Richesses +5, Sens aiguisés +3",
+    "aptitudes": [
+      {
+        "nom": "Accapareur de trésors",
+        "tag": "passive",
+        "texte": "Quand un PJ devrait marquer un nombre quelconque de PB à cause de l'attaque du Griffon, le PJ peut choisir de donner au Griffon un nombre égal de sacs d'or à la place."
+      },
+      {
+        "nom": "Entaille en piqué",
+        "tag": "action",
+        "texte": "Déplacez-vous jusqu'à longue portée et faites une attaque standard contre une cible en chemin."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "legion-spectrale-10-pb",
+    "palier": 4,
+    "type": "Horde",
+    "categorie": "Mort-vivant",
+    "nom": "Légion spectrale (10/PB)",
+    "description": "Une armée grouillante de fantômes tirés d'un sommeil sans rêves pour accomplir leur serment ancien.",
+    "motivation": "Submerger, servir, pulluler",
+    "difficulte": 17,
+    "seuilMineur": 25,
+    "seuilMajeur": 45,
+    "blessure": 8,
+    "stress": 5,
+    "modAttaque": 2,
+    "attaqueStandard": "Armes spectrales : courte, 4d6+10 mag",
+    "experience": "Tactique +2",
+    "aptitudes": [
+      {
+        "nom": "Horde (2d6+5)",
+        "tag": "passive",
+        "texte": "Quand la Légion a marqué la moitié ou plus de ses PB, son attaque standard inflige 2d6+5 dégâts magiques à la place."
+      },
+      {
+        "nom": "Nécroplasmique",
+        "tag": "passive",
+        "texte": "La Légion est immunisée contre les dégâts physiques et subit le double des dégâts magiques."
+      },
+      {
+        "nom": "Dernier acte",
+        "tag": "réaction",
+        "texte": "Quand la Légion est vaincue, elle fait une attaque standard contre toutes les cibles à courte portée avant d'être dissipée."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "machine-de-guerre-gigantesque",
+    "palier": 4,
+    "type": "Solo",
+    "categorie": "Artificielle",
+    "nom": "Machine de guerre gigantesque",
+    "description": "Un construct d'adamantium de trente mètres de haut aux yeux de pierres précieuses, alimenté par un creuset de flammes élémentaires dans sa poitrine.",
+    "motivation": "Écraser, détruire",
+    "difficulte": 20,
+    "seuilMineur": 48,
+    "seuilMajeur": 88,
+    "blessure": 10,
+    "stress": 6,
+    "modAttaque": 7,
+    "attaqueStandard": "Poings de fer : courte, 4d12+10 phy",
+    "experience": "Incassable +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "La Machine peut être mise en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour la mettre en avant."
+      },
+      {
+        "nom": "Taille impressionnante",
+        "tag": "passive",
+        "texte": "Quand la Machine entre sur le champ de bataille, chaque PJ doit soit perdre un Espoir, soit marquer 1d4 Stress."
+      },
+      {
+        "nom": "Poing-fusée",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire une attaque contre un PJ à courte portée. En cas de succès, la cible subit 4d12+10 dégâts physiques directs et marque 2 emplacements d'Armure sans en recevoir les bénéfices."
+      },
+      {
+        "nom": "Piétinement fracassant",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour choisir un point à courte portée et faire un jet d'attaque contre tous les ennemis à courte portée de ce point. Les cibles contre lesquelles l'attaque réussit subissent 4d12 dégâts physiques directs et sont Vulnérables jusqu'à ce qu'elles prennent la mise en avant. De plus, toute la zone devient un amas de gravats, et un PJ doit réussir un jet de réaction d'Agilité (16) pour la traverser."
+      },
+      {
+        "nom": "Surchargée",
+        "tag": "réaction",
+        "texte": "Compte à rebours (Boucle 2d6). Quand la Machine est mise en avant pour la première fois, activez le compte à rebours. Il avance chaque fois que la Machine est mise en avant. Quand il arrive à terme, placez un jeton sur ce bloc de stats tandis que le creuset de la poitrine de la Machine s'embrase d'une flamme magique. Pour chaque jeton sur ce bloc de stats, la Machine gagne un bonus de +1 à sa Difficulté et à ses jets d'attaque, et son attaque standard inflige 1d12 dégâts supplémentaires. Retirez un jeton quand la Machine subit des dégâts Grave."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "mere-des-eaux",
+    "palier": 4,
+    "type": "Solo",
+    "categorie": "Monstre",
+    "nom": "Mère des eaux",
+    "description": "Un serpent colossal couvert de fourrure qui chasse dans les grandes étendues d'eau.",
+    "motivation": "Étreindre le monde, contrôler le champ de bataille, attirer ses ennemis dans l'eau",
+    "difficulte": 20,
+    "seuilMineur": 40,
+    "seuilMajeur": 70,
+    "blessure": 12,
+    "stress": 8,
+    "modAttaque": 8,
+    "attaqueStandard": "Morsure : très courte, 4d10+5 phy",
+    "experience": "Rivières +4",
+    "aptitudes": [
+      {
+        "nom": "Segmentée",
+        "tag": "passive",
+        "texte": "Le corps de la Mère des eaux est divisé en trois segments : Tête, Centre et Queue. La Mère des eaux se déplace toujours en commençant par la Tête, tirant le Centre puis la Queue derrière elle. Une créature peut cibler la Mère des eaux avec une attaque tant qu'au moins un de ses segments est à portée, mais la Mère des eaux ne peut faire une attaque standard que contre une cible à portée de sa Tête. Si une attaque inflige des dégâts à la Mère des eaux et que sa Tête est à portée, l'attaque inflige 1d10 dégâts supplémentaires."
+      },
+      {
+        "nom": "Manger le monde",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que la Mère des eaux inspire brusquement. Chaque PJ à courte portée de sa Tête doit réussir un jet de réaction de Force ou marquer un Stress et être attiré au Corps à corps de la Tête. La Mère des eaux fait alors une attaque standard contre toutes les cibles au Corps à corps de sa Tête."
+      },
+      {
+        "nom": "Constriction",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire une attaque contre toutes les cibles au Corps à corps du segment Centre. Les cibles contre lesquelles l'attaque réussit subissent 4d8+8 dégâts physiques et sont temporairement Bloquées. Au début de chaque tour du MJ, vous pouvez marquer un Stress pour forcer toutes les cibles Bloquées par la Mère des eaux à marquer un PB."
+      },
+      {
+        "nom": "Poussée de venin",
+        "tag": "réaction",
+        "texte": "Quand la Mère des eaux réussit une attaque standard, vous pouvez dépenser une Peur pour rendre la cible Vulnérable jusqu'à la fin de la scène."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "mere-dragon-mitera",
+    "palier": 4,
+    "type": "Solo",
+    "categorie": "Draconien",
+    "nom": "Mère-dragon Mitera",
+    "description": "Une dragone gigantesque à sept têtes, aux écailles de diamant éblouissantes qui brillent de toutes les couleurs de l'arc-en-ciel.",
+    "motivation": "Enfanter la destruction, contrôler le champ de bataille, voler, repousser les envahisseurs, utiliser toutes les options disponibles",
+    "difficulte": 16,
+    "seuilMineur": 35,
+    "seuilMajeur": 65,
+    "blessure": 12,
+    "stress": 10,
+    "modAttaque": 8,
+    "attaqueStandard": "Morsure et entaille : courte, 4d10+10 phy",
+    "experience": "Ancienne +5",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "Mitera peut être mise en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour la mettre en avant."
+      },
+      {
+        "nom": "Peau de diamant",
+        "tag": "passive",
+        "texte": "Compte à rebours (7). Quand Mitera apparaît pour la première fois, activez le compte à rebours. Mitera gagne un bonus à sa Difficulté égal à la valeur actuelle du dé du compte à rebours. Il avance grâce à l'aptitude « Sept têtes » de Mitera. Quand le compte à rebours arrive à terme, Mitera devient Vulnérable et gagne un bonus de +2 aux jets d'attaque."
+      },
+      {
+        "nom": "Souffle élémentaire",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que Mitera libère de l'énergie élémentaire depuis une tête de votre choix : 1. Feu. Infligez 4d12 dégâts magiques à 1d4+1 cibles à courte portée. Les cibles qui subissent des dégâts doivent marquer un emplacement d'Armure ou 2 PB supplémentaires. 2. Foudre. Infligez 4d12 dégâts magiques à 1d6 cibles à longue portée, tant que chaque cible après la première est à courte portée de la précédente. 3. Acide. Chaque PJ devant Mitera à courte portée doit faire un jet de réaction d'Agilité. Les cibles qui échouent doivent marquer 2 emplacements d'Armure et 2 PB. Les cibles qui réussissent doivent marquer un emplacement d'Armure et un PB. 4. Poison. Un miasme de gaz de marais toxique Rend Nauséeuses toutes les cibles à courte portée de Mitera. Tant qu'elle est Nauséeuse, une cible a le désavantage aux jets d'action jusqu'à ce qu'elle marque 1d4 Stress pour lever la condition. 5. Glace. Chaque cible devant Mitera à courte portée subit 4d8+8 dégâts magiques et est Bloquée par la glace jusqu'à ce qu'elle se libère avec un jet de Force réussi. De plus, cette zone gèle et un PJ doit réussir un jet de réaction d'Agilité pour la traverser. 6. Ténèbres. Un nuage d'ombre magique remplit une zone à courte portée. Les créatures à l'intérieur du nuage, sauf Mitera, sont Vulnérables et ont le désavantage aux jets d'action qui reposent sur la vue. Le nuage se dissipe quand cette option de Souffle élémentaire est retirée par l'aptitude « Sept têtes » de Mitera. 7. Lumière. Un rayon d'énergie lumineuse pure inflige 28 dégâts magiques directs à chaque créature sur une ligne à très longue portée."
+      },
+      {
+        "nom": "Coup de queue",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour attaquer toutes les cibles à courte portée. Les cibles contre lesquelles cette attaque réussit subissent 2d20+10 dégâts physiques et sont repoussées à longue portée. Les cibles qui marquent des PB à cause de cette attaque deviennent Vulnérables jusqu'à ce qu'elles effacent un PB. Les cibles contre lesquelles cette attaque a échoué doivent marquer un Stress."
+      },
+      {
+        "nom": "Redoutable",
+        "tag": "réaction",
+        "texte": "Quand Mitera réussit un jet d'attaque contre un PJ ou qu'un PJ échoue à un jet à longue portée, vous gagnez une Peur."
+      },
+      {
+        "nom": "Sept têtes",
+        "tag": "réaction",
+        "texte": "Quand Mitera subit des dégâts, lancez un d8. Retirez définitivement l'option de « Souffle élémentaire » correspondant au résultat. Sur un résultat de 8, ou si l'option correspondante a déjà été retirée, faites avancer le compte à rebours de Peau de diamant (voir « Peau de diamant »)."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "messager-de-la-famine",
+    "palier": 4,
+    "type": "Soutien",
+    "categorie": "Cavaliers de l'Apocalypse",
+    "nom": "Messager de la Famine",
+    "description": "Une carcasse desséchée chevauchant un cheval blanc étique. Elle est couverte de bouches et entourée d'un essaim de mouches.",
+    "motivation": "Drainer, appauvrir, affaiblir, flétrir",
+    "difficulte": 18,
+    "seuilMineur": 26,
+    "seuilMajeur": 42,
+    "blessure": 6,
+    "stress": 5,
+    "modAttaque": 4,
+    "attaqueStandard": "Fouet barbelé : courte, 4d8+10 phy",
+    "experience": "Faim +2, Soif +2",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (2)",
+        "tag": "passive",
+        "texte": "Le Messager peut être mis en avant jusqu'à deux fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Monture",
+        "tag": "passive",
+        "texte": "Tant que le Messager est sur sa monture, il gagne un bonus de +2 à sa Difficulté. Quand le Messager subit des dégâts Grave, il est désarçonné. Si le Messager est à pied, sa monture disparaît jusqu'à ce que vous marquiez un Stress pour la convoquer de nouveau."
+      },
+      {
+        "nom": "Fringales",
+        "tag": "passive",
+        "texte": "Compte à rebours (décroissant 6). Quand le Messager apparaît, activez le compte à rebours. Il avance quand le Messager est mis en avant. Quand il arrive à terme, tous les PJ à longue portée marquent un Stress et deviennent Affamés. Tant qu'il est Affamé, un PJ ne peut pas dépenser d'Espoir jusqu'à ce qu'il lève la condition avec un jet d'Instinct réussi."
+      },
+      {
+        "nom": "Drainer l'essence",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour choisir jusqu'à trois PJ. Chaque cible subit 4d6 dégâts magiques."
+      },
+      {
+        "nom": "Trop de bouches",
+        "tag": "action",
+        "texte": "Marquez un Stress pour attaquer un PJ au Corps à corps. En cas de succès, le Messager saisit la cible et la mord, lui infligeant 4d6 dégâts physiques et l'Entravant jusqu'à ce qu'elle se libère avec un jet de Force réussi."
+      },
+      {
+        "nom": "Toucher flétrissant",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Messager caresse le visage d'un PJ Bloqué au Corps à corps. La cible marque 2 Stress et perd un Espoir ou marque 1d4 PB."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "messager-de-la-guerre",
+    "palier": 4,
+    "type": "Cogneur",
+    "categorie": "Cavaliers de l'Apocalypse",
+    "nom": "Messager de la Guerre",
+    "description": "Un guerrier vêtu d'une armure noire et d'un casque à cornes, portant une bannière ensanglantée.",
+    "motivation": "Détruire totalement, combattre avec honneur, savourer le combat, frapper du bouclier, frapper avec puissance",
+    "difficulte": 21,
+    "seuilMineur": 40,
+    "seuilMajeur": 70,
+    "blessure": 9,
+    "stress": 4,
+    "modAttaque": 5,
+    "attaqueStandard": "Hache de bataille : très courte, 4d20 phy",
+    "experience": "Armure lourde +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (2)",
+        "tag": "passive",
+        "texte": "Le Messager peut être mis en avant jusqu'à deux fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Monture",
+        "tag": "passive",
+        "texte": "Tant que le Messager est sur sa monture, il gagne un bonus de +2 à sa Difficulté. Quand le Messager subit des dégâts Grave, il est désarçonné. Si le Messager est à pied, sa monture disparaît jusqu'à ce que vous marquiez un Stress pour la convoquer de nouveau."
+      },
+      {
+        "nom": "Dés de fer",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que le Messager tente une attaque tout-en-un risquée. Faites une attaque standard avec avantage. En cas de succès, la cible marque 1 PB supplémentaire. En cas d'échec, le Messager devient Vulnérable jusqu'à ce qu'il subisse ou inflige des dégâts."
+      },
+      {
+        "nom": "Commandant suprême",
+        "tag": "action",
+        "texte": "Une fois par scène, dépensez une Peur pour invoquer 1d6 Soldats sanctifiés à courte portée et en mettre un immédiatement en avant."
+      },
+      {
+        "nom": "Bélier",
+        "tag": "réaction",
+        "texte": "Quand un PJ échoue à un jet d'action à courte portée, vous pouvez dépenser une Peur pour vous déplacer au Corps à corps du PJ et faire une attaque standard avec avantage contre lui. En cas de succès, le PJ subit les dégâts standard et est Vulnérable jusqu'à ce qu'il prenne la mise en avant."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "messager-de-la-mort",
+    "palier": 4,
+    "type": "Traqueur",
+    "categorie": "Cavaliers de l'Apocalypse",
+    "nom": "Messager de la Mort",
+    "description": "Un cadavre desséché chevauchant un cheval squelettique. Ses yeux sont cousus et son corps est enveloppé d'un linceul de poussière et de cendres.",
+    "motivation": "Rendre le jugement, faucher, se déplacer vite, chercher sans relâche, prendre les âmes",
+    "difficulte": 18,
+    "seuilMineur": 28,
+    "seuilMajeur": 52,
+    "blessure": 6,
+    "stress": 6,
+    "modAttaque": 8,
+    "attaqueStandard": "Grande faux : courte, 4d10+10 phy",
+    "experience": "Jugement +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "Le Messager peut être mis en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Monture",
+        "tag": "passive",
+        "texte": "Tant que le Messager est sur sa monture, il gagne un bonus de +2 à sa Difficulté. Quand le Messager subit des dégâts Grave, il est désarçonné. Si le Messager est à pied, sa monture disparaît jusqu'à ce que vous marquiez un Stress pour la convoquer de nouveau."
+      },
+      {
+        "nom": "Craignez la Faucheuse",
+        "tag": "passive",
+        "texte": "Quand une créature est vaincue à longue portée du Messager, vous gagnez une Peur."
+      },
+      {
+        "nom": "Décapiter",
+        "tag": "action",
+        "texte": "Dépensez 2 Peur pour que le Messager fasse un jet d'attaque contre un PJ au Corps à corps. En cas de succès, lancez un d6. Sur un résultat de 6, la cible marque tous ses PB et doit faire une action de mort."
+      },
+      {
+        "nom": "Réveiller les déchus",
+        "tag": "action",
+        "texte": "Dépensez une Peur et marquez n'importe quel nombre de Stress pour que le Messager ressuscite un allié vaincu à longue portée. L'allié ressuscité efface un nombre de PB égal au nombre de Stress marqués. Mettez immédiatement l'allié en avant."
+      },
+      {
+        "nom": "Cendres aux cendres, poussière à la poussière",
+        "tag": "réaction",
+        "texte": "Quand le Messager devrait marquer des PB, vous pouvez marquer un Stress pour qu'un allié à longue portée marque les PB à la place."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "messager-de-la-peste",
+    "palier": 4,
+    "type": "Meneur",
+    "categorie": "Cavaliers de l'Apocalypse",
+    "nom": "Messager de la Peste",
+    "description": "Un amas boursouflé et pourrissant d'insectes grouillants et de limaces formant une seule masse humanoïde, chevauchant un cheval rongé par les vers.",
+    "motivation": "Corrompre les purs, infecter les faibles, invoquer fléaux et maladies",
+    "difficulte": 18,
+    "seuilMineur": 37,
+    "seuilMajeur": 70,
+    "blessure": 7,
+    "stress": 8,
+    "modAttaque": 8,
+    "attaqueStandard": "Toucher de corruption : mêlée, 4d10+10 mag",
+    "experience": "Pourriture +3",
+    "aptitudes": [
+      {
+        "nom": "Halo de contagion",
+        "tag": "passive",
+        "texte": "Le Messager est Contagieux. Quand un PJ à très courte portée d'une créature Contagieuse agit, il lance un d6. Sur un résultat de 1, le PJ devient Contagieux. Tant qu'il est Contagieux, un PJ a le désavantage aux jets d'action jusqu'à ce qu'il dépense 3 Espoir pour lever la condition. Les adversaires Contagieux ne sont pas affectés par la condition."
+      },
+      {
+        "nom": "Monture",
+        "tag": "passive",
+        "texte": "Tant que le Messager est sur sa monture, il gagne un bonus de +2 à sa Difficulté. Quand le Messager subit des dégâts Grave, il est désarçonné. Si le Messager est à pied, sa monture disparaît jusqu'à ce que vous marquiez un Stress pour la convoquer de nouveau."
+      },
+      {
+        "nom": "Nuée de sauterelles",
+        "tag": "action",
+        "texte": "Dépensez 2 Peur pour que le Messager conjure une nuée de sauterelles en un point à très longue portée. Chaque PJ à courte portée de ce point doit soit marquer un emplacement d'Armure, soit subir 4d10 dégâts physiques directs et lancer un d6. Sur un résultat de 1-2, le PJ devient Contagieux."
+      },
+      {
+        "nom": "Engeance de grenouilles",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Messager conjure une couvée de grenouilles malades dans la bouche d'un maximum de trois PJ à courte portée. Chaque PJ doit réussir un jet de réaction de Présence ou subir 4d12 dégâts magiques et lancer un d6. Sur un résultat de 1-3, le PJ devient Contagieux."
+      },
+      {
+        "nom": "Semeur de peste",
+        "tag": "action",
+        "texte": "Marquez n'importe quel nombre de Stress jusqu'au nombre de PJ dans la scène. Pour chaque Stress marqué, le Messager invoque 1d4 Légions de zombies Contagieux à longue portée et met immédiatement l'une d'elles en avant."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "larve-cephilith",
+    "palier": 4,
+    "type": "Sbire",
+    "categorie": "céphilith",
+    "nom": "Larve céphilith",
+    "description": "Un parasite semblable à un calmar qui s'accroche au crâne de sa proie et baigne le cerveau de la victime de neurotoxines extradimensionnelles.",
+    "motivation": "Grimper, se nourrir, éclore, engourdir, trottiner",
+    "difficulte": 18,
+    "seuilMineur": null,
+    "seuilMajeur": null,
+    "blessure": 1,
+    "stress": 1,
+    "modAttaque": 3,
+    "attaqueStandard": "Ventouses barbelées : mêlée, 9 phy",
+    "experience": "Psychique +2",
+    "aptitudes": [
+      {
+        "nom": "Sbire (12)",
+        "tag": "passive",
+        "texte": "Le Nouveau-né est vaincu dès que il subit des dégâts. Pour chaque tranche de 12 dégâts qu'un PJ inflige au Nouveau-né, il vainc un Sbire supplémentaire à portée contre lequel l'attaque aurait réussi."
+      },
+      {
+        "nom": "Plonger dans le coma",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Nouveau-né s'accroche à la tête d'un PJ au Corps à corps. Le PJ doit marquer un Stress tandis que le Nouveau-né injecte des produits psycho-chimiques dans son cerveau, et il doit marquer un Stress supplémentaire chaque fois qu'un PJ échoue à un jet avec Peur. Le PJ peut retirer le Nouveau-né en dépensant un nombre d'Espoir égal au nombre de Stress qu'il a marqués. Si un PJ marque son dernier Stress alors que le Nouveau-né est accroché, il doit faire une action de mort. Si le PJ meurt, vous pouvez dépenser une Peur pour le ressusciter en Novice céphilith."
+      },
+      {
+        "nom": "Attaque de groupe",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour choisir une cible et mettre en avant tous les Nouveau-nés céphiliths à courte portée de celle-ci. Ces Sbires se déplacent au Corps à corps de la cible et font un seul jet d'attaque partagé. En cas de succès, ils infligent chacun 9 dégâts physiques. Additionnez ces dégâts."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "novice-cephilith",
+    "palier": 4,
+    "type": "Sbire",
+    "categorie": "céphilith",
+    "nom": "Novice céphilith",
+    "description": "Une lumière du Royaume mortel qui a donné son esprit à des entités extradimensionnelles en échange de capacités occultes.",
+    "motivation": "Aider les autres à voir la Vérité, ouvrir la voie à Elle, chercher le savoir interdit",
+    "difficulte": 16,
+    "seuilMineur": null,
+    "seuilMajeur": null,
+    "blessure": 1,
+    "stress": 1,
+    "modAttaque": 2,
+    "attaqueStandard": "Puissance occulte : mêlée, 12 phy",
+    "experience": "Visions +2",
+    "aptitudes": [
+      {
+        "nom": "Sbire (12)",
+        "tag": "passive",
+        "texte": "Le Novice est vaincu dès que il subit des dégâts. Pour chaque tranche de 12 dégâts qu'un PJ inflige au Novice, il vainc un Sbire supplémentaire à portée contre lequel l'attaque aurait réussi."
+      },
+      {
+        "nom": "Attaque de groupe",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour choisir une cible et mettre en avant tous les Novices céphiliths à courte portée de celle-ci. Ces Sbires se déplacent au Corps à corps de la cible et font un seul jet d'attaque partagé. En cas de succès, ils infligent chacun 12 dégâts physiques. Additionnez ces dégâts."
+      },
+      {
+        "nom": "Se sacrifier",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Novice se jette sur une cible à longue portée et se fonde en elle. Infligez 12 dégâts magiques directs à la cible et vainquez le Novice."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "ombre-separee",
+    "palier": 4,
+    "type": "Sbire",
+    "categorie": "Esprit",
+    "nom": "Ombre séparée",
+    "description": "Une ombre vivante à deux dimensions, liée aux surfaces et aux plans plats.",
+    "motivation": "Maudire la lumière, se glisser dans les interstices, se diviser et se reformer",
+    "difficulte": 19,
+    "seuilMineur": null,
+    "seuilMajeur": null,
+    "blessure": 1,
+    "stress": 2,
+    "modAttaque": 3,
+    "attaqueStandard": "Strangulation : courte, 10 mag",
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Sbire (12)",
+        "tag": "passive",
+        "texte": "L'Ombre est vaincue dès que elle subit des dégâts. Pour chaque tranche de 12 dégâts qu'un PJ inflige à l'Ombre, il vainc un Sbire supplémentaire à portée contre lequel l'attaque aurait réussi."
+      },
+      {
+        "nom": "Étreinte d'ombre",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire une attaque contre une cible à courte portée. En cas de succès, la cible devient Vulnérable et doit marquer un Stress quand elle agit jusqu'à ce que l'Ombre soit vaincue."
+      },
+      {
+        "nom": "Attaque de groupe",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour choisir une cible et mettre en avant tous les Ombres séparées à courte portée de celle-ci. Ces Sbires se déplacent au Corps à corps de la cible et font un seul jet d'attaque partagé. En cas de succès, ils infligent chacun 10 dégâts magiques. Additionnez ces dégâts."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "pretre-cephilith",
+    "palier": 4,
+    "type": "Meneur",
+    "categorie": "Royaume extérieurs",
+    "nom": "Prêtre céphilith",
+    "description": "Un humanoïde sans visage, perpétuellement humide, venu des Royaumes extérieurs, aux doigts allongés et à la peau translucide sous laquelle on voit grouiller des vers.",
+    "motivation": "Briser l'esprit des mécréants, préparer ce monde à l'arrivée du Titan céphilith, chanter ses louanges",
+    "difficulte": 20,
+    "seuilMineur": 37,
+    "seuilMajeur": 70,
+    "blessure": 7,
+    "stress": 5,
+    "modAttaque": 8,
+    "attaqueStandard": "Frappe psychique : longue, 4d10+10 mag",
+    "experience": "Royaumes extérieurs +4",
+    "aptitudes": [
+      {
+        "nom": "Explosion psychique",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour choisir jusqu'à trois PJ à courte portée et les forcer à faire un jet de réaction de Connaissance. Les cibles qui réussissent subissent 2d10+5 dégâts magiques directs. Les cibles qui échouent subissent 4d10+10 dégâts magiques directs et sont Vulnérables jusqu'à ce qu'elles prennent la mise en avant."
+      },
+      {
+        "nom": "Incursion cérébrale",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour choisir une cible Vulnérable au Corps à corps. Le Prêtre l'attrape et lui insère ses doigts allongés dans les oreilles, le nez et la bouche. La cible doit réussir un jet de réaction de Force ou marquer 1d6 Stress, et le Prêtre efface un nombre égal de Stress."
+      },
+      {
+        "nom": "Emprise télékinétique",
+        "tag": "réaction",
+        "texte": "Quand le Prêtre réussit une attaque standard contre un PJ, vous pouvez marquer un Stress pour Entraver la cible jusqu'à ce qu'elle dépense un Espoir."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "seigneur-de-guerre-titan-de-feu",
+    "palier": 4,
+    "type": "Meneur",
+    "categorie": "Géant",
+    "nom": "Seigneur de guerre titan de feu",
+    "description": "Un colosse fumant obsédé par la bataille, vêtu d'une armure sur mesure et brandissant un énorme maillet.",
+    "motivation": "Rivaliser avec ses rivaux, conquérir les faibles, fabriquer de colossales machines de guerre",
+    "difficulte": 21,
+    "seuilMineur": 33,
+    "seuilMajeur": 66,
+    "blessure": 9,
+    "stress": 8,
+    "modAttaque": 6,
+    "attaqueStandard": "Maillet : très courte, 4d10+10 phy",
+    "experience": "Tactique +4",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (2)",
+        "tag": "passive",
+        "texte": "Le Seigneur de guerre peut être mis en avant jusqu'à deux fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Créateur de colosse",
+        "tag": "passive",
+        "texte": "Compte à rebours (6). Quand le Seigneur de guerre entre dans la scène, activez le compte à rebours. Il avance quand le Seigneur de guerre est mis en avant. Quand il arrive à terme, invoquez la Machine de guerre gigantesque, qui apparaît au bord du champ de bataille et prend immédiatement la mise en avant."
+      },
+      {
+        "nom": "Lâchez les chiens",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Seigneur de guerre invoque deux Meutes de chiens démoniaques, qui apparaissent à courte portée et prennent immédiatement la mise en avant."
+      },
+      {
+        "nom": "Frappe tournoyante",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire une attaque standard contre toutes les cibles à très courte portée et gagnez une Peur."
+      },
+      {
+        "nom": "Brise-sol",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Seigneur de guerre fracasse la terre d'un coup de maillet vers le bas et fasse une attaque contre un groupe à courte portée. Les cibles contre lesquelles l'attaque réussit subissent 4d10+10 dégâts directs. La zone devient un terrain difficile, et un PJ doit réussir un jet de réaction d'Agilité (16) pour la traverser."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "seigneur-demon-berzug",
+    "palier": 4,
+    "type": "Solo",
+    "categorie": "Déchu",
+    "nom": "Seigneur-démon Berzug",
+    "description": "Le souverain d'un cercle profond des Cercles inférieurs, une énorme bête hybride à la queue de serpent, aux pattes arrière de lézard, aux bras en pinces de crabe et à la tête de loup à deux visages.",
+    "motivation": "Détruire la bonté, semer le chaos, évincer ses rivaux",
+    "difficulte": 20,
+    "seuilMineur": 35,
+    "seuilMajeur": 70,
+    "blessure": 12,
+    "stress": 8,
+    "modAttaque": 8,
+    "attaqueStandard": "Griffes abyssales : courte, 4d12+10 phy",
+    "experience": "Savoir infernal +3",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (3)",
+        "tag": "passive",
+        "texte": "Berzug peut être mis en avant jusqu'à trois fois par tour du MJ. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Fouet du chaos",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que Berzug fouette jusqu'à trois PJ à courte portée et force chaque cible à faire un jet de réaction d'Agilité. Les cibles qui échouent subissent 4d20 dégâts physiques. Les cibles qui réussissent subissent la moitié des dégâts."
+      },
+      {
+        "nom": "Regard dans l'abîme",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que Berzug plonge son regard dans celui d'un PJ à longue portée. La cible doit réussir un jet de réaction de Présence ou subir l'une des conditions suivantes (lancez un d6 et utilisez le résultat correspondant) : 1-2 : Hypnotisé. La cible se déplace immédiatement au Corps à corps de Berzug et est Vulnérable et Bloquée jusqu'à ce qu'elle lève la condition avec un jet d'Instinct réussi. 3-4 : Confus. La cible doit marquer un Stress chaque fois qu'elle fait un jet d'action jusqu'à ce qu'elle lève la condition avec un jet de Connaissance réussi. 5-6 : Asservi. Jusqu'à ce que le PJ réussisse un jet de Présence pour lever la condition, vous pouvez le mettre en avant pendant un tour du MJ comme s'il était un adversaire. Quand vous le faites, choisissez une cible à courte portée du PJ Asservi. Le PJ Asservi se déplace au Corps à corps de la cible et fait une attaque d'arme contre elle en utilisant un d20 au lieu des dés de Dualité."
+      },
+      {
+        "nom": "Frappe écrasante",
+        "tag": "réaction",
+        "texte": "Quand un PJ marque des PB à cause de l'attaque standard de Berzug, vous pouvez marquer un Stress pour le forcer à marquer un nombre de Stress égal au nombre de PB qu'il a marqués. Vous gagnez une Peur."
+      },
+      {
+        "nom": "Horrifiant",
+        "tag": "réaction",
+        "texte": "Quand un PJ échoue à une attaque contre Berzug, vous gagnez une Peur."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "chouette-maudite",
+    "palier": 4,
+    "type": "Soutien",
+    "categorie": "Monstre",
+    "nom": "Chouette maudite",
+    "description": "Une chouette effraie géante et vengeresse, d'une envergure de quatre mètres cinquante et au visage humain.",
+    "motivation": "Consumer l'essence, maudire, prédire la mort",
+    "difficulte": 19,
+    "seuilMineur": 27,
+    "seuilMajeur": 47,
+    "blessure": 4,
+    "stress": 3,
+    "modAttaque": 7,
+    "attaqueStandard": "Serres rasoirs : très courte, 4d8+5 phy",
+    "experience": "Magie +2, Rôdeuse nocturne +2",
+    "aptitudes": [
+      {
+        "nom": "Mauvais présage",
+        "tag": "passive",
+        "texte": "Quand un PJ à courte portée fait un jet d'action, son dé de Peur gagne un bonus égal à la quantité de Peur que vous avez."
+      },
+      {
+        "nom": "Barrière de sorcière",
+        "tag": "passive",
+        "texte": "La Chouette maudite a une résistance aux dégâts magiques."
+      },
+      {
+        "nom": "Imitation de voix",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que la Chouette maudite appelle, avec la voix d'une personne chère, une créature à portée de voix. La cible doit réussir un jet de réaction d'Instinct ou se déplacer jusqu'à longue portée vers la Chouette maudite."
+      },
+      {
+        "nom": "Regard cauchemardesque",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que la Chouette maudite Afflige un PJ à longue portée de cauchemars éveillés, à moins que la cible ne réussisse un jet de réaction de Connaissance. Tant qu'elle est Affligée, la cible ne peut pas effacer de PB ni de Stress. La condition est levée quand un autre PJ utilise une action de temps mort pour réconforter la créature Affligée."
+      },
+      {
+        "nom": "Visions d'une fin violente",
+        "tag": "réaction",
+        "texte": "Quand la Chouette maudite est ciblée par une attaque, vous pouvez dépenser une Peur pour forcer l'attaquant à faire un jet de réaction de Présence. En cas d'échec, il doit marquer 1d4 Stress tandis que son esprit est inondé d'images déchirantes."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "titan-cephilith",
+    "palier": 4,
+    "type": "Solo",
+    "categorie": "céphilith",
+    "nom": "Titan céphilith",
+    "description": "Une entité transdimensionnelle sous la forme d'un humanoïde ailé d'une taille improbable, à la tête de pieuvre et aux rangées d'yeux luisants.",
+    "motivation": "Appeler et consumer ses fidèles, corrompre la réalité, envahir le Royaume mortel, déverser le chaos",
+    "difficulte": 20,
+    "seuilMineur": 38,
+    "seuilMajeur": 68,
+    "blessure": 10,
+    "stress": 10,
+    "modAttaque": 8,
+    "attaqueStandard": "Pseudo-griffe : courte, 4d8+10 mag",
+    "experience": "Chaos +5, Psychique +5",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (X)",
+        "tag": "passive",
+        "texte": "Le Titan peut être mis en avant jusqu'à X fois par tour du MJ, où X est égal au nombre de PJ dans la scène. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Terrifiant",
+        "tag": "passive",
+        "texte": "Quand le Titan réussit une attaque, tous les PJ à courte portée perdent un Espoir et vous gagnez une Peur."
+      },
+      {
+        "nom": "Simple projection",
+        "tag": "passive",
+        "texte": "Le Titan apparaît dans le Royaume mortel sous la forme d'une projection psychique approchant sa véritable forme. Il est immunisé contre les dégâts physiques et a une résistance aux dégâts magiques."
+      },
+      {
+        "nom": "Hurlement psychique",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Titan déchaîne un flot de visions cauchemardesques des Royaumes extérieurs qui fracasse l'esprit. Chaque PJ à longue portée doit faire un jet de réaction d'Instinct (22). Les cibles qui échouent subissent 4d12 dégâts magiques directs. Les cibles qui réussissent doivent marquer un Stress."
+      },
+      {
+        "nom": "Invoquer les fidèles",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour invoquer 1d4 Abominations des Royaumes extérieurs, qui apparaissent à longue portée, puis choisissez-en une pour la mettre immédiatement en avant."
+      },
+      {
+        "nom": "« Il est là… »",
+        "tag": "évolution",
+        "texte": "Quand le Titan a marqué la moitié de ses PB, il se manifeste sous sa forme complète, efface tous ses PB et perd l'aptitude « Simple projection ». Tant que le Titan est sous cette forme, une créature qui marque des PB à cause de l'attaque standard du Titan doit marquer 1 PB supplémentaire."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "titan-des-nuages",
+    "palier": 4,
+    "type": "Social",
+    "categorie": "Géant",
+    "nom": "Titan des nuages",
+    "description": "Un colosse à la peau bleue d'une beauté extraordinaire, vêtu des plus fines soieries et ruisselant de bijoux. Il savoure les belles choses et vit dans un palais céleste rempli de trésors.",
+    "motivation": "Acquérir des objets rares et précieux, célébrer la beauté, ne jamais refuser un pari intéressant",
+    "difficulte": 18,
+    "seuilMineur": 26,
+    "seuilMajeur": 42,
+    "blessure": 6,
+    "stress": 5,
+    "modAttaque": 3,
+    "attaqueStandard": "Lame sertie de joyaux : très courte, 4d6+8 phy",
+    "experience": "Luxe +3, Noblesse +3",
+    "aptitudes": [
+      {
+        "nom": "Éclair foudroyant",
+        "tag": "action",
+        "texte": "Marquez un Stress pour faire une attaque contre une cible à longue portée. En cas de succès, infligez 4d10+14 dégâts magiques et lancez un d6. Sur un résultat de 4 ou plus, la foudre rebondit et le Titan fait cette attaque contre une cible différente à très courte portée de la précédente. Chaque fois que la foudre rebondit, diminuez ses dégâts de 1d10."
+      },
+      {
+        "nom": "Tisseur de brume",
+        "tag": "action",
+        "texte": "Dépensez une Peur et choisissez un point à longue portée. Le Titan conjure un épais brouillard sur la zone à courte portée de ce point. Le Titan est Caché aux ennemis dans le brouillard et de l'autre côté, et a l'avantage aux attaques contre les créatures à l'intérieur. Le brouillard dure jusqu'à ce que le Titan marque des PB."
+      },
+      {
+        "nom": "Transformation nébuleuse",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que le Titan se transforme en un nuage de brume qui remplit une zone à très courte portée. Sous cette forme, le Titan subit le double des dégâts magiques et est immunisé contre les dégâts physiques. Cette forme dure jusqu'à ce que le Titan décide d'en sortir ou subisse des dégâts Grave."
+      },
+      {
+        "nom": "Libérer la ménagerie",
+        "tag": "action",
+        "texte": "Une fois par scène, marquez n'importe quel nombre de Stress pour invoquer un nombre égal de Griffons, qui apparaissent à courte portée."
+      },
+      {
+        "nom": "Ouvrier du vent",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que le Titan souffle un vent violent sur une cible à courte portée. La cible subit 4d6+8 dégâts physiques et est repoussée à longue portée de sa position actuelle."
+      },
+      {
+        "nom": "Quitte ou double",
+        "tag": "réaction",
+        "texte": "Quand vous gagneriez une Peur à cause d'une attaque contre le Titan, vous pouvez lancer un d6. Sur un résultat impair, vous ne gagnez pas la Peur. Sur un résultat pair, vous gagnez 2 Peur au lieu de 1."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "dragonnet-3-pb",
+    "palier": 4,
+    "type": "Horde",
+    "categorie": "Draconien",
+    "nom": "Dragonnet (3/PB)",
+    "description": "Une couvée de dragons nouvellement éclos. Nouveau-nés, ils sont furieux, affamés et stupides.",
+    "motivation": "Consumer, déchiqueter, pulluler",
+    "difficulte": 17,
+    "seuilMineur": 25,
+    "seuilMajeur": 45,
+    "blessure": 8,
+    "stress": 5,
+    "modAttaque": 2,
+    "attaqueStandard": "Minuscules mâchoires et griffes : mêlée, 4d6+10 phy",
+    "experience": "Lien draconique +2",
+    "aptitudes": [
+      {
+        "nom": "Horde (2d6+5)",
+        "tag": "passive",
+        "texte": "Quand les Dragonnet ont marqué la moitié ou plus de leurs PB, leur attaque standard inflige 2d6+5 dégâts physiques à la place."
+      },
+      {
+        "nom": "Vorace",
+        "tag": "réaction",
+        "texte": "Une fois par tour du MJ, quand un PJ marque un PB à cause d'une attaque des Dragonnet , vous pouvez dépenser une Peur pour mettre de nouveau les Dragonnet en avant."
+      },
+      {
+        "nom": "Submerger",
+        "tag": "réaction",
+        "texte": "Quand les Dragonnet subissent des dégâts Mineurs d'une attaque au Corps à corps, vous pouvez marquer un Stress pour faire une attaque standard avec avantage contre l'attaquant."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027)",
+    "id": "xero-le-destructeur-de-chateaux",
+    "palier": 4,
+    "type": "Solo",
+    "categorie": "Déchu",
+    "nom": "Xero le destructeur de châteaux",
+    "description": "Un reptile bipède de la taille d'un château.",
+    "motivation": "Laisser un sillage de destruction, raser les bâtiments, piétiner les colonies",
+    "difficulte": 20,
+    "seuilMineur": 35,
+    "seuilMajeur": 70,
+    "blessure": 12,
+    "stress": 10,
+    "modAttaque": 8,
+    "attaqueStandard": "Coup de queue : courte, 4d12+6 phy",
+    "experience": "Destruction +5",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (X)",
+        "tag": "passive",
+        "texte": "Xero peut être mis en avant jusqu'à X fois par tour du MJ, où X est le nombre de PJ dans la scène. Dépensez de la Peur comme d'habitude pour le mettre en avant."
+      },
+      {
+        "nom": "Dégâts collatéraux",
+        "tag": "passive",
+        "texte": "Le déplacement de Xero ne peut être ni gêné, ni Bloqué, ni affecté par autre chose que le terrain naturel. Tous les obstacles et éléments de terrain destructibles sur le chemin de Xero sont détruits quand il les traverse."
+      },
+      {
+        "nom": "Piétinement gigatonne",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que Xero abatte son pied avec force, créant un tremblement de terre localisé. Chaque PJ au Corps à corps subit 4d12 dégâts physiques et est Bloqué jusqu'à ce qu'il se dégage avec un jet de Finesse réussi. Chaque créature au-delà du Corps à corps mais à courte portée doit réussir un jet de réaction d'Instinct ou être projetée à longue portée. Si une cible est projetée, elle doit soit marquer un emplacement d'Armure, soit subir 4d12 dégâts physiques à l'atterrissage."
+      },
+      {
+        "nom": "Dérapage",
+        "tag": "action",
+        "texte": "Marquez un Stress pour vous déplacer jusqu'à courte portée. Chaque PJ que Xero traverse doit réussir un jet de réaction de Force ou choisir entre marquer 2 emplacements d'Armure ou subir des dégâts Grave."
+      },
+      {
+        "nom": "Souffle radioactif",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour que Xero charge un rayon nucléaire. Placez un jeton sur ce bloc de stats. La prochaine fois que Xero est mis en avant, vous pouvez dépenser ce jeton et déchaîner un rayon jusqu'à très longue portée. Le rayon a une largeur de courte portée. Chaque PJ dans cette zone doit faire un jet de réaction d'Agilité. Les cibles qui échouent subissent 4d12+12 dégâts magiques directs. Les cibles qui réussissent subissent la moitié des dégâts. Xero ne peut pas réutiliser cette aptitude avant d'avoir subi des dégâts Grave."
+      },
+      {
+        "nom": "Régénération",
+        "tag": "action",
+        "texte": "Jusqu'à trois fois par scène, dépensez n'importe quel nombre de Peur pour effacer un nombre égal de PB."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027, règne de la drakanthrope)",
+    "id": "forlorne-lykona",
+    "palier": 4,
+    "type": "Solo",
+    "categorie": "Draconien",
+    "nom": "Forlorne Lykona",
+    "description": "Majestueuse sous sa forme de faune, d'une beauté grotesque sous sa forme de dragon aux écailles violettes, la reine drakanthrope use de magie pour vaincre tous ceux qui menacent son règne.",
+    "motivation": "S'élever jusqu'aux étoiles, apprendre de nouvelles magies, régner par la terreur, se transformer",
+    "difficulte": null,
+    "seuilMineur": null,
+    "seuilMajeur": null,
+    "blessure": 11,
+    "stress": 8,
+    "modAttaque": null,
+    "attaqueStandard": null,
+    "experience": "Savoir arcanique +5, Mort venue du ciel +5",
+    "aptitudes": [
+      {
+        "nom": "Impitoyable (4)",
+        "tag": "passive",
+        "texte": "Forlorne peut être mise en avant jusqu'à quatre fois par tour du MJ. Dépensez de la Peur comme d'habitude pour la mettre en avant."
+      },
+      {
+        "nom": "Transformation",
+        "tag": "action",
+        "texte": "Marquez un Stress pour que Forlorne passe de sa Forme de dragon à sa Forme de faune, ou inversement. Tant qu'elle incarne une forme, elle utilise ses statistiques et ses aptitudes."
+      },
+      {
+        "nom": "Se nourrir de la Peur",
+        "tag": "réaction",
+        "texte": "Quand un PJ à courte portée échoue avec Peur, Forlorne peut effacer un PB ou un Stress."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027, règne de la drakanthrope)",
+    "id": "forme-de-faune-de-forlorne",
+    "palier": 4,
+    "type": "Solo",
+    "categorie": "Draconien",
+    "nom": "Forme de faune de Forlorne",
+    "description": "Cette forme reflète le charme diabolique, la civilité et la ruse de Forlorne. C'est son corps d'origine et la forme qui lui est la plus familière. Elle l'adopte lorsqu'elle supervise les affaires de son royaume, et c'est la forme sous laquelle les PJ ont le plus de chances de l'affronter en dehors des combats.",
+    "motivation": null,
+    "difficulte": 18,
+    "seuilMineur": 35,
+    "seuilMajeur": 70,
+    "blessure": null,
+    "stress": null,
+    "modAttaque": 6,
+    "attaqueStandard": "Incantation occulte : longue, 4d8+14 mag",
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Téléportation de combat",
+        "tag": "passive",
+        "texte": "Avant ou après une attaque standard, vous pouvez marquer un Stress pour que Forlorne se téléporte à un endroit situé à longue portée."
+      },
+      {
+        "nom": "Lianes agrippantes",
+        "tag": "action",
+        "texte": "Dépensez une Peur pour cibler un groupe à longue portée. Chaque cible doit réussir un jet de réaction d'Agilité ou subir 2d8+7 dégâts magiques et devenir Bloquée jusqu'à ce qu'elle se libère avec un jet de Force réussi. Les lianes persistent jusqu'à ce que Forlorne subisse des dégâts graves, utilise de nouveau cette aptitude ou y mette fin."
+      },
+      {
+        "nom": "Regard de pierre",
+        "tag": "réaction",
+        "texte": "Quand Forlorne subit des dégâts d'une attaque à courte portée, vous pouvez dépenser 2 Peur pour forcer l'attaquant à faire un jet de réaction d'Instinct. En cas d'échec, la cible doit dépenser 3 Espoir ou gagner la malédiction de pétrification. Tant que cet état n'est pas effacé, la cible et l'équipement qu'elle porte ou transporte se changent en pierre. Sous l'effet de la malédiction de pétrification, la cible est Bloquée et Vulnérable, ne peut pas agir et gagne un bonus de +10 à ses seuils de dégâts."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027, règne de la drakanthrope)",
+    "id": "forme-de-dragon-de-forlorne",
+    "palier": 4,
+    "type": "Solo",
+    "categorie": "Draconien",
+    "nom": "Forme de dragon de Forlorne",
+    "description": "Cette forme reflète l'impitoyable intolérance de Forlorne, qui emprunte la forme de Sazanthe, dragon autrefois pacifique, pour semer la peur parmi son peuple. Sous sa forme de dragon, Forlorne est rapace et terrifiante, ayant abandonné les artifices de la civilité et de la royauté pour assouvir ses envies primitives.",
+    "motivation": null,
+    "difficulte": 20,
+    "seuilMineur": 40,
+    "seuilMajeur": 80,
+    "blessure": null,
+    "stress": null,
+    "modAttaque": 8,
+    "attaqueStandard": "Griffes et crocs : courte, 4d10+10 phy",
+    "experience": null,
+    "aptitudes": [
+      {
+        "nom": "Vol",
+        "tag": "passive",
+        "texte": "En vol, Forlorne gagne un bonus de +3 à sa Difficulté."
+      },
+      {
+        "nom": "Terrifiante",
+        "tag": "passive",
+        "texte": "Quand Forlorne réussit une attaque, tous les PJ à longue portée perdent un Espoir et vous gagnez une Peur."
+      },
+      {
+        "nom": "Souffle dévastateur",
+        "tag": "action",
+        "texte": "Dépensez 2 Peur pour que Forlorne expire un nuage d'énergie magique qui remplit une zone à courte portée. Chaque cible dans cette zone doit faire un jet de réaction de Présence. En cas d'échec, elle doit marquer 3 Stress ou gagner la malédiction du drake-garou. Sous l'effet de cette malédiction, la cible lâche son équipement et son butin et se transforme en adversaire drake-garou sous le contrôle du MJ. Une fois cet état effacé, la cible ne garde aucun souvenir du temps passé sous forme de drake-garou."
+      },
+      {
+        "nom": "Coup de queue",
+        "tag": "réaction",
+        "texte": "Quand Forlorne marque 1 PB ou plus à cause d'une attaque à très courte portée, vous pouvez marquer un Stress pour infliger 2d10+10 dégâts physiques à toutes les créatures à cette portée."
+      }
+    ]
+  },
+  {
+    "source": "Espoir et Peur (2027, règne de la drakanthrope)",
+    "id": "drake-garou",
+    "palier": 1,
+    "type": "Standard",
+    "categorie": "Draconien",
+    "nom": "Drake-garou",
+    "description": "Une personne transformée en prédateur draconique sans ailes par le souffle d'un drakanthrope.",
+    "motivation": "Faim de chair, chasser en petites meutes",
+    "difficulte": 12,
+    "seuilMineur": 8,
+    "seuilMajeur": 14,
+    "blessure": 5,
+    "stress": 2,
+    "modAttaque": 2,
+    "attaqueStandard": "Griffes et crocs : mêlée, 1d8+3 phy",
+    "experience": "Chasseur de meute +3",
+    "aptitudes": [
+      {
+        "nom": "Grimpeur",
+        "tag": "passive",
+        "texte": "Le Drake-garou grimpe aussi aisément qu'il court."
+      },
+      {
+        "nom": "Tactique de meute",
+        "tag": "passive",
+        "texte": "Quand le Drake-garou réussit une attaque standard et qu'un autre Drake-garou se trouve au Corps à corps de la cible, infligez 1d8+6 dégâts physiques au lieu des dégâts standard et gagnez une Peur."
+      },
+      {
+        "nom": "Apparence innocente",
+        "tag": "action",
+        "texte": "Le Drake-garou prend magiquement la forme qu'avait la personne avant sa transformation, mais conserve ses griffes et ses crocs. Cette forme dure jusqu'à sa mort ou jusqu'à ce qu'il utilise de nouveau cette aptitude pour reprendre sa forme draconique."
       }
     ]
   }
