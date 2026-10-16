@@ -263,17 +263,27 @@
         align-items: center;
         justify-content: center;
       }
-      .niveau-shield svg {
+      .niveau-blason {
+        position: relative;
+        width: 90px;
+        height: 90px;
+        flex: 0 0 auto;
+      }
+      .niveau-blason svg {
         width: 90px;
         height: 90px;
         display: block;
       }
       .niveau-shield #niveau-input {
         position: absolute;
-        top: 49%;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 40px;
+        height: 1.6rem;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6rem;
         text-align: center;
         font-size: 1.3rem;
         font-weight: bold;
@@ -2395,6 +2405,92 @@
       .weapon-name-row {
         margin-bottom: 8px;
       }
+      /* Menus avec recherche (armes / armure) : le <select> d'origine reste dans
+         la page, masqué, pour la sauvegarde ; l'utilisateur tape dans ce champ. */
+      .cb-wrap {
+        position: relative;
+      }
+      .cb-wrap::after {
+        content: "▾";
+        position: absolute;
+        right: 6px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--muted);
+        font-size: 0.8rem;
+        pointer-events: none;
+      }
+      input.cb-input {
+        padding-right: 20px;
+        text-overflow: ellipsis;
+      }
+      .cb-liste {
+        position: fixed;
+        z-index: 1000;
+        display: none;
+        overflow-y: auto;
+        background: var(--charcoal);
+        border: 1px solid var(--rule);
+        border-radius: 8px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      }
+      .cb-liste.ouvert {
+        display: block;
+      }
+      .cb-item {
+        padding: 6px 10px;
+        cursor: pointer;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .cb-item:last-child {
+        border-bottom: none;
+      }
+      .cb-item:hover,
+      .cb-item.actif {
+        background: rgba(255, 255, 255, 0.09);
+      }
+      .cb-item.courant .cb-nom {
+        color: var(--accent);
+      }
+      .cb-nom {
+        font-size: 0.9rem;
+        color: var(--ink);
+      }
+      .cb-meta {
+        font-size: 0.72rem;
+        color: var(--muted);
+      }
+      .cb-apt {
+        font-size: 0.72rem;
+        color: var(--muted);
+        font-style: italic;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .cb-entete {
+        padding: 4px 10px;
+        font-size: 0.68rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.06);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .cb-vide {
+        padding: 8px 10px;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+      /* Nom libre pour une arme / armure personnalisée (option « Autre ») */
+      .nom-perso-row {
+        display: none;
+        margin-bottom: 8px;
+      }
+      .nom-perso-row.visible {
+        display: block;
+      }
 
       .capacites {
         min-height: 220px;
@@ -3185,6 +3281,7 @@
               <button type="button" onclick="changerCompteur(1)" aria-label="Augmenter le compteur">+</button>
             </div>
           </div>
+          <div class="niveau-blason">
           <svg viewBox="0 0 100 100">
             <path
               d="M50 5 L90 20 L90 55 Q90 85 50 95 Q10 85 10 55 L10 20 Z"
@@ -3203,6 +3300,7 @@
               recalculerCompetenceNiveau();
             "
           />
+          </div>
         </div>
       </div>
 
@@ -3846,6 +3944,16 @@
                     onblur="collapseArmeOptions('principale')"
                   ></select>
                 </div>
+                <div class="nom-perso-row" id="arme-principale-nom-perso-row">
+                  <label class="field-label">nom de l'arme personnalisée</label>
+                  <input
+                    type="text"
+                    class="nom-perso"
+                    id="arme-principale-nom-perso"
+                    placeholder="ex : Lame du Roi-Corbeau"
+                    oninput="majLibelleArmePerso('principale')"
+                  />
+                </div>
                 <div class="weapon-grid weapon-grid-3">
                   <div>
                     <label class="field-label">trait</label
@@ -3883,6 +3991,16 @@
                     onfocus="expandArmeOptions('secondaire')"
                     onblur="collapseArmeOptions('secondaire')"
                   ></select>
+                </div>
+                <div class="nom-perso-row" id="arme-secondaire-nom-perso-row">
+                  <label class="field-label">nom de l'arme personnalisée</label>
+                  <input
+                    type="text"
+                    class="nom-perso"
+                    id="arme-secondaire-nom-perso"
+                    placeholder="ex : Lame du Roi-Corbeau"
+                    oninput="majLibelleArmePerso('secondaire')"
+                  />
                 </div>
                 <div class="weapon-grid weapon-grid-3">
                   <div>
@@ -3929,12 +4047,22 @@
                 </div>
                 <div>
                   <label class="field-label">seuils de base</label
-                  ><input type="text" id="armure-seuils" />
+                  ><input type="text" id="armure-seuils" oninput="majArmurePerso()" />
                 </div>
                 <div>
                   <label class="field-label">score de base</label
-                  ><input type="text" id="armure-score" />
+                  ><input type="text" id="armure-score" oninput="majArmurePerso()" />
                 </div>
+              </div>
+              <div class="nom-perso-row" id="armure-nom-perso-row">
+                <label class="field-label">nom de l'armure personnalisée</label>
+                <input
+                  type="text"
+                  class="nom-perso"
+                  id="armure-nom-perso"
+                  placeholder="ex : Cuirasse de l'aube"
+                  oninput="majLibelleArmurePerso()"
+                />
               </div>
               <label class="field-label">atout</label>
               <div
@@ -4015,6 +4143,16 @@
                     onblur="collapseArmeOptions('inv1')"
                   ></select>
                 </div>
+                <div class="nom-perso-row" id="arme-inv1-nom-perso-row">
+                  <label class="field-label">nom de l'arme personnalisée</label>
+                  <input
+                    type="text"
+                    class="nom-perso"
+                    id="arme-inv1-nom-perso"
+                    placeholder="ex : Lame du Roi-Corbeau"
+                    oninput="majLibelleArmePerso('inv1')"
+                  />
+                </div>
                 <div class="weapon-grid weapon-grid-3">
                   <div>
                     <label class="field-label">trait</label
@@ -4060,6 +4198,16 @@
                     onfocus="expandArmeOptions('inv2')"
                     onblur="collapseArmeOptions('inv2')"
                   ></select>
+                </div>
+                <div class="nom-perso-row" id="arme-inv2-nom-perso-row">
+                  <label class="field-label">nom de l'arme personnalisée</label>
+                  <input
+                    type="text"
+                    class="nom-perso"
+                    id="arme-inv2-nom-perso"
+                    placeholder="ex : Lame du Roi-Corbeau"
+                    oninput="majLibelleArmePerso('inv2')"
+                  />
                 </div>
                 <div class="weapon-grid weapon-grid-3">
                   <div>
@@ -7543,6 +7691,11 @@
         el.value = (n >= 0 ? "+" : "") + n;
       }
 
+      // Valeur de l'option « Autre » (arme / armure personnalisée) dans les menus
+      const VALEUR_PERSO = "perso";
+      const LIBELLE_ARME_PERSO = "✎ Autre (arme personnalisée)…";
+      const LIBELLE_ARMURE_PERSO = "✎ Autre (armure personnalisée)…";
+
       function remplirArmureSelect() {
         const sel = document.getElementById("armure-select");
         sel.innerHTML = "";
@@ -7552,6 +7705,13 @@
         optVide.dataset.name = "- choisir -";
         optVide.dataset.full = "- choisir -";
         sel.appendChild(optVide);
+        // Option « Autre » : armure absente de la liste (ex. créée par le MJ)
+        const optPerso = document.createElement("option");
+        optPerso.value = VALEUR_PERSO;
+        optPerso.dataset.name = LIBELLE_ARMURE_PERSO;
+        optPerso.dataset.full = LIBELLE_ARMURE_PERSO;
+        optPerso.textContent = LIBELLE_ARMURE_PERSO;
+        sel.appendChild(optPerso);
         ARMURES.forEach((a, i) => {
           const opt = document.createElement("option");
           opt.value = i;
@@ -7573,6 +7733,26 @@
             atoutTxt;
           opt.dataset.name = a.nom;
           opt.dataset.full = full;
+          opt.dataset.palier = a.palier;
+          opt.dataset.nom = a.nom;
+          opt.dataset.source = a.source || "";
+          opt.dataset.cle = [
+            a.nom,
+            "palier " + a.palier,
+            (a.source || "").replace(/\d+/g, ""),
+          ].join(" ");
+          opt.dataset.meta =
+            "Palier " +
+            a.palier +
+            " · seuils " +
+            a.seuil_dommages_mineurs +
+            "/" +
+            a.seuil_dommages_majeurs +
+            " · score " +
+            a.valeur_base;
+          opt.dataset.apt = a.aptitude
+            ? a.aptitude.nom + " : " + a.aptitude.description
+            : "";
           opt.textContent = a.nom;
           sel.appendChild(opt);
         });
@@ -7604,6 +7784,25 @@
           "armure-score-esquive",
         );
 
+        // Ligne « nom » visible uniquement pour une armure personnalisée
+        const nomPersoRow = document.getElementById("armure-nom-perso-row");
+        const nomPersoInput = document.getElementById("armure-nom-perso");
+        if (nomPersoRow) nomPersoRow.classList.toggle("visible", idx === VALEUR_PERSO);
+        if (idx !== VALEUR_PERSO && nomPersoInput) nomPersoInput.value = "";
+        majLibelleArmurePerso();
+
+        if (idx === VALEUR_PERSO) {
+          // Armure hors liste : le joueur renseigne lui-même seuils, score et atout
+          armureActive = null;
+          seuilsInput.value = "";
+          scoreInput.value = "";
+          atoutBox.innerHTML = "";
+          scoreEsquiveInput.value = "";
+          collapseArmureOptions();
+          if (nomPersoInput) nomPersoInput.focus();
+          return;
+        }
+
         if (idx === "") {
           armureActive = null;
           seuilsInput.value = "";
@@ -7631,6 +7830,55 @@
         scoreEsquiveInput.value = armureActive.valeur_base;
         updateSeuilsDommages();
         collapseArmureOptions();
+      }
+
+      // --- Armure personnalisée : seuils (« mineurs/majeurs ») et score saisis à la main ---
+      function construireArmurePerso() {
+        const seuils = document.getElementById("armure-seuils").value;
+        const m = seuils.match(/(\d+)\s*[\/\-–]\s*(\d+)/);
+        if (!m) return null;
+        return {
+          custom: true,
+          nom: "",
+          seuil_dommages_mineurs: parseInt(m[1], 10),
+          seuil_dommages_majeurs: parseInt(m[2], 10),
+          valeur_base:
+            parseInt(document.getElementById("armure-score").value, 10) || 0,
+          aptitude: null,
+        };
+      }
+
+      // Appelée à chaque frappe dans « seuils de base » / « score de base » :
+      // ne fait rien tant que l'armure choisie n'est pas « Autre ».
+      function majArmurePerso() {
+        if (document.getElementById("armure-select").value !== VALEUR_PERSO)
+          return;
+        armureActive = construireArmurePerso();
+        const sc = parseInt(document.getElementById("armure-score").value, 10);
+        if (!isNaN(sc))
+          document.getElementById("armure-score-esquive").value = sc;
+        updateSeuilsDommages();
+      }
+
+      // Le menu affiche le nom saisi à la place de « Autre » une fois renseigné
+      function majLibelleArmurePerso() {
+        majLibellePerso("armure-select", "armure-nom-perso", LIBELLE_ARMURE_PERSO);
+      }
+
+      function majLibellePerso(selectId, inputId, defaut) {
+        const sel = document.getElementById(selectId);
+        const inp = document.getElementById(inputId);
+        if (!sel || !inp) return;
+        const opt = Array.from(sel.options).find(function (o) {
+          return o.value === VALEUR_PERSO;
+        });
+        if (!opt) return;
+        const nom = inp.value.trim();
+        const txt = nom ? "✎ " + nom : defaut;
+        opt.dataset.name = txt;
+        opt.dataset.full = txt;
+        opt.textContent = txt;
+        rafraichirCombobox(selectId);
       }
 
       // Seuils de Dommages et santé = seuils de base de l'armure + niveau du personnage (+1 par palier)
@@ -7675,6 +7923,14 @@
         optVide.dataset.full = "- choisir -";
         sel.appendChild(optVide);
 
+        // Option « Autre » : arme absente de la liste (ex. créée par le MJ)
+        const optPerso = document.createElement("option");
+        optPerso.value = VALEUR_PERSO;
+        optPerso.dataset.name = LIBELLE_ARME_PERSO;
+        optPerso.dataset.full = LIBELLE_ARME_PERSO;
+        optPerso.textContent = LIBELLE_ARME_PERSO;
+        sel.appendChild(optPerso);
+
         function creerOption(a, i) {
           const opt = document.createElement("option");
           opt.value = i;
@@ -7699,6 +7955,27 @@
           opt.dataset.name =
             a.nom + (a.encombrement ? " (" + a.encombrement + ")" : "");
           opt.dataset.full = full;
+          opt.dataset.palier = a.palier;
+          opt.dataset.nom = a.nom;
+          opt.dataset.source = a.source || "";
+          opt.dataset.cle = [
+            a.nom,
+            "palier " + a.palier,
+            a.trait,
+            a.portee,
+            (a.source || "").replace(/\d+/g, ""),
+          ].join(" ");
+          opt.dataset.meta = [
+            "Palier " + a.palier,
+            a.trait,
+            a.portee,
+            a.degats,
+          ]
+            .filter(Boolean)
+            .join(" · ");
+          opt.dataset.apt = a.aptitude
+            ? a.aptitude.nom + " : " + a.aptitude.description
+            : "";
           opt.textContent = opt.dataset.name;
           return opt;
         }
@@ -7723,6 +8000,341 @@
         } else {
           armes.forEach((a, i) => sel.appendChild(creerOption(a, i)));
         }
+      }
+
+      function afficherNomPerso(slot, visible) {
+        const row = document.getElementById("arme-" + slot + "-nom-perso-row");
+        if (row) row.classList.toggle("visible", !!visible);
+      }
+
+      function majLibelleArmePerso(slot) {
+        majLibellePerso(
+          "arme-" + slot + "-select",
+          "arme-" + slot + "-nom-perso",
+          LIBELLE_ARME_PERSO,
+        );
+      }
+
+      // ============================================================
+      // MENUS AVEC RECHERCHE (armes + armure)
+      // Le <select> d'origine est conservé (masqué) : c'est lui qui porte la
+      // valeur, la sauvegarde et les onchange existants. Le champ texte ci-dessous
+      // filtre la liste au fil de la frappe (accents et majuscules ignorés).
+      // ============================================================
+      const COMBOBOX_IDS = [
+        "arme-principale-select",
+        "arme-secondaire-select",
+        "arme-inv1-select",
+        "arme-inv2-select",
+        "armure-select",
+      ];
+      let comboFermerCourant = null;
+
+      function normaliserRecherche(t) {
+        return String(t || "")
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase();
+      }
+
+      function libelleSelection(sel) {
+        const o = sel.selectedOptions[0];
+        if (!o || o.value === "") return "";
+        return o.dataset.name + (o.dataset.palier ? " · palier " + o.dataset.palier : "");
+      }
+
+      function rafraichirCombobox(selectId) {
+        const sel = document.getElementById(selectId);
+        const inp = document.getElementById(selectId + "-cb");
+        if (!sel || !inp || document.activeElement === inp) return;
+        inp.value = libelleSelection(sel);
+      }
+
+      function rafraichirTousCombobox() {
+        COMBOBOX_IDS.forEach(rafraichirCombobox);
+      }
+
+      function creerCombobox(selectId) {
+        const sel = document.getElementById(selectId);
+        if (!sel || document.getElementById(selectId + "-cb")) return;
+
+        const wrap = document.createElement("div");
+        wrap.className = "cb-wrap";
+        const inp = document.createElement("input");
+        inp.type = "text";
+        inp.id = selectId + "-cb";
+        inp.className = "cb-input";
+        inp.autocomplete = "off";
+        inp.spellcheck = false;
+        inp.placeholder = "- choisir - (tapez pour chercher)";
+        inp.setAttribute("role", "combobox");
+        inp.setAttribute("aria-autocomplete", "list");
+        wrap.appendChild(inp);
+        sel.parentNode.insertBefore(wrap, sel);
+        sel.style.display = "none";
+
+        // La liste est rattachée au <body> en position fixe : elle ne peut donc
+        // pas être coupée par les cadres (panels) de la fiche.
+        const liste = document.createElement("div");
+        liste.className = "cb-liste";
+        liste.id = selectId + "-cb-liste";
+        liste.setAttribute("role", "listbox");
+        document.body.appendChild(liste);
+        // garde le focus dans le champ quand on clique dans la liste (barre de défilement incluse)
+        liste.addEventListener("mousedown", function (e) {
+          e.preventDefault();
+        });
+
+        let entrees = [];
+        let actif = -1;
+        let recherche = "";
+        let ouvert = false;
+
+        function lireItems() {
+          return Array.from(sel.options).map(function (o) {
+            const groupe =
+              o.parentElement && o.parentElement.tagName === "OPTGROUP"
+                ? o.parentElement.label
+                : "";
+            return {
+              value: o.value,
+              palier: parseInt(o.dataset.palier, 10) || 99,
+              nomTri: String(o.dataset.nom || o.dataset.name || o.textContent)
+                .replace(/\s+/g, " ")
+                .trim(),
+              nom: o.dataset.name || o.textContent,
+              meta: o.dataset.meta || "",
+              apt: o.dataset.apt || "",
+              groupe: groupe,
+              // recherche sur nom, palier, trait, portée, livre : pas sur les dégâts ni le texte d'aptitude
+              cle: normaliserRecherche(
+                [o.dataset.cle || o.dataset.name, groupe].join(" "),
+              ),
+            };
+          });
+        }
+
+        function construireEntrees() {
+          const tous = lireItems();
+          const vide = tous.filter(function (i) { return i.value === ""; })[0];
+          const perso = tous.filter(function (i) { return i.value === VALEUR_PERSO; })[0];
+          let reguliers = tous.filter(function (i) {
+            return i.value !== "" && i.value !== VALEUR_PERSO;
+          });
+          // Ordre d'affichage : palier croissant, puis ordre alphabétique du nom
+          // (les valeurs des options restent les index d'origine : sauvegardes intactes).
+          function parPalierNom(a, b) {
+            if (a.palier !== b.palier) return a.palier - b.palier;
+            return a.nomTri.localeCompare(b.nomTri, "fr", { sensitivity: "base", numeric: true });
+          }
+          reguliers.sort(parPalierNom);
+          const q = recherche.trim();
+          if (!q) {
+            // liste complète : un intitulé « Palier N » avant chaque groupe
+            const res0 = [vide, perso].filter(Boolean);
+            let dernier = null;
+            reguliers.forEach(function (i) {
+              if (i.palier !== dernier) {
+                dernier = i.palier;
+                res0.push({ entete: "Palier " + i.palier });
+              }
+              res0.push(i);
+            });
+            return res0;
+          }
+          const mots = normaliserRecherche(q).split(/\s+/).filter(Boolean);
+          const qn = mots.join(" ");
+          reguliers = reguliers.filter(function (i) {
+            return mots.every(function (m) { return i.cle.indexOf(m) >= 0; });
+          });
+          function rang(i) {
+            const n = normaliserRecherche(i.nom);
+            return n.indexOf(qn) === 0 ? 0 : n.indexOf(qn) > 0 ? 1 : 2;
+          }
+          // tri stable : d'abord la pertinence, puis palier + nom (déjà triés ci-dessus)
+          reguliers.sort(function (a, b) { return rang(a) - rang(b); });
+          const res = reguliers.slice();
+          if (!res.length) res.push({ message: "Aucune correspondance dans la liste" });
+          if (perso) {
+            res.push({
+              value: VALEUR_PERSO,
+              nom: "✎ Autre : « " + q + " » (nom personnalisé)",
+              meta: "",
+              apt: "",
+              groupe: "",
+              saisie: true,
+            });
+          }
+          return res;
+        }
+
+        function estSelectionnable(e) {
+          return e && e.value !== undefined && !e.message && !e.entete;
+        }
+
+        function rendre() {
+          entrees = construireEntrees();
+          liste.innerHTML = "";
+          const courante = sel.value;
+          entrees.forEach(function (e, idx) {
+            if (e.message || e.entete) {
+              const m = document.createElement("div");
+              m.className = e.entete ? "cb-entete" : "cb-vide";
+              m.textContent = e.entete || e.message;
+              liste.appendChild(m);
+              return;
+            }
+            const d = document.createElement("div");
+            d.className = "cb-item" + (e.value === courante ? " courant" : "") + (idx === actif ? " actif" : "");
+            d.setAttribute("role", "option");
+            d.dataset.idx = idx;
+            const n = document.createElement("div");
+            n.className = "cb-nom";
+            n.textContent = e.value === "" ? "- choisir -" : e.nom;
+            d.appendChild(n);
+            const metaTxt = [e.meta, e.groupe].filter(Boolean).join(" · ");
+            if (metaTxt) {
+              const mt = document.createElement("div");
+              mt.className = "cb-meta";
+              mt.textContent = metaTxt;
+              d.appendChild(mt);
+            }
+            if (e.apt) {
+              const ap = document.createElement("div");
+              ap.className = "cb-apt";
+              ap.textContent = e.apt;
+              d.appendChild(ap);
+            }
+            d.addEventListener("mousedown", function (ev) {
+              ev.preventDefault();
+              choisir(e);
+            });
+            d.addEventListener("mouseenter", function () {
+              actif = idx;
+              marquerActif(false);
+            });
+            liste.appendChild(d);
+          });
+        }
+
+        function marquerActif(defiler) {
+          Array.from(liste.querySelectorAll(".cb-item")).forEach(function (el) {
+            const est = parseInt(el.dataset.idx, 10) === actif;
+            el.classList.toggle("actif", est);
+            if (est && defiler) el.scrollIntoView({ block: "nearest" });
+          });
+        }
+
+        function positionner() {
+          const r = inp.getBoundingClientRect();
+          const dessous = window.innerHeight - r.bottom - 8;
+          const dessus = r.top - 8;
+          const largeur = Math.min(Math.max(r.width, 380), window.innerWidth - 16);
+          liste.style.width = largeur + "px";
+          liste.style.left = Math.max(8, Math.min(r.left, window.innerWidth - largeur - 8)) + "px";
+          if (dessous >= 240 || dessous >= dessus) {
+            liste.style.maxHeight = Math.min(380, dessous) + "px";
+            liste.style.top = r.bottom + 2 + "px";
+          } else {
+            const h = Math.min(380, dessus);
+            liste.style.maxHeight = h + "px";
+            liste.style.top = Math.max(8, r.top - h - 2) + "px";
+          }
+        }
+
+        function ouvrir() {
+          if (ouvert) return;
+          if (comboFermerCourant) comboFermerCourant();
+          ouvert = true;
+          recherche = "";
+          actif = -1;
+          rendre();
+          liste.classList.add("ouvert");
+          positionner();
+          comboFermerCourant = fermer;
+          const cour = liste.querySelector(".cb-item.courant");
+          if (cour) cour.scrollIntoView({ block: "nearest" });
+        }
+
+        function fermer() {
+          if (!ouvert) return;
+          ouvert = false;
+          liste.classList.remove("ouvert");
+          if (comboFermerCourant === fermer) comboFermerCourant = null;
+          inp.value = libelleSelection(sel);
+        }
+
+        function choisir(e) {
+          if (!estSelectionnable(e)) return;
+          const saisie = recherche.trim();
+          sel.value = e.value;
+          sel.dispatchEvent(new Event("change", { bubbles: true }));
+          if (e.value === VALEUR_PERSO && saisie) {
+            // le texte tapé devient directement le nom de l'arme / armure personnalisée
+            const ni = document.getElementById(selectId.replace("-select", "-nom-perso"));
+            if (ni) {
+              ni.value = saisie;
+              ni.dispatchEvent(new Event("input", { bubbles: true }));
+            }
+          }
+          ouvert = true; // pour que fermer() s'exécute
+          fermer();
+          inp.value = libelleSelection(sel);
+        }
+
+        inp.addEventListener("focus", function () {
+          ouvrir();
+          inp.select();
+        });
+        inp.addEventListener("click", function () {
+          if (!ouvert) ouvrir();
+        });
+        inp.addEventListener("input", function () {
+          if (!ouvert) ouvrir();
+          recherche = inp.value;
+          entrees = construireEntrees();
+          actif = recherche.trim() ? entrees.findIndex(estSelectionnable) : -1;
+          rendre();
+          liste.scrollTop = 0;
+        });
+        inp.addEventListener("keydown", function (ev) {
+          if (ev.key === "ArrowDown" || ev.key === "ArrowUp") {
+            ev.preventDefault();
+            if (!ouvert) ouvrir();
+            const dir = ev.key === "ArrowDown" ? 1 : -1;
+            let i = actif;
+            do {
+              i += dir;
+            } while (i >= 0 && i < entrees.length && !estSelectionnable(entrees[i]));
+            if (i >= 0 && i < entrees.length) actif = i;
+            marquerActif(true);
+          } else if (ev.key === "Enter") {
+            if (ouvert && estSelectionnable(entrees[actif])) {
+              ev.preventDefault();
+              choisir(entrees[actif]);
+            }
+          } else if (ev.key === "Escape") {
+            if (ouvert) {
+              ev.preventDefault();
+              fermer();
+              inp.blur();
+            }
+          } else if (ev.key === "Tab") {
+            fermer();
+          }
+        });
+        inp.addEventListener("blur", fermer);
+        window.addEventListener("resize", function () {
+          if (ouvert) positionner();
+        });
+        window.addEventListener(
+          "scroll",
+          function () {
+            if (ouvert) positionner();
+          },
+          true,
+        );
+        inp.value = libelleSelection(sel);
       }
 
       // Affiche le détail complet le temps que le menu est ouvert
@@ -7791,6 +8403,8 @@
           degatsInput.value = "";
           return;
         }
+        // Arme personnalisée : dégâts saisis librement, jamais recalculés
+        if (arme.custom) return;
         const base =
           arme.degats_base !== undefined ? arme.degats_base : arme.degats;
         degatsInput.value = formatDegatsAvecMaitrise(base, niveauMaitrise);
@@ -7805,6 +8419,26 @@
         const aptitudeBox = document.getElementById(
           "arme-" + slot + "-aptitude",
         );
+
+        // Ligne « nom » visible uniquement pour une arme personnalisée
+        const nomPersoInput = document.getElementById(
+          "arme-" + slot + "-nom-perso",
+        );
+        afficherNomPerso(slot, idx === VALEUR_PERSO);
+        if (idx !== VALEUR_PERSO && nomPersoInput) nomPersoInput.value = "";
+        majLibelleArmePerso(slot);
+
+        if (idx === VALEUR_PERSO) {
+          // Arme hors liste : le joueur renseigne lui-même tous les champs
+          armesActivesParSlot[slot] = { custom: true };
+          traitInput.value = "";
+          porteeInput.value = "";
+          degatsInput.value = "";
+          aptitudeBox.innerHTML = "";
+          collapseArmeOptions(slot);
+          if (nomPersoInput) nomPersoInput.focus();
+          return;
+        }
 
         if (idx === "") {
           armesActivesParSlot[slot] = null;
@@ -8714,6 +9348,7 @@
         remplirArmeSelect("secondaire");
         remplirArmeSelect("inv1");
         remplirArmeSelect("inv2");
+        COMBOBOX_IDS.forEach(creerCombobox);
         renderMaitrise();
         recalculerCompetenceNiveau();
         remplirFormeSauvageSelect();
@@ -9381,6 +10016,11 @@
         if (el.closest("#domain-tooltip-3")) return false;
         if (el.closest("#modal-des-overlay")) return false;
         if (el.classList.contains("q-edit-input")) return false;
+        // Noms d'armes/armure personnalisées : sauvegardés à part (etat.nomsPerso)
+        // pour ne pas décaler l'ordre des champs des anciennes fiches.
+        if (el.classList.contains("nom-perso")) return false;
+        // Champs de recherche des menus : simple affichage, la valeur est dans le <select>
+        if (el.classList.contains("cb-input")) return false;
         return true;
       }
       function listerChamps() {
@@ -9432,6 +10072,13 @@
           const sel = document.getElementById("arme-" + slot + "-select");
           armes[slot] = sel ? sel.value : "";
         });
+        const nomsPerso = {};
+        ["principale", "secondaire", "inv1", "inv2"].forEach(function (slot) {
+          const inp = document.getElementById("arme-" + slot + "-nom-perso");
+          nomsPerso[slot] = inp ? inp.value : "";
+        });
+        const nomArmurePerso = document.getElementById("armure-nom-perso");
+        nomsPerso.armure = nomArmurePerso ? nomArmurePerso.value : "";
         return {
           version: 1,
           date: new Date().toISOString(),
@@ -9448,6 +10095,7 @@
             modeRepos: modeRepos,
             armure: document.getElementById("armure-select").value,
             armes: armes,
+            nomsPerso: nomsPerso,
             multiclasseActif: multiclasseActif,
             multiclasseDomaine: multiclasseDomaine,
             compBonus: competenceBonusEtats,
@@ -9604,15 +10252,34 @@
         cartesConnues = et.cartesConnues || [];
         cartesActives = et.cartesActives || [];
         armureActive =
-          et.armure !== "" && ARMURES[et.armure] ? ARMURES[et.armure] : null;
+          et.armure === VALEUR_PERSO
+            ? construireArmurePerso()
+            : et.armure !== "" && ARMURES[et.armure]
+              ? ARMURES[et.armure]
+              : null;
         armesActivesParSlot = {};
+        const nomsPersoSauves = et.nomsPerso || {};
         ["principale", "secondaire", "inv1", "inv2"].forEach(function (slot) {
           const v = (et.armes || {})[slot];
-          armesActivesParSlot[slot] =
-            v !== "" && v != null && getArmesData(slot)[v]
+          const estPerso = v === VALEUR_PERSO;
+          armesActivesParSlot[slot] = estPerso
+            ? { custom: true }
+            : v !== "" && v != null && getArmesData(slot)[v]
               ? getArmesData(slot)[v]
               : null;
+          const inp = document.getElementById("arme-" + slot + "-nom-perso");
+          if (inp) inp.value = estPerso ? nomsPersoSauves[slot] || "" : "";
+          afficherNomPerso(slot, estPerso);
+          majLibelleArmePerso(slot);
         });
+        const nomArmureInp = document.getElementById("armure-nom-perso");
+        if (nomArmureInp)
+          nomArmureInp.value =
+            et.armure === VALEUR_PERSO ? nomsPersoSauves.armure || "" : "";
+        const nomArmureRow = document.getElementById("armure-nom-perso-row");
+        if (nomArmureRow)
+          nomArmureRow.classList.toggle("visible", et.armure === VALEUR_PERSO);
+        majLibelleArmurePerso();
 
         // multiclasse
         if (multiclasseActif !== !!et.multiclasseActif)
@@ -9672,6 +10339,7 @@
         majObjetsClasse();
         const fsSel = document.getElementById("forme-sauvage-select");
         if (fsSel && fsSel.value !== "") onFormeSauvageChange();
+        rafraichirTousCombobox();
         planifierSauvegardeAuto();
       }
       document.addEventListener("keydown", function (e) {

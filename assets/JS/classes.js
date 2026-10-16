@@ -921,7 +921,7 @@ const CLASSES_DATA = {
     },
     {
       "source": "Espoir et Peur (2027)",
-      "nom": "Assasin",
+      "nom": "Assasins",
       "description": "Les assassins sont des maîtres de la furtivité et de la précision, capables d'éliminer leurs cibles avec une efficacité redoutable. Formés dans l'art de l'espionnage, du sabotage et du meurtre, ils opèrent souvent dans l'ombre, utilisant leur intelligence et leur agilité pour atteindre leurs objectifs. Les assassins peuvent travailler pour des organisations secrètes, des guildes ou en tant qu'indépendants, mais tous partagent un engagement envers la discrétion et la maîtrise de leur art.",
       "domaines": [
         "Lame",

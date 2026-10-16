@@ -2373,7 +2373,7 @@ const ARME_PRINCIPALE_DATA = {
       "source": "Livre de règle (2026)",
       "palier": 4,
       "type": "Magique",
-      "nom": "Revolver du mage",
+      "nom": "Révolver du mage",
       "trait": "Finesse",
       "portee": "Très longue",
       "degats": "d6+13 mag",
