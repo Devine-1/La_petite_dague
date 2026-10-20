@@ -3546,7 +3546,7 @@
               </div>
               <div class="track-row">
                 <div class="label">STRESS</div>
-                <div class="boxes">
+                <div class="boxes" id="stress-boxes">
                   <span
                     class="box"
                     onclick="this.classList.toggle('filled')"
@@ -8532,7 +8532,7 @@
           const cout = c.cout_rappel != null ? c.cout_rappel : 0;
           const boutonLabel = modeRepos
             ? "ajouter à la main"
-            : "rappeler (" + cout + " espoir)";
+            : "rappeler (" + cout + " stress)";
           const couleur = couleurDomaine(c.domaine);
           const card = document.createElement("div");
           card.className = "carte-slot carte-slot-caveau carte-cliquable";
@@ -8591,26 +8591,17 @@
         rendreCartes();
       }
 
-      // Compte les points d'Espoir actuellement disponibles (remplis, non perdus définitivement)
-      function compterEspoirDisponible() {
-        return Array.from(document.querySelectorAll(".espoir-toggle")).filter(
-          (el) => el.dataset.filled === "true" && el.dataset.burned !== "true",
-        ).length;
-      }
-
-      // Marque n points d'Espoir comme dépensés (repasse la case à vide)
-      function depenserEspoir(n) {
-        const toggles = Array.from(
-          document.querySelectorAll(".espoir-toggle"),
-        ).filter(
-          (el) => el.dataset.filled === "true" && el.dataset.burned !== "true",
+      // Cases cochables (trait continu = non pointillées) non encore cochées
+      function casesLibres(selecteur) {
+        return Array.from(document.querySelectorAll(selecteur)).filter(
+          (el) =>
+            !el.classList.contains("dotted") &&
+            !el.classList.contains("filled"),
         );
-        toggles.slice(0, n).forEach((el) => {
-          el.dataset.filled = "false";
-          renderEspoir(el);
-        });
       }
 
+      // Rappeler une carte du caveau : coche `cout` points de Stress (cases en trait
+      // continu). Chaque point au-delà de la limite de Stress coche une Blessure.
       function rappelerCarte(idx) {
         if (cartesActives.length >= 5) {
           alert(
@@ -8622,33 +8613,62 @@
         if (!modeRepos) {
           const cout = c.cout_rappel != null ? c.cout_rappel : 0;
           if (cout > 0) {
-            const disponible = compterEspoirDisponible();
-            if (disponible < cout) {
+            const stressLibres = casesLibres("#stress-boxes .box");
+            const blessuresLibres = casesLibres("#blessure-boxes .box");
+            const aStress = Math.min(cout, stressLibres.length);
+            const aBlessure = cout - aStress;
+            if (aBlessure > blessuresLibres.length) {
               alert(
                 'Rappeler "' +
                   c.nom +
                   '" coûte ' +
                   cout +
-                  " Espoir, mais vous n'en avez que " +
-                  disponible +
-                  " de disponible.",
+                  " Stress, mais il ne vous reste pas assez de cases de Stress et de Blessure à cocher (" +
+                  stressLibres.length +
+                  " Stress, " +
+                  blessuresLibres.length +
+                  " Blessure).",
               );
               return;
             }
-            if (
-              !confirm(
-                "Dépenser " + cout + ' Espoir pour rappeler "' + c.nom + '" ?',
-              )
-            )
-              return;
-            depenserEspoir(cout);
+            let message =
+              "Cocher " +
+              aStress +
+              " point" +
+              (aStress > 1 ? "s" : "") +
+              ' de Stress pour rappeler "' +
+              c.nom +
+              '" ?';
+            if (aBlessure > 0) {
+              message +=
+                "\n\nVotre Stress est au maximum : " +
+                aBlessure +
+                " point" +
+                (aBlessure > 1 ? "s" : "") +
+                " dépasse" +
+                (aBlessure > 1 ? "nt" : "") +
+                " la limite, vous cocherez donc " +
+                aBlessure +
+                " Blessure" +
+                (aBlessure > 1 ? "s" : "") +
+                ".";
+              if (aBlessure === blessuresLibres.length) {
+                message +=
+                  "\nAttention : cela remplit votre dernière case de Blessure.";
+              }
+            }
+            if (!confirm(message)) return;
+            stressLibres.slice(0, aStress).forEach((el) => el.classList.add("filled"));
+            blessuresLibres
+              .slice(0, aBlessure)
+              .forEach((el) => el.classList.add("filled"));
           }
         }
         cartesActives.push(idx);
         rendreCartes();
       }
 
-      // Bascule entre mode actif (rappel payant en Espoir) et mode repos (main librement modifiable)
+      // Bascule entre mode actif (rappel payant en Stress) et mode repos (main librement modifiable)
       function toggleModeRepos() {
         modeRepos = document.getElementById("mode-repos-toggle").checked;
         document.getElementById("cartes-mode-label").textContent = modeRepos
@@ -8657,8 +8677,8 @@
         const hintCartes = document.getElementById("cartes-hint");
         if (hintCartes)
           hintCartes.textContent = modeRepos
-            ? "Mode repos : vous pouvez refaire votre main librement, sans coût en Espoir."
-            : "Mode actif : rappeler une carte du caveau vers la main coûte de l'Espoir égal à son coût de rappel. Passez en mode repos pour refaire votre main librement, sans coût.";
+            ? "Mode repos : vous pouvez refaire votre main librement, sans coût en Stress."
+            : "Mode actif : rappeler une carte du caveau vers la main coche des points de Stress égaux à son coût de rappel (une Blessure par point au-delà de la limite de Stress). Passez en mode repos pour refaire votre main librement, sans coût.";
         rendreCartes();
       }
 
