@@ -2989,6 +2989,9 @@
     <script src="assets/JS/artiste_martiale.js"></script>
     <script src="assets/JS/transformation.js"></script>
   <script src="assets/JS/acces.js"></script>
+  <script src="assets/JS/pdf-lib.min.js"></script>
+  <script src="assets/JS/fiche_pdf_modele.js"></script>
+  <script src="assets/JS/export_pdf.js"></script>
 </head>
   <body>
     <div class="effet-ouverture" id="effet-ouverture" aria-hidden="true"></div>
@@ -3014,6 +3017,14 @@
         <div class="bandeau-separateur"></div>
         <button type="button" class="bandeau-btn" onclick="sauvegarderFiche()">
           Sauvegarder la fiche
+        </button>
+        <button
+          type="button"
+          class="bandeau-btn"
+          onclick="exporterFichePDF()"
+          title="Exporte la fiche dans un formulaire PDF de 2 pages, toujours modifiable"
+        >
+          Exporter en PDF
         </button>
         <button
           type="button"

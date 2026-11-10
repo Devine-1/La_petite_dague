@@ -573,7 +573,7 @@ const CARTE_DATA = {
       "niveau": 1,
       "type": "Grimoire",
       "nom": "LIVRE D’AVA",
-      "description": "Poussée d’Énergie : Faites un Jet d’Incantation contre une cible à portée Mêlée. En cas de succès, elle est repoussée à portée Lointaine et subit D10+2 dégâts magiques utilisant votre Maîtrise.Armure de Tava : Dépensez un Point d’Espoir pour accorder à une cible que vous pouvez toucher un bonus de +1 à ses Points d’Armure jusqu’à son prochain repos ou jusqu’à ce que vous relanciez Armure de Tava.Pique de Glace : Faites un Jet d’Incantation (12) pour invoquer une grande pique de glace à portée Lointaine. Si vous l’utilisez comme arme, faites le Jet d’Incantation contre la Difficulté de la cible à la place. En cas de succès, infligez D6 dégâts physiques utilisant votre Maîtrise.",
+      "description": "Poussée d’Énergie : Faites un Jet d’Incantation contre une cible à portée Mêlée. En cas de succès, elle est repoussée à portée Lointaine et subit D10+2 dégâts magiques utilisant votre Maîtrise.<br>Armure de Tava : Dépensez un Point d’Espoir pour accorder à une cible que vous pouvez toucher un bonus de +1 à ses Points d’Armure jusqu’à son prochain repos ou jusqu’à ce que vous relanciez Armure de Tava.<br>Pique de Glace : Faites un Jet d’Incantation (12) pour invoquer une grande pique de glace à portée Lointaine. Si vous l’utilisez comme arme, faites le Jet d’Incantation contre la Difficulté de la cible à la place. En cas de succès, infligez D6 dégâts physiques utilisant votre Maîtrise.",
       "cout_rappel": 2
     },
     {
@@ -582,7 +582,7 @@ const CARTE_DATA = {
       "niveau": 1,
       "type": "Grimoire",
       "nom": "LIVRE D’ILLIAT",
-      "description": "Sommeil : Faites un Jet d’Incantation contre une cible à portée Très Proche. En cas de succès, elle s’endort jusqu’à ce qu’elle subisse des dégâts ou que le MJ dépense une Peur lors de son tour pour dissiper cet effet.Rafale Arcanique : Une fois par Repos, dépensez autant de Points d’Espoir que vous le souhaitez pour tirer des projectiles magiques sur une cible à portée Proche. Lancez autant de D6 que de Points d’Espoir dépensés et infligez autant de dégâts magiques à la cible.Télépathie : Dépensez un Point d’Espoir pour ouvrir une ligne de communication mentale avec une cible que vous pouvez voir. La connexion dure jusqu’à votre prochain repos ou jusqu’à ce que vous relanciez Télépathie.",
+      "description": "Sommeil : Faites un Jet d’Incantation contre une cible à portée Très Proche. En cas de succès, elle s’endort jusqu’à ce qu’elle subisse des dégâts ou que le MJ dépense une Peur lors de son tour pour dissiper cet effet.<br>Rafale Arcanique : Une fois par Repos, dépensez autant de Points d’Espoir que vous le souhaitez pour tirer des projectiles magiques sur une cible à portée Proche. Lancez autant de D6 que de Points d’Espoir dépensés et infligez autant de dégâts magiques à la cible.<br>Télépathie : Dépensez un Point d’Espoir pour ouvrir une ligne de communication mentale avec une cible que vous pouvez voir. La connexion dure jusqu’à votre prochain repos ou jusqu’à ce que vous relanciez Télépathie.",
       "cout_rappel": 2
     },
     {
@@ -591,7 +591,7 @@ const CARTE_DATA = {
       "niveau": 1,
       "type": "Grimoire",
       "nom": "LIVRE DE TYFAR",
-      "description": "Flamme Sauvage : Faites un Jet d’Incantation contre jusqu’à trois adversaires à portée Mêlée. Les cibles réussies subissent 2D6 dégâts magiques et doivent marquer un Stress alors que des flammes jaillissent de votre main.Main Magique : Vous invoquez une main magique de la même taille et force que la vôtre à portée Lointaine.Brume Mystérieuse : Faites un Jet d’Incantation (13) pour invoquer une brume dense et temporaire dans une zone fixe à portée Très Proche. La zone et ce qu’elle contient sont fortement obscurcis",
+      "description": "Flamme Sauvage : Faites un Jet d’Incantation contre jusqu’à trois adversaires à portée Mêlée. Les cibles réussies subissent 2D6 dégâts magiques et doivent marquer un Stress alors que des flammes jaillissent de votre main.<br>Main Magique : Vous invoquez une main magique de la même taille et force que la vôtre à portée Lointaine.<br>Brume Mystérieuse : Faites un Jet d’Incantation (13) pour invoquer une brume dense et temporaire dans une zone fixe à portée Très Proche. La zone et ce qu’elle contient sont fortement obscurcis",
       "cout_rappel": 2
     },
     {
@@ -600,7 +600,7 @@ const CARTE_DATA = {
       "niveau": 2,
       "type": "Grimoire",
       "nom": "LIVRE DE SITIL",
-      "description": "Apparence Altérée : Vous changez magiquement votre apparence et vos vêtements pour ne pas être reconnu.Parallela : Dépensez 2 Points d’Espoir pour lancer ce sort sur vous-même ou un allié à portée Proche. Lors de sa prochaine attaque, la cible peut toucher une cible supplémentaire à portée, si son jet d’attaque aurait réussi contre elle. Un seul bénéficiaire peut être affecté à la fois.Illusion : Faites un Jet d’Incantation (14). En cas de succès, créez une illusion visuelle temporaire de votre taille maximale à portée Proche. L’illusion est crédible tant qu’un observateur ne s’en approche pas à portée Mêlée.",
+      "description": "Apparence Altérée : Vous changez magiquement votre apparence et vos vêtements pour ne pas être reconnu.<br>Parallela : Dépensez 2 Points d’Espoir pour lancer ce sort sur vous-même ou un allié à portée Proche. Lors de sa prochaine attaque, la cible peut toucher une cible supplémentaire à portée, si son jet d’attaque aurait réussi contre elle. Un seul bénéficiaire peut être affecté à la fois.<br>Illusion : Faites un Jet d’Incantation (14). En cas de succès, créez une illusion visuelle temporaire de votre taille maximale à portée Proche. L’illusion est crédible tant qu’un observateur ne s’en approche pas à portée Mêlée.",
       "cout_rappel": 2
     },
     {
@@ -609,7 +609,7 @@ const CARTE_DATA = {
       "niveau": 2,
       "type": "Grimoire",
       "nom": "LIVRE DE VAGRAS",
-      "description": "Verrou Runique : Faites un Jet d’Incantation (15) sur un objet que vous touchez pouvant être fermé (serrure, coffre, boîte…). Une fois par Repos, en cas de succès, vous pouvez verrouiller l’objet pour qu’il ne soit ouvert que par des créatures de votre choix. Un lanceur de sorts peut briser ce sort après une heure d’étude.Porte Arcanique : S’il n’y a aucun adversaire à portée Mêlée, faites un Jet d’Incantation (13). En cas de succès, dépensez un Point d’Espoir pour créer un portail vers un point visible à portée Lointaine. Il se referme après le passage d’une créature.Révélation : Faites un Jet d’Incantation. S’il y a quelque chose de dissimulé magiquement à portée Proche, cela est révélé",
+      "description": "Verrou Runique : Faites un Jet d’Incantation (15) sur un objet que vous touchez pouvant être fermé (serrure, coffre, boîte…). Une fois par Repos, en cas de succès, vous pouvez verrouiller l’objet pour qu’il ne soit ouvert que par des créatures de votre choix. Un lanceur de sorts peut briser ce sort après une heure d’étude.<br>Porte Arcanique : S’il n’y a aucun adversaire à portée Mêlée, faites un Jet d’Incantation (13). En cas de succès, dépensez un Point d’Espoir pour créer un portail vers un point visible à portée Lointaine. Il se referme après le passage d’une créature.<br>Révélation : Faites un Jet d’Incantation. S’il y a quelque chose de dissimulé magiquement à portée Proche, cela est révélé",
       "cout_rappel": 2
     },
     {
@@ -618,7 +618,7 @@ const CARTE_DATA = {
       "niveau": 3,
       "type": "Grimoire",
       "nom": "LIVRE DE KORVAX",
-      "description": "Lévitation : Faites un Jet d’Incantation pour soulever temporairement une cible visible et la déplacer dans un rayon de portée Proche.Rétractation : Dépensez un Point d’Espoir pour forcer une cible à portée Mêlée à faire un Jet de Réaction (15). En cas d’échec, elle oublie la dernière minute de votre conversation.Cercle Runique : Marquez un Stress pour créer un cercle magique temporaire à l’endroit où vous vous tenez. Tous les adversaires à portée Mêlée (ou entrant dans cette portée) subissent 2D12+4 dégâts magiques et sont repoussés à portée Très Proche.",
+      "description": "Lévitation : Faites un Jet d’Incantation pour soulever temporairement une cible visible et la déplacer dans un rayon de portée Proche.<br>Rétractation : Dépensez un Point d’Espoir pour forcer une cible à portée Mêlée à faire un Jet de Réaction (15). En cas d’échec, elle oublie la dernière minute de votre conversation.<br>Cercle Runique : Marquez un Stress pour créer un cercle magique temporaire à l’endroit où vous vous tenez. Tous les adversaires à portée Mêlée (ou entrant dans cette portée) subissent 2D12+4 dégâts magiques et sont repoussés à portée Très Proche.",
       "cout_rappel": 2
     },
     {
@@ -627,7 +627,7 @@ const CARTE_DATA = {
       "niveau": 3,
       "type": "Grimoire",
       "nom": "LIVRE DE NORAI",
-      "description": "Lien Mystique : Faites un Jet d’Incantation contre une cible à portée Lointaine. En cas de succès, elle est temporairement Entravée et doit marquer un Stress. Si la cible vole, elle est ramenée au sol et Entravée.Boule de Feu : Faites un Jet d’Incantation contre une cible à portée Très Lointaine. En cas de succès, une sphère de feu explose à l’impact. La cible et toutes les créatures à portée Très Proche doivent faire un Jet de Réaction (13). Les créatures qui échouent subissent D20+5 dégâts magiques en utilisant votre Maîtrise. Celles qui réussissent subissent la moitié des dégâts.",
+      "description": "Lien Mystique : Faites un Jet d’Incantation contre une cible à portée Lointaine. En cas de succès, elle est temporairement Entravée et doit marquer un Stress. Si la cible vole, elle est ramenée au sol et Entravée.<br>Boule de Feu : Faites un Jet d’Incantation contre une cible à portée Très Lointaine. En cas de succès, une sphère de feu explose à l’impact. La cible et toutes les créatures à portée Très Proche doivent faire un Jet de Réaction (13). Les créatures qui échouent subissent D20+5 dégâts magiques en utilisant votre Maîtrise. Celles qui réussissent subissent la moitié des dégâts.",
       "cout_rappel": 2
     },
     {
@@ -636,7 +636,7 @@ const CARTE_DATA = {
       "niveau": 4,
       "type": "Grimoire",
       "nom": "LIVRE D’EXOTA",
-      "description": "Répudiation : Vous pouvez interrompre un effet magique qui a lieu. Faites un jet de réaction avec votre Trait d’Incantation. Une fois par Repos, en cas de succès, l’effet est annulé et les conséquences évitées.Création de Construct : Dépensez un Point d’Espoir pour assembler un Construct animé à partir d’objets autour de vous. Il obéit à des ordres simples. Faites un Jet d’Incantation pour lui faire effectuer une action. Il utilise votre Esquive et vos Traits, et inflige 2D10+3 dégâts physiques. Un seul Construct peut être actif à la fois ; il se désagrège au moindre dégât",
+      "description": "Répudiation : Vous pouvez interrompre un effet magique qui a lieu. Faites un jet de réaction avec votre Trait d’Incantation. Une fois par Repos, en cas de succès, l’effet est annulé et les conséquences évitées.<br>Création de Construct : Dépensez un Point d’Espoir pour assembler un Construct animé à partir d’objets autour de vous. Il obéit à des ordres simples. Faites un Jet d’Incantation pour lui faire effectuer une action. Il utilise votre Esquive et vos Traits, et inflige 2D10+3 dégâts physiques. Un seul Construct peut être actif à la fois ; il se désagrège au moindre dégât",
       "cout_rappel": 3
     },
     {
@@ -645,7 +645,7 @@ const CARTE_DATA = {
       "niveau": 4,
       "type": "Grimoire",
       "nom": "LIVRE DE GRYNN",
-      "description": "Déflexion Arcanique : Une fois par Repos Long, dépensez un Point d’Espoir pour annuler les dégâts d’une attaque qui vous cible ou cible un allié à portée Très Proche.Verrou Temporel : Ciblez un objet à portée Lointaine. Il est figé dans l’espace-temps jusqu’à votre prochain repos. Si quelqu’un tente de le déplacer, faites un Jet d’Incantation contre lui pour maintenir l’effet.Mur de Flammes : Faites un Jet d’Incantation (15). En cas de succès, créez un mur de flammes magiques temporaire entre deux points à portée Lointaine. Toutes les créatures sur le trajet doivent choisir un côté. Toute entité traversant le mur subit 4D10+3 dégâts magiques.",
+      "description": "Déflexion Arcanique : Une fois par Repos Long, dépensez un Point d’Espoir pour annuler les dégâts d’une attaque qui vous cible ou cible un allié à portée Très Proche.<br>Verrou Temporel : Ciblez un objet à portée Lointaine. Il est figé dans l’espace-temps jusqu’à votre prochain repos. Si quelqu’un tente de le déplacer, faites un Jet d’Incantation contre lui pour maintenir l’effet.<br>Mur de Flammes : Faites un Jet d’Incantation (15). En cas de succès, créez un mur de flammes magiques temporaire entre deux points à portée Lointaine. Toutes les créatures sur le trajet doivent choisir un côté. Toute entité traversant le mur subit 4D10+3 dégâts magiques.",
       "cout_rappel": 2
     },
     {
@@ -672,7 +672,7 @@ const CARTE_DATA = {
       "niveau": 6,
       "type": "Sort",
       "nom": "BANNISSEMENT",
-      "description": "Faites un Jet d’Incantation contre une cible à portée Proche. En cas de succès, lancez un nombre de D20 égal à votre Trait d’Incantation. La cible doit faire un Jet de Réaction avec une Difficulté égale au plus haut résultat. En cas de succès, elle marque un Stress, mais n’est pas bannie. Une fois par Repos, en cas d’échec, elle est bannie de ce plan d’existence. Lorsque les PJ font un jet avec Peur, la Difficulté est réduite de 1 et la cible effectue un nouveau Jet de Réaction. En cas de succès, elle revient de son bannissement",
+      "description": "Faites un Jet d’Incantation contre une cible à portée Proche. En cas de succès, lancez un nombre de D20 égal à votre Trait d’Incantation. La cible doit faire un Jet de Réaction avec une Difficulté égale au plus haut résultat. En cas de succès, elle marque un Stress, mais n’est pas bannie. Une fois par Repos, en cas d’échec, elle est bannie de ce plan d’existence. Lorsque les PJ font un jet avec Peur, la Difficulté est réduite de 1 et la cible effectue un nouveau Jet de Réaction. En cas de succès, elle revient de son bannissement",
       "cout_rappel": 0
     },
     {
@@ -690,7 +690,7 @@ const CARTE_DATA = {
       "niveau": 7,
       "type": "Grimoire",
       "nom": "LIVRE D’HOMET",
-      "description": "Traversée : Faites un Jet d’Incantation (13). Une fois par Repos, en cas de succès, vous et toutes les créatures en contact avec vous pouvez traverser un mur ou une porte à portée Proche. L’effet prend fin une fois tous les participants de l’autre côté.Porte Planaire : Faites un Jet d’Incantation (14). Une fois par Repos Long, en cas de succès, ouvrez un portail vers un lieu d’un autre plan ou d’une autre dimension que vous avez déjà visité. Le portail reste ouvert jusqu’à votre prochain repos.",
+      "description": "Traversée : Faites un Jet d’Incantation (13). Une fois par Repos, en cas de succès, vous et toutes les créatures en contact avec vous pouvez traverser un mur ou une porte à portée Proche. L’effet prend fin une fois tous les participants de l’autre côté.<br>Porte Planaire : Faites un Jet d’Incantation (14). Une fois par Repos Long, en cas de succès, ouvrez un portail vers un lieu d’un autre plan ou d’une autre dimension que vous avez déjà visité. Le portail reste ouvert jusqu’à votre prochain repos.",
       "cout_rappel": 0
     },
     {
@@ -708,7 +708,7 @@ const CARTE_DATA = {
       "niveau": 8,
       "type": "Grimoire",
       "nom": "LIVRE DE VYOLA",
-      "description": "Plongée Mémorielle : Faites un Jet d’Incantation contre une cible à portée Lointaine. En cas de succès, vous explorez son esprit et posez une question au MJ. Le MJ décrit les souvenirs de la cible en rapport avec la réponse. Clarté Partagée : Une fois par Repos Long, dépensez un Point d’Espoir pour choisir deux créatures consentantes. Lorsqu’une des deux doit marquer un Stress, elles peuvent choisir entre elles qui le marque. Cet effet dure jusqu’à leur prochain repos.",
+      "description": "Plongée Mémorielle : Faites un Jet d’Incantation contre une cible à portée Lointaine. En cas de succès, vous explorez son esprit et posez une question au MJ. Le MJ décrit les souvenirs de la cible en rapport avec la réponse.<br>Clarté Partagée : Une fois par Repos Long, dépensez un Point d’Espoir pour choisir deux créatures consentantes. Lorsqu’une des deux doit marquer un Stress, elles peuvent choisir entre elles qui le marque. Cet effet dure jusqu’à leur prochain repos.",
       "cout_rappel": 2
     },
     {
@@ -726,7 +726,7 @@ const CARTE_DATA = {
       "niveau": 9,
       "type": "Grimoire",
       "nom": "LIVRE DE RONIN",
-      "description": "Transformation : Faites un Jet d’Incantation (15). En cas de succès, vous vous transformez en un objet inanimé ne dépassant pas deux fois votre taille. Vous restez sous cette forme jusqu’à subir des dégâts. Affaiblissement Éternel : Une fois par Repos Long, faites un Jet d’Incantation contre une cible à portée Proche. En cas de succès, elle devient Vulnérable de manière permanente. Cette condition ne peut être effacée par aucun moyen",
+      "description": "Transformation : Faites un Jet d’Incantation (15). En cas de succès, vous vous transformez en un objet inanimé ne dépassant pas deux fois votre taille. Vous restez sous cette forme jusqu’à subir des dégâts.<br>Affaiblissement Éternel : Une fois par Repos Long, faites un Jet d’Incantation contre une cible à portée Proche. En cas de succès, elle devient Vulnérable de manière permanente. Cette condition ne peut être effacée par aucun moyen",
       "cout_rappel": 4
     },
     {
@@ -744,7 +744,7 @@ const CARTE_DATA = {
       "niveau": 10,
       "type": "Grimoire",
       "nom": "LIVRE DE YARROW",
-      "description": "Distorsion Temporel : Faites un Jet d’Incantation (18). En cas de succès, le temps s’arrête momentanément pour toutes les créatures à portée Lointaine sauf vous. Il reprend dès que vous effectuez un jet d’action visant une autre créature. Immunité Magique : Dépensez 5 Points d’Espoir pour devenir immunisé aux dégâts magiques jusqu’à votre prochain repos.",
+      "description": "Distorsion Temporel : Faites un Jet d’Incantation (18). En cas de succès, le temps s’arrête momentanément pour toutes les créatures à portée Lointaine sauf vous. Il reprend dès que vous effectuez un jet d’action visant une autre créature.<br>Immunité Magique : Dépensez 5 Points d’Espoir pour devenir immunisé aux dégâts magiques jusqu’à votre prochain repos.",
       "cout_rappel": 2
     },
     {
