@@ -428,6 +428,49 @@
         gap: 10px;
         flex-wrap: wrap;
       }
+      .carte-speciale-btn {
+        font-family: inherit;
+        font-size: 0.72rem;
+        background: none;
+        border: 1px dashed var(--rule);
+        color: var(--muted);
+        padding: 3px 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .carte-speciale-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .carte-perso-badge {
+        font-size: 0.6rem;
+        color: var(--muted);
+        font-style: italic;
+      }
+      .carte-form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+      .carte-form-row .field {
+        margin-bottom: 0;
+      }
+      #carte-perso-form select,
+      #carte-perso-form textarea {
+        width: 100%;
+        font-family: inherit;
+        font-size: 0.9rem;
+        color: var(--ink);
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid var(--rule);
+        padding: 3px 2px;
+      }
+      #carte-perso-form select option {
+        color: #111;
+      }
       .cartes-legend {
         font-size: 0.8rem;
         color: var(--muted);
@@ -1381,6 +1424,36 @@
       }
       .modal-repos-list li {
         margin-bottom: 8px;
+      }
+
+      /* --- Modale Export --- */
+      .modal-export-box {
+        max-width: 360px;
+      }
+      .export-choix {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .export-choix-btn {
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.85rem;
+        font-weight: bold;
+        letter-spacing: 0.03em;
+        text-align: center;
+        padding: 12px 18px;
+        border: 1px solid var(--rule);
+        border-radius: 999px;
+        color: var(--ink);
+        background: transparent;
+      }
+      .export-choix-btn:hover,
+      .export-choix-btn:focus-visible {
+        background: var(--ink);
+        color: var(--charcoal);
+        border-color: var(--ink);
+        outline: none;
       }
 
       /* --- Lancer de dés (Dualité Espoir/Peur) --- */
@@ -3015,23 +3088,12 @@
           Ascendance mixte…
         </button>
         <div class="bandeau-separateur"></div>
-        <button type="button" class="bandeau-btn" onclick="sauvegarderFiche()">
-          Sauvegarder la fiche
-        </button>
         <button
           type="button"
           class="bandeau-btn"
-          onclick="exporterFichePDF()"
-          title="Exporte la fiche dans un formulaire PDF de 2 pages, toujours modifiable"
+          onclick="ouvrirModalExport()"
         >
-          Exporter en PDF
-        </button>
-        <button
-          type="button"
-          class="bandeau-btn"
-          onclick="document.getElementById('fiche-load-input').click()"
-        >
-          Charger une fiche
+          Export
         </button>
         <input
           type="file"
@@ -4269,6 +4331,14 @@
                   choisirez une autre carte à chaque niveau que vous gagnerez.
                 </div>
               </div>
+              <button
+                type="button"
+                class="carte-speciale-btn"
+                onclick="ouvrirCartePerso()"
+                title="Créer une carte de domaine spéciale (objet magique, effet de règle…)"
+              >
+                + carte spéciale
+              </button>
             </div>
             <div class="cartes-header-right">
               <label class="mode-switch">
@@ -5421,6 +5491,73 @@
 
     <div
       class="modal-overlay"
+      id="modal-carte-perso-overlay"
+      onclick="if (event.target === this) fermerCartePerso();"
+    >
+      <div class="modal-box">
+        <button
+          type="button"
+          class="modal-close-btn"
+          onclick="fermerCartePerso()"
+          title="fermer"
+        >
+          ×
+        </button>
+        <div class="modal-title" id="carte-perso-titre">Carte de domaine spéciale</div>
+        <div class="modal-repos-intro">
+          Pour les cartes qui ne viennent pas d'un domaine de classe (objet
+          magique, effet de règle…). La carte rejoint votre caveau.
+        </div>
+        <div id="carte-perso-form">
+          <div class="field" style="margin-bottom: 8px">
+            <label class="field-label">nom</label>
+            <input type="text" id="carte-perso-nom" />
+          </div>
+          <div class="carte-form-row">
+            <div class="field">
+              <label class="field-label">domaine / origine</label>
+              <select id="carte-perso-domaine"></select>
+            </div>
+            <div class="field">
+              <label class="field-label">type</label>
+              <select id="carte-perso-type">
+                <option value="Aptitude">Aptitude</option>
+                <option value="Artéfact">Artéfact</option>
+                <option value="Grimoire">Grimoire</option>
+                <option value="Objet">Objet</option>
+                <option value="Objet magique">Objet magique</option>
+                <option value="Sort">Sort</option>
+              </select>
+            </div>
+          </div>
+          <div class="carte-form-row">
+            <div class="field">
+              <label class="field-label">niveau</label>
+              <input type="number" id="carte-perso-niveau" min="1" max="10" value="1" />
+            </div>
+            <div class="field">
+              <label class="field-label">coût de rappel (stress)</label>
+              <input type="number" id="carte-perso-cout" min="0" max="12" value="0" />
+            </div>
+          </div>
+          <div class="field" style="margin-bottom: 8px">
+            <label class="field-label">source (ex. nom de l'objet magique)</label>
+            <input type="text" id="carte-perso-source" />
+          </div>
+          <div class="field" style="margin-bottom: 12px">
+            <label class="field-label">description</label>
+            <textarea id="carte-perso-description" rows="5"></textarea>
+          </div>
+          <div style="display: flex; gap: 8px; justify-content: flex-end">
+            <button type="button" class="carte-btn" onclick="fermerCartePerso()">annuler</button>
+            <button type="button" class="carte-btn" id="carte-perso-valider" onclick="validerCartePerso()">créer la carte</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal-overlay"
       id="modal-mixte-overlay"
       onclick="if (event.target === this) fermerAssistantMixte();"
     >
@@ -5569,6 +5706,48 @@
             onclick="fermerAssistantMixte()"
           >
             annuler
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal-overlay"
+      id="modal-export-overlay"
+      onclick="if (event.target === this) fermerModalExport();"
+    >
+      <div class="modal-box modal-export-box">
+        <button
+          type="button"
+          class="modal-close-btn"
+          onclick="fermerModalExport()"
+          title="fermer"
+        >
+          ×
+        </button>
+        <div class="modal-title">Export</div>
+        <div class="export-choix">
+          <button
+            type="button"
+            class="export-choix-btn"
+            onclick="fermerModalExport(); sauvegarderFiche();"
+          >
+            Sauvegarder la fiche
+          </button>
+          <button
+            type="button"
+            class="export-choix-btn"
+            onclick="fermerModalExport(); exporterFichePDF();"
+            title="Exporte la fiche dans un formulaire PDF de 2 pages, toujours modifiable"
+          >
+            Exporter en PDF
+          </button>
+          <button
+            type="button"
+            class="export-choix-btn"
+            onclick="fermerModalExport(); document.getElementById('fiche-load-input').click();"
+          >
+            Charger une fiche
           </button>
         </div>
       </div>
@@ -6761,6 +6940,44 @@
       let armesActivesParSlot = {};
       let cartesConnues = [];
       let cartesActives = [];
+      // Cartes spéciales créées par le joueur (objets magiques, effets de règle…).
+      // Leur identifiant est CARTE_PERSO_BASE + position, pour ne jamais
+      // entrer en collision avec les index de CARTES (cartes officielles).
+      const CARTE_PERSO_BASE = 100000;
+      let cartesPerso = []; // entrées possibles : objet carte ou null (carte supprimée)
+      function estCartePerso(idx) {
+        return idx >= CARTE_PERSO_BASE;
+      }
+      function echapperHTML(t) {
+        return String(t == null ? "" : t)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+      // Renvoie la carte (officielle ou spéciale) pour un identifiant donné.
+      // Les textes des cartes spéciales sont échappés, car l'affichage injecte du HTML.
+      function getCarte(idx) {
+        if (!estCartePerso(idx)) return CARTES[idx];
+        const c = cartesPerso[idx - CARTE_PERSO_BASE];
+        if (!c) return null;
+        return {
+          nom: echapperHTML(c.nom),
+          domaine: echapperHTML(c.domaine),
+          type: echapperHTML(c.type),
+          niveau: c.niveau,
+          cout_rappel: c.cout_rappel,
+          source: echapperHTML(c.source),
+          description: echapperHTML(c.description).replace(/\n/g, "<br>"),
+        };
+      }
+      function boutonModifierCarteHTML(idx) {
+        return estCartePerso(idx)
+          ? '<button type="button" class="carte-btn" onclick="ouvrirCartePerso(' +
+              idx +
+              ')">modifier</button>'
+          : "";
+      }
       let modeRepos = false;
       let niveauMaitrise = 1; // min 1, max 6 : détermine le nombre de dés de dégâts des armes actives
       // Suivi des bonus de Compétence déjà appliqués automatiquement, pour ne les
@@ -8497,8 +8714,8 @@
             slot.className = "carte-slot carte-slot-vide";
             slot.textContent = "vide";
           } else {
-            const c = CARTES[idx];
-            const couleur = couleurDomaine(c.domaine);
+            const c = getCarte(idx);
+            const couleur = couleurDomaine(CARTES[idx] ? c.domaine : null);
             slot.className = "carte-slot carte-cliquable";
             if (couleur) slot.style.setProperty("--domain-color", couleur);
             slot.onclick = (e) => toggleCarteDescription(e, slot);
@@ -8526,13 +8743,14 @@
               "</div>" +
               '<button type="button" class="carte-btn" onclick="renvoyerAuCaveau(' +
               idx +
-              ')">renvoyer au caveau</button>';
+              ')">renvoyer au caveau</button>' +
+              boutonModifierCarteHTML(idx);
           }
           grilleActives.appendChild(slot);
         }
 
         const caveau = cartesConnues.filter(
-          (idx) => !cartesActives.includes(idx),
+          (idx) => !cartesActives.includes(idx) && getCarte(idx),
         );
         grilleCaveau.innerHTML = "";
         if (caveau.length === 0) {
@@ -8540,12 +8758,12 @@
             '<div class="hint">Aucune carte dans le caveau pour l\'instant.</div>';
         }
         caveau.forEach((idx) => {
-          const c = CARTES[idx];
+          const c = getCarte(idx);
           const cout = c.cout_rappel != null ? c.cout_rappel : 0;
           const boutonLabel = modeRepos
             ? "ajouter à la main"
             : "rappeler (" + cout + " stress)";
-          const couleur = couleurDomaine(c.domaine);
+          const couleur = couleurDomaine(estCartePerso(idx) ? null : c.domaine);
           const card = document.createElement("div");
           card.className = "carte-slot carte-slot-caveau carte-cliquable";
           if (couleur) card.style.setProperty("--domain-color", couleur);
@@ -8579,7 +8797,8 @@
             idx +
             ')">' +
             boutonLabel +
-            "</button>";
+            "</button>" +
+            boutonModifierCarteHTML(idx);
           grilleCaveau.appendChild(card);
         });
       }
@@ -8621,7 +8840,7 @@
           );
           return;
         }
-        const c = CARTES[idx];
+        const c = getCarte(idx);
         if (!modeRepos) {
           const cout = c.cout_rappel != null ? c.cout_rappel : 0;
           if (cout > 0) {
@@ -8699,8 +8918,97 @@
           return;
         cartesConnues = cartesConnues.filter((i) => i !== idx);
         cartesActives = cartesActives.filter((i) => i !== idx);
+        if (estCartePerso(idx)) cartesPerso[idx - CARTE_PERSO_BASE] = null;
         rendreCartes();
       }
+
+      // --- Cartes de domaine spéciales (objets magiques, effets de règle) ---
+      let cartePersoEnEdition = null; // identifiant de la carte modifiée, ou null en création
+
+      function ouvrirCartePerso(idx) {
+        const selDom = document.getElementById("carte-perso-domaine");
+        selDom.innerHTML = "";
+        const optSpecial = document.createElement("option");
+        optSpecial.value = "Spécial";
+        optSpecial.textContent = "Spécial (objet magique…)";
+        selDom.appendChild(optSpecial);
+        Object.keys(COULEURS_DOMAINE).forEach((d) => {
+          const o = document.createElement("option");
+          o.value = d;
+          o.textContent = d;
+          selDom.appendChild(o);
+        });
+        cartePersoEnEdition = idx !== undefined ? idx : null;
+        const c =
+          cartePersoEnEdition !== null
+            ? cartesPerso[cartePersoEnEdition - CARTE_PERSO_BASE]
+            : null;
+        document.getElementById("carte-perso-titre").textContent = c
+          ? "Modifier la carte spéciale"
+          : "Carte de domaine spéciale";
+        document.getElementById("carte-perso-valider").textContent = c
+          ? "enregistrer"
+          : "créer la carte";
+        document.getElementById("carte-perso-nom").value = c ? c.nom : "";
+        selDom.value = c ? c.domaine : "Spécial";
+        document.getElementById("carte-perso-type").value = c ? c.type : "Sort";
+        document.getElementById("carte-perso-niveau").value = c ? c.niveau : 1;
+        document.getElementById("carte-perso-cout").value = c
+          ? c.cout_rappel
+          : 0;
+        document.getElementById("carte-perso-source").value = c ? c.source : "";
+        document.getElementById("carte-perso-description").value = c
+          ? c.description
+          : "";
+        document
+          .getElementById("modal-carte-perso-overlay")
+          .classList.add("active");
+        document.getElementById("carte-perso-nom").focus();
+      }
+
+      function fermerCartePerso() {
+        document
+          .getElementById("modal-carte-perso-overlay")
+          .classList.remove("active");
+        cartePersoEnEdition = null;
+      }
+
+      function validerCartePerso() {
+        const nom = document.getElementById("carte-perso-nom").value.trim();
+        if (!nom) {
+          alert("Donnez un nom à la carte.");
+          return;
+        }
+        const carte = {
+          nom: nom,
+          domaine: document.getElementById("carte-perso-domaine").value,
+          type: document.getElementById("carte-perso-type").value,
+          niveau: Math.max(
+            1,
+            parseInt(document.getElementById("carte-perso-niveau").value, 10) ||
+              1,
+          ),
+          cout_rappel: Math.max(
+            0,
+            parseInt(document.getElementById("carte-perso-cout").value, 10) || 0,
+          ),
+          source: document.getElementById("carte-perso-source").value.trim(),
+          description: document
+            .getElementById("carte-perso-description")
+            .value.trim(),
+        };
+        if (cartePersoEnEdition !== null) {
+          cartesPerso[cartePersoEnEdition - CARTE_PERSO_BASE] = carte;
+        } else {
+          cartesPerso.push(carte);
+          cartesConnues.push(CARTE_PERSO_BASE + cartesPerso.length - 1);
+        }
+        fermerCartePerso();
+        rendreCartes();
+      }
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") fermerCartePerso();
+      });
 
       // Sélecteur : propose les cartes des domaines de la classe, de niveau ≤ personnage,
       // pas encore connues. Sert à la fois pour la sélection initiale et pour la carte
@@ -9076,6 +9384,19 @@
           conteneur.innerHTML = html;
         });
       }
+
+      // Modale "Export" (sauvegarder / exporter en PDF / charger)
+      function ouvrirModalExport() {
+        document.getElementById("modal-export-overlay").classList.add("active");
+      }
+      function fermerModalExport() {
+        document
+          .getElementById("modal-export-overlay")
+          .classList.remove("active");
+      }
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") fermerModalExport();
+      });
 
       // Modale "Actions de repos" (rappel de règles)
       function ouvrirModalRepos() {
@@ -10123,6 +10444,7 @@
             compagnonTypeDegats: compagnonTypeDegats,
             cartesConnues: cartesConnues,
             cartesActives: cartesActives,
+            cartesPerso: cartesPerso,
             modeRepos: modeRepos,
             armure: document.getElementById("armure-select").value,
             armes: armes,
@@ -10280,6 +10602,7 @@
             ? et.compagnonDeFaces
             : 6;
         compagnonTypeDegats = et.compagnonTypeDegats === "mag" ? "mag" : "phy";
+        cartesPerso = Array.isArray(et.cartesPerso) ? et.cartesPerso : [];
         cartesConnues = et.cartesConnues || [];
         cartesActives = et.cartesActives || [];
         armureActive =
