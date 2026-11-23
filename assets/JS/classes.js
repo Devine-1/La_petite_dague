@@ -7,7 +7,7 @@ const CLASSES_DATA = {
       "description": "Les bardes sont les personnes les plus charismatiques de tous les royaumes. Les membres de cette classe sont des maîtres de la captivation et se spécialisent dans une variété de types de performances, notamment chanter, jouer d'instruments de musique, tisser des contes ou raconter des blagues. Qu'ils se produisent devant un public ou qu'ils parlent à un individu, les bardes s'épanouissent dans des situations sociales. Les membres de cette profession créent des liens et se forment dans des écoles ou des guildes, mais un courant d'égoïsme traverse ceux de la persuasion bardique. Même s’ils constituent peut-être la classe la plus susceptible de rassembler les gens, un barde de mauvaise humeur peut tout aussi bien déchirer un parti.",
       "domaines": [
         "Grâce",
-        "Arcane"
+        "Codex"
       ],
       "aptitude_espoir": {
         "nom": "Faire une scène",
@@ -16,7 +16,7 @@ const CLASSES_DATA = {
       "aptitudes_classe": [
         {
           "nom": "Ralliement",
-          "description": "Une fois par session, décrivez comment vous ralliez votre groupe et offrez à vos alliés et vous-même un dés de Ralliement. Au niveau 1, votre dés de Ralliement est un d6. Un PJ peut dépenser son dé de Ralliement pour le lancer et ajouter le résultat à son d'action,  de réactio ou de dégâts ou pour effacer un nombre de stress égal au résultat. À la fin de chaque session, les dés de ralliementnon non dépensés sont perdu. Au niveau 5, votre dés de raliement devient un D8."
+          "description": "Une fois par session, décrivez comment vous ralliez votre groupe et offrez à vos alliés et vous-même un dés de Ralliement. Au niveau 1, votre dés de Ralliement est un d6. Un PJ peut dépenser son dé de Ralliement pour le lancer et ajouter le résultat à son d'action,  de réaction ou de dégâts ou pour effacer un nombre de stress égal au résultat. À la fin de chaque session, les dés de ralliement non dépensés sont perdu. Au niveau 5, votre dés de ralliement devient un D8."
         }
       ],
       "equipement_depart": {
