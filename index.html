@@ -5521,12 +5521,9 @@
             <div class="field">
               <label class="field-label">type</label>
               <select id="carte-perso-type">
-                <option value="Aptitude">Aptitude</option>
-                <option value="Artéfact">Artéfact</option>
-                <option value="Grimoire">Grimoire</option>
-                <option value="Objet">Objet</option>
-                <option value="Objet magique">Objet magique</option>
                 <option value="Sort">Sort</option>
+                <option value="Aptitude">Aptitude</option>
+                <option value="Grimoire">Grimoire</option>
               </select>
             </div>
           </div>
@@ -10445,6 +10442,9 @@
             cartesConnues: cartesConnues,
             cartesActives: cartesActives,
             cartesPerso: cartesPerso,
+            capacitesClasseHTML: document.getElementById(
+              "class-abilities-textarea",
+            ).innerHTML,
             modeRepos: modeRepos,
             armure: document.getElementById("armure-select").value,
             armes: armes,
@@ -10686,6 +10686,20 @@
         setDomainIcon(1, classeRestauree ? classeRestauree.domaines[0] : null);
         setDomainIcon(2, classeRestauree ? classeRestauree.domaines[1] : null);
         refreshCapacitesClasse();
+        // refreshCapacitesClasse() régénère le bloc à partir des données de base
+        // de la classe : on réapplique ici le texte personnalisé sauvegardé.
+        // (Anciennes sauvegardes : on le retrouve dans la liste "editables".)
+        const blocCapacites = document.getElementById("class-abilities-textarea");
+        let capacitesSauvees = et.capacitesClasseHTML;
+        if (typeof capacitesSauvees !== "string") {
+          const idxBloc = Array.from(
+            document.querySelectorAll('[contenteditable="true"]'),
+          ).indexOf(blocCapacites);
+          if (idxBloc >= 0 && idxBloc < (data.editables || []).length)
+            capacitesSauvees = data.editables[idxBloc];
+        }
+        if (blocCapacites && typeof capacitesSauvees === "string")
+          blocCapacites.innerHTML = capacitesSauvees;
         updateFormeSauvageVisibility();
         updateArtisteMartialeVisibility();
         updateCompagnonRodeurVisibility();
